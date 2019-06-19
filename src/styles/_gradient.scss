@@ -1,0 +1,45 @@
+$gradients: () !default;
+$gradients: map-merge(
+  (
+    chill: linear-gradient(135deg, #09e485 0%, #0291e3 100%),
+    warm: linear-gradient(135deg, #f2cd48 0%, #fd803f 100%),
+    hot: linear-gradient(135deg, #f9445a 0%, #fd803f 100%),
+    cold: linear-gradient(135deg, #8019c6 0%, #2f93cc 100%),
+    creatix-blue: linear-gradient(60deg, $sea-blue 50%, $dark-blue 53%)
+  ),
+  $gradients
+);
+
+// Gradient backgrounds
+@mixin bg-gradient($parent, $gradient) {
+  #{$parent} {
+    background: $gradient;
+  }
+}
+// Gradient text
+@mixin text-gradient($parent, $gradient) {
+  #{$parent} {
+    background-image: $gradient;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+// Gradient text
+@mixin text-gradient($parent, $gradient) {
+  #{$parent} {
+    background-image: $gradient;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+// Gradient Classes
+@each $gradient, $value in $gradients {
+  @include bg-gradient('.bg-gradient-#{$gradient}', $value);
+}
+// Gradient Classes
+@each $gradient, $value in $gradients {
+  @include text-gradient('.text-gradient-#{$gradient}', $value);
+}

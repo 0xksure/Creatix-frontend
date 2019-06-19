@@ -1,7 +1,9 @@
 @import "../../node_modules/foundation-sites/scss/foundation";
 
 @include foundation-everything;
-@import 'styling';
-@import 'App';
-@import 'index';
-@import 'Header';
+@import "styling";
+@import "gradient";
+@import "App";
+@import "index";
+@import "Header";
+@import "Footer";
