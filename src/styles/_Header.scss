@@ -1,0 +1,104 @@
+.header{
+    background-color: $sea-blue;
+    background-color: linear-gradient($sea-blue,white);
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    //justify-content: center;
+    font-size: calc(10px + 2vmin);
+    //font-family: 'Courier New', Courier, monospace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    height: 300px;
+    margin-bottom:150px;
+
+   
+}
+
+// Header
+.creatix-sheet-block{
+    border: 2px solid $peach;
+    position: absolute;
+    //width: 20%;
+    margin-left:25%;
+    margin-bottom: 5%;
+    margin-top:5%;
+    background-color: $sea-blue;
+    border-top-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+
+    h1{
+        font-size: 2rem;
+    }
+}
+
+.creatix-sheet-content{
+    font-size: 1rem;
+    margin:10%;
+
+    button{
+        background-color: $peach;
+        padding:1rem;
+        border: 4px solid $olive;
+        margin-left:75%;
+        color: white;
+    }
+}
+
+
+// Navigation menu
+.navigation{
+    margin:0 auto;
+    width:50%;
+    height: 10%;
+}
+
+.navigation-menu{
+    justify-content: center;
+    height:auto;
+
+    li{
+        padding:1rem;
+    }
+}
+
+// Login button
+.login{
+    height:10%;
+}
+.login-button{
+    //display: flex;
+    position: relative;
+    //top: 5%;
+    border: 1rem $peach;
+    border-radius: 10%;
+    background-color: $peach;
+    padding:0em;
+    width: 5em;
+    margin:1rem;;
+    text-align: center;
+    //vertical-align: middle;
+    //align-items: center;
+}
+
+// Facts about Creatix
+.about-creatix{
+    position: relative;
+    color: $olive;
+
+}
+
+.idea-card-1{
+    background-color: $azure;
+    opacity: 0.8;
+    padding:1rem;
+    width: 50%;
+}
+
+.idea-card-2{
+    background-color: $azure;
+    opacity: 0.8;
+    margin-left: 50%;
+    padding:1rem;
+}
