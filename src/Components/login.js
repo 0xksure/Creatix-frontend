@@ -1,5 +1,5 @@
-import React from "react";
-import LoginModal from "./modals/login";
+import React from 'react';
+import LoginModal from './modals/login';
 class Login extends React.Component {
   constructor() {
     super();
@@ -9,7 +9,6 @@ class Login extends React.Component {
   }
 
   displayModal() {
-    console.log("hello");
     this.setState({
       modalIsOpen: true
     });
@@ -19,7 +18,7 @@ class Login extends React.Component {
     return (
       <div className="cell auto login">
         <div className="login-button" onClick={() => this.displayModal()}>
-          Log in
+          Start Create
         </div>
         {this.state.modalIsOpen && <LoginModal modalIsOpen={true} />}
       </div>

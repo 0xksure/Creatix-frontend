@@ -1,23 +1,67 @@
-
-//Text styling 
-
+//Text styling
 
 // Colors
 $deepest-ocean: #282c34;
 $dark-blue: #242582;
-$olive: #553D67;
-$peach: #F64C72;
-$grey: #99738E;
-$sea-blue: #2F2FA2;
+$olive: #553d67;
+$peach: #f64c72;
+$grey: #99738e;
+$sea-blue: #2f2fa2;
 
-$azure: #88BDBC;
-$green-blue: #254E58;
-$black-blue: #112D32;
-$dirt: #4F4A41;
-$light-mud: #6E6658;
+$azure: #88bdbc;
+$green-blue: #254e58;
+$black-blue: #112d32;
+$dirt: #4f4a41;
+$light-mud: #6e6658;
 
-$old-yellow: #F8E9A1;
-$matte-red:#F76C6C;
-$sky-blue:#A8D0E6;
-$old-blue:#374785;
-$tight-blue:#24305E;
+$old-yellow: #f8e9a1;
+$matte-red: #f76c6c;
+$sky-blue: #a8d0e6;
+$old-blue: #374785;
+$tight-blue: #24305e;
+$tight-blue-lo: rgba(36, 48, 94, 0.2);
+
+// Shadow colors
+$shadow-right: rgba(0, 0, 0, 0.12);
+$shadow-bottom: rgba(0, 0, 0, 0.24);
+$shadow-right-hover: rgba(0, 0, 0, 0.25);
+$shadow-bottom-hover: rgba(0, 0, 0, 0.22);
+
+.shadow-effect__1 {
+  box-shadow: 0 1px 3px $shadow-right, 0 1px 2px $shadow-bottom;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.shadow-effect-hover__1 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+// text
+.h1 {
+  color: $peach;
+  font-size: 2rem;
+}
+
+.p {
+  color: $white;
+  text-align: left;
+  //line-height: 2rem;
+  font-size: 1.5rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.p__small {
+  @extend .p;
+  font-size: 1.2rem;
+}
+
+/// ICONS
+// Lightbulb
+.logo-top {
+  top: 50%;
+}
+
+.logo-center {
+  top: 50%;
+  position: relative;
+}

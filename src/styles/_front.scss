@@ -1,44 +1,97 @@
 // --------------------------------------------
-// Front menu 
+// Front menu
 //--------------------------------------------
 
+// Main container
+.main-container {
+  background-color: $tight-blue;
+  padding-bottom: 10rem;
+}
+
+/// Intro box ////////@i
 // Facts about Creatix
-.about-creatix{
-    margin:0px;
-    padding:0px;
-    position: relative;
-    color: $olive;
-    background-color: $azure;
+.about-creatix {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  color: $peach;
+  //background-color: $azure;
 }
 
 /// Header
-.creatix-sheet-block{
-    border: 2px solid $peach;
-    position: relative;
-    //width: 20%;
-    margin-left:25%;
-    margin-bottom: 5%;
-    margin-top:5%;
-    background-color: $sea-blue;
-    border-top-left-radius: 10%;
-    border-bottom-right-radius: 10%;
+.creatix-sheet-block {
+  border: 2px solid $peach;
+  position: relative;
+  //width: 20%;
+  margin-left: 25%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  //background-color: $sea-blue;
+  border-top-left-radius: 10%;
+  border-bottom-right-radius: 10%;
 
-    h1{
-        font-size: 2rem;
-    }
+  h1 {
+    font-size: 2rem;
+  }
 }
 
-.creatix-sheet-content{
-    font-size: 1rem;
-    margin:10%;
+.creatix-sheet-content {
+  font-size: 1rem;
+  margin: 10%;
 
-    button{
-        background-color: $peach;
-        padding:1rem;
-        border: 4px solid $olive;
-        margin-left:75%;
-        color: white;
-    }
+  button {
+    background-color: $peach;
+    padding: 1rem;
+    border: 4px solid $olive;
+    margin-left: 75%;
+    color: white;
+  }
 }
 
-///
+/////// Fat banner ////////
+.fat-banner-grid {
+  margin-top: 1rem;
+}
+
+.fat-banner-grid__center-box {
+  .h1 {
+    @extend .h1;
+    //text-align: center;
+  }
+}
+
+////////////////////////////////////////
+//////////// IDEA CARDS ////////////////
+////////////////////////////////////////
+.idea-cards-banner {
+  //width: 50%;
+  text-align: center;
+}
+
+/// IDEA CARDS
+.idea-cards-grid {
+  margin: 1rem;
+}
+
+.idea-card {
+  @extend .shadow-effect__1;
+  background-color: $dark-blue;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: left;
+  opacity: 0.8;
+}
+
+.idea-card:hover {
+  @extend .shadow-effect-hover__1;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.idea-card-content {
+  padding-top: 1rem;
+}
+
+/// HIDE class
+.hide {
+  display: none !important;
+}

@@ -6,9 +6,10 @@ $gradients: map-merge(
     hot: linear-gradient(135deg, #f9445a 0%, #fd803f 100%),
     cold: linear-gradient(135deg, #8019c6 0%, #2f93cc 100%),
     creatix-blue: linear-gradient(60deg, $sea-blue 50%, $dark-blue 53%),
-    creatix-front-box:  linear-gradient(60deg,$sea-blue 50%,dark-blue 53%),
-   
-    ),
+    creatix-footer: linear-gradient(41deg, $sea-blue 80%, $tight-blue 20%),
+    creatix-header: linear-gradient(0deg, $tight-blue 15%, $sea-blue 85%),
+    creatix-front-box: linear-gradient(60deg, $sea-blue 50%, dark-blue 53%)
+  ),
   $gradients
 );
 

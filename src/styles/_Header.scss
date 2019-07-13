@@ -1,76 +1,57 @@
-.header{
-    background-color: $sea-blue;
-    background-color: linear-gradient($sea-blue,white);
-    //display: flex;
-    //flex-direction: column;
-    //align-items: center;
-    //justify-content: center;
-    font-size: calc(10px + 2vmin);
-    //font-family: 'Courier New', Courier, monospace;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: white;
-    height: auto;
-   // margin-bottom:1rem;
-
-   
+.header {
+  background-color: $sea-blue;
+  background-color: linear-gradient($sea-blue, white);
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
+  //justify-content: center;
+  font-size: calc(10px + 2vmin);
+  //font-family: 'Courier New', Courier, monospace;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+  height: auto;
+  // margin-bottom:1rem;
 }
-
 
 // Navigation menu
-.navigation{
-    margin:0 auto;
-    width:50%;
-    height: 10%;
+.navigation {
+  margin: 0 auto;
+  width: 50%;
+  height: 10%;
 }
 
-.navigation-menu{
-    justify-content: center;
-    height:auto;
+.navigation-menu {
+  justify-content: center;
+  height: auto;
+  color: white;
 
-    li{
-        padding:1rem;
-    }
+  li {
+    padding: 1rem;
+    color: white;
+  }
+
+  a {
+    color: white;
+  }
 }
 
 // Login button
-.login{
-    height:10%;
+.login {
+  height: 10%;
 }
-.login-button{
-    //display: flex;
-    position: relative;
-    //top: 5%;
-    border: 1rem $peach;
-    border-radius: 10%;
-    background-color: $peach;
-    padding:0em;
-    width: 5em;
-    margin:1rem;;
-    text-align: center;
-    //vertical-align: middle;
-    //align-items: center;
-}
+.login-button {
+  //display: flex;
+  width: 10rem;
+  position: relative;
+  //top: 5%;
+  border: 1rem $peach;
+  border-radius: 10px;
+  background-color: $peach;
+  padding: 0em;
 
-.idea-card-left{
-    background-color: $azure;
-    opacity: 0.8;
-    padding:1rem;
-    width: 50%;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-}
-
-.idea-card-right{
-    background-color: $azure;
-    opacity: 0.8;
-    margin-left: 50%;
-    padding:1rem;
-}
-
-.idea-card-center{
-    margin-top: 1rem;
-    background-color: $azure;
-    opacity: 0.80;
-    margin-left:25%;
+  margin: 1rem;
+  text-align: center;
+  //vertical-align: middle;
+  //align-items: center;
 }
