@@ -1,17 +1,13 @@
 .header {
   background-color: $sea-blue;
   background-color: linear-gradient($sea-blue, white);
-  //display: flex;
-  //flex-direction: column;
-  //align-items: center;
-  //justify-content: center;
   font-size: calc(10px + 2vmin);
   //font-family: 'Courier New', Courier, monospace;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: white;
   height: auto;
-  // margin-bottom:1rem;
+  padding-bottom: 1rem;
 }
 
 // Navigation menu
@@ -32,7 +28,9 @@
   }
 
   a {
-    color: white;
+    color: $creatix-white-deep-blue;
+    text-transform: uppercase;
+    font-size: 1.2rem;
   }
 }
 
@@ -41,17 +39,22 @@
   height: 10%;
 }
 .login-button {
+  background: linear-gradient(25deg, #d64c7f, #ee4758 50%);
+
   //display: flex;
   width: 10rem;
   position: relative;
   //top: 5%;
   border: 1rem $peach;
-  border-radius: 10px;
-  background-color: $peach;
+  //border-radius: 10px;
+  //background-color: $peach;
   padding: 0em;
 
   margin: 1rem;
   text-align: center;
   //vertical-align: middle;
   //align-items: center;
+}
+.login-button:hover {
+  background-position: right center;
 }

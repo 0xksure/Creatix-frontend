@@ -18,7 +18,7 @@ class Login extends React.Component {
     return (
       <div className="cell auto login">
         <div className="login-button" onClick={() => this.displayModal()}>
-          Start Create
+          <h1 className="h1__login">Start Create</h1>
         </div>
         {this.state.modalIsOpen && <LoginModal modalIsOpen={true} />}
       </div>

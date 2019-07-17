@@ -25,7 +25,7 @@ class About extends React.Component {
                 </p>
               </div>
               <div className="bbox">
-                <p className="p__small">
+                <p className="p p__small">
                   It would therefore become easier to assemble great diverse
                   teams. This team will become the founders and work exclusively
                   on the problem or idea for a period of time.

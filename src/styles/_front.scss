@@ -4,23 +4,28 @@
 
 // Main container
 .main-container {
-  background-color: $tight-blue;
-  padding-bottom: 10rem;
+  //background-color: $tight-blue;
+  background-color: $deep-cove;
+  /*background-image: linear-gradient(
+    140deg,
+    $creatix-deep-blue -6%,
+    rgba(19, 15, 64, 1) 10.2%,
+    rgba(20, 30, 100, 1) 34.3%,
+    rgba(30, 30, 100, 1) 54%,
+    rgba(30, 40, 120, 1) 62.5%,
+    rgba(30, 50, 150, 1) 77.2%,
+    rgba(20, 60, 170, 1) 91.2%,
+    rgba(19, 60, 180, 1) 112%,
+    rgba(19, 60, 200, 1) 118.1%
+  );*/
+  padding-bottom: 10vh;
+  //height: 100vh;
 }
 
-/// Intro box ////////@i
-// Facts about Creatix
-.about-creatix {
-  margin: 0px;
-  padding: 0px;
-  position: relative;
-  color: $peach;
-  //background-color: $azure;
-}
-
-/// Header
+/// BIG INFO BOX ///////////////
+////////////////////////////////
 .creatix-sheet-block {
-  border: 2px solid $peach;
+  border: 2px solid $creatix-pink;
   position: relative;
   //width: 20%;
   margin-left: 25%;
@@ -29,14 +34,9 @@
   //background-color: $sea-blue;
   border-top-left-radius: 10%;
   border-bottom-right-radius: 10%;
-
-  h1 {
-    font-size: 2rem;
-  }
 }
 
 .creatix-sheet-content {
-  font-size: 1rem;
   margin: 10%;
 
   button {
@@ -54,28 +54,51 @@
 }
 
 .fat-banner-grid__center-box {
+  margin-left: 0;
+  margin-top: 0;
   .h1 {
     @extend .h1;
     //text-align: center;
   }
 }
 
-////////////////////////////////////////
 //////////// IDEA CARDS ////////////////
 ////////////////////////////////////////
-.idea-cards-banner {
-  //width: 50%;
-  text-align: center;
-}
 
 /// IDEA CARDS
 .idea-cards-grid {
   margin: 1rem;
 }
-
+// IDEA Card
 .idea-card {
   @extend .shadow-effect__1;
-  background-color: $dark-blue;
+  background-color: $creatix-light-blue;
+  background-image: linear-gradient(
+    140deg,
+    $creatix-deep-blue -6%,
+    rgba(19, 15, 64, 1) 20.2%,
+    rgba(20, 30, 100, 1) 34.3%,
+    rgba(30, 30, 100, 1) 54%,
+    rgba(30, 40, 120, 1) 62.5%,
+    rgba(30, 50, 150, 1) 77.2%,
+    rgba(20, 60, 170, 1) 91.2%,
+    rgba(19, 60, 180, 1) 112%,
+    rgba(19, 60, 200, 1) 118.1%
+  );
+  background: #b92b27;
+  background: -webkit-linear-gradient(to right, #1565c0, #b92b27);
+
+  background: #c33764;
+  background: -webkit-linear-gradient(to right, #1d2671, #c33764);
+  background: linear-gradient(to right, #1d2671, #c33764);
+
+  background: #5433ff;
+  background: -webkit-linear-gradient(to right, #a5fecb, #20bdff, #5433ff);
+  background: linear-gradient(to right, #a5fecb, #20bdff, #5433ff);
+
+  //background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+
+  background-image: $creatix-card-gradient;
   padding: 1rem;
   margin: 1rem;
   text-align: left;
@@ -84,14 +107,23 @@
 
 .idea-card:hover {
   @extend .shadow-effect-hover__1;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.idea-card-selected {
+  box-shadow: 2px 19px 10px $shadow-right-hover;
 }
 
 .idea-card-content {
   padding-top: 1rem;
 }
 
-/// HIDE class
-.hide {
-  display: none !important;
+////////////////// FORM CARDS ////////////////////
+//////////////////////////////////////////////////
+.formcard {
+  margin-left: 25%;
+  background-color: $creatix-light-blue;
+}
+
+.formcard-question {
+  padding-left: 25%;
 }
