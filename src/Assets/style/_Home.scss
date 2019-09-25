@@ -1,0 +1,33 @@
+//// HOME STYLING ///
+
+.home-statement{
+ padding:5rem; 
+  
+ .text-content{
+   text-align:center;
+   padding:5rem;
+ }
+}
+
+
+.creatix-feature-statement{
+  text-align:center;
+  padding-bottom: 4rem;
+}
+
+// Feature cards
+.creatix-features{
+   .creatix-card{
+      text-align:center;
+      border: 1px solid;
+      border-color: transparent; 
+      border-radius:5px;
+      margin-bottom:5rem;
+   } 
+}
+
+// Learn more
+.centered-button{
+   margin-left:10rem;
+   width:80%;
+}

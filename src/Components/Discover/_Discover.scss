@@ -1,0 +1,15 @@
+.big-statement{
+  margin:5rem;
+}
+
+.fat-banner{
+  padding: 5rem;
+  &.strong-blue{
+    background-color: $creatix-blue;
+  }
+
+  &.strong-pink{
+    background-color: $creatix-pink;
+  }
+
+ }

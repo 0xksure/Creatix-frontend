@@ -1,30 +1,58 @@
-import React from 'react';
+import React from "react";
+import { HashLink as Link } from "react-router-hash-link";
+import { NavHashLink as NavLink } from "react-router-hash-link";
 
-class Footer extends React.Component {
-  render() {
-    return (
-      <div className="grid-container full footer bg-gradient-creatix-footer">
-        <div className="grid-x footer-content">
-          <div className="cell small-4 medium-4 large-4 footer-statement">
-            <h1 className="h1">Creatix</h1>
-            <h2 className="h2">The future of business innovation</h2>
-          </div>
-          <div className="cell small-2 medium-2 large-2 footer-information">
-            <p className="p">Contact us</p>
-            <p className="p">About us</p>
-          </div>
-          <div className="cell small-2 medium-2 large-2 social-media">
-            <p className="p">Social Media</p>
-          </div>
+function Footer() {
+  return (
+    <footer className="grid-container full footer ">
+      <div className="grid-x footer-content">
+        <div className="cell small-12 medium-6 large-6">
+          <h3 className="h3 pink"> Creatix </h3>
         </div>
-        <div className="grid-x">
-          <div className="cell small-6 medium-6 large-6">
-            <p className="p">All rights reserved</p>
-          </div>
+        <div className="cell small-12 medium-2 large-2">
+          <nav className="footer-nav">
+            <ul className="footer-list">
+              <li>
+                <p className="p bold-font pink"> Products</p>
+              </li>
+              <li>
+                <Link smooth to={{ pathname: "/discover", hash: "#feedback" }}>
+                  <p className="p blue">Feedback</p>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  smooth
+                  to={{ pathname: "/discover", hash: "#transparency" }}
+                >
+                  <p className="p blue">Transparency</p>
+                </Link>
+              </li>
+              <li>
+                <Link smooth to={{ pathname: "/discover", hash: "#teamcards" }}>
+                  <p className="p blue">Team Cards</p>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div className="cell small-12 medium-2 large-2">
+          <nav className="footer-nav">
+            <ul className="footer-list">
+              <li>
+                <p className="p bold-font pink"> Creatix</p>
+              </li>
+              <li>
+                <Link smooth to={{ pathname: "/discover", hash: "#feedback" }}>
+                  <p className="p blue">About</p>
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
-    );
-  }
+    </footer>
+  );
 }
 
 export default Footer;

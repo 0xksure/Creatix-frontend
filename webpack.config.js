@@ -1,29 +1,29 @@
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-var path = require('path');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+var path = require("path");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader"
         }
       },
       {
         test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader' // creates style nodes from JS strings
+            loader: "style-loader" // creates style nodes from JS strings
           },
           {
-            loader: 'css-loader' // translates CSS into CommonJS
+            loader: "css-loader" // translates CSS into CommonJS
           },
           {
-            loader: 'sass-loader' // compiles Sass to CSS
+            loader: "sass-loader" // compiles Sass to CSS
           }
         ]
       },
@@ -31,19 +31,23 @@ module.exports = {
         test: /\.html$/,
         use: [
           {
-            loader: 'html-loader'
+            loader: "html-loader"
           }
         ]
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
       },
       {
         test: /\.svg$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: "babel-loader"
           },
           {
-            loader: 'react-svg-loader',
+            loader: "react-svg-loader",
             options: {
               jsx: true // true outputs JSX tags
             }
@@ -53,22 +57,22 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ["*", ".js", ".jsx"]
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "build"),
+    publicPath: "/",
+    filename: "bundle.js"
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html'
+      template: "./src/index.html",
+      filename: "./index.html"
     }),
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    contentBase: './dist',
+    contentBase: "./dist",
     hot: true,
     historyApiFallback: true
   }

@@ -1,31 +1,73 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Login from '../Components/login';
-class Header extends React.Component {
-  render() {
-    return (
-      <div className="grid-container full">
-        <div className="grid-x header bg-gradient-creatix-header">
-          <div className="cell small-9 medium-9 large-9 navigation">
-            <ul className="menu navigation-menu">
-              <li>
-                <Link to="/">Creatix</Link>
-              </li>
-              <li>
-                {' '}
-                <Link to="/get-started">How to start creatix</Link>
-              </li>
-              <li>
-                {' '}
-                <Link to="/about">About</Link>{' '}
-              </li>
-            </ul>
+import React, { useState } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import Start from "./Icons/Start";
+import LoginModal from "./Modals/LoginModal";
+import { toggleModal } from "../Actions/modal";
+
+function Header({ modalIsOpen, ...props }) {
+  return (
+    <header className="header" id="header">
+      <div className="grid-container">
+        <div className="grid-x">
+          <div className="cell small-2 medium-2 large-5">
+            <Start />
           </div>
-          <Login />
+          <div className="cell small-10 medium-10 large-7">
+            <nav className="site-nav">
+              <ul className="nav-list">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/">
+                    <h4 className="h4 medium-font small margin-zero">
+                      Creatix
+                    </h4>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/discover">
+                    <h4 className="h4 medium-font small margin-zero">
+                      Discover
+                    </h4>
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <button
+                    className="creatix-btn primary"
+                    onClick={() => props.toggleModal(!modalIsOpen)}
+                    type="button"
+                  >
+                    <div className="text">Sign up</div>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
-    );
-  }
+      {modalIsOpen && <LoginModal />}
+    </header>
+  );
 }
 
-export default Header;
+Header.propTypes = {
+  modalIsOpen: PropTypes.bool.isRequired,
+  toggleModal: PropTypes.func.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    modalIsOpen: state.modal.modalIsOpen
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ toggleModal }, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

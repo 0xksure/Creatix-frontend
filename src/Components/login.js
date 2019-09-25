@@ -1,29 +1,20 @@
-import React from 'react';
-import LoginModal from './modals/login';
-class Login extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      modalIsOpen: false
-    };
-  }
+import React, { useState } from "react";
+import LoginModal from "./Modals/Login";
 
-  displayModal() {
-    this.setState({
-      modalIsOpen: true
-    });
-  }
+function Login() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  render() {
-    return (
-      <div className="cell auto login">
-        <div className="login-button" onClick={() => this.displayModal()}>
-          <h1 className="h1__login">Start Create</h1>
-        </div>
-        {this.state.modalIsOpen && <LoginModal modalIsOpen={true} />}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button
+        className="creatix-btn primary"
+        onClick={() => setModalIsOpen(!modalIsOpen)}
+        type="button"
+      >
+        <div className="text">Start Create</div>
+      </button>
+    </div>
+  );
 }
 
 export default Login;
