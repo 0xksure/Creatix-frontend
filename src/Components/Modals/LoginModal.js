@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import PropTypes from "prop-types";
+import SignupNewsletter from "../../Utils/Api";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import AlertBox from "../Alerts";
 
 function EmailForm() {
   return (
@@ -19,20 +21,27 @@ function EmailForm() {
         }
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={(values, actions) => {
+        SignupNewsletter(values)
+          .then(json => {
+            actions.setStatus({ msg: json.message, status: json.status });
+          })
+          .catch(err => {
+            actions.setStatus({ msg: "Error", status: false });
+          });
+        actions.setSubmitting(false);
       }}
     >
-      {({ isSubmitting }) => (
+      {({ isSubmitting, status }) => (
         <Form>
           <Field type="email" name="email" />
           <ErrorMessage name="email" component="div" />
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>
+          {status && status.msg && (
+            <AlertBox alertType="error"> {status.msg}</AlertBox>
+          )}
         </Form>
       )}
     </Formik>

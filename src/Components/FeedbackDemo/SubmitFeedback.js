@@ -26,15 +26,21 @@ function IdeaForm(props) {
     >
       {({ isSubmitting }) => (
         <Form className="feedback-form">
-          <Field className="feedback-text" type="text" name="text" />
-          <ErrorMessage name="text" component="div" />
-          <button
-            className="feedback-button"
-            type="submit"
-            disabled={isSubmitting}
-          >
-            Submit Idea!
-          </button>
+          <div className="grid-x">
+            <div className="cell small-12">
+              <Field className="feedback-text" type="text" name="text" />
+            </div>
+            <div className="small-12">
+              <ErrorMessage name="text" component="div" />
+              <button
+                className="creatix-btn secondary inverted"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                Submit Idea!
+              </button>
+            </div>
+          </div>
         </Form>
       )}
     </Formik>

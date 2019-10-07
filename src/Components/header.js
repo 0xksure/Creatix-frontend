@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import Start from "./Icons/Start";
 import LoginModal from "./Modals/LoginModal";
 import { toggleModal } from "../Actions/modal";
+import { HeaderButton, MainButton } from "./Buttons";
 
 function Header({ modalIsOpen, ...props }) {
   return (
@@ -19,28 +20,27 @@ function Header({ modalIsOpen, ...props }) {
             <nav className="site-nav">
               <ul className="nav-list">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/">
-                    <h4 className="h4 medium-font small margin-zero">
-                      Creatix
-                    </h4>
-                  </Link>
+                  <HeaderButton>
+                    <Link className="nav-link" to="/">
+                      <h4 className="h4 medium-font small margin-zero">
+                        Creatix
+                      </h4>
+                    </Link>
+                  </HeaderButton>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/discover">
-                    <h4 className="h4 medium-font small margin-zero">
-                      Discover
-                    </h4>
-                  </Link>
+                  <HeaderButton>
+                    <Link className="nav-link" to="/discover">
+                      <h4 className="h4 medium-font small margin-zero">
+                        Discover
+                      </h4>
+                    </Link>
+                  </HeaderButton>
                 </li>
-
                 <li className="nav-item">
-                  <button
-                    className="creatix-btn primary"
-                    onClick={() => props.toggleModal(!modalIsOpen)}
-                    type="button"
-                  >
+                  <MainButton onToggle={() => props.toggleModal(!modalIsOpen)}>
                     <div className="text">Sign up</div>
-                  </button>
+                  </MainButton>
                 </li>
               </ul>
             </nav>

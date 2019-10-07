@@ -18,7 +18,7 @@ function Discover({ modalIsOpen }) {
   return (
     <div className={`grid-container full ${blurClass}`}>
       <div className="grid-x big-statement">
-        <div className="cell small-6">
+        <div className="cell small-12 medium-12 large-6">
           <h1 className="h1">
             Empower your employees in improving the business
           </h1>
@@ -37,7 +37,8 @@ function Discover({ modalIsOpen }) {
         id="transparency"
         mainText={"Why transparency?"}
         subText={"Transparency"}
-        cellPosition={"small-offset-9"}
+        cellPosition={" large-offset-9"}
+        bannerStyle={"gray"}
       />
       <Banner
         id="teamcards"

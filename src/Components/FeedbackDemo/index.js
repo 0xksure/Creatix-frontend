@@ -16,9 +16,8 @@ function FeedbackDemo({ isFeedbackOpen, feedbackList, voteFeedback }) {
           return value.keyId;
         })
       );
-      console.log(randKey);
       voteFeedback(randKey);
-    }, 2000);
+    }, 100000);
     return () => clearInterval(interval);
   });
 

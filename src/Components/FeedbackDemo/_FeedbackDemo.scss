@@ -1,36 +1,28 @@
-.feedback-box{
-  background-color:$creatix-white-light-blue;
-  border-radius:10px;
+.feedback-box {
+  background-color: $creatix-white-light-blue;
+  border-radius: 10px;
   margin-bottom: 1rem;
 
-  .feedback-list{
+  .feedback-list {
     padding: 1rem;
 
-    .feedback-box{
-      background-color:$electron-blue;
-      margin-bottom:1rem;
-      padding:1rem;
-      border-radius:0px;
-      
-      .box-text{ 
-          font-family: 'Creatix Medium';
-      }
+    .feedback-box {
+      background-color: $electron-blue;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 0px;
 
+      .box-text {
+        font-family: "Creatix Medium";
+      }
     }
   }
 }
 
-.feedback-form{
-  display:flex;
-  .feedback-text{
-    width:50%;
-    margin-right:1rem;
-  }
-
-  .feedback-button{
-    background-color: $peach;
-    padding:3px;
-    height:40px;
-    border-radius:10px;
+.feedback-form {
+  display: flex;
+  .feedback-text {
+    margin-right: 1rem;
+    border-radius: 8px;
   }
 }

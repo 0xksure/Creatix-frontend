@@ -1,41 +1,41 @@
-.baseball-card{
+.baseball-card {
   background-color: $creatix-white-light-blue;
-  width:50%;
+  width: 18rem;
   border-radius: 10px;
-  padding:2rem;
-  
-  .split-view{
+  padding: 2rem;
+
+  .split-view {
     border-top: 2px solid;
     border-color: $clouds;
-    padding-top:10px;
-    padding-bottom:10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
-  .medium-text{
-    margin:0px;
-    padding:0px;
+  .medium-text {
+    margin: 0px;
+    padding: 0px;
   }
 
-  .horizontal{
+  .horizontal {
     display: flex;
   }
-  
-  .skill-bars{
+
+  .skill-bars {
     //clip-path: inset(0px 10% 0px 0px);
-    height:auto;
-    display:flex;
-    &.green{
+    height: auto;
+    display: flex;
+    &.green {
       fill: $button-green;
     }
-    &.yellow{
+    &.yellow {
       fill: $button-yellow;
     }
-    &.red{
+    &.red {
       fill: $button-red;
     }
   }
 
-  .skill-boxes{
-    display:flex; 
+  .skill-boxes {
+    display: flex;
   }
 }

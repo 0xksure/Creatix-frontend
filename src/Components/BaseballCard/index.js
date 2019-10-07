@@ -31,7 +31,7 @@ Skill.defaulProps = {
 
 function BaseballCard() {
   return (
-    <div className="grid-x baseball-card" >
+    <div className="grid-x baseball-card">
       <div className="cell small-12">
         <h4 className="h4">Some name</h4>
       </div>
@@ -43,7 +43,7 @@ function BaseballCard() {
       </div>
       <div className="cell small-12 split-view">
         <div className="grid-x">
-          <div className="cell small-6">
+          <div className="cell small-12">
             <p className="p bold margin-zero padding-zero">Skills</p>
             <Skill percentage={80}>
               <p className="p margin-zero">UI</p>

@@ -1,15 +1,21 @@
-.big-statement{
-  margin:5rem;
+.big-statement {
+  margin: 5rem;
 }
 
-.fat-banner{
+.fat-banner {
   padding: 5rem;
-  &.strong-blue{
+  &.strong-blue {
     background-color: $creatix-blue;
   }
 
-  &.strong-pink{
+  &.strong-pink {
     background-color: $creatix-pink;
   }
 
- }
+  &.gray {
+    background-color: rgba(243, 243, 243, 1);
+  }
+  @media screen and (min-width: 20em) and (max-width: 40em) {
+    padding: 2rem;
+  }
+}

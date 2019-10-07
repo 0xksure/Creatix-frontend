@@ -1,33 +1,44 @@
 //// HOME STYLING ///
 
-.home-statement{
- padding:5rem; 
-  
- .text-content{
-   text-align:center;
-   padding:5rem;
- }
+.home-statement {
+  padding: 20rem;
+
+  .text-content {
+    text-align: center;
+  }
+
+  @media screen and (max-width: 39.9375em) {
+    padding: 1rem;
+  }
 }
 
-
-.creatix-feature-statement{
-  text-align:center;
+.creatix-feature-statement {
+  text-align: center;
   padding-bottom: 4rem;
 }
 
 // Feature cards
-.creatix-features{
-   .creatix-card{
-      text-align:center;
-      border: 1px solid;
-      border-color: transparent; 
-      border-radius:5px;
-      margin-bottom:5rem;
-   } 
+.creatix-features {
+  background-color: rgba(243, 243, 243, 1);
+  padding: 3rem;
+  .creatix-card {
+    text-align: center;
+    border: 1px solid;
+    border-color: transparent;
+    border-radius: 5px;
+    margin-bottom: 10rem;
+  }
 }
 
 // Learn more
-.centered-button{
-   margin-left:10rem;
-   width:80%;
+.centered-button {
+  margin-left: 10rem;
+  width: 80%;
+}
+
+// Icons
+.product-icon {
+  height: 7rem;
+  width: auto;
+  margin-bottom: 2rem;
 }

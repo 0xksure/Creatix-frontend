@@ -4,6 +4,10 @@ import { HashLink as Link } from "react-router-hash-link";
 import Idea from "./Icons/Idea";
 import Investigate from "./Icons/Investigate";
 import Share from "./Icons/Share";
+import Overview from "./Icons/Overview";
+import TeamCard from "./Icons/TeamCard";
+import FeedbackStacked from "./Icons/FeedbackStacked";
+import { BlowUpOnHover } from "./Animations";
 
 const CARD_TEXT_1 =
   "Let employees share feedback, ideas and actions that will help your business improve";
@@ -17,20 +21,25 @@ function Features() {
   return (
     <div className="grid-x grid-padding-x grid-margin-x creatix-features">
       <div className="cell small-12 medium-12-large-12 creatix-feature-statement">
-        <h2 className="h2">Improve your business</h2>
+        <h2 className="h2">Discover the product</h2>
       </div>
       <div className="cell small-12 medium-12 large-12 ">
         <div className="grid-x grid-margin-x">
-          <div className="cell small-4 medium-4 large-4 creatix-card">
-            <h4 className="h4">Feedback</h4>
+          <div className="cell small-12 medium-4 large-12 creatix-card">
+            <BlowUpOnHover>
+              <FeedbackStacked className="product-icon" />
+            </BlowUpOnHover>
+            <h1 className="h1 bold-font">Feedback</h1>
             <p className="p">{CARD_TEXT_1} </p>
           </div>
-          <div className="cell small-4 medium-4 large-4 creatix-card">
-            <h4 className="h4">Overview </h4>
+          <div className="cell small-12 medium-4 large-12 creatix-card">
+            <Overview className="product-icon" />
+            <h1 className="h1 medium-font ">Overview </h1>
             <p className="p">{CARD_TEXT_2} </p>
           </div>
-          <div className="cell small-4 medium-4 large-4 creatix-card">
-            <h4 className="h4">Teams </h4>
+          <div className="cell small-12 medium-4 large-12 creatix-card">
+            <TeamCard className="product-icon" />
+            <h1 className="h1 bold-font">Teams </h1>
             <p className="p">{CARD_TEXT_3} </p>
           </div>
         </div>
