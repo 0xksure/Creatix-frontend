@@ -1,0 +1,11 @@
+steps: 
+- name: 'gcr.io/cloud-builders/docker'
+  env:
+    - 'API_URL=http://localhost:8080'
+  args: ['build',
+          '-f',
+          'Dockerfile.prod',
+          '-t',
+          'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA',
+         '.']
+

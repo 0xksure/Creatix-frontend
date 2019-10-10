@@ -8,7 +8,6 @@
     "@svgr/webpack": "^4.3.3",
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
-    "babel-jest": "^24.9.0",
     "babel-plugin-named-asset-import": "^0.3.4",
     "babel-preset-react-app": "^9.0.2",
     "camelcase": "^5.2.0",
@@ -48,7 +47,7 @@
     "react-modal": "^3.10.1",
     "react-redux": "^7.1.1",
     "react-redux-form": "^1.16.14",
-    "react-router": "^5.1.2",
+    "react-router": "^3.2.4",
     "react-router-dom": "^5.1.2",
     "react-router-hash-link": "^1.2.2",
     "react-spring": "^8.0.27",
@@ -71,9 +70,10 @@
   },
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js --port=3000",
-    "build": "NODE_ENV=production webpack --config webpack.prod.js",
+    "build": "NODE_ENV=production webpack --config webpack.prod.js --display-error-details",
     "test": "node scripts/test.js",
-    "precommit": "NODE_ENV=production lint-staged"
+    "precommit": "NODE_ENV=production lint-staged",
+    "create-env": "printenv > .env"
   },
   "eslintConfig": {
     "extends": "react-app"
