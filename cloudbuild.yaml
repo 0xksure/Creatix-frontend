@@ -8,4 +8,6 @@ steps:
           '-t',
           'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA',
          '.']
+images:
+  - 'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA'
 
