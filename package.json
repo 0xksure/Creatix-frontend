@@ -68,8 +68,8 @@
     "workbox-webpack-plugin": "^4.3.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --port=3000",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open --config webpack.dev.js --port=3000",
+    "build": "NODE_ENV=production webpack --config webpack.prod.js",
     "test": "node scripts/test.js",
     "precommit": "NODE_ENV=production lint-staged"
   },
@@ -162,6 +162,7 @@
     "ttf-loader": "^1.0.2",
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.2"
   }
 }

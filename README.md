@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Creatix Frontend
+
+## Run docker build 
+Run
+### Prod
+docker build -f Dockerfile.prod -t creatix_frontend .
+
 
 ## Available Scripts
 

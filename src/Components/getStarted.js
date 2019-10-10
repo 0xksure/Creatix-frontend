@@ -1,5 +1,5 @@
-import React from 'react';
-import FormCard from './forms/formCard';
+import React from "react";
+import FormCard from "./Forms/formCard";
 
 class GetStarted extends React.Component {
   render() {
@@ -18,7 +18,7 @@ class GetStarted extends React.Component {
             </h1>
           </div>
           <div className="cell small-4 medium-4 large-4 formcard">
-            <FormCard content={'ok'} />
+            <FormCard content={"ok"} />
           </div>
         </div>
       </div>

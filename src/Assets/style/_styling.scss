@@ -146,16 +146,6 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
 ///////////////////////////////////
 // Fonts
 @font-face {
-  font-family: "playfair";
-  src: url("./../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "poppins-regular";
-  src: url("./../fonts/poppins/Poppins-Regular.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "Creatix Medium";
   src: url("./../fonts/poppins/Poppins-Medium.ttf") format("truetype");
 }
@@ -167,16 +157,11 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
 
 @font-face {
   font-family: "Creatix Semi Bold";
-  src: url("../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+  src: url("./../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Creatix Bold";
-  src: url("../fonts/poppins/poppins-bold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Creatix Medium";
-  src: url("../fonts/poppins/poppins-medium.ttf") format("truetype");
+  src: url("./../fonts/poppins/Poppins-Bold.ttf") format("truetype");
 }
 
 // H1

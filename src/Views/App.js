@@ -7,7 +7,7 @@ import { createLogger } from "redux-logger";
 import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { browserHistory } from "react-router";
+import { BrowserHistory } from "react-router";
 import Header from "../Components/Header";
 import Home from "../Components/Home";
 import Footer from "../Components/Footer";
@@ -31,7 +31,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="grid-container-full">
-        <Router history={browserHistory}>
+        <Router history={BrowserHistory}>
           <Header />
           <Switch>
             <Route exact path="/" component={Home} />
