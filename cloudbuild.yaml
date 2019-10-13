@@ -8,6 +8,8 @@ steps:
           '-t',
           'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA',
          '.']
+- name: 'gcr.io/cloud-builders/docker'
+	args: ['push','gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA']
 images:
   - 'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA'
 
