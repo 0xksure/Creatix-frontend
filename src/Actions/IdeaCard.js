@@ -1,4 +1,4 @@
-export const SET_ACTIVE_CARD = 'SET_ACTIVE CARD';
+import { SET_ACTIVE_CARD } from "../Constants";
 
 export function setActiveIdeaCard(ideaCardName) {
   return {

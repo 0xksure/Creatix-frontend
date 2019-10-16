@@ -1,0 +1,343 @@
+//Text styling
+
+////////////// CREATIX COLORWAY //////////////
+//////////////////////////////////////////////
+// BLUE
+$creatix-light-blue: rgba(10, 20, 140, 1);
+$creatix-deep-blue: rgba(19, 15, 64, 1);
+$creatix-footer-blue: rgba(19, 20, 170, 1);
+$creatix-card-blue: rgba(10, 20, 200, 1);
+$creatix-shadow-blue: rgba(10, 20, 200, 0.8);
+
+// WHITE
+$creatix-white-deep-blue: rgba(236, 240, 241, 1);
+$creatix-white-light-blue: rgba(255, 255, 255, 1);
+
+// PINK
+$creatix-pink: rgba(250, 10, 90, 1);
+
+// PURPLE
+$creatix-card-purple: rgba(153, 68, 230, 1);
+$creatix-shadow-purple: rgba(153, 68, 230, 1);
+
+// Button border
+$creatix-btn-outline-sdw: rgba(153, 68, 230, 0.2);
+$creatix-btn-primary-sdw: rgba(153, 68, 230, 0.2);
+$button-green: rgba(50, 205, 50, 1);
+$button-yellow: rgba(255, 255, 0, 1);
+$button-red: rgba(244, 67, 54, 1);
+
+$creatix-card-gradient: linear-gradient(
+  101.8deg,
+  $creatix-card-blue -0.2%,
+  $creatix-card-purple 50.2%,
+  $creatix-pink 84.4%
+);
+//---------------------------------
+
+// Colors
+$deepest-ocean: #282c34;
+
+$olive: #553d67;
+$peach: rgba(246, 76, 114, 1);
+$grey: #99738e;
+$sea-blue: #2f2fa2;
+
+$azure: #88bdbc;
+$green-blue: #254e58;
+$black-blue: #112d32;
+$dirt: #4f4a41;
+$light-mud: #6e6658;
+
+$old-yellow: #f8e9a1;
+$matte-red: #f76c6c;
+$tight-blue-lo: rgba(36, 48, 94, 0.2);
+
+// Bright colors
+$turquoise: rgba(26, 188, 156, 1);
+$emerald: rgba(46, 204, 113, 1);
+$amethyst: rgba(155, 89, 182, 1);
+$green-sea: rgba(22, 160, 133, 1);
+$nephritis: rgba(39, 174, 96, 1);
+
+// PINK
+$pomegranate: rgba(192, 57, 43, 1);
+$alizarin: rgba(231, 76, 60, 1);
+$orangeville: rgba(225, 112, 85, 1);
+$chi-gong: rgba(214, 48, 49, 1);
+$first-date: rgba(250, 177, 160, 1);
+$pink-glamour: rgba(255, 118, 117, 1);
+$pico-8-pink: rgba(253, 121, 168, 1);
+$prunus-avium: rgba(232, 67, 147, 1);
+$pink-glamour: rgba(255, 121, 121, 1);
+$carmine-pink: rgba(235, 77, 75, 1);
+
+// BLUE
+$belize-hole: rgba(41, 128, 185, 1);
+$electron-blue: rgba(9, 132, 227, 1);
+$merchant-marine: rgba(6, 82, 221, 1);
+$middle-blue: rgba(126, 214, 223, 1);
+$saturated-sky: rgba(83, 82, 237, 1);
+$bright-greek: rgba(55, 66, 250, 1);
+
+$clear-chill: rgba(30, 144, 255, 1);
+$greenland-green: rgba(34, 166, 179, 1);
+$forest-blues: rgba(10, 61, 98, 1);
+$good-samaritan: rgba(60, 99, 130, 1);
+$peterriver: rgba(52, 152, 219, 1);
+$sky-blue: #a8d0e6;
+$old-blue: #374785;
+$tight-blue: #24305e;
+$sea-blue: #2f2fa2;
+$dark-blue: #242582;
+$yue-guang: rgba(30, 55, 153, 1);
+$leagues-under-sea: rgba(27, 20, 100, 1);
+$dark-sapphire: rgba(12, 36, 97, 1);
+$deep-koamaru: rgba(48, 51, 107, 1);
+$deep-cove: rgba(19, 15, 64, 1);
+$ending-navy-blue: rgba(24, 44, 97, 1);
+$lucky-point: rgba(44, 44, 84, 1);
+$pico-void: rgba(25, 42, 86, 1);
+
+$exodus-fruit: rgba(108, 92, 231, 1);
+$blurple: rgba(72, 52, 212, 1);
+$wisteria: rgba(142, 68, 173, 1);
+$sun-flower: rgba(241, 196, 15, 1);
+$carrot: rgba(230, 126, 34, 1);
+$orange: rgba(243, 156, 18, 1);
+$sour-lemon: rgba(255, 234, 167, 1);
+$pumpkin: rgba(211, 84, 0, 1);
+
+$silver: rgba(189, 195, 199, 1);
+$asbestos: rgba(127, 140, 141, 1);
+$clouds: rgba(236, 240, 241, 1);
+$lynx-white: rgba(245, 246, 250, 1);
+$too-white: rgba(255, 255, 255, 1);
+$concrete: rgba(149, 165, 166, 1);
+$coastal-breeze: rgba(223, 249, 251, 1);
+$mint-ice-pack: rgba(199, 236, 238, 1);
+$midnight-blue: rgba(44, 62, 80, 1);
+$wet-asphalt: rgba(52, 73, 94, 1);
+
+// Shadow colors
+$shadow-right: rgba(199, 236, 238, 0.3);
+$shadow-bottom: rgba(0, 0, 0, 0.24);
+$shadow-right-hover: $creatix-shadow-blue;
+$shadow-bottom-hover: $creatix-shadow-purple;
+
+.shadow-effect__1 {
+  box-shadow: 0 1px 3px $shadow-right, 0 1px 2px $shadow-bottom;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.shadow-effect-hover__1 {
+  box-shadow: 0 14px 28px $shadow-right-hover, 0 10px 10px $shadow-bottom-hover;
+}
+
+//// MAIN COLORS
+$creatix-pink: $peach;
+$creatix-blue: $electron-blue;
+$creatix-gray: $clouds;
+
+$creatix-alert-green: rgba(50, 205, 50, 0.8);
+$creatix-alert-yellow: rgba(255, 255, 0, 0.8);
+$creatix-alert-red: rgba(244, 67, 54, 0.8);
+// TEXT ///////////////////////////
+///////////////////////////////////
+// Fonts
+@font-face {
+  font-family: "Creatix Medium";
+  src: url("./../fonts/poppins/Poppins-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Creatix Light";
+  src: url("./../fonts/poppins/Poppins-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Creatix Semi Bold";
+  src: url("./../fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Creatix Bold";
+  src: url("./../fonts/poppins/Poppins-Bold.ttf") format("truetype");
+}
+
+// H1
+.h1 {
+  font-family: "Creatix Light";
+  &.pink {
+    color: $creatix-pink;
+  }
+  &.bold-font {
+    font-family: "Creatix Bold";
+  }
+  &.medium-font {
+    font-family: "Creatix Medium";
+  }
+  &.uppercase {
+    text-transform: uppercase;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.large {
+    font-size: 54px;
+  }
+}
+
+// H2
+.h2 {
+  font-family: "Creatix Light";
+  &.pink {
+    color: $creatix-pink;
+  }
+  &.bold-font {
+    font-family: "Creatix Bold";
+  }
+  &.medium-font {
+    font-family: "Creatix Medium";
+  }
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+}
+
+.h3 {
+  font-family: "Creatix Light";
+
+  &.pink {
+    color: $creatix-pink;
+  }
+
+  &.bold-font {
+    font-family: "Creatix Bold";
+  }
+  &.medium-font {
+    font-family: "Creatix Medium";
+  }
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+  &.center {
+    text-align: center;
+  }
+}
+
+.h4 {
+  font-family: "Creatix Light";
+
+  &.pink {
+    color: $creatix-pink;
+  }
+  &.blue {
+    color: $creatix-blue;
+  }
+  &.bold-font {
+    font-family: "Creatix Bold";
+  }
+  &.medium-font {
+    font-family: "Creatix Medium";
+  }
+  &.uppercase {
+    text-transform: uppercase;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.small {
+    font-size: 20px;
+  }
+
+  &.margin-zero {
+    margin: 0px;
+  }
+
+  &.padding-zero {
+    padding: 0px;
+  }
+}
+
+// P
+.p {
+  font-family: "Creatix Light";
+
+  &.bold-font {
+    font-family: "Creatix Bold";
+  }
+  &.medium-font {
+    font-family: "Creatix Medium";
+  }
+  &.large {
+    font-size: 22px;
+  }
+  &.pink {
+    color: $creatix-pink;
+  }
+
+  &.blue {
+    color: $creatix-blue;
+  }
+  &.margin-zero {
+    margin: 0px;
+  }
+
+  &.padding-zero {
+    padding: 0px;
+  }
+
+  &.margin-right-s {
+    margin-right: 3px;
+  }
+
+  &.margin-right-m {
+    margin-right: 5px;
+  }
+  &.skill-box {
+    margin-right: 10px;
+    padding: 7px 17px;
+    border: 1px solid #d8d8d8;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+}
+
+.p__small {
+  @extend .p;
+  color: $clouds;
+  font-size: 1.2rem;
+}
+
+.p-card {
+  @extend .p;
+  color: $creatix-white-light-blue;
+}
+
+.bold-pink {
+  color: $creatix-pink;
+  font-family: "
+    margin-right:10px;
+";
+}
+
+html {
+  font-family: "Creatix Bold";
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  width: 100%;
+  background: #fefefe;
+}
+html,
+body {
+}
+a {
+  font-family: "Creatix Medium";
+}

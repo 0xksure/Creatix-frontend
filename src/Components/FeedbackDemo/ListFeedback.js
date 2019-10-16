@@ -6,14 +6,21 @@ function FeedbackCard({ text, keyId, votes, userName }) {
   return (
     <div className="cell small-12 feedback-box">
       <div className="grid-x">
-        <div className="cell small-12 medium-6 large-6">
+        <div className="cell small-12 medium-12 large-12">
           <p className="p box-text">{text}</p>
         </div>
-        <div className="cell small-12 medium-3 large-3">
+        <div className="cell small-12 medium-3 large-10">
           <p className="p box-text">{userName}</p>
         </div>
+        <div className="cell small-12 medium-3 large-2">
+          <div className="circle">
+            <div className="p box-text center circle-content">{votes}</div>
+          </div>
+        </div>
         <div className="cell small-12 medium-3 large-3">
-          <p className="p box-text">{votes}</p>
+          <div className="topic-boxes">
+            <div className="p topic-box gray">general</div>
+          </div>
         </div>
       </div>
     </div>

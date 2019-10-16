@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
-import ideaCards from "./ideaCards";
-import modal from "./modal";
+import IdeaCard from "./IdeaCard";
+import Modal from "./Modal";
 import FeedbackDemo from "./FeedbackDemo";
 
 const rootReducer = combineReducers({
-  ideaCards,
-  modal,
+  IdeaCard,
+  Modal,
   FeedbackDemo
 });
 

@@ -59,9 +59,9 @@ function BaseballCard() {
           </div>
         </div>
       </div>
-      <div className="cell small-12 skill-boxes">
-        <p className="p skill-box">UI</p>
-        <p className="p skill-box">Figma</p>
+      <div className="cell small-12 topic-boxes">
+        <p className="p topic-box">UI</p>
+        <p className="p topic-box">Figma</p>
       </div>
     </div>
   );

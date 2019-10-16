@@ -1,0 +1,9 @@
+.alert {
+  &.error {
+    background-color: $creatix-alert-red;
+  }
+  border-radius: 5px;
+  .text {
+    padding: 1rem;
+  }
+}

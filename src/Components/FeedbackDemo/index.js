@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector, shallowEqual } from "react-redux";
 import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 import ListFeedback from "./ListFeedback";
@@ -7,7 +7,15 @@ import SubmitFeedback from "./SubmitFeedback";
 import { voteFeedback } from "../../Actions/FeedbackDemo";
 import _ from "lodash";
 
-function FeedbackDemo({ isFeedbackOpen, feedbackList, voteFeedback }) {
+function FeedbackDemo({ voteFeedback }) {
+  const isFeedbackOpen = useSelector(
+    state => state.FeedbackDemo.isFeedbackOpen,
+    shallowEqual
+  );
+  const feedbackList = useSelector(
+    state => state.FeedbackDemo.feedbackList,
+    shallowEqual
+  );
   useEffect(() => {
     // Random generating votest
     const interval = setInterval(() => {
@@ -23,7 +31,7 @@ function FeedbackDemo({ isFeedbackOpen, feedbackList, voteFeedback }) {
 
   return (
     <div className="grid-x grid-margin-x">
-      <div className="cell small-12 feedback-box">
+      <div className="cell small-12 feedback-display">
         <ListFeedback feedbackList={feedbackList} />
       </div>
       <div className="cell small-12">
@@ -34,22 +42,14 @@ function FeedbackDemo({ isFeedbackOpen, feedbackList, voteFeedback }) {
 }
 
 FeedbackDemo.propTypes = {
-  isFeedbackOpen: PropTypes.bool.isRequired,
-  feedbackList: PropTypes.array.isRequired
+  voteFeedback: PropTypes.func.isRequired
 };
-
-function mapStateToProps(state) {
-  return {
-    isFeedbackOpen: state.FeedbackDemo.isFeedbackOpen,
-    feedbackList: state.FeedbackDemo.feedbackList
-  };
-}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ voteFeedback }, dispatch);
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(FeedbackDemo);

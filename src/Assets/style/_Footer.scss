@@ -1,4 +1,4 @@
-.footer {
+/*.footer {
   //background-color: $creatix-footer-blue;
   height: 20rem;
   margin-top: 0rem;
@@ -31,14 +31,26 @@ border-bottom: 2px solid;
   color: $peach;
   margin-right:3rem;
 }
-.footer-nav{
-  
-  .footer-list{
-    list-style:none;
+*/
+.footer-nav {
+  .footer-list {
+    list-style: none;
 
-    .footer-item{
-      font-family: 'Creatix Light';
+    .footer-item {
+      font-family: "Creatix Light";
       color: $peach;
     }
   }
+}
+
+.footer {
+  margin-top: 2rem;
+
+  border-top: 2px solid;
+  border-color: $clouds;
+}
+
+.footer-content {
+  margin-top: 1rem;
+  text-align: center;
 }

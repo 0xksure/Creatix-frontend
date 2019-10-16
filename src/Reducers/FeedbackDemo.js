@@ -1,8 +1,4 @@
-import {
-  ADD_FEEDBACK,
-  SHOW_FEEDBACK,
-  VOTE_FEEDBACK
-} from "../Actions/FeedbackDemo";
+import { ADD_FEEDBACK, SHOW_FEEDBACK, VOTE_FEEDBACK } from "../Constants";
 
 const initialState = {
   isFeedbackOpen: false,
@@ -23,7 +19,7 @@ const initialState = {
   ]
 };
 
-export default function feedbackdemo(state = initialState, action) {
+export default function FeedbackDemo(state = initialState, action) {
   switch (action.type) {
     case ADD_FEEDBACK:
       return {

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+
 import Modal from "react-modal";
 import PropTypes from "prop-types";
 import SignupNewsletter from "../../Utils/Api";
@@ -48,11 +49,23 @@ function EmailForm() {
   );
 }
 
+function useLockBodyScroll() {
+  useLayoutEffect(() => {
+    // Get original body overflow
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    // Prevent scrolling on mount
+    document.body.style.overflow = "hidden";
+    // Re-enable scrolling when component unmounts
+    return () => (document.body.style.overflow = originalStyle);
+  }, []); // Empty array ensures effect is only run on mount and unmount
+}
+
 function LoginModal() {
+  useLockBodyScroll();
   return (
     <div className="grid-container login-modal">
       <div className="grid-x">
-        <div className="cell small-4 small-offset-8 login-box">
+        <div className="cell small-12 medium-6 large-4 small-offset-0 medium-offset-4 large-offset-8 login-box">
           <p className="p bold pink">Hi! Thank you for showing interest! </p>
           <p className="p">
             We are currently not live yet, but out developers are working hard.

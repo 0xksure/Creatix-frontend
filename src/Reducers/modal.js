@@ -1,10 +1,10 @@
-import { OPEN_MODAL } from "../Actions/modal";
+import { OPEN_MODAL } from "../Constants";
 
 const initialState = {
   modalIsOpen: false
 };
 
-export default function modal(state = initialState, action) {
+export default function Modal(state = initialState, action) {
   switch (action.type) {
     case OPEN_MODAL:
       return {

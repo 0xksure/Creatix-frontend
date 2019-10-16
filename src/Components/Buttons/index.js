@@ -45,7 +45,7 @@ export function MainButton({ children, onToggle }) {
         onClick={() => onToggle()}
         type="button"
       >
-        <div className="text">{children}</div>
+        <div className="h4 medium-font small margin-zero">{children}</div>
       </button>
     </animated.div>
   );

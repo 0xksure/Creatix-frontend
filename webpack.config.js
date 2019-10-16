@@ -3,6 +3,10 @@ const webpack = require("webpack");
 const path = require("path");
 const dotenv = require("dotenv");
 
+const ManifestPlugin = require("webpack-manifest-plugin");
+
+const CopyPlugin = require("copy-webpack-plugin");
+
 module.exports = () => {
   const env = dotenv.config().parsed;
   const envKeys = Object.keys(env).reduce((prev, next) => {
@@ -60,6 +64,15 @@ module.exports = () => {
               }
             }
           ]
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif|ico)$/,
+          exclude: /node_modules/,
+          use: ["file-loader?name=[name].[ext]"]
+        },
+        {
+          test: /\.json$/,
+          loader: "json-loader"
         }
       ]
     },
@@ -76,6 +89,10 @@ module.exports = () => {
         template: "./src/index.html",
         filename: "./index.html"
       }),
+      new ManifestPlugin({
+        filename: "asset-manifest.json"
+      }),
+      new CopyPlugin([{ from: "src/Assets/images", to: "Assets/images" }]),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin(envKeys)
     ],

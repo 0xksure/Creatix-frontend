@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector, shallowEqual } from "react-redux";
 import PropTypes from "prop-types";
 import HomeStatement from "./HomeStatement";
 import Features from "./Features";
 
-function Home({ modalIsOpen }) {
+function Home() {
+  const modalIsOpen = useSelector(
+    state => state.Modal.modalIsOpen,
+    shallowEqual
+  );
   const blurClass = modalIsOpen ? "blur-on-modal" : "";
-  if (modalIsOpen) {
-  }
   useEffect(() => {
     if (modalIsOpen) {
       document.body.style.overflow = "hidden";
@@ -24,17 +26,6 @@ function Home({ modalIsOpen }) {
   );
 }
 
-Home.propTypes = {
-  modalIsOpen: PropTypes.bool.isRequired
-};
+Home.propTypes = {};
 
-function mapStateToProps(state) {
-  return {
-    modalIsOpen: state.modal.modalIsOpen
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  null
-)(Home);
+export default Home;

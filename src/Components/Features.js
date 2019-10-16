@@ -19,25 +19,25 @@ const CARD_TEXT_3 =
 
 function Features() {
   return (
-    <div className="grid-x grid-padding-x grid-margin-x creatix-features">
+    <div className="grid-x grid-padding-x creatix-features">
       <div className="cell small-12 medium-12-large-12 creatix-feature-statement">
         <h2 className="h2">Discover the product</h2>
       </div>
       <div className="cell small-12 medium-12 large-12 ">
         <div className="grid-x grid-margin-x">
-          <div className="cell small-12 medium-4 large-12 creatix-card">
+          <div className="cell small-12 medium-4 large-4 creatix-card">
             <BlowUpOnHover>
               <FeedbackStacked className="product-icon" />
             </BlowUpOnHover>
             <h1 className="h1 bold-font">Feedback</h1>
             <p className="p">{CARD_TEXT_1} </p>
           </div>
-          <div className="cell small-12 medium-4 large-12 creatix-card">
+          <div className="cell small-12 medium-4 large-4 creatix-card">
             <Overview className="product-icon" />
             <h1 className="h1 medium-font ">Overview </h1>
             <p className="p">{CARD_TEXT_2} </p>
           </div>
-          <div className="cell small-12 medium-4 large-12 creatix-card">
+          <div className="cell small-12 medium-4 large-4 creatix-card">
             <TeamCard className="product-icon" />
             <h1 className="h1 bold-font">Teams </h1>
             <p className="p">{CARD_TEXT_3} </p>

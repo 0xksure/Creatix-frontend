@@ -33,18 +33,6 @@
   }
 }
 
-@keyframes slide-down-in {
-  0% {
-    transform: matrix(1, 0, 0, 1, 0, 0);
-  }
-  50% {
-    transform: matrix(1.2, 0, 0, 1.2, 0, 0);
-  }
-  100% {
-    transform: matrix(1, 0, 0, 1, 0, 0);
-  }
-}
-
 .login-modal {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -65,5 +53,14 @@
   filter: blur(2px);
   body {
     overflow: hidden;
+  }
+}
+
+.svg-logo {
+  width: 3rem;
+  height: auto;
+  @media screen and (max-width: 39.9375em) {
+    width: 2rem;
+    height: auto;
   }
 }

@@ -1,6 +1,6 @@
-.feedback-box {
-  background-color: $creatix-white-light-blue;
-  border-radius: 10px;
+.feedback-display {
+  background-color: $clouds;
+  border-radius: 0px;
   margin-bottom: 1rem;
 
   .feedback-list {
@@ -8,9 +8,10 @@
 
     .feedback-box {
       background-color: $electron-blue;
-      margin-bottom: 1rem;
+      margin-bottom: 0.2rem;
       padding: 1rem;
       border-radius: 0px;
+      box-shadow: 7px 7px 7px $concrete;
 
       .box-text {
         font-family: "Creatix Medium";

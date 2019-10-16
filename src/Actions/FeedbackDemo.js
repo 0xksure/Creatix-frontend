@@ -1,7 +1,9 @@
-export const ADD_FEEDBACK = "ADD_FEEDBACK";
-export const SHOW_FEEDBACK = "SHOW_FEEDBACK";
-export const LOAD_FEEDBACK = "LOAD_FEEDBACK";
-export const VOTE_FEEDBACK = "VOTE_FEEDBACK";
+import {
+  ADD_FEEDBACK,
+  SHOW_FEEDBACK,
+  LOAD_FEEDBACK,
+  VOTE_FEEDBACK
+} from "../Constants";
 
 export function addFeedback(feedbackText, feedbackId, feedbackUser) {
   return {
