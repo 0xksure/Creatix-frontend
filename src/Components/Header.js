@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Logo from "./Icons/Logo";
 import LoginModal from "./Modals/LoginModal";
-import toggleModal from "../Actions/modal";
+import toggleModal from "../Actions/Modal";
 import { HeaderButton, MainButton } from "./Buttons";
 
 function Header({ toggle }) {
