@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import IdeaCard from "./IdeaCard";
-import Modal from "./Modal";
+import Modal from "./modal";
 import FeedbackDemo from "./FeedbackDemo";
 
 const rootReducer = combineReducers({

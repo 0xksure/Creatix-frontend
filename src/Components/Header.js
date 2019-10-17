@@ -1,14 +1,14 @@
-import React, { useRef, useEffect, useLayoutEffect } from "react";
+import React from "react";
 import { bindActionCreators } from "redux";
 import { connect, useSelector, shallowEqual } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Logo from "./Icons/Logo";
 import LoginModal from "./Modals/LoginModal";
-import { toggleModal } from "../Actions/Modal";
+import toggleModal from "../Actions/modal";
 import { HeaderButton, MainButton } from "./Buttons";
 
-function Header({ ...props }) {
+function Header({ toggle }) {
   const modalIsOpen = useSelector(
     state => state.Modal.modalIsOpen,
     shallowEqual
@@ -47,7 +47,7 @@ function Header({ ...props }) {
                 <li className="nav-item">
                   <MainButton
                     onToggle={() => {
-                      props.toggleModal(!modalIsOpen);
+                      toggle(!modalIsOpen);
                     }}
                   >
                     <div className="text">Sign up</div>
@@ -64,11 +64,11 @@ function Header({ ...props }) {
 }
 
 Header.propTypes = {
-  toggleModal: PropTypes.func.isRequired
+  toggle: PropTypes.func.isRequired
 };
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ toggleModal }, dispatch);
+  return bindActionCreators({ toggle: toggleModal }, dispatch);
 }
 
 export default connect(

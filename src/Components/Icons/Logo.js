@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Logo = ({ className }) => (
   <svg
@@ -14,5 +15,9 @@ const Logo = ({ className }) => (
     <rect y="29.0909" width="80" height="21.8182" fill="#0984E3" />
   </svg>
 );
+
+Logo.propTypes = {
+  className: PropTypes.string.isRequired
+};
 
 export default Logo;

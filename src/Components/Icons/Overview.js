@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Overview = ({ className }) => (
   <svg
@@ -14,5 +15,9 @@ const Overview = ({ className }) => (
     <rect x="41" width="30" height="35" fill="#F64C72" />
   </svg>
 );
+
+Overview.propTypes = {
+  className: PropTypes.string.isRequired
+};
 
 export default Overview;

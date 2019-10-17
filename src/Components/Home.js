@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, useSelector, shallowEqual } from "react-redux";
-import PropTypes from "prop-types";
+import { useSelector, shallowEqual } from "react-redux";
 import HomeStatement from "./HomeStatement";
 import Features from "./Features";
 

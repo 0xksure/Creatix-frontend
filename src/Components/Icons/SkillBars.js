@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const SkillBars = ({ skillClass, percentageSkill }) => (
   <svg
@@ -22,5 +23,10 @@ const SkillBars = ({ skillClass, percentageSkill }) => (
     <ellipse cx="76" cy="2" rx="3" ry="2" />
   </svg>
 );
+
+SkillBars.propTypes = {
+  skillClass: PropTypes.string.isRequired,
+  percentageSkill: PropTypes.string.isRequired
+};
 
 export default SkillBars;

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import _ from "lodash";
 
-function FeedbackCard({ text, keyId, votes, userName }) {
+function FeedbackCard({ text, userName, votes }) {
   return (
     <div className="cell small-12 feedback-box">
       <div className="grid-x">
@@ -29,7 +29,8 @@ function FeedbackCard({ text, keyId, votes, userName }) {
 
 FeedbackCard.propTypes = {
   text: PropTypes.string.isRequired,
-  keyId: PropTypes.string.isRequired
+  userName: PropTypes.string.isRequired,
+  votes: PropTypes.number.isRequired
 };
 
 function ListFeedback({ feedbackList }) {
@@ -50,7 +51,7 @@ function ListFeedback({ feedbackList }) {
 }
 
 ListFeedback.propTypes = {
-  feedbackList: PropTypes.array.isRequired
+  feedbackList: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default ListFeedback;

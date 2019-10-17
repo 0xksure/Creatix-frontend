@@ -17,7 +17,7 @@ function GetStarted() {
           </h1>
         </div>
         <div className="cell small-4 medium-4 large-4 formcard">
-          <FormCard content={"ok"} />
+          <FormCard content="ok" />
         </div>
       </div>
     </div>

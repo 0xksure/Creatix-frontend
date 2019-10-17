@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Banner from "./Banner";
-import FeedbackDemo from "./../FeedbackDemo";
-import BaseballCard from "./../BaseballCard";
+import FeedbackDemo from "../FeedbackDemo";
+import BaseballCard from "../BaseballCard";
 
 const FEEDBACK_MAIN = "Why feedback?";
 const FEEDBACK_SUB_TEXT =
@@ -38,26 +39,30 @@ function Discover({ modalIsOpen }) {
         id="feedback"
         mainText={FEEDBACK_MAIN}
         subText={FEEDBACK_SUB_TEXT}
-        bannerStyle={"strong-blue"}
+        bannerStyle="strong-blue"
         element={<FeedbackDemo />}
       />
       <Banner
         id="transparency"
         mainText={OVERVIEW_MAIN}
         subText={OVERVIEW_SUB_TEXT}
-        cellPosition={" large-offset-9"}
-        bannerStyle={"gray"}
+        cellPosition=" large-offset-9"
+        bannerStyle="gray"
       />
       <Banner
         id="teamcards"
         mainText={CARDS_MAIN}
         subText={CARDS_SUB_TEXT}
-        bannerStyle={"strong-pink"}
+        bannerStyle="strong-pink"
         element={<BaseballCard />}
       />
     </div>
   );
 }
+
+Discover.propTypes = {
+  modalIsOpen: PropTypes.bool.isRequired
+};
 
 export default connect(
   null,

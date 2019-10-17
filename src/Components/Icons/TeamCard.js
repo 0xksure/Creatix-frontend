@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const TeamCard = ({ className }) => (
   <svg
@@ -13,4 +14,9 @@ const TeamCard = ({ className }) => (
     <rect width="64" height="40" fill="#F64C72" />
   </svg>
 );
+
+TeamCard.propTypes = {
+  className: PropTypes.string.isRequired
+};
+
 export default TeamCard;

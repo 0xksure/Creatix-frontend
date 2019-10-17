@@ -1,0 +1,14 @@
+//.eslintignore
+
+node_modules
+dist
+nginx
+scripts
+cloudbuild.yaml
+Dockerfile.prod
+package.json
+package-lock.json
+webpack.*
+!src
+src/serviceWorker.js
+

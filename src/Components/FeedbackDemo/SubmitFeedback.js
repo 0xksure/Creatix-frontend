@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { addFeedback } from "../../Actions/FeedbackDemo";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import PropTypes from "prop-types";
+import { addFeedback } from "../../Actions/FeedbackDemo";
 
 const ANON_USER = "Anon";
-function IdeaForm(props) {
+function SubmitFeedback({ add }) {
   return (
     <Formik
       initialValues={{ text: "" }}
@@ -19,7 +20,7 @@ function IdeaForm(props) {
       onSubmit={(values, { setSubmitting }) => {
         const randKeyId = Math.random() * 1000;
         setTimeout(() => {
-          props.addFeedback(values.text, randKeyId, ANON_USER);
+          add(values.text, randKeyId, ANON_USER);
           setSubmitting(false);
         }, 3);
       }}
@@ -47,12 +48,12 @@ function IdeaForm(props) {
   );
 }
 
-function SubmitFeedback(props) {
-  return <IdeaForm addFeedback={props.addFeedback} />;
-}
+SubmitFeedback.propTypes = {
+  add: PropTypes.func.isRequired
+};
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addFeedback }, dispatch);
+  return bindActionCreators({ add: addFeedback }, dispatch);
 }
 
 export default connect(

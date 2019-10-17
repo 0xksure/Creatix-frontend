@@ -1,7 +1,8 @@
 import React from "react";
 import { useSpring, animated } from "react-spring";
+import PropTypes from "prop-types";
 
-export function BlowUpOnHover({ children }) {
+export default function BlowUpOnHover({ children }) {
   const [props, setSpring] = useSpring(() => ({
     from: {
       opacity: 1
@@ -13,13 +14,16 @@ export function BlowUpOnHover({ children }) {
       onMouseEnter={() =>
         setSpring({
           from: { opacity: 1 },
-          to: async (next, cancel) => {
+          to: async next => {
             await next({ opacity: 0 });
           }
-        })
-      }
+        })}
     >
       {children}
     </animated.div>
   );
 }
+
+BlowUpOnHover.propTypes = {
+  children: PropTypes.element.isRequired
+};

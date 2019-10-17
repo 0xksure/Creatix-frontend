@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const FeedbackStacked = ({ className }) => (
   <svg
@@ -14,5 +15,9 @@ const FeedbackStacked = ({ className }) => (
     <rect y="20" width="80" height="15" fill="#0984E3" />
   </svg>
 );
+
+FeedbackStacked.propTypes = {
+  className: PropTypes.string.isRequired
+};
 
 export default FeedbackStacked;

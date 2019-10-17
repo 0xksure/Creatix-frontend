@@ -2,16 +2,12 @@ import React, { useEffect } from "react";
 import { connect, useSelector, shallowEqual } from "react-redux";
 import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
+import _ from "lodash";
 import ListFeedback from "./ListFeedback";
 import SubmitFeedback from "./SubmitFeedback";
 import { voteFeedback } from "../../Actions/FeedbackDemo";
-import _ from "lodash";
 
-function FeedbackDemo({ voteFeedback }) {
-  const isFeedbackOpen = useSelector(
-    state => state.FeedbackDemo.isFeedbackOpen,
-    shallowEqual
-  );
+function FeedbackDemo({ vote }) {
   const feedbackList = useSelector(
     state => state.FeedbackDemo.feedbackList,
     shallowEqual
@@ -24,7 +20,7 @@ function FeedbackDemo({ voteFeedback }) {
           return value.keyId;
         })
       );
-      voteFeedback(randKey);
+      vote(randKey);
     }, 100000);
     return () => clearInterval(interval);
   });
@@ -42,11 +38,11 @@ function FeedbackDemo({ voteFeedback }) {
 }
 
 FeedbackDemo.propTypes = {
-  voteFeedback: PropTypes.func.isRequired
+  vote: PropTypes.func.isRequired
 };
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ voteFeedback }, dispatch);
+  return bindActionCreators({ vote: voteFeedback }, dispatch);
 }
 
 export default connect(

@@ -1,9 +1,4 @@
-import {
-  ADD_FEEDBACK,
-  SHOW_FEEDBACK,
-  LOAD_FEEDBACK,
-  VOTE_FEEDBACK
-} from "../Constants";
+import { ADD_FEEDBACK, SHOW_FEEDBACK, VOTE_FEEDBACK } from "../Constants";
 
 export function addFeedback(feedbackText, feedbackId, feedbackUser) {
   return {

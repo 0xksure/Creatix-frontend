@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
-import SkillBars from "../Icons/SkillBars";
+import React from "react";
 import PropTypes from "prop-types";
+import SkillBars from "../Icons/SkillBars";
 
 function Skill({ children, className, percentage }) {
   const percentageColor = () => {
@@ -27,6 +27,11 @@ function Skill({ children, className, percentage }) {
 
 Skill.defaulProps = {
   className: ""
+};
+Skill.propTypes = {
+  children: PropTypes.element.isRequired,
+  className: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired
 };
 
 function BaseballCard() {

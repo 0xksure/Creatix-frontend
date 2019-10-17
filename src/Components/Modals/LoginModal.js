@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
-
-import Modal from "react-modal";
-import PropTypes from "prop-types";
-import SignupNewsletter from "../../Utils/Api";
+import React, { useLayoutEffect } from "react";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
+
 import AlertBox from "../Alerts";
 
 function EmailForm() {
@@ -22,16 +19,6 @@ function EmailForm() {
         }
         return errors;
       }}
-      onSubmit={(values, actions) => {
-        SignupNewsletter(values)
-          .then(json => {
-            actions.setStatus({ msg: json.message, status: json.status });
-          })
-          .catch(err => {
-            actions.setStatus({ msg: "Error", status: false });
-          });
-        actions.setSubmitting(false);
-      }}
     >
       {({ isSubmitting, status }) => (
         <Form>
@@ -41,7 +28,7 @@ function EmailForm() {
             Submit
           </button>
           {status && status.msg && (
-            <AlertBox alertType="error"> {status.msg}</AlertBox>
+            <AlertBox alertType="error">{status.msg}</AlertBox>
           )}
         </Form>
       )}

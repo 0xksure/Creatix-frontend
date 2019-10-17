@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
-import { useSpring, useSprings, animated, interpolate } from "react-spring";
+import { useSprings, animated, interpolate } from "react-spring";
 import { useDrag } from "react-use-gesture";
 import clamp from "lodash-es/clamp";
 import swap from "lodash-move";
+
 function rect() {
   return (
     <svg
@@ -44,17 +45,12 @@ export default function FeedbackStacked() {
   const order = useRef(items.map((_, i) => i));
   const [springs, set] = useSprings(items.length, assignProps(order.current));
   const bind = useDrag(({ args: [originalIndex], down, delta: [, y] }) => {
-    console.log("USe drag");
-    console.log("Original index: ", originalIndex);
-    console.log("y: ", y);
     const currentIndex = order.current.indexOf(originalIndex);
-    console.log("Current index: ", currentIndex);
     const currentRow = clamp(
       Math.round((currentIndex * 100 + y) / 2),
       0,
       items.length - 1
     );
-    console.log("Current row: ", currentRow);
     const newOrder = swap(order.current, currentIndex, currentRow);
     set(assignProps(newOrder, down, originalIndex, currentIndex, y));
     if (!down) order.current = newOrder;
@@ -71,7 +67,7 @@ export default function FeedbackStacked() {
             ),
             transform: interpolate(
               [y, scale],
-              (y, s) => `translate3d(0,${y}px,0) scale(${s})`
+              (yPos, s) => `translate3d(0,${yPos}px,0) scale(${s})`
             )
           }}
         >
