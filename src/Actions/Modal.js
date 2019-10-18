@@ -1,8 +1,7 @@
-import { OPEN_MODAL } from "../Constants";
+import { TOGGLE_MODAL } from "../Constants";
 
-export default function toggleModal(modalIsOpen) {
+export default function toggleModal() {
   return {
-    type: OPEN_MODAL,
-    modalIsOpen
+    type: TOGGLE_MODAL
   };
 }

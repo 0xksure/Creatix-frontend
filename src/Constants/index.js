@@ -1,6 +1,6 @@
-export const SET_ACTIVE_CARD = "SET_CTIVE_CARD"
+export const SET_ACTIVE_CARD = "SET_CTIVE_CARD";
 
-export const OPEN_MODAL = "OPEN_MODAL"
+export const TOGGLE_MODAL = "TOGGLE_MODAL";
 
 export const ADD_FEEDBACK = "ADD_FEEDBACK";
 export const SHOW_FEEDBACK = "SHOW_FEEDBACK";

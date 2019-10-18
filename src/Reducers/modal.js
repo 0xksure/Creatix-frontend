@@ -1,4 +1,4 @@
-import { OPEN_MODAL } from "../Constants";
+import { TOGGLE_MODAL } from "../Constants";
 
 const initialState = {
   modalIsOpen: false
@@ -6,9 +6,9 @@ const initialState = {
 
 export default function Modal(state = initialState, action) {
   switch (action.type) {
-    case OPEN_MODAL:
+    case TOGGLE_MODAL:
       return {
-        modalIsOpen: action.modalIsOpen
+        modalIsOpen: !state.modalIsOpen
       };
     default:
       return state;

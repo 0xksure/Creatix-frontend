@@ -27,7 +27,8 @@ export function HeaderButton({ children }) {
             });
             await next({ transform: "transform3d(0,0px,0)", opacity: 1 });
           }
-        })}
+        })
+      }
     >
       {children}
     </animated.div>
@@ -38,10 +39,13 @@ HeaderButton.propTypes = {
   children: PropTypes.element.isRequired
 };
 
-export function MainButton({ children, onToggle }) {
-  const [props, set] = useSpring(() => ({ from: { opacity: 1 } }));
+export function MainButton({ children, onToggle, modalIsOpen }) {
+  const [props, set] = useSpring(() => ({
+    from: { opacity: 1 },
+    to: { opacity: modalIsOpen ? 0.1 : 1 }
+  }));
   return (
-    <animated.div style={props} onClick={() => set({ opacity: 0.5 })}>
+    <animated.div style={props}>
       <button
         className="creatix-btn primary"
         onClick={() => onToggle()}
@@ -55,5 +59,6 @@ export function MainButton({ children, onToggle }) {
 
 MainButton.propTypes = {
   children: PropTypes.element.isRequired,
-  onToggle: PropTypes.func.isRequired
+  onToggle: PropTypes.func.isRequired,
+  modalIsOpen: PropTypes.bool.isRequired
 };

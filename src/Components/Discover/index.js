@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector, shallowEqual } from "react-redux";
 import PropTypes from "prop-types";
 import Banner from "./Banner";
 import FeedbackDemo from "../FeedbackDemo";
@@ -15,17 +15,12 @@ const OVERVIEW_SUB_TEXT = "";
 const CARDS_MAIN = "Why Team Cards?";
 const CARDS_SUB_TEXT = "Team cards";
 
-function Discover({ modalIsOpen }) {
+function Discover() {
+  const modalIsOpen = useSelector(
+    state => state.Modal.modalIsOpen,
+    shallowEqual
+  );
   const blurClass = modalIsOpen ? "blur-on-modal" : "";
-
-  useEffect(() => {
-    if (modalIsOpen) {
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  });
   return (
     <div className={`grid-container full ${blurClass}`}>
       <div className="grid-x big-statement">
@@ -59,10 +54,6 @@ function Discover({ modalIsOpen }) {
     </div>
   );
 }
-
-Discover.propTypes = {
-  modalIsOpen: PropTypes.bool.isRequired
-};
 
 export default connect(
   null,
