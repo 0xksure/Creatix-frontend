@@ -8,6 +8,9 @@ COPY package.json /app/package.json
 RUN npm run create-env
 RUN npm install
 COPY . /app
+ARG TRACKING_ID
+ENV TRACKING_ID $TRACKING_ID
+
 RUN npm run build
 
 ### STAGE 2: Production Environment ####
