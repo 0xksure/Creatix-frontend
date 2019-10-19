@@ -29,6 +29,11 @@
         position: relative;
         display: inline-block;
       }
+      .nav-link_active {
+        color: $creatix-blue;
+        position: relative;
+        display: inline-block;
+      }
     }
   }
 }

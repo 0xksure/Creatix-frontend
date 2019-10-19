@@ -1,5 +1,4 @@
 //// HOME STYLING ///
-
 .home-statement {
   padding: 20rem;
 
@@ -29,7 +28,8 @@
     margin-bottom: 10rem;
   }
   @media screen and (max-width: 39.9375em) {
-    padding: 0px;
+    padding: 0;
+    padding-top: 3rem;
   }
 }
 

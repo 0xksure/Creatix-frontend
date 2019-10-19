@@ -7,13 +7,18 @@ import { createLogger } from "redux-logger";
 import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { BrowserHistory } from "react-router";
+import { createBrowserHistory } from "history";
+import ReactGA from "react-ga";
 import Header from "../Components/Header";
 import Home from "../Components/Home";
 import Footer from "../Components/Footer";
 import GetStarted from "../Components/GetStarted";
 import Discover from "../Components/Discover";
 import rootReducer from "../Reducers";
+
+import "../Utils/Analytics";
+
+const history = createBrowserHistory();
 
 // redux
 const loggerMiddleware = createLogger();
@@ -27,11 +32,16 @@ function configureStrore(preloadedState) {
 }
 const store = configureStrore();
 
+history.listen(location => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
+
 function App() {
   return (
     <Provider store={store}>
       <div className="grid-container-full">
-        <Router history={BrowserHistory}>
+        <Router history={history}>
           <Header />
           <Switch>
             <Route exact path="/" component={Home} />

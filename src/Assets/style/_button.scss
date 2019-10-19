@@ -1,7 +1,19 @@
 .creatix-btn {
-  padding: 0.8rem;
-  border: 1px solid;
-  border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 1rem 0;
+  padding: 0.85em 1em;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  font-family: inherit;
+  font-size: 0.9rem;
+  -webkit-appearance: none;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  background-color: #1779ba;
+  color: #fefefe;
   // Secondary Button
   &.secondary {
     background-color: transparent;
@@ -12,18 +24,34 @@
       width: 20rem;
       margin-left: auto;
       margin-right: auto;
+      display: block;
     }
 
     &.inverted {
       background-color: $creatix-pink;
       color: $white;
     }
+
+    @media screen and (max-width: 39.9375em) {
+      padding: 0.3rem;
+    }
   }
 
+  // Circle button
+  &.circle {
+    border-radius: 1000px;
+    background-color: $creatix-pink;
+
+    @media screen and (max-width: 39.9375em) {
+      padding: 1rem 1.3rem;
+      margin: auto;
+    }
+  }
   //Primary button
   &.primary {
     background-color: $electron-blue;
     color: $white;
+    margin: 0;
 
     &.center {
       width: 50%;
@@ -39,6 +67,13 @@
       background-color: $belize-hole;
       outline: 0;
     }
+    &:active {
+      color: $creatix-blue;
+    }
+
+    @media screen and (max-width: 39.9375em) {
+      padding: 0.3rem;
+    }
   }
 
   .text {
@@ -48,10 +83,6 @@
 
   &:active {
     border-color: transparent;
-  }
-
-  @media screen and (max-width: 39.9375em) {
-    padding: 0.3rem;
   }
 }
 
@@ -65,7 +96,7 @@
 
 .topic-box {
   margin-right: 10px;
-  padding: 7px 17px;
+  //padding: 7px 17px;
   border: 1px solid #d8d8d8;
   border-radius: 20px;
   font-size: 12px;
@@ -73,19 +104,14 @@
 
   &.gray {
     background-color: $creatix-gray;
+    margin: 10px;
   }
-}
+  &.pink {
+    background-color: $creatix-pink;
+  }
 
-.circle {
-  border: 1px solid $creatix-gray;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  .circle-content {
-    text-align: center;
-    top: 50%;
-    margin: 0;
-    padding: 0;
+  .topic-content {
+    margin: 10px;
+    white-space: nowrap;
   }
 }

@@ -62,3 +62,11 @@ MainButton.propTypes = {
   onToggle: PropTypes.func.isRequired,
   modalIsOpen: PropTypes.bool.isRequired
 };
+
+export function CircleButton({ children }) {
+  return <div className="creatix-btn circle">{children}</div>;
+}
+
+CircleButton.propTypes = {
+  children: PropTypes.element.isRequired
+};

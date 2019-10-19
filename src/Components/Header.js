@@ -1,7 +1,7 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect, useSelector, shallowEqual } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import Logo from "./Icons/Logo";
 import LoginModal from "./Modals/LoginModal";
@@ -28,20 +28,30 @@ function Header({ toggle }) {
               <ul className="nav-list">
                 <li className="nav-item">
                   <HeaderButton>
-                    <Link className="nav-link" to="/">
+                    <NavLink
+                      activeClassName="nav-link_active"
+                      className="nav-link"
+                      exact
+                      to="/"
+                    >
                       <h4 className="h4 medium-font small margin-zero">
                         Creatix
                       </h4>
-                    </Link>
+                    </NavLink>
                   </HeaderButton>
                 </li>
                 <li className="nav-item">
                   <HeaderButton>
-                    <Link className="nav-link" to="/discover">
+                    <NavLink
+                      activeClassName="nav-link_active"
+                      className="nav-link"
+                      exact
+                      to="/discover"
+                    >
                       <h4 className="h4 medium-font small margin-zero">
                         Discover
                       </h4>
-                    </Link>
+                    </NavLink>
                   </HeaderButton>
                 </li>
                 <li className="nav-item">
@@ -49,6 +59,7 @@ function Header({ toggle }) {
                     onToggle={() => {
                       toggle(!modalIsOpen);
                     }}
+                    modalIsOpen={modalIsOpen}
                   >
                     <div className="text">Sign up</div>
                   </MainButton>
