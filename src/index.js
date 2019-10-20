@@ -12,6 +12,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 const trackingID = process.env.TRACKING_ID;
 ReactGA.initialize(trackingID, {
+  debug: true,
   gaOptions: {
     siteSpeedSampleRate: 100
   }
