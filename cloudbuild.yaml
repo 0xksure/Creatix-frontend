@@ -6,8 +6,8 @@ steps:
   substitutions:
     - _TRACKING_ID: ''
   args: ['build',
-          '--build-arg'
-          '${_TRACKING_ID}'
+          '--build-arg',
+          '${_TRACKING_ID}',
           '-f',
           'Dockerfile.prod',
           '-t',
