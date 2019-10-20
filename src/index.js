@@ -18,6 +18,7 @@ ReactGA.initialize(trackingID, {
   }
 });
 ReactGA.set({ anonymizeIp: true });
+ReactGA.pageview(window.location.pathname + window.location.search);
 ReactDOM.render(<App />, document.getElementById("app"));
 
 // If you want your app to work offline and load faster, you can change
