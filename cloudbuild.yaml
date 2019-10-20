@@ -2,7 +2,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build',
           '--build-arg',
-          'TRACKING_ID=${_TRACKING_ID}',
+          'tracking_id=${_TRACKING_ID}',
           '-f',
           'Dockerfile.prod',
           '-t',
