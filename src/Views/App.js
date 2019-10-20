@@ -15,10 +15,11 @@ import Footer from "../Components/Footer";
 import GetStarted from "../Components/GetStarted";
 import Discover from "../Components/Discover";
 import rootReducer from "../Reducers";
-
-import "../Utils/Analytics";
+import ReactGA from "react-ga";
 
 const history = createBrowserHistory();
+const trackingID = process.env.TRACKING_ID;
+ReactGA.initialize(trackingID);
 
 // redux
 const loggerMiddleware = createLogger();
