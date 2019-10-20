@@ -2,14 +2,14 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build',
           '--build-arg',
-          'tracking_id=${_TRACKING_ID}',
+          'TRACKING_ID=${_TRACKING_ID}',
           '-f',
           'Dockerfile.prod',
           '-t',
           'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA',
          '.']
 substitutions:
-  - _TRACKING_ID: 111111
+  _TRACKING_ID: 111111
 images:
   - 'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA'
 
