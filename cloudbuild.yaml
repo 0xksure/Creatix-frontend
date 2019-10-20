@@ -1,8 +1,13 @@
 steps: 
 - name: 'gcr.io/cloud-builders/docker'
   env:
-    - 'API_URL=http://localhost:8080'
+    - '_API_URL=http://localhost:8080'
+    - '_TRACKING_ID=1'
+  substitutions:
+    - _TRACKING_ID: ''
   args: ['build',
+          '--build-arg'
+          '${_TRACKING_ID}'
           '-f',
           'Dockerfile.prod',
           '-t',
