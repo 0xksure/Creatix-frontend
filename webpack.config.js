@@ -90,7 +90,8 @@ module.exports = () => {
       new CopyPlugin([{ from: "src/Assets/images", to: "Assets/images" }]),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin({
-        "process.env.TRACKING_ID": JSON.stringify(process.env.TRACKING_ID)
+        "process.env.TRACKING_ID": JSON.stringify(process.env.TRACKING_ID),
+        "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
       })
     ],
     devServer: {
