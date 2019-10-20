@@ -8,11 +8,6 @@ const ManifestPlugin = require("webpack-manifest-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = () => {
-  const env = dotenv.config().parsed;
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
-    return prev;
-  }, {});
   return {
     entry: ["@babel/polyfill", "./src/index.js"],
     module: {
@@ -94,7 +89,9 @@ module.exports = () => {
       }),
       new CopyPlugin([{ from: "src/Assets/images", to: "Assets/images" }]),
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.DefinePlugin(envKeys)
+      new webpack.DefinePlugin({
+        "process.env.TRACKING_ID": JSON.stringify(process.env.TRACKING_ID)
+      })
     ],
     devServer: {
       contentBase: "./dist",
