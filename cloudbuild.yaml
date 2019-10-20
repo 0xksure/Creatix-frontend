@@ -9,7 +9,7 @@ steps:
           'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA',
          '.']
 substitutions:
-  _TRACKING_ID: 111111
+  _TRACKING_ID: '10101'
 images:
   - 'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA'
 
