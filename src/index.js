@@ -2,6 +2,7 @@ import "@babel/polyfill";
 
 import React from "react";
 import ReactDOM from "react-dom";
+import ReactGA from "react-ga";
 import "./Assets/style/main.scss";
 import App from "./Views/App";
 import * as serviceWorker from "./serviceWorker";
@@ -9,7 +10,8 @@ import * as serviceWorker from "./serviceWorker";
 if (process.env.NODE_ENV !== "production") {
   module.hot.accept();
 }
-
+const trackingID = process.env.TRACKING_ID;
+ReactGA.initialize(trackingID);
 ReactDOM.render(<App />, document.getElementById("app"));
 
 // If you want your app to work offline and load faster, you can change
