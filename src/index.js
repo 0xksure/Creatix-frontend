@@ -11,7 +11,12 @@ if (process.env.NODE_ENV !== "production") {
   module.hot.accept();
 }
 const trackingID = process.env.TRACKING_ID;
-ReactGA.initialize(trackingID);
+ReactGA.initialize(trackingID, {
+  gaOptions: {
+    siteSpeedSampleRate: 100
+  }
+});
+ReactGA.set({ anonymizeIp: true });
 ReactDOM.render(<App />, document.getElementById("app"));
 
 // If you want your app to work offline and load faster, you can change
