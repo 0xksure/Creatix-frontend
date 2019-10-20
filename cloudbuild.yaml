@@ -3,16 +3,16 @@ steps:
   env:
     - '_API_URL=http://localhost:8080'
     - '_TRACKING_ID=1'
-  substitutions:
-    - _TRACKING_ID: ''
-  args: ['build',
+   args: ['build',
           '--build-arg',
-          '${_TRACKING_ID}',
+          'TRACKING_ID=${_TRACKING_ID}',
           '-f',
           'Dockerfile.prod',
           '-t',
           'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA',
          '.']
+substitutions:
+  - _TRACKING_ID: ''
 images:
   - 'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA'
 
