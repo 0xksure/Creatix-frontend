@@ -19,5 +19,8 @@
   "Assets/images/favicon/safari-pinned-tab.svg": "/Assets/images/favicon/safari-pinned-tab.svg",
   "Assets/images/favicon/site.webmanifest": "/Assets/images/favicon/site.webmanifest",
   "Poppins-Medium.ttf": "/ba95810b56f476990ca71d15139d5111.ttf",
-  "Poppins-Bold.ttf": "/c23534acbeddbaadfd0ab2d2bbfdfc84.ttf"
+  "Poppins-Bold.ttf": "/c23534acbeddbaadfd0ab2d2bbfdfc84.ttf",
+  "robots.txt": "/robots.txt",
+  "sitemap.xml": "/sitemap.xml",
+  "sitemap.xml.gz": "/sitemap.xml.gz"
 }

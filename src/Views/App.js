@@ -9,6 +9,7 @@ import thunkMiddleware from "redux-thunk";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import ReactGA from "react-ga";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import Header from "../Components/Header";
 import Home from "../Components/Home";
 import Footer from "../Components/Footer";
@@ -17,8 +18,6 @@ import Discover from "../Components/Discover";
 import rootReducer from "../Reducers";
 
 const history = createBrowserHistory();
-const trackingID = process.env.TRACKING_ID;
-ReactGA.initialize(trackingID);
 
 // redux
 const loggerMiddleware = createLogger();
@@ -39,23 +38,32 @@ history.listen(location => {
 
 function App() {
   return (
-    <Provider store={store}>
-      <div className="grid-container-full">
-        <Router history={history}>
-          <Header />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/main" component={Home} />
-            <Route path="/main/:topic" component={Home} />
-            <Route path="/discover" component={Discover} />
-            <Route path="/get-started" component={GetStarted} />
-            <Route path="/login" component={Home} />
-            <Route component={Home} />
-          </Switch>
-          <Footer />
-        </Router>
-      </div>
-    </Provider>
+    <HelmetProvider>
+      <Provider store={store}>
+        <Helmet>
+          <title>Creatix</title>
+          <meta
+            name="description"
+            content="Creatix homepage with information about how business transparency can be made simple through feedback cards, organization structure and team cards."
+          />
+        </Helmet>
+        <div className="grid-container-full">
+          <Router history={history}>
+            <Header />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/main" component={Home} />
+              <Route path="/main/:topic" component={Home} />
+              <Route path="/discover" component={Discover} />
+              <Route path="/get-started" component={GetStarted} />
+              <Route path="/login" component={Home} />
+              <Route component={Home} />
+            </Switch>
+            <Footer />
+          </Router>
+        </div>
+      </Provider>
+    </HelmetProvider>
   );
 }
 

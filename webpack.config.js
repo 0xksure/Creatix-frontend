@@ -2,10 +2,12 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
 const dotenv = require("dotenv");
-
 const ManifestPlugin = require("webpack-manifest-plugin");
 
+const SitemapWebpackPlugin = require("sitemap-webpack-plugin").default;
 const CopyPlugin = require("copy-webpack-plugin");
+
+const paths = ["/", "/discover"];
 
 module.exports = () => {
   return {
@@ -87,12 +89,16 @@ module.exports = () => {
       new ManifestPlugin({
         filename: "asset-manifest.json"
       }),
-      new CopyPlugin([{ from: "src/Assets/images", to: "Assets/images" }]),
+      new CopyPlugin([
+        { from: "src/Assets/images", to: "Assets/images" },
+        { from: "src/robots.txt", to: "robots.txt" }
+      ]),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin({
         "process.env.TRACKING_ID": JSON.stringify(process.env.TRACKING_ID),
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
-      })
+      }),
+      new SitemapWebpackPlugin("https://www.thecreatix.io", paths)
     ],
     devServer: {
       contentBase: "./dist",
