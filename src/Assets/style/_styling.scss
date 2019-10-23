@@ -138,6 +138,7 @@ $shadow-bottom-hover: $creatix-shadow-purple;
 $creatix-pink: $peach;
 $creatix-blue: $electron-blue;
 $creatix-gray: $clouds;
+$creatix-gray2: rgba(243, 243, 243, 1);
 $creatix-shadow: rgba(199, 236, 238, 1);
 $creatix-alert-green: rgba(50, 205, 50, 0.8);
 $creatix-alert-yellow: rgba(255, 255, 0, 0.8);
@@ -331,6 +332,10 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
 
 .margin-top-small {
   margin: 1rem;
+}
+
+.padding-vertical-large {
+  padding: 5rem;
 }
 
 .flex {

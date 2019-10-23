@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useSpring, animated } from "react-spring";
 import PropTypes from "prop-types";
@@ -63,10 +63,53 @@ MainButton.propTypes = {
   modalIsOpen: PropTypes.bool.isRequired
 };
 
-export function CircleButton({ children }) {
-  return <div className="creatix-btn circle">{children}</div>;
+export function CircleButton({ children, onClick }) {
+  const [pressed, setPressed] = useState(false);
+  const [props, set] = useSpring(() => ({
+    from: { opacity: 1 },
+    to: { opacity: pressed ? 0.5 : 1 }
+  }));
+  return (
+    <animated.div style={props}>
+      <button
+        className="creatix-btn circle"
+        type="button"
+        onClick={() => {
+          set({
+            from: { opacity: 1 },
+            to: async next => {
+              await next({ opacity: 0.5 });
+              await next({ opacity: 1 });
+            }
+          });
+          onClick();
+        }}
+      >
+        {children}
+      </button>
+    </animated.div>
+  );
 }
 
 CircleButton.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
+  onClick: PropTypes.func.isRequired
+};
+
+export function TopicBoxes({ topics }) {
+  return (
+    <div className="topic-boxes">
+      {topics.map(topic => {
+        return (
+          <div className="topic-box gray">
+            <div className="p topic-content">{topic}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+TopicBoxes.propTypes = {
+  topics: PropTypes.arrayOf(PropTypes.string).isRequired
 };

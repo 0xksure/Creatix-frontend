@@ -22,7 +22,7 @@ function Features() {
         <div className="grid-x grid-margin-x">
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <FeedbackStacked className="product-icon" />
-            <h1 className="h1 bold-font">Feedback</h1>
+            <h1 className="h1 medium-font">Feedback</h1>
             <p className="p">{CARD_TEXT_1} </p>
           </div>
           <div className="cell small-12 medium-4 large-4 creatix-card">
@@ -32,7 +32,7 @@ function Features() {
           </div>
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <TeamCard className="product-icon" />
-            <h1 className="h1 bold-font">Teams </h1>
+            <h1 className="h1 medium-font">Teams </h1>
             <p className="p">{CARD_TEXT_3} </p>
           </div>
         </div>

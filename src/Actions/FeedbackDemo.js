@@ -1,4 +1,9 @@
-import { ADD_FEEDBACK, SHOW_FEEDBACK, VOTE_FEEDBACK } from "../Constants";
+import {
+  ADD_FEEDBACK,
+  SHOW_FEEDBACK,
+  VOTE_FEEDBACK,
+  FETCH_FEEDBACK
+} from "../Constants";
 
 export function addFeedback(feedbackText, feedbackId, feedbackUser) {
   return {
@@ -20,6 +25,12 @@ export function voteFeedback(keyId) {
   return {
     type: VOTE_FEEDBACK,
     keyId
+  };
+}
+
+export function fetchFeedback() {
+  return {
+    type: FETCH_FEEDBACK
   };
 }
 

@@ -3,7 +3,10 @@
 }
 
 .fat-banner {
-  padding: 5rem;
+  .vertical-padding-s {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
   &.strong-blue {
     background-color: $creatix-blue;
   }
@@ -15,7 +18,11 @@
   &.gray {
     background-color: rgba(243, 243, 243, 1);
   }
+
+  .gray {
+    background-color: rgba(243, 243, 243, 1);
+  }
   @media screen and (min-width: 20em) and (max-width: 40em) {
-    padding: 2rem;
+    //padding: 2rem;
   }
 }

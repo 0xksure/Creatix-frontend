@@ -4,5 +4,5 @@ export const TOGGLE_MODAL = "TOGGLE_MODAL";
 
 export const ADD_FEEDBACK = "ADD_FEEDBACK";
 export const SHOW_FEEDBACK = "SHOW_FEEDBACK";
-export const LOAD_FEEDBACK = "LOAD_FEEDBACK";
+export const FETCH_FEEDBACK = "LOAD_FEEDBACK";
 export const VOTE_FEEDBACK = "VOTE_FEEDBACK";

@@ -1,9 +1,11 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
-import _ from "lodash";
-import { CircleButton } from "../Buttons";
+import { CircleButton, TopicBoxes } from "../Buttons";
+import { voteFeedback } from "../../Actions/FeedbackDemo";
 
-function FeedbackCard({ text, userName, votes }) {
+function FeedbackCard({ text, keyId, userName, votes, topics }) {
+  const dispatch = useDispatch();
   return (
     <div className="cell small-12 feedback-box">
       <div className="grid-x">
@@ -14,19 +16,12 @@ function FeedbackCard({ text, userName, votes }) {
           <p className="p box-text">{userName}</p>
         </div>
         <div className="cell small-6 medium-3 large-2 flex">
-          <CircleButton>
+          <CircleButton onClick={() => dispatch(voteFeedback(keyId))}>
             <div className="p">{votes}</div>
           </CircleButton>
         </div>
         <div className="cell small-12 medium-3 large-3">
-          <div className="topic-boxes">
-            <div className="topic-box  gray">
-              <div className="p topic-content">General </div>
-            </div>
-            <div className="topic-box  gray">
-              <div className="p topic-content">New topic</div>
-            </div>
-          </div>
+          <TopicBoxes topics={topics} />
         </div>
       </div>
     </div>
@@ -35,23 +30,30 @@ function FeedbackCard({ text, userName, votes }) {
 
 FeedbackCard.propTypes = {
   text: PropTypes.string.isRequired,
+  keyId: PropTypes.number.isRequired,
   userName: PropTypes.string.isRequired,
-  votes: PropTypes.number.isRequired
+  votes: PropTypes.number.isRequired,
+  topics: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 function ListFeedback({ feedbackList }) {
+  const feedbackListOrdered = Object.keys(feedbackList).sort(function(a, b) {
+    return feedbackList[a] - feedbackList[b];
+  });
+  console.log(feedbackList);
   return (
     <div className="grid-x feedback-list">
-      {_.orderBy(feedbackList, ["votes"], ["desc"]).map(
-        ({ text, keyId, votes, user }) => (
+      {feedbackListOrdered.map(key => {
+        return (
           <FeedbackCard
-            text={text}
-            keyId={keyId}
-            votes={votes}
-            userName={user}
+            text={feedbackList[key].text}
+            keyId={key}
+            votes={feedbackList[key].votes}
+            userName={feedbackList[key].user}
+            topics={feedbackList[key].topics}
           />
-        )
-      )}
+        );
+      })}
     </div>
   );
 }

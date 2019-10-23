@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import SkillBars from "../Icons/SkillBars";
+import { TopicBoxes } from "../Buttons";
 
 function Skill({ children, className, percentage }) {
   const percentageColor = () => {
@@ -36,37 +37,38 @@ Skill.propTypes = {
 
 function BaseballCard() {
   return (
-    <div className="grid-x baseball-card">
-      <div className="cell small-12">
-        <h4 className="h4">Some name</h4>
-      </div>
-      <div className="cell small-12">
-        <p className="p bold margin-zero">Creative Designer </p>
-        <Skill className="horizontal" percentage={80}>
-          <p className="p margin-zero margin-right-m">Experience</p>
-        </Skill>
-      </div>
-      <div className="cell small-12 split-view">
-        <div className="grid-x">
+    <div className="grid-x">
+      <div className="cell small-12 medium6 large-6 small-offset-2 medium-offset-4 large-offset-4 ">
+        <div className="grid-x baseball-card">
           <div className="cell small-12">
-            <p className="p bold margin-zero padding-zero">Skills</p>
-            <Skill percentage={80}>
-              <p className="p margin-zero">UI</p>
-            </Skill>
-            <Skill percentage={20}>
-              <p className="p margin-zero">Figma</p>
+            <h4 className="h4">Some name</h4>
+          </div>
+          <div className="cell small-12">
+            <p className="p bold margin-zero">Creative Designer </p>
+            <Skill className="horizontal" percentage={80}>
+              <p className="p margin-zero margin-right-m">Experience</p>
             </Skill>
           </div>
-          <div className="cell small-6">
-            <p className="p bold margin-zero">Interests </p>
-            <p className="p medium-text"> Material design</p>
-            <p className="p medium-text"> Wireframes</p>
+          <div className="cell small-12 split-view">
+            <div className="grid-x">
+              <div className="cell small-12">
+                <p className="p bold margin-zero padding-zero">Skills</p>
+                <Skill percentage={80}>
+                  <p className="p margin-zero">UI</p>
+                </Skill>
+                <Skill percentage={20}>
+                  <p className="p margin-zero">Figma</p>
+                </Skill>
+              </div>
+              <div className="cell small-6">
+                <p className="p bold margin-zero">Interests </p>
+                <p className="p medium-text"> Material design</p>
+                <p className="p medium-text"> Wireframes</p>
+              </div>
+            </div>
           </div>
+          <TopicBoxes topics={["UI", "Figma"]} />
         </div>
-      </div>
-      <div className="cell small-12 topic-boxes">
-        <p className="p topic-box">UI</p>
-        <p className="p topic-box">Figma</p>
       </div>
     </div>
   );

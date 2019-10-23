@@ -4,11 +4,15 @@ import PropTypes from "prop-types";
 function Banner({ bannerStyle, id, cellPosition, mainText, subText, element }) {
   return (
     <div className={`grid-x fat-banner ${bannerStyle}`} id={id}>
-      <div className={`cell small-12 medium-12 large-6 ${cellPosition} `}>
+      <div
+        className={`cell small-12 medium-12 large-6 ${cellPosition} padding-vertical-large`}
+      >
         <h3 className="h3">{mainText}</h3>
         <p className="p">{subText}</p>
       </div>
-      <div className="cell small-12 medium-12 large-6">{element}</div>
+      <div className="cell small-12 medium-12 large-6 vertical-padding-s gray">
+        {element}
+      </div>
     </div>
   );
 }
