@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
-import { connect, useSelector, shallowEqual, useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import PropTypes from "prop-types";
-import _ from "lodash";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
 import ListFeedback from "./ListFeedback";
 import SubmitFeedback from "./SubmitFeedback";
-import { voteFeedback, fetchFeedback } from "../../Actions/FeedbackDemo";
+import { fetchFeedback } from "../../Actions/FeedbackDemo";
 
 function FeedbackDemo() {
   const dispatch = useDispatch();

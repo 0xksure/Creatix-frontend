@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-import { connect, useSelector, shallowEqual } from "react-redux";
+import React from "react";
+import { useSelector, shallowEqual } from "react-redux";
 import { Helmet } from "react-helmet-async";
-import PropTypes from "prop-types";
 import Banner from "./Banner";
 import FeedbackDemo from "../FeedbackDemo";
 import BaseballCard from "../BaseballCard";
@@ -64,7 +63,4 @@ function Discover() {
   );
 }
 
-export default connect(
-  null,
-  null
-)(Discover);
+export default Discover;

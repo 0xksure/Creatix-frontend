@@ -29,9 +29,9 @@ const initialState = {
 };
 
 export default function FeedbackDemo(state = initialState, action) {
+  const newFeedbackName = Object.keys(state.feedbackList).length;
   switch (action.type) {
     case ADD_FEEDBACK:
-      const newFeedbackName = Object.keys(state.feedbackList).length;
       return {
         ...state,
         feedbackList: {
@@ -67,7 +67,7 @@ export default function FeedbackDemo(state = initialState, action) {
     case FETCH_FEEDBACK: {
       return {
         ...state,
-        feedbackList: feedbackList
+        feedbackList
       };
     }
 

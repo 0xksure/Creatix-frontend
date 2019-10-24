@@ -3,8 +3,9 @@ FROM node:alpine as react-build
 RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
-
+RUN apk update && apk add python g++ make && rm -rf /var/cache/apk/*
 COPY package.json /app/package.json
+
 RUN npm run create-env
 RUN npm install
 COPY . /app

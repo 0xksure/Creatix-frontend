@@ -40,7 +40,7 @@ HeaderButton.propTypes = {
 };
 
 export function MainButton({ children, onToggle, modalIsOpen }) {
-  const [props, set] = useSpring(() => ({
+  const [props] = useSpring(() => ({
     from: { opacity: 1 },
     to: { opacity: modalIsOpen ? 0.1 : 1 }
   }));
@@ -64,7 +64,7 @@ MainButton.propTypes = {
 };
 
 export function CircleButton({ children, onClick }) {
-  const [pressed, setPressed] = useState(false);
+  const [pressed] = useState(false);
   const [props, set] = useSpring(() => ({
     from: { opacity: 1 },
     to: { opacity: pressed ? 0.5 : 1 }

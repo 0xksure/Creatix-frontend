@@ -1,30 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useTransition, animated } from "react-spring";
 import PropTypes from "prop-types";
 import { addFeedback } from "../../Actions/FeedbackDemo";
 
-const submitTextSentences = [
-  {
-    text: "ok",
-    key: 1
-  },
-  {
-    text: "hello",
-    key: 2
-  }
-];
-
 const ANON_USER = "Anon";
 function SubmitFeedback({ add }) {
-  const [items, set] = useState(submitTextSentences);
-  const transitions = useTransition(items, item => item.key, {
-    from: { transform: "translate3d(0,-40px,0)" },
-    enter: { transform: "translate3d(0,0px,0)" },
-    leave: { transform: "translate3d(0,-40px,0)" }
-  });
   return (
     <Formik
       initialValues={{ text: "" }}
