@@ -2,7 +2,7 @@ import React from "react";
 
 const STATEMENT = "Business Transparency Made Simple";
 const SUB_STATEMENT =
-  "Creatix is about transparency. Transparency in what people want, how people work and how people evolve. It is about having the opportunity to be heard and ultimately improving the business together.";
+  "tenXamp is about transparency. Transparency in what people want, how people work and how people evolve. It is about having the opportunity to be heard and ultimately improving the business together.";
 
 function HomeStatement() {
   return (

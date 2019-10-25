@@ -28,7 +28,7 @@ function Home() {
             <div className="creatix-btn secondary center">
               <div className="grid-x">
                 <div className="cell small-12">
-                  <h4 className="h4">Discover Creatix</h4>
+                  <h4 className="h4">Discover tenXamp</h4>
                 </div>
               </div>
             </div>

@@ -35,7 +35,7 @@ function Header({ toggle }) {
                       to="/"
                     >
                       <h4 className="h4 medium-font small margin-zero">
-                        Creatix
+                        tenXamp
                       </h4>
                     </NavLink>
                   </HeaderButton>
