@@ -41,7 +41,7 @@ function App() {
     <HelmetProvider>
       <Provider store={store}>
         <Helmet>
-          <title>Creatix</title>
+          <title>tenXamp</title>
           <meta
             name="description"
             content="Creatix homepage with information about how business transparency can be made simple through feedback cards, organization structure and team cards."
