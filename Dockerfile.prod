@@ -11,6 +11,8 @@ RUN npm install
 COPY . /app
 ARG TRACKING_ID
 ENV TRACKING_ID=$TRACKING_ID
+ARG GTM_ID
+ENV GTM_ID=$GTM_ID
 
 RUN npm run build
 

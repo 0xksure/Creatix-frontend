@@ -7,7 +7,7 @@ import { voteFeedback } from "../../Actions/FeedbackDemo";
 function FeedbackCard({ text, keyId, userName, votes, topics }) {
   const dispatch = useDispatch();
   return (
-    <div className="cell small-12 feedback-box">
+    <div className="cell small-12 feedback-box" key={keyId}>
       <div className="grid-x">
         <div className="cell small-12 medium-12 large-12">
           <p className="p box-text">{text}</p>
@@ -30,7 +30,7 @@ function FeedbackCard({ text, keyId, userName, votes, topics }) {
 
 FeedbackCard.propTypes = {
   text: PropTypes.string.isRequired,
-  keyId: PropTypes.number.isRequired,
+  keyId: PropTypes.string.isRequired,
   userName: PropTypes.string.isRequired,
   votes: PropTypes.number.isRequired,
   topics: PropTypes.arrayOf(PropTypes.string).isRequired
@@ -40,7 +40,6 @@ function ListFeedback({ feedbackList }) {
   const feedbackListOrdered = Object.keys(feedbackList).sort(function(a, b) {
     return feedbackList[a] - feedbackList[b];
   });
-  console.log(feedbackList);
   return (
     <div className="grid-x feedback-list">
       {feedbackListOrdered.map(key => {
@@ -59,7 +58,7 @@ function ListFeedback({ feedbackList }) {
 }
 
 ListFeedback.propTypes = {
-  feedbackList: PropTypes.arrayOf(PropTypes.object).isRequired
+  feedbackList: PropTypes.object.isRequired
 };
 
 export default ListFeedback;

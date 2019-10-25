@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 import { createLogger } from "redux-logger";
 import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import ReactGA from "react-ga";
 import { Helmet, HelmetProvider } from "react-helmet-async";

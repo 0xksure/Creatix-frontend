@@ -47,6 +47,7 @@
     "react-dev-utils": "^9.1.0",
     "react-dom": "^16.10.2",
     "react-ga": "^2.7.0",
+    "react-gtm-module": "^2.0.8",
     "react-helmet-async": "^1.0.4",
     "react-modal": "^3.10.1",
     "react-redux": "^7.1.1",

@@ -33,7 +33,7 @@ function SubmitFeedback({ add }) {
                 className="feedback-text"
                 type="text"
                 name="text"
-                placeHolder="Write your own feedback"
+                placeholder="Write your own feedback"
               />
             </div>
             <div className="small-12">

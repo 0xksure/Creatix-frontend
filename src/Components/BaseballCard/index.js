@@ -26,7 +26,7 @@ function Skill({ children, className, percentage }) {
   );
 }
 
-Skill.defaulProps = {
+Skill.defaultProps = {
   className: ""
 };
 Skill.propTypes = {

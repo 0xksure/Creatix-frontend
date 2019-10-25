@@ -14,12 +14,13 @@ function BannerText({ mainText, subText, bannerStyle }) {
 
 BannerText.propTypes = {
   mainText: PropTypes.string.isRequired,
-  subText: PropTypes.string.isRequired
+  subText: PropTypes.string.isRequired,
+  bannerStyle: PropTypes.string.isRequired
 };
 
 function Banner({ bannerStyle, id, leftPos, mainText, subText, element }) {
   return (
-    <div className={`grid-x fat-banner `} id={id}>
+    <div className="grid-x fat-banner" id={id}>
       {leftPos && (
         <BannerText
           mainText={mainText}
@@ -51,7 +52,7 @@ Banner.propTypes = {
   mainText: PropTypes.string.isRequired,
   subText: PropTypes.string.isRequired,
   bannerStyle: PropTypes.string,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   leftPos: PropTypes.bool,
   element: PropTypes.element
 };

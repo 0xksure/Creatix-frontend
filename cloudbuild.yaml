@@ -5,6 +5,8 @@ steps:
           'TRACKING_ID=${_TRACKING_ID}',
           '--build-arg',
           'NODE_ENV=${_NODE_ENV}',
+          '--build-arg',
+          'GTM_ID=${_GTM_ID}',
           '-f',
           'Dockerfile.prod',
           '-t',
@@ -13,6 +15,7 @@ steps:
 substitutions:
   _TRACKING_ID: GA-1010
   _NODE_ENV: production
+  _GTM_ID: GTM-000000
 images:
   - 'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA'
 

@@ -99,9 +99,9 @@ CircleButton.propTypes = {
 export function TopicBoxes({ topics, color = "gray" }) {
   return (
     <div className="topic-boxes">
-      {topics.map(topic => {
+      {topics.map((topic, idx) => {
         return (
-          <div className={`topic-box ${color} `}>
+          <div className={`topic-box ${color} `} key={idx}>
             <div className="p topic-content">{topic}</div>
           </div>
         );

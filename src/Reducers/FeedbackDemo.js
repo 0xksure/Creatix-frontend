@@ -6,14 +6,14 @@ import {
 } from "../Constants";
 
 const feedbackList = {
-  1: {
+  reduceChurn: {
     text: "Reduce churn rate by offering discounts",
     keyId: 1234,
     votes: 0,
     user: "Zoe",
     topics: ["Business", "Analytics"]
   },
-  2: {
+  reduceMeetings: {
     text:
       "Reduce time spent in meetings by introducing meeting rooms with one high table.",
     keyId: 1111,
