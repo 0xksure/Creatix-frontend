@@ -99,11 +99,12 @@
   //padding: 7px 17px;
   border: 1px solid #d8d8d8;
   border-radius: 20px;
+  min-width: 3rem;
   font-size: 12px;
   font-weight: 600;
 
   &.gray {
-    background-color: $creatix-gray;
+    background-color: $creatix-gray2;
     margin: 10px;
   }
   &.pink {
@@ -113,5 +114,6 @@
   .topic-content {
     margin: 10px;
     white-space: nowrap;
+    text-align: center;
   }
 }

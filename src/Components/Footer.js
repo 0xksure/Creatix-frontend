@@ -17,7 +17,7 @@ function Footer() {
               </li>
               <li>
                 <Link smooth to={{ pathname: "/discover", hash: "#feedback" }}>
-                  <p className="p blue">Feedback</p>
+                  <p className="p blue">ampFeedback</p>
                 </Link>
               </li>
               <li>
@@ -25,12 +25,12 @@ function Footer() {
                   smooth
                   to={{ pathname: "/discover", hash: "#transparency" }}
                 >
-                  <p className="p blue">Transparency</p>
+                  <p className="p blue">ampOverview</p>
                 </Link>
               </li>
               <li>
                 <Link smooth to={{ pathname: "/discover", hash: "#teamcards" }}>
-                  <p className="p blue">Team Cards</p>
+                  <p className="p blue">ampEmployees</p>
                 </Link>
               </li>
             </ul>

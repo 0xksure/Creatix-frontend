@@ -37,14 +37,14 @@ Skill.propTypes = {
 
 function BaseballCard() {
   return (
-    <div className="grid-x">
-      <div className="cell small-12 medium6 large-6 small-offset-2 medium-offset-4 large-offset-4 ">
+    <div className="grid-x center-content">
+      <div className="cell shrink">
         <div className="grid-x baseball-card">
           <div className="cell small-12">
-            <h4 className="h4">Some name</h4>
+            <h4 className="h4">Your Name</h4>
           </div>
           <div className="cell small-12">
-            <p className="p bold margin-zero">Creative Designer </p>
+            <p className="p bold margin-zero">Your title </p>
             <Skill className="horizontal" percentage={80}>
               <p className="p margin-zero margin-right-m">Experience</p>
             </Skill>
@@ -54,20 +54,15 @@ function BaseballCard() {
               <div className="cell small-12">
                 <p className="p bold margin-zero padding-zero">Skills</p>
                 <Skill percentage={80}>
-                  <p className="p margin-zero">UI</p>
+                  <p className="p margin-zero">Main skill</p>
                 </Skill>
                 <Skill percentage={20}>
-                  <p className="p margin-zero">Figma</p>
+                  <p className="p margin-zero">Secondary Skill</p>
                 </Skill>
-              </div>
-              <div className="cell small-6">
-                <p className="p bold margin-zero">Interests </p>
-                <p className="p medium-text"> Material design</p>
-                <p className="p medium-text"> Wireframes</p>
               </div>
             </div>
           </div>
-          <TopicBoxes topics={["UI", "Figma"]} />
+          <TopicBoxes topics={["#Tag1", "#Tag2"]} />
         </div>
       </div>
     </div>

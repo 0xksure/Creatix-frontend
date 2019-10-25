@@ -1,26 +1,50 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Banner({ bannerStyle, id, cellPosition, mainText, subText, element }) {
+function BannerText({ mainText, subText, bannerStyle }) {
   return (
-    <div className={`grid-x fat-banner ${bannerStyle}`} id={id}>
-      <div
-        className={`cell small-12 medium-12 large-6 ${cellPosition} padding-vertical-large`}
-      >
-        <h3 className="h3">{mainText}</h3>
-        <p className="p">{subText}</p>
-      </div>
+    <div
+      className={`cell small-12 medium-12 large-6 padding-vertical-large ${bannerStyle}`}
+    >
+      <h2 className="h2">{mainText}</h2>
+      <h4 className="h4">{subText}</h4>
+    </div>
+  );
+}
+
+BannerText.propTypes = {
+  mainText: PropTypes.string.isRequired,
+  subText: PropTypes.string.isRequired
+};
+
+function Banner({ bannerStyle, id, leftPos, mainText, subText, element }) {
+  return (
+    <div className={`grid-x fat-banner `} id={id}>
+      {leftPos && (
+        <BannerText
+          mainText={mainText}
+          subText={subText}
+          bannerStyle={bannerStyle}
+        />
+      )}
       <div className="cell small-12 medium-12 large-6 vertical-padding-s gray">
         {element}
       </div>
+      {!leftPos && (
+        <BannerText
+          mainText={mainText}
+          subText={subText}
+          bannerStyle={bannerStyle}
+        />
+      )}
     </div>
   );
 }
 
 Banner.defaultProps = {
   bannerStyle: "",
-  cellPosition: "left",
-  element: null
+  element: null,
+  leftPos: true
 };
 
 Banner.propTypes = {
@@ -28,7 +52,7 @@ Banner.propTypes = {
   subText: PropTypes.string.isRequired,
   bannerStyle: PropTypes.string,
   id: PropTypes.number.isRequired,
-  cellPosition: PropTypes.string,
+  leftPos: PropTypes.bool,
   element: PropTypes.element
 };
 

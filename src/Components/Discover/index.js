@@ -4,16 +4,21 @@ import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
 import FeedbackDemo from "../FeedbackDemo";
 import BaseballCard from "../BaseballCard";
+import AmpOverview from "../Overview";
+import { useWindowSize } from "../../Utils/Hooks";
 
-const FEEDBACK_MAIN = "Why feedback?";
+const FEEDBACK_MAIN = "ampFeedback";
+
 const FEEDBACK_SUB_TEXT =
-  "For your employee, values and culture are. The sense of being heard and have their feedback considred valuable. A great way to build a culture that supports innovation and efficiency is to let employees be heard.";
+  "Take feedback to a new level by amping ideas and suggestions. Easily amp feedback you find crucial for the growth of the company. ";
 
-const OVERVIEW_MAIN = "Why overview?";
-const OVERVIEW_SUB_TEXT = "";
+const OVERVIEW_MAIN = "ampOverview";
+const OVERVIEW_SUB_TEXT =
+  "A birds eye view of the company has to this date been illustrated in obsolete documents hidden somewhere on the intranet. With an amped overview together with skill cards it is easier than ever to find people significant to your task.";
 
-const CARDS_MAIN = "Why Team Cards?";
-const CARDS_SUB_TEXT = "Team cards";
+const CARDS_MAIN = "ampEmployees";
+const CARDS_SUB_TEXT =
+  "Let employees own their achievements. Over time skills can be amped or changed. By using skill cards it becomes easier to create well balanced and functional teams.";
 
 function Discover() {
   const modalIsOpen = useSelector(
@@ -21,6 +26,7 @@ function Discover() {
     shallowEqual
   );
   const blurClass = modalIsOpen ? "blur-on-modal" : "";
+  const size = useWindowSize();
   return (
     <fragment>
       <Helmet>
@@ -48,8 +54,8 @@ function Discover() {
           id="transparency"
           mainText={OVERVIEW_MAIN}
           subText={OVERVIEW_SUB_TEXT}
-          cellPosition=" large-offset-9"
-          bannerStyle="gray"
+          leftPos={size.width < 450}
+          element={<AmpOverview />}
         />
         <Banner
           id="teamcards"

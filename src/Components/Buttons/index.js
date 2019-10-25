@@ -96,12 +96,12 @@ CircleButton.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
-export function TopicBoxes({ topics }) {
+export function TopicBoxes({ topics, color = "gray" }) {
   return (
     <div className="topic-boxes">
       {topics.map(topic => {
         return (
-          <div className="topic-box gray">
+          <div className={`topic-box ${color} `}>
             <div className="p topic-content">{topic}</div>
           </div>
         );
@@ -111,5 +111,6 @@ export function TopicBoxes({ topics }) {
 }
 
 TopicBoxes.propTypes = {
-  topics: PropTypes.arrayOf(PropTypes.string).isRequired
+  topics: PropTypes.arrayOf(PropTypes.string).isRequired,
+  color: PropTypes.string
 };

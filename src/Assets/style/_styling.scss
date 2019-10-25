@@ -330,16 +330,31 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
 ";
 }
 
+.strong-pink {
+  background-color: $creatix-pink;
+}
+
+.strong-blue {
+  background-color: $creatix-blue;
+}
+
 .margin-top-small {
   margin: 1rem;
 }
 
+.padding-large {
+  padding: 5rem;
+}
 .padding-vertical-large {
   padding: 5rem;
 }
 
 .flex {
   display: flex;
+}
+
+.center-content {
+  justify-content: center;
 }
 
 html {
@@ -358,4 +373,5 @@ a {
   background: #000 !important;
   color: #0f0 !important;
   outline: solid #f00 1px !important;
-}*/
+}
+*/

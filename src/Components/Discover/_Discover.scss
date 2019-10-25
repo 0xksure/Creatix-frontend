@@ -16,11 +16,12 @@
   }
 
   &.gray {
-    background-color: rgba(243, 243, 243, 1);
+    background-color: $creatix-gray2;
   }
 
   .gray {
-    background-color: rgba(243, 243, 243, 1);
+    background-color: $creatix-gray2;
+    //background-color: $silver;
   }
   @media screen and (min-width: 20em) and (max-width: 40em) {
     //padding: 2rem;
