@@ -7,6 +7,7 @@ import Logo from "./Icons/Logo";
 import LoginModal from "./Modals/LoginModal";
 import toggleModal from "../Actions/Modal";
 import { HeaderButton, MainButton } from "./Buttons";
+import analyticsEvent from "../Utils/Analytics";
 
 function Header({ toggle }) {
   const modalIsOpen = useSelector(
@@ -58,6 +59,11 @@ function Header({ toggle }) {
                   <MainButton
                     onToggle={() => {
                       toggle(!modalIsOpen);
+                      analyticsEvent(
+                        "Sign up",
+                        modalIsOpen ? "Closed modal" : "Open modal",
+                        "Pushed the sign up button"
+                      );
                     }}
                     modalIsOpen={modalIsOpen}
                   >
