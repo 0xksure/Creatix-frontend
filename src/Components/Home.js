@@ -24,7 +24,7 @@ function Home() {
       <Features />
       <div className="grid-x margin-top-small">
         <div className="cell small-12">
-          <Link to="/discover#header">
+          <Link to="/discover#header" id="discover_tenxamp_button">
             <div className="creatix-btn secondary center">
               <div className="grid-x">
                 <div className="cell small-12">

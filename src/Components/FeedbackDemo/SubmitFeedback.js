@@ -30,6 +30,7 @@ function SubmitFeedback({ add }) {
           <div className="grid-x">
             <div className="cell small-12">
               <Field
+                id="feedbackdemo_text_input"
                 className="feedback-text"
                 type="text"
                 name="text"
@@ -39,6 +40,7 @@ function SubmitFeedback({ add }) {
             <div className="small-12">
               <ErrorMessage name="text" component="div" />
               <button
+                id="feedbackdemo_submit_button"
                 className="creatix-btn secondary inverted"
                 type="submit"
                 disabled={isSubmitting}

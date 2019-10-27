@@ -20,14 +20,14 @@ function Header({ toggle }) {
       <div className="grid-container">
         <div className="grid-x">
           <div className="cell small-2 medium-2 large-5">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/" id="header_logo_nav_link">
               <Logo className="svg-logo" />
             </Link>
           </div>
           <div className="cell small-10 medium-10 large-7">
             <nav className="site-nav">
               <ul className="nav-list">
-                <li className="nav-item">
+                <li className="nav-item" id="header_main_nav_link">
                   <HeaderButton>
                     <NavLink
                       activeClassName="nav-link_active"
@@ -41,7 +41,7 @@ function Header({ toggle }) {
                     </NavLink>
                   </HeaderButton>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item" id="header_discover_nav_link">
                   <HeaderButton>
                     <NavLink
                       activeClassName="nav-link_active"
@@ -55,7 +55,7 @@ function Header({ toggle }) {
                     </NavLink>
                   </HeaderButton>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item" id="header_signup_modal">
                   <MainButton
                     onToggle={() => {
                       toggle(!modalIsOpen);
