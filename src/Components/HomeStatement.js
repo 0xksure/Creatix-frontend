@@ -9,8 +9,12 @@ function HomeStatement() {
     <div className="grid-x">
       <div className="cell small-12 home-statement">
         <div className="text-content">
-          <h1 className="h1 large">{STATEMENT}</h1>
-          <p className="p large">{SUB_STATEMENT}</p>
+          <h1 className="h1 large" id="home_statement_main">
+            {STATEMENT}
+          </h1>
+          <p className="p large" id="home_sub_statement_main">
+            {SUB_STATEMENT}
+          </p>
         </div>
       </div>
     </div>

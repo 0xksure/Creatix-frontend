@@ -38,27 +38,27 @@ function Discover() {
       <div className={`grid-container full ${blurClass}`}>
         <div className="grid-x big-statement">
           <div className="cell small-12 medium-12 large-6">
-            <h1 className="h1">
+            <h1 className="h1" id="discover_main_text">
               Empower your employees in improving the business
             </h1>
           </div>
         </div>
         <Banner
-          id="feedback"
+          id="discover_feedback"
           mainText={FEEDBACK_MAIN}
           subText={FEEDBACK_SUB_TEXT}
           bannerStyle="strong-blue"
           element={<FeedbackDemo />}
         />
         <Banner
-          id="transparency"
+          id="discover_transparency"
           mainText={OVERVIEW_MAIN}
           subText={OVERVIEW_SUB_TEXT}
           leftPos={size.width < 450}
           element={<AmpOverview />}
         />
         <Banner
-          id="teamcards"
+          id="discover_teamcards"
           mainText={CARDS_MAIN}
           subText={CARDS_SUB_TEXT}
           bannerStyle="strong-pink"

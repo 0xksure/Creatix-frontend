@@ -16,24 +16,38 @@ function Features() {
   return (
     <div className="grid-x grid-padding-x creatix-features">
       <div className="cell small-12 medium-12-large-12 creatix-feature-statement">
-        <h2 className="h2">Discover the product</h2>
+        <h2 className="h2" id="home_features_main_text">
+          Discover the product
+        </h2>
       </div>
       <div className="cell small-12 medium-12 large-12 ">
         <div className="grid-x grid-margin-x">
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <FeedbackStacked className="product-icon" />
-            <h1 className="h1 medium-font">ampFeedback</h1>
-            <p className="p">{CARD_TEXT_1}</p>
+            <h1 className="h1 medium-font" id="home_features_feedback_main">
+              ampFeedback
+            </h1>
+            <p className="p" id="home_features_feedback_card_text">
+              {CARD_TEXT_1}
+            </p>
           </div>
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <Overview className="product-icon" />
-            <h1 className="h1 medium-font ">ampOverview </h1>
-            <p className="p">{CARD_TEXT_2}</p>
+            <h1 className="h1 medium-font" id="home_features_overview_main">
+              ampOverview
+            </h1>
+            <p className="p" id="home_features_overview_card_text">
+              {CARD_TEXT_2}
+            </p>
           </div>
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <TeamCard className="product-icon" />
-            <h1 className="h1 medium-font">ampTeams </h1>
-            <p className="p">{CARD_TEXT_3}</p>
+            <h1 className="h1 medium-font" id="home_features_teams_main">
+              ampTeams
+            </h1>
+            <p className="p" id="home_features_teams_card_text">
+              {CARD_TEXT_3}
+            </p>
           </div>
         </div>
       </div>

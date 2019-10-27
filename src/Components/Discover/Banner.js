@@ -1,13 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function BannerText({ mainText, subText, bannerStyle }) {
+function BannerText({ mainText, subText, bannerStyle, id }) {
   return (
     <div
       className={`cell small-12 medium-12 large-6 padding-vertical-large ${bannerStyle}`}
     >
-      <h2 className="h2">{mainText}</h2>
-      <h4 className="h4">{subText}</h4>
+      <h2 className="h2" id={`${id}_main_text`}>
+        {mainText}
+      </h2>
+      <h4 className="h4" id={`${id}_sub_text`}>
+        {subText}
+      </h4>
     </div>
   );
 }
@@ -15,7 +19,8 @@ function BannerText({ mainText, subText, bannerStyle }) {
 BannerText.propTypes = {
   mainText: PropTypes.string.isRequired,
   subText: PropTypes.string.isRequired,
-  bannerStyle: PropTypes.string.isRequired
+  bannerStyle: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 function Banner({ bannerStyle, id, leftPos, mainText, subText, element }) {
@@ -26,6 +31,7 @@ function Banner({ bannerStyle, id, leftPos, mainText, subText, element }) {
           mainText={mainText}
           subText={subText}
           bannerStyle={bannerStyle}
+          id={id}
         />
       )}
       <div className="cell small-12 medium-12 large-6 vertical-padding-s gray">
@@ -36,6 +42,7 @@ function Banner({ bannerStyle, id, leftPos, mainText, subText, element }) {
           mainText={mainText}
           subText={subText}
           bannerStyle={bannerStyle}
+          id={id}
         />
       )}
     </div>
