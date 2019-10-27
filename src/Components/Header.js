@@ -74,7 +74,9 @@ function Header({ toggle }) {
                     }}
                     modalIsOpen={modalIsOpen}
                   >
-                    <div className="text">Sign up</div>
+                    <div className="text" id="header_signup_modal">
+                      Sign up
+                    </div>
                   </MainButton>
                 </li>
               </ul>
