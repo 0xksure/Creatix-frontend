@@ -20,7 +20,9 @@ function FeedbackCard({ text, keyId, userName, votes, topics }) {
             id="feedbackdemo_button_vote"
             onClick={() => dispatch(voteFeedback(keyId))}
           >
-            <div className="p">{votes}</div>
+            <div className="p" id="feedbackdemo_button_vote">
+              {votes}
+            </div>
           </CircleButton>
         </div>
         <div className="cell small-12 medium-3 large-3">
