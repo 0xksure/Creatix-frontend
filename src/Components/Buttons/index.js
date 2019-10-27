@@ -39,7 +39,12 @@ HeaderButton.propTypes = {
   children: PropTypes.element.isRequired
 };
 
-export function MainButton({ children, onToggle, modalIsOpen }) {
+export function MainButton({
+  id = "undefined",
+  children,
+  onToggle,
+  modalIsOpen
+}) {
   const [props] = useSpring(() => ({
     from: { opacity: 1 },
     to: { opacity: modalIsOpen ? 0.1 : 1 }
@@ -47,6 +52,7 @@ export function MainButton({ children, onToggle, modalIsOpen }) {
   return (
     <animated.div style={props}>
       <button
+        id={id}
         className="creatix-btn primary"
         onClick={() => onToggle()}
         type="button"
@@ -60,7 +66,12 @@ export function MainButton({ children, onToggle, modalIsOpen }) {
 MainButton.propTypes = {
   children: PropTypes.element.isRequired,
   onToggle: PropTypes.func.isRequired,
-  modalIsOpen: PropTypes.bool.isRequired
+  modalIsOpen: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired
+};
+
+MainButton.defaultTypes = {
+  id: "undefined"
 };
 
 export function CircleButton({ children, onClick }) {

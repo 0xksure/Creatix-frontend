@@ -27,7 +27,7 @@ function Header({ toggle }) {
           <div className="cell small-10 medium-10 large-7">
             <nav className="site-nav">
               <ul className="nav-list">
-                <li className="nav-item" id="header_main_nav_link">
+                <li className="nav-item">
                   <HeaderButton>
                     <NavLink
                       activeClassName="nav-link_active"
@@ -35,13 +35,16 @@ function Header({ toggle }) {
                       exact
                       to="/"
                     >
-                      <h4 className="h4 medium-font small margin-zero">
+                      <h4
+                        className="h4 medium-font small margin-zero"
+                        id="header_main_nav_link"
+                      >
                         tenXamp
                       </h4>
                     </NavLink>
                   </HeaderButton>
                 </li>
-                <li className="nav-item" id="header_discover_nav_link">
+                <li className="nav-item">
                   <HeaderButton>
                     <NavLink
                       activeClassName="nav-link_active"
@@ -49,7 +52,10 @@ function Header({ toggle }) {
                       exact
                       to="/discover"
                     >
-                      <h4 className="h4 medium-font small margin-zero">
+                      <h4
+                        className="h4 medium-font small margin-zero"
+                        id="header_discover_nav_link"
+                      >
                         Discover
                       </h4>
                     </NavLink>
@@ -57,6 +63,7 @@ function Header({ toggle }) {
                 </li>
                 <li className="nav-item" id="header_signup_modal">
                   <MainButton
+                    id="header_signup_modal"
                     onToggle={() => {
                       toggle(!modalIsOpen);
                       analyticsEvent(

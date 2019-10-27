@@ -15,22 +15,28 @@ function Footer() {
               <li>
                 <p className="p bold-font pink"> Products</p>
               </li>
-              <li id="footer_ampfeedback_nav_link">
+              <li>
                 <Link smooth to={{ pathname: "/discover", hash: "#feedback" }}>
-                  <p className="p blue">ampFeedback</p>
+                  <p className="p blue" id="footer_ampfeedback_nav_link">
+                    ampFeedback
+                  </p>
                 </Link>
               </li>
-              <li id="footer_ampoverview_nav_link">
+              <li>
                 <Link
                   smooth
                   to={{ pathname: "/discover", hash: "#transparency" }}
                 >
-                  <p className="p blue">ampOverview</p>
+                  <p className="p blue" id="footer_ampoverview_nav_link">
+                    ampOverview
+                  </p>
                 </Link>
               </li>
-              <li id="footer_ampemployees_nav_link">
+              <li>
                 <Link smooth to={{ pathname: "/discover", hash: "#teamcards" }}>
-                  <p className="p blue">ampEmployees</p>
+                  <p className="p blue" id="footer_ampemployees_nav_link">
+                    ampEmployees
+                  </p>
                 </Link>
               </li>
             </ul>
@@ -42,9 +48,11 @@ function Footer() {
               <li>
                 <p className="p bold-font pink"> tenXamp</p>
               </li>
-              <li id="footer_about_nav_link">
+              <li>
                 <Link smooth to={{ pathname: "/discover", hash: "#feedback" }}>
-                  <p className="p blue">About</p>
+                  <p className="p blue" id="footer_about_nav_link">
+                    About
+                  </p>
                 </Link>
               </li>
             </ul>
