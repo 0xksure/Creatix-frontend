@@ -55,11 +55,9 @@ function LoginModal() {
         <div className="cell small-12 medium-6 large-4 small-offset-0 medium-offset-4 large-offset-8 login-box">
           <p className="p bold pink">Hi! Thank you for showing interest! </p>
           <p className="p">
-            We are currently not live yet, but out developers are working hard.
-            If you want us to contact you when everything is ready, please
-            submit your email below.
+            The products are not yet assembled. However we are working as fast
+            as possible to deliver you 10xamp.
           </p>
-          <EmailForm />
         </div>
       </div>
     </div>
