@@ -11,6 +11,7 @@ import * as serviceWorker from "./serviceWorker";
 if (process.env.NODE_ENV !== "production") {
   module.hot.accept();
 }
+
 const trackingID = process.env.TRACKING_ID;
 const gtmId = process.env.GTM_ID;
 ReactGA.initialize(trackingID, {

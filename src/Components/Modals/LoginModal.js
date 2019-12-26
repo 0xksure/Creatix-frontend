@@ -1,40 +1,10 @@
-import React, { useLayoutEffect } from "react";
-
-import { Formik, Form, Field, ErrorMessage } from "formik";
-
+import React, { useLayoutEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Form, Field, ErrorMessage, useFormik } from "formik";
+import { Link, NavLink } from "react-router-dom";
 import AlertBox from "../Alerts";
-
-function EmailForm() {
-  return (
-    <Formik
-      initialValues={{ email: "" }}
-      validate={values => {
-        const errors = {};
-        if (!values.email) {
-          errors.email = "Required";
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = "Invalid email address";
-        }
-        return errors;
-      }}
-    >
-      {({ isSubmitting, status }) => (
-        <Form>
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
-          {status && status.msg && (
-            <AlertBox alertType="error">{status.msg}</AlertBox>
-          )}
-        </Form>
-      )}
-    </Formik>
-  );
-}
+import { loginUser } from "../../Actions/Auth";
+import { MainButton } from "../Buttons";
 
 function useLockBodyScroll() {
   useLayoutEffect(() => {
@@ -48,17 +18,81 @@ function useLockBodyScroll() {
 }
 
 function LoginModal() {
+  const dispatch = useDispatch();
+  const authErrorMessage = useSelector(state => state.Auth.errorMessage);
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: ""
+    },
+    onSubmit: values => {
+      console.log(values);
+      dispatch(loginUser(values.email, values.password));
+    },
+    validate: values => {
+      const errors = {};
+      if (!values.email) {
+        errors.email = "Email is required";
+      } else if (
+        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+      ) {
+        errors.email = "Invalid email address";
+      }
+      return errors;
+    }
+  });
+
   useLockBodyScroll();
   return (
-    <div className="grid-container login-modal">
-      <div className="grid-x">
-        <div className="cell small-12 medium-6 large-4 small-offset-0 medium-offset-4 large-offset-8 login-box">
-          <p className="p bold pink">Hi! Thank you for showing interest! </p>
-          <p className="p">
-            The products are not yet assembled. However we are working as fast
-            as possible to deliver you 10xamp.
-          </p>
-        </div>
+    <div className="grid-x login-modal">
+      <div className="cell small-4 small-offset-5 login-box">
+        <form onSubmit={formik.handleSubmit}>
+          <label htmlFor="email">Email address </label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={formik.handleChange}
+          />
+          {formik.errors.email && (
+            <AlertBox alertType="error">{formik.errors.email}</AlertBox>
+          )}
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={formik.handleChange}
+          />
+          <div className="grid-x">
+            <div className="cell small-4">
+              <MainButton buttonType="submit" size="small">
+                Login
+              </MainButton>
+            </div>
+            <div className="cell small-4">
+              <MainButton size="small">
+                <NavLink
+                  activeClassName="nav-link_active"
+                  className="nav-link"
+                  exact
+                  to="/signup"
+                >
+                  Signup
+                </NavLink>
+              </MainButton>
+            </div>
+          </div>
+
+          {formik.status && formik.status.msg && (
+            <AlertBox alertType="error">{formik.status.msg}</AlertBox>
+          )}
+          {authErrorMessage && (
+            <AlertBox alertType="error">{authErrorMessage}</AlertBox>
+          )}
+        </form>
       </div>
     </div>
   );

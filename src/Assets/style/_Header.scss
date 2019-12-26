@@ -13,16 +13,14 @@
 }
 
 .site-nav {
-  display: block;
   .nav-list {
-    display: flex;
     align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
 
     .nav-item {
-      margin-right: 2rem;
+      margin-top: 1rem;
 
       .nav-link {
         color: $creatix-pink;
@@ -38,24 +36,31 @@
   }
 }
 
+.side-menu {
+  position: sticky;
+  top: 0;
+  height: 100%;
+  top: 50%;
+}
+
 .login-modal {
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: -1; /* Sit on top */
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  //height: 100%;
+  //overflow: hidden;
 
   .login-box {
     border-radius: 10px;
     border: 1px solid;
     border-color: $electron-blue;
     padding: 2rem;
-    background-color: $creatix-white-light-blue;
+    background-color: $creatix-pink;
   }
 }
 
 .blur-on-modal {
-  filter: blur(2px);
+  //filter: blur(2px);
   body {
     overflow: hidden;
   }

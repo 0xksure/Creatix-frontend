@@ -41,9 +41,12 @@ HeaderButton.propTypes = {
 
 export function MainButton({
   id = "undefined",
+  size = "",
   children,
-  onToggle,
-  modalIsOpen
+  onToggle = () => {},
+  modalIsOpen,
+  buttonType = "button",
+  disabled = false
 }) {
   const [props] = useSpring(() => ({
     from: { opacity: 1 },
@@ -53,9 +56,10 @@ export function MainButton({
     <animated.div style={props}>
       <button
         id={id}
-        className="creatix-btn primary"
+        className={`creatix-btn primary ${size}`}
         onClick={() => onToggle()}
-        type="button"
+        type={buttonType}
+        disabled={disabled}
       >
         <div className="h4 medium-font small margin-zero">{children}</div>
       </button>
@@ -67,7 +71,9 @@ MainButton.propTypes = {
   children: PropTypes.element.isRequired,
   onToggle: PropTypes.func.isRequired,
   modalIsOpen: PropTypes.bool.isRequired,
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  buttonType: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired
 };
 
 MainButton.defaultTypes = {

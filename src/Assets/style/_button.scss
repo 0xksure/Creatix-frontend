@@ -53,6 +53,10 @@
     color: $white;
     margin: 0;
 
+    &.small {
+      padding: 0.1em 0.5em;
+    }
+
     &.center {
       width: 50%;
       margin-left: auto;
@@ -116,4 +120,66 @@
     white-space: nowrap;
     text-align: center;
   }
+}
+
+/// FLOATING MATERIAL BUTTON
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+.container {
+  //position: relative;
+  //width: 320px;
+  //height: 200px;
+  //background: #ececec;
+}
+
+.floating-menu {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  height: 42px;
+  text-align: right;
+  top: 50%;
+  right: 10%;
+  /*transition: height 250ms ease-in-out;*/
+}
+
+.floating-menu.open {
+  height: 150px;
+  overflow: hidden;
+}
+
+.floating-menu.open .floating-menu-item {
+  margin-top: 8px;
+}
+
+.floating-menu-item label {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+
+.floating-menu.open .floating-menu-item label {
+  opacity: 0.4;
+}
+
+.floating-menu-icon {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  vertical-align: middle;
+  background: #e53935;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.floating-menu-icon .material-icons {
+  font-size: 32px;
+  color: #fff;
+  vertical-align: middle;
 }

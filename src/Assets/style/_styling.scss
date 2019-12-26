@@ -15,6 +15,7 @@ $creatix-white-light-blue: rgba(255, 255, 255, 1);
 
 // PINK
 $creatix-pink: rgba(250, 10, 90, 1);
+$creatix-pink-shade: rgba(250, 10, 90, 1);
 
 // PURPLE
 $creatix-card-purple: rgba(153, 68, 230, 1);
@@ -226,6 +227,13 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   &.center {
     text-align: center;
   }
+  &.margin-zero {
+    margin: 0px;
+  }
+
+  &.padding-zero {
+    padding: 0px;
+  }
 }
 
 .h4 {
@@ -278,6 +286,9 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   &.large {
     font-size: 22px;
   }
+  &.medium {
+    font-size: 20px;
+  }
   &.pink {
     color: $creatix-pink;
   }
@@ -289,23 +300,37 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   &.center {
     text-align: center;
   }
-  &.margin-zero {
-    margin: 0px;
-  }
-
-  &.padding-zero {
-    padding: 0px;
-  }
-
-  &.margin-right-s {
-    margin-right: 3px;
-  }
-
-  &.margin-right-m {
-    margin-right: 5px;
-  }
 }
 
+/////////////////////// Text styling ////////////////
+
+// Margins
+.margin-zero {
+  margin: 0px;
+}
+.margin-bottom-s {
+  margin-bottom: 5px;
+}
+
+.margin-right-s {
+  margin-right: 3px;
+}
+
+.margin-right-m {
+  margin-right: 5px;
+}
+
+// PAdding
+.padding-zero {
+  padding: 0px;
+}
+
+// Color
+.blue-on-pink {
+  color: $creatix-light-blue;
+  color: $creatix-footer-blue;
+}
+///////////////////////////////////////////////////////
 .default-body {
   font-family: "Creatix Bold";
   width: 100%;

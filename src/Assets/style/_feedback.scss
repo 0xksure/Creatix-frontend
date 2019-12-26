@@ -1,0 +1,19 @@
+.searchbar {
+  width: 100%;
+}
+.clap {
+  cursor: pointer;
+}
+
+.feedback-list {
+  list-style: none;
+  margin: 0;
+}
+
+.feedback-item {
+  border: cornflowerblue;
+  border-width: 5px;
+  background-color: $creatix-pink-shade;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
