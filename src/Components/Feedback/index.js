@@ -22,7 +22,7 @@ function beautifulDiffDate(date1, date2) {
     return `${Math.ceil(diffHours)} hrs ago`;
   }
   const diffDays = diffHours / 24;
-  return `${Math.ceil(diff)} days ago`;
+  return `${Math.ceil(diffDays)} days ago`;
 }
 
 function FeedbackItem({ feedback }) {
