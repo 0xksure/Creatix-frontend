@@ -1,4 +1,7 @@
 import {
+  POST_FEEDBACK_REQUEST,
+  POST_FEEDBACK_SUCCESS,
+  POST_FEEDBACK_FAILURE,
   GET_FEEDBACK_REQUEST,
   GET_FEEDBACK_SUCCESS,
   GET_FEEDBACK_FAILURE,
@@ -7,6 +10,34 @@ import {
   CLAP_FEEDBACK_FAILURE
 } from "../Constants";
 
+
+/////////////////// POST FEEDACK /////////////////////////
+function postFeedbackRequest(){
+  return {
+    type: POST_FEEDBACK_REQUEST
+  }
+}
+
+function postFeedbackSuccess(){
+  return {
+    type: POST_FEEDBACK_SUCCESS
+  }
+}
+
+function postFeedbackFailure(){
+  return {
+    type:POST_FEEDBACK_FAILURE
+  }
+}
+
+export const postFeedback = (title,description)=>{
+  return dispatch => {
+    fetch(process.env.API_URL)
+  }
+  
+}
+
+//////////////////// GET FEEDBACK ////////////////////////
 function getFeedbackRequest() {
   return {
     type: GET_FEEDBACK_REQUEST
