@@ -22,25 +22,30 @@
     .nav-item {
       margin-top: 1rem;
 
-      .nav-link {
-        color: $creatix-pink;
-        position: relative;
-        display: inline-block;
-      }
-      .nav-link_active {
-        color: $creatix-blue;
-        position: relative;
-        display: inline-block;
-      }
+      
+      
     }
   }
 }
+
+.nav-link {
+  color: $creatix-pink;
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link__active {
+  color: $creatix-white-deep-blue;
+  position: relative;
+  display: inline-block;
+}
+
 
 .side-menu {
   position: sticky;
   top: 0;
   height: 100%;
-  top: 50%;
+  top: 25%;
 }
 
 .login-modal {
@@ -66,11 +71,3 @@
   }
 }
 
-.svg-logo {
-  width: 3rem;
-  height: auto;
-  @media screen and (max-width: 39.9375em) {
-    width: 2rem;
-    height: auto;
-  }
-}

@@ -17,11 +17,11 @@ import Signup from "../Components/Signup";
 import Login from "../Components/Login";
 import UserHome from "../Components/UserHome";
 import Footer from "../Components/Footer";
-import GetStarted from "../Components/GetStarted";
 import Discover from "../Components/Discover";
 import rootReducer from "../Reducers";
 import Validation from "../Utils/Validation";
 import Feedback from "../Components/Feedback";
+import ForgotPassword from "../Components/ForgotPassword"
 import { verifyAuth } from "../Actions/Auth";
 const history = createBrowserHistory();
 
@@ -84,9 +84,9 @@ function App() {
                   <Route exact path="/main" component={Home} />
                   <Route path="/main/:topic" component={Home} />
                   <Route path="/discover" component={Discover} />
-                  <Route path="/get-started" component={GetStarted} />
                   <Route path="/login" component={Login} />
                   <Route path="/signup" component={Signup} />
+                  <Route path="/forgot-password" component={ForgotPassword} />
                   <SecretRoute path="/:id/user-home" component={UserHome} />
                   <SecretRoute path="/:id/feedback" component={Feedback} />
                 </Switch>

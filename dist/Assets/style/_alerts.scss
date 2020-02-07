@@ -1,8 +1,12 @@
 .alert {
+  border-radius: 5px;
+  padding:1rem;
+  width:100%;
+  text-align: center;  
   &.error {
     background-color: $creatix-alert-red;
   }
-  border-radius: 5px;
+  
   .text {
     padding: 1rem;
   }

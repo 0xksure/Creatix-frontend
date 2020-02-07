@@ -8,6 +8,7 @@ $creatix-deep-blue: rgba(19, 15, 64, 1);
 $creatix-footer-blue: rgba(19, 20, 170, 1);
 $creatix-card-blue: rgba(10, 20, 200, 1);
 $creatix-shadow-blue: rgba(10, 20, 200, 0.8);
+$creatix-link-blue: rgba(72,155,232,1);
 
 // WHITE
 $creatix-white-deep-blue: rgba(236, 240, 241, 1);
@@ -202,6 +203,10 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
     font-family: "Creatix Medium";
   }
 
+  &.small-font{
+    font-size: 2rem;
+  }
+
   &.uppercase {
     text-transform: uppercase;
   }
@@ -220,6 +225,8 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   &.medium-font {
     font-family: "Creatix Medium";
   }
+
+
 
   &.uppercase {
     text-transform: uppercase;
@@ -302,6 +309,13 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   }
 }
 
+.link{
+  color: $creatix-link-blue;
+  &.right{
+    text-align: right;
+  }
+}
+
 /////////////////////// Text styling ////////////////
 
 // Margins
@@ -312,6 +326,40 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   margin-bottom: 5px;
 }
 
+.margin-top-s {
+  margin-bottom: 5px;
+}
+.margin-vertical-s{
+  @extend .margin-bottom-s;
+  @extend .margin-top-s;
+}
+
+.margin-top-l{
+  margin-top: 5rem;
+}
+
+.margin-bottom-l{
+  margin-bottom: 5rem;
+}
+
+.margin-vertical-l{
+  @extend .margin-top-l;
+  @extend .margin-bottom-l;
+}
+
+.margin-top-xl{
+  margin-top: 10rem;
+}
+
+.margin-bottom-xl{
+  margin-bottom: 10 tex-arem;
+}
+
+.margin-vertical-xl{
+  @extend .margin-top-xl;
+  @extend .margin-bottom-xl;
+}
+
 .margin-right-s {
   margin-right: 3px;
 }
@@ -320,10 +368,124 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   margin-right: 5px;
 }
 
+
 // PAdding
 .padding-zero {
   padding: 0px;
 }
+
+.padding-top-s {
+  padding-top: 1rem;
+}
+.padding-bottom-s {
+  padding-bottom: 1rem;
+}
+.padding-vertical-s {
+  @extend .padding-top-s;
+  @extend .padding-bottom-s;
+}
+
+.padding-top-m {
+  padding-top: 3rem;
+}
+.padding-bottom-m {
+  padding-bottom: 3rem;
+}
+.padding-vertical-m {
+  @extend .padding-top-m;
+  @extend .padding-bottom-m;
+}
+
+.padding-top-l {
+  padding-top: 5rem;
+}
+.padding-bottom-l {
+  padding-bottom: 5rem;
+}
+.padding-vertical-l {
+  @extend .padding-top-l;
+  @extend .padding-bottom-l;
+}
+
+.padding-top-xl {
+  padding-top: 10rem;
+}
+.padding-bottom-xl {
+  padding-bottom: 10rem;
+}
+.padding-vertical-xl {
+  @extend .padding-top-xl;
+  @extend .padding-bottom-xl;
+}
+
+.padding-top-xxl {
+  padding-top: 15rem;
+}
+.padding-bottom-xxl {
+  padding-bottom: 15rem;
+}
+.padding-vertical-xxl {
+  @extend .padding-top-xxl;
+  @extend .padding-bottom-xxl;
+}
+
+// padding horizontal L
+.padding-left-l {
+  padding-left: 5rem;
+}
+.padding-right-l {
+  padding-right: 5rem;
+}
+.padding-horizontal-l {
+  @extend .padding-left-l;
+  @extend .padding-right-l;
+}
+
+// padding horizontal XL
+.padding-left-xl {
+  padding-left: 10rem;
+}
+.padding-right-xl {
+  padding-right: 10rem;
+}
+.padding-horizontal-xl {
+  @extend .padding-left-xl;
+  @extend .padding-right-xl;
+}
+
+// padding horizontal XXL
+.padding-left-xxl {
+  padding-left: 15rem;
+}
+.padding-right-xxl {
+  padding-right: 15rem;
+}
+.padding-horizontal-xxl {
+  @extend .padding-left-xxl;
+  @extend .padding-right-xxl;
+}
+
+// Icon
+.svg-logo {
+  width: 3rem;
+  height: auto;
+  @media screen and (max-width: 39.9375em) {
+    width: 2rem;
+    height: auto;
+  }
+
+  &.icon-s{
+    height: 80px;
+    width: 80px;
+  }
+  
+  &.icon-m{
+    height: 120px;
+    width: 120px;
+  }
+}
+
+
 
 // Color
 .blue-on-pink {
@@ -350,9 +512,7 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
 
 .bold-pink {
   color: $creatix-pink;
-  font-family: "
     margin-right:10px;
-";
 }
 
 .strong-pink {
@@ -363,16 +523,6 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   background-color: $creatix-blue;
 }
 
-.margin-top-small {
-  margin: 1rem;
-}
-
-.padding-large {
-  padding: 5rem;
-}
-.padding-vertical-large {
-  padding: 5rem;
-}
 
 .flex {
   display: flex;
@@ -380,6 +530,10 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
 
 .center-content {
   justify-content: center;
+}
+
+.horizontal-center{
+  text-align: center;
 }
 
 html {

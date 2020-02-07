@@ -10,7 +10,10 @@ import {
   LOGOUT_FAILURE,
   VERIFY_REQUEST,
   VERIFY_SUCCESS,
-  VERIFY_FAILURE
+  VERIFY_FAILURE,
+  RESET_PWD_REQUEST,
+  RESET_PWD_SUCCESS,
+  RESET_PWD_FAILURE
 } from "../Constants";
 import { getFeedback } from "./Feedback";
 import { getCookie, setCookie, removeCookie } from "../Utils/Cookies";
@@ -42,7 +45,7 @@ function loginRequest() {
 
 export const signupUser = signupForm => {
   return dispatch =>
-    new Promise(function(resolve, reject) {
+    new Promise(function (resolve, reject) {
       dispatch(signupRequest());
       fetch(process.env.API_URL + "auth/user/signup", {
         method: "post",
@@ -76,7 +79,7 @@ function loginFailure(error) {
 
 export const loginUser = (email, password) => {
   return dispatch =>
-    new Promise(function(resolve, reject) {
+    new Promise(function (resolve, reject) {
       dispatch(loginRequest());
       fetch(process.env.API_URL + "auth/user/login", {
         method: "POST",
@@ -188,3 +191,53 @@ export const verifyAuth = () => {
       });
   };
 };
+
+
+function resetPasswordRequest() {
+  return {
+    type: RESET_PWD_REQUEST
+  }
+}
+
+function resetPasswordSuccess(success) {
+  return {
+    type: RESET_PWD_SUCCESS,
+    success
+  }
+}
+
+function resetPasswordFailure(error) {
+  return {
+    type: RESET_PWD_FAILURE,
+    error
+  }
+}
+
+export const resetPassword = (email) => {
+  return dispatch =>
+    new Promise(function (resolve, reject) {
+      dispatch(resetPasswordRequest());
+      fetch(process.env.API_URL + "auth/user/reset_password", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          email,
+        })
+      })
+        .then(resp => {
+          return resp.json();
+        })
+        .then(user => {
+          dispatch(resetPasswordSuccess(user));
+          resolve(user);
+        })
+        .catch(err => {
+          dispatch(resetPasswordFailure(err));
+          reject(err);
+        });
+    });
+}

@@ -24,27 +24,27 @@ function Features() {
         <div className="grid-x grid-margin-x">
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <FeedbackStacked className="product-icon" />
-            <h1 className="h1 medium-font" id="home_features_feedback_main">
+            <h2 className="h2 medium-font small-font" id="home_features_feedback_main">
               ampFeedback
-            </h1>
+            </h2>
             <p className="p" id="home_features_feedback_card_text">
               {CARD_TEXT_1}
             </p>
           </div>
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <Overview className="product-icon" />
-            <h1 className="h1 medium-font" id="home_features_overview_main">
+            <h2 className="h2 medium-font small-font" id="home_features_overview_main">
               ampOverview
-            </h1>
+            </h2>
             <p className="p" id="home_features_overview_card_text">
               {CARD_TEXT_2}
             </p>
           </div>
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <TeamCard className="product-icon" />
-            <h1 className="h1 medium-font" id="home_features_teams_main">
+            <h2 className="h2 medium-font small-font" id="home_features_teams_main">
               ampTeams
-            </h1>
+            </h2>
             <p className="p" id="home_features_teams_card_text">
               {CARD_TEXT_3}
             </p>

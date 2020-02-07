@@ -42,6 +42,7 @@ HeaderButton.propTypes = {
 export function MainButton({
   id = "undefined",
   size = "",
+  round="",
   children,
   onToggle = () => {},
   modalIsOpen,
@@ -56,7 +57,7 @@ export function MainButton({
     <animated.div style={props}>
       <button
         id={id}
-        className={`creatix-btn primary ${size}`}
+        className={`creatix-btn primary ${size} ${round}`}
         onClick={() => onToggle()}
         type={buttonType}
         disabled={disabled}
@@ -69,11 +70,11 @@ export function MainButton({
 
 MainButton.propTypes = {
   children: PropTypes.element.isRequired,
-  onToggle: PropTypes.func.isRequired,
-  modalIsOpen: PropTypes.bool.isRequired,
+  onToggle: PropTypes.func,
+  modalIsOpen: PropTypes.bool,
   id: PropTypes.string.isRequired,
-  buttonType: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired
+  buttonType: PropTypes.string,
+  size: PropTypes.string
 };
 
 MainButton.defaultTypes = {

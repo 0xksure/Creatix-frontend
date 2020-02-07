@@ -14,6 +14,7 @@
   cursor: pointer;
   background-color: #1779ba;
   color: #fefefe;
+
   // Secondary Button
   &.secondary {
     background-color: transparent;
@@ -47,6 +48,7 @@
       margin: auto;
     }
   }
+
   //Primary button
   &.primary {
     background-color: $electron-blue;
@@ -55,6 +57,10 @@
 
     &.small {
       padding: 0.1em 0.5em;
+    }
+
+    &.round{
+      border-radius: 2px;
     }
 
     &.center {
@@ -87,6 +93,18 @@
 
   &:active {
     border-color: transparent;
+  }
+
+  .nav-link {
+    color: $creatix-white-light-blue;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .nav-link__active {
+    color: $creatix-white-light-blue;
+    position: relative;
+    display: inline-block;
   }
 }
 

@@ -22,21 +22,6 @@ function Home() {
     <div className={`grid-container-full ${blurClass}`}>
       <HomeStatement />
       <Features />
-      <div className="grid-x margin-top-small">
-        <div className="cell small-12">
-          <Link to="/discover#header">
-            <div className="creatix-btn secondary center">
-              <div className="grid-x">
-                <div className="cell small-12">
-                  <h4 className="h4" id="home_discover_tenxamp_button">
-                    Discover tenXamp
-                  </h4>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }

@@ -14,13 +14,13 @@ function Header({ toggle }) {
 
   return (
     <>
-      <div className="grid-y">
-        <div className="cell small-2 medium-2 large-5">
+      <div className="grid-x horizontal-center">
+        <div className="cell">
           <Link className="nav-link" to="/" id="header_logo_nav_link">
             <Logo className="svg-logo" />
           </Link>
         </div>
-        <div className="cell small-10 medium-10 large-7">
+        <div className="cell">
           <nav className="site-nav">
             <ul className="nav-list">
               {auth.isAuthenticated && (
@@ -118,19 +118,19 @@ function Header({ toggle }) {
                 </li>
               ) : (
                 <li className="nav-item" id="header_signup_modal">
-                  <MainButton id="header_signup_modal">
+                  <MainButton id="header_signup_modal" round={"round"}>
                     <NavLink
-                      activeClassName="nav-link_active"
+                      activeClassName="nav-link__active"
                       className="nav-link"
                       exact
                       to="/login"
                     >
-                      <h4
-                        className="h4 medium-font small margin-zero"
+                      <p
+                        className="p margin-zero"
                         id="header_login_nav_link"
                       >
                         Login
-                      </h4>
+                      </p>
                     </NavLink>
                   </MainButton>
                 </li>

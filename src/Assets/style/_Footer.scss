@@ -1,37 +1,3 @@
-/*.footer {
-  //background-color: $creatix-footer-blue;
-  height: 20rem;
-  margin-top: 0rem;
-  padding-top: 3rem;
-  padding-bottom:3rem;
-display: block;
-  }
-
-.footer-content {
-  width: 90%;  
-  display:flex;
-  position:relative;
-  margin-left: auto;
-  margin-right:auto;
-  border-top: 2px solid;
-  border-color:$clouds;
-  padding-top:3rem;
-  padding-left:2rem;
-  padding-right:2rem;
-}
-
-.footer-head{
-  
-border-bottom: 2px solid;
-  border-color:$clouds;
-  display: block;
-}
-
-.footer-statement {
-  color: $peach;
-  margin-right:3rem;
-}
-*/
 .footer-nav {
   .footer-list {
     list-style: none;
@@ -45,7 +11,7 @@ border-bottom: 2px solid;
 
 .footer {
   margin-top: 2rem;
-
+  padding-bottom: 2rem;
   border-top: 2px solid;
   border-color: $clouds;
 }
