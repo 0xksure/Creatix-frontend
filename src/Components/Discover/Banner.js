@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function BannerText({ mainText, subText, bannerStyle, id }) {
   return (
     <div
-      className={`cell small-12 medium-12 large-6 padding-vertical-large ${bannerStyle}`}
+      className={`cell small-12 medium-12 large-8 padding-vertical-l padding-horizontal-l ${bannerStyle}`}
     >
       <h2 className="h2" id={`${id}_main_text`}>
         {mainText}
@@ -25,7 +25,7 @@ BannerText.propTypes = {
 
 function Banner({ bannerStyle, id, leftPos, mainText, subText, element }) {
   return (
-    <div className="grid-x fat-banner" id={id}>
+    <div className="grid-x fat-banner margin-bottom-l" id={id}>
       {leftPos && (
         <BannerText
           mainText={mainText}
@@ -34,7 +34,7 @@ function Banner({ bannerStyle, id, leftPos, mainText, subText, element }) {
           id={id}
         />
       )}
-      <div className="cell small-12 medium-12 large-6 vertical-padding-s gray">
+      <div className="cell small-12 medium-12 large-4 vertical-padding-s">
         {element}
       </div>
       {!leftPos && (

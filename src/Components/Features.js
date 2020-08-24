@@ -25,7 +25,7 @@ function Features() {
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <FeedbackStacked className="product-icon" />
             <h2 className="h2 medium-font small-font" id="home_features_feedback_main">
-              ampFeedback
+              Feedback
             </h2>
             <p className="p" id="home_features_feedback_card_text">
               {CARD_TEXT_1}
@@ -34,7 +34,7 @@ function Features() {
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <Overview className="product-icon" />
             <h2 className="h2 medium-font small-font" id="home_features_overview_main">
-              ampOverview
+              Overview
             </h2>
             <p className="p" id="home_features_overview_card_text">
               {CARD_TEXT_2}
@@ -43,7 +43,7 @@ function Features() {
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <TeamCard className="product-icon" />
             <h2 className="h2 medium-font small-font" id="home_features_teams_main">
-              ampTeams
+              Teams
             </h2>
             <p className="p" id="home_features_teams_card_text">
               {CARD_TEXT_3}

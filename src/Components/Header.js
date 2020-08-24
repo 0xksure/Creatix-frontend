@@ -73,7 +73,7 @@ function Header({ toggle }) {
                       className="h4 medium-font small margin-zero"
                       id="header_main_nav_link"
                     >
-                      tenXamp
+                      Home
                     </h4>
                   </NavLink>
                 </HeaderButton>
@@ -117,24 +117,24 @@ function Header({ toggle }) {
                   </MainButton>
                 </li>
               ) : (
-                <li className="nav-item" id="header_signup_modal">
-                  <MainButton id="header_signup_modal" round={"round"}>
-                    <NavLink
-                      activeClassName="nav-link__active"
-                      className="nav-link"
-                      exact
-                      to="/login"
-                    >
-                      <p
-                        className="p margin-zero"
-                        id="header_login_nav_link"
+                  <li className="nav-item" id="header_signup_modal">
+                    <MainButton id="header_signup_modal" round={"round"}>
+                      <NavLink
+                        activeClassName="nav-link__active"
+                        className="nav-link"
+                        exact
+                        to="/login"
                       >
-                        Login
+                        <p
+                          className="p margin-zero"
+                          id="header_login_nav_link"
+                        >
+                          Login
                       </p>
-                    </NavLink>
-                  </MainButton>
-                </li>
-              )}
+                      </NavLink>
+                    </MainButton>
+                  </li>
+                )}
             </ul>
           </nav>
         </div>
