@@ -12,29 +12,29 @@ import {
 
 
 /////////////////// POST FEEDACK /////////////////////////
-function postFeedbackRequest(){
+function postFeedbackRequest() {
   return {
     type: POST_FEEDBACK_REQUEST
   }
 }
 
-function postFeedbackSuccess(){
+function postFeedbackSuccess() {
   return {
     type: POST_FEEDBACK_SUCCESS
   }
 }
 
-function postFeedbackFailure(){
+function postFeedbackFailure() {
   return {
-    type:POST_FEEDBACK_FAILURE
+    type: POST_FEEDBACK_FAILURE
   }
 }
 
-export const postFeedback = (title,description)=>{
+export const postFeedback = (title, description) => {
   return dispatch => {
     fetch(process.env.API_URL)
   }
-  
+
 }
 
 //////////////////// GET FEEDBACK ////////////////////////
@@ -113,6 +113,7 @@ export const clapFeedback = fid => {
       .then(resp => resp.json())
       .then(feedbacks => {
         dispatch(clapFeedbackSuccess(feedbacks));
+        dispatch(getFeedback())
       })
       .catch(error => {
         dispatch(clapFeedbackFailure(error));

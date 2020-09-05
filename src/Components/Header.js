@@ -31,13 +31,13 @@ function Header({ toggle }) {
                         activeClassName="nav-link_active"
                         className="nav-link"
                         exact
-                        to={`/${auth.userID}/user-home`}
+                        to={`/user`}
                       >
                         <h4
                           className="h4 medium-font small margin-zero"
                           id="header_main_nav_link"
                         >
-                          Home
+                          User
                         </h4>
                       </NavLink>
                     </HeaderButton>
@@ -48,7 +48,7 @@ function Header({ toggle }) {
                         activeClassName="nav-link_active"
                         className="nav-link"
                         exact
-                        to={`/${auth.userID}/feedback`}
+                        to={`/feedback`}
                       >
                         <h4
                           className="h4 medium-font small margin-zero"

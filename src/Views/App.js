@@ -78,7 +78,7 @@ function App() {
               <div className="cell small-2 side-menu">
                 <Header />
               </div>
-              <div className="cell small-10">
+              <div className="cell small-10 main-screen">
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/main" component={Home} />
@@ -87,8 +87,8 @@ function App() {
                   <Route path="/login" component={Login} />
                   <Route path="/signup" component={Signup} />
                   <Route path="/forgot-password" component={ForgotPassword} />
-                  <SecretRoute path="/:id/user-home" component={UserHome} />
-                  <SecretRoute path="/:id/feedback" component={Feedback} />
+                  <SecretRoute path="/user" component={UserHome} />
+                  <SecretRoute path="/feedback" component={Feedback} />
                 </Switch>
               </div>
             </div>

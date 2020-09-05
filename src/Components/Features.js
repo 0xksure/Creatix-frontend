@@ -5,7 +5,7 @@ import TeamCard from "./Icons/TeamCard";
 import FeedbackStacked from "./Icons/FeedbackStacked";
 
 const CARD_TEXT_1 =
-  "Let employees share feedback, ideas and actions that will help your business improve";
+  "Let employees share feedback, ideas and actions that will improve your business";
 
 const CARD_TEXT_2 = "Find central people in your organization and teams";
 

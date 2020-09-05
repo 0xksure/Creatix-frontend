@@ -2,9 +2,6 @@ import React from "react";
 import { useSelector, shallowEqual } from "react-redux";
 import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
-import FeedbackDemo from "../FeedbackDemo";
-import BaseballCard from "../BaseballCard";
-import AmpOverview from "../Overview";
 import { useWindowSize } from "../../Utils/Hooks";
 
 const FEEDBACK_MAIN = "Feedback";

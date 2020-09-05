@@ -1,8 +1,14 @@
 .searchbar {
   width: 100%;
 }
+.icon-center{
+  display: flex;
+  align-items: center;
+}
+
 .clap {
   cursor: pointer;
+  
 }
 
 .feedback-list {
@@ -13,7 +19,14 @@
 .feedback-item {
   border: cornflowerblue;
   border-width: 5px;
-  background-color: $creatix-pink-shade;
+  width:30rem;
+  //background-color: $creatix-pink-shade;
+  border: 1px solid $creatix-pink-shade;
+  border-radius: 10px;
   padding: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.comment{
+  border-top: 1px solid $creatix-pink-shade;
 }

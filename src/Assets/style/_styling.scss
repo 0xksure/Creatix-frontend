@@ -334,6 +334,14 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   @extend .margin-top-s;
 }
 
+.margin-top-m{
+  margin-top: 2rem;
+}
+
+.margin-bottom-m{
+  margin-bottom: 2rem;
+}
+
 .margin-top-l{
   margin-top: 5rem;
 }
@@ -430,6 +438,13 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
 }
 
 // padding horizontal L
+.padding-left-s {
+  padding-left: 10px;
+}
+.padding-right-s {
+  padding-right: 10px;
+}
+
 .padding-left-l {
   padding-left: 5rem;
 }

@@ -34,7 +34,7 @@ function Login(props) {
               dispatch(loginUser(values.email, values.password))
                 .then(res => {
                   setSubmitting(false);
-                  props.history.push(`/${res.ID}/user-home`);
+                  props.history.push(`/user`);
                 })
                 .catch(err => {
                   console.log("Catch!!! ");

@@ -4,7 +4,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Redirect } from "react-router";
 import { MainButton } from "./Buttons";
 import { resetPassword } from "../Actions/Auth";
-import { NavLink } from "react-router-dom";
 import { AlertBox } from "./Alerts"
 import Logo from "./Icons/Logo"
 

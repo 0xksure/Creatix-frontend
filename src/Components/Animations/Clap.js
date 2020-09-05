@@ -4,7 +4,6 @@ import { useSpring, animated } from "react-spring";
 const colorVariations = ["rgba(10, 20, 200, 1)", "rgba(10, 200, 200, 1)"];
 export function ClapAnimation({ children, clapFeedback, isClapped }) {
   const [colorNum, setColorNum] = useState(isClapped ? 1 : 0);
-  const [fill, setFill] = useState(colorVariations[setColorNum]);
   const [props, setSpring] = useSpring(() => ({
     from: {
       fill: colorVariations[colorNum]
@@ -13,7 +12,7 @@ export function ClapAnimation({ children, clapFeedback, isClapped }) {
   return (
     <animated.div
       style={props}
-      className="clap"
+      className="clap icon-center padding-right-s"
       onClick={() => {
         setSpring({
           from: { fill: colorVariations[colorNum] },

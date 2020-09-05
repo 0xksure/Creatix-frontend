@@ -48,8 +48,13 @@ export const signupUser = signupForm => {
     new Promise(function (resolve, reject) {
       dispatch(signupRequest());
       fetch(process.env.API_URL + "auth/user/signup", {
-        method: "post",
-        body: JSON.stringify(signupForm)
+        method: 'POST',
+        body: JSON.stringify(signupForm),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include",
       })
         .then(resp => resp.json())
         .then(user => {
@@ -181,7 +186,12 @@ export const verifyAuth = () => {
       },
       credentials: "include"
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.status !== 200) {
+          throw Error(response.statusText);
+        }
+        return res.json()
+      })
       .then(res => {
         dispatch(verifySucess(res.User));
         dispatch(getFeedback());
