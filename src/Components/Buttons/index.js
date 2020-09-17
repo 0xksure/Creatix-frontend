@@ -27,8 +27,7 @@ export function HeaderButton({ children }) {
             });
             await next({ transform: "transform3d(0,0px,0)", opacity: 1 });
           }
-        })
-      }
+        })}
     >
       {children}
     </animated.div>

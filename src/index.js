@@ -6,7 +6,6 @@ import ReactGA from "react-ga";
 import TagManager from "react-gtm-module";
 import "./Assets/style/main.scss";
 import App from "./Views/App";
-import * as serviceWorker from "./serviceWorker";
 
 if (process.env.NODE_ENV !== "production") {
   module.hot.accept();
@@ -22,8 +21,3 @@ ReactGA.initialize(trackingID, {
 TagManager.initialize({ gtmId });
 ReactGA.pageview(window.location.pathname + window.location.search);
 ReactDOM.render(<App />, document.getElementById("app"));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

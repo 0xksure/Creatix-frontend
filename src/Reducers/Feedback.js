@@ -1,3 +1,4 @@
+import { actions } from "react-redux-form";
 import {
   GET_FEEDBACK_REQUEST,
   GET_FEEDBACK_SUCCESS,
@@ -6,7 +7,6 @@ import {
   CLAP_FEEDBACK_SUCCESS,
   CLAP_FEEDBACK_FAILURE
 } from "../Constants";
-import { actions } from "react-redux-form";
 
 const initialState = {
   feedbacks: [],

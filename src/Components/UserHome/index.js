@@ -23,7 +23,7 @@ function UserHome() {
   return (
     <div className="grid-x">
       <div className="cell-12">
-        <h2>{`Good morning ${auth.firstname + " " + auth.lastname}`}</h2>
+        <h2>{`Good morning ${`${auth.firstname  } ${  auth.lastname}`}`}</h2>
       </div>
       <div className="cell small-12">
         <NumberOfFeedback feedbacks={feedback.feedbacks} />

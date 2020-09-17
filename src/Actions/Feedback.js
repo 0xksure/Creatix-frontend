@@ -11,7 +11,7 @@ import {
 } from "../Constants";
 
 
-/////////////////// POST FEEDACK /////////////////////////
+// ///////////////// POST FEEDACK /////////////////////////
 function postFeedbackRequest() {
   return {
     type: POST_FEEDBACK_REQUEST
@@ -37,7 +37,7 @@ export const postFeedback = (title, description) => {
 
 }
 
-//////////////////// GET FEEDBACK ////////////////////////
+// ////////////////// GET FEEDBACK ////////////////////////
 function getFeedbackRequest() {
   return {
     type: GET_FEEDBACK_REQUEST
@@ -60,7 +60,7 @@ function getFeedackFailure(error) {
 
 export const getFeedback = () => {
   return dispatch => {
-    fetch(process.env.API_URL + "user/feedback", {
+    fetch(`${process.env.API_URL  }user/feedback`, {
       method: "GET",
       headers: {
         Accept: "application/json",

@@ -6,7 +6,7 @@ function Footer() {
     <footer className="grid-container footer">
       <div className="grid-x footer-content">
         <div className="cell small-4 shrink">
-          <h3 className="h3 pink center"> tenXamp </h3>
+          <h3 className="h3 pink center"> Creatix </h3>
         </div>
 
         <div className="cell auto ">

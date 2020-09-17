@@ -2,9 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Redirect } from "react-router";
+import { NavLink } from "react-router-dom";
 import { MainButton } from "./Buttons";
 import { loginUser } from "../Actions/Auth";
-import { NavLink } from "react-router-dom";
 import { AlertBox } from "./Alerts"
 import Logo from "./Icons/Logo"
 
@@ -42,7 +42,7 @@ function Login(props) {
                   setErrors({ error: "Hmm, we are not able to log you in. It might be that you username or password is incorrect." })
                   setStatus({ error: "Not able to sign up" });
                 });
-              <Redirect to="/login" />;
+                  <Redirect to="/login" />;
             }}
           >
             {({ values, isSubmitting, setFieldValue, errors }) => (
@@ -65,7 +65,7 @@ function Login(props) {
                     >
                       <p className="p link right">
                         Forgot you password?
-                  </p>
+                      </p>
                     </NavLink>
                   </div>
                   <div className="cell small-12">
@@ -78,7 +78,7 @@ function Login(props) {
                     <MainButton
                       id="submitLogin"
                       buttonType="submit"
-                      round={'round'}
+                      round="round"
                       size=""
                       disabled={isSubmitting}
                     >

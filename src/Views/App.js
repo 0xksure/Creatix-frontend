@@ -23,6 +23,7 @@ import Validation from "../Utils/Validation";
 import Feedback from "../Components/Feedback";
 import ForgotPassword from "../Components/ForgotPassword"
 import { verifyAuth } from "../Actions/Auth";
+
 const history = createBrowserHistory();
 
 // redux

@@ -25,7 +25,7 @@ function Discover() {
   const blurClass = modalIsOpen ? "blur-on-modal" : "";
   const size = useWindowSize();
   return (
-    <React.Fragment>
+    <>
       <Helmet>
         <title>Discover</title>
         <meta
@@ -64,7 +64,7 @@ function Discover() {
           />
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

@@ -17,6 +17,7 @@ import {
 } from "../Constants";
 import { getFeedback } from "./Feedback";
 import { getCookie, setCookie, removeCookie } from "../Utils/Cookies";
+
 function signupRequest() {
   return {
     type: SIGNUP_REQUEST
@@ -47,7 +48,7 @@ export const signupUser = signupForm => {
   return dispatch =>
     new Promise(function (resolve, reject) {
       dispatch(signupRequest());
-      fetch(process.env.API_URL + "auth/user/signup", {
+      fetch(`${process.env.API_URL  }auth/user/signup`, {
         method: 'POST',
         body: JSON.stringify(signupForm),
         headers: {
@@ -86,7 +87,7 @@ export const loginUser = (email, password) => {
   return dispatch =>
     new Promise(function (resolve, reject) {
       dispatch(loginRequest());
-      fetch(process.env.API_URL + "auth/user/login", {
+      fetch(`${process.env.API_URL  }auth/user/login`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -136,7 +137,7 @@ function logoutFailure(error) {
 export const logoutUser = () => {
   return dispatch => {
     dispatch(logoutRequest());
-    fetch(process.env.API_URL + "auth/user/logout", {
+    fetch(`${process.env.API_URL  }auth/user/logout`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -178,7 +179,7 @@ function verifyFailure(error) {
 export const verifyAuth = () => {
   return dispatch => {
     dispatch(verifyRequest());
-    fetch(process.env.API_URL + "auth/user/refresh", {
+    fetch(`${process.env.API_URL  }auth/user/refresh`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -227,7 +228,7 @@ export const resetPassword = (email) => {
   return dispatch =>
     new Promise(function (resolve, reject) {
       dispatch(resetPasswordRequest());
-      fetch(process.env.API_URL + "auth/user/reset_password", {
+      fetch(`${process.env.API_URL  }auth/user/reset_password`, {
         method: "POST",
         headers: {
           Accept: "application/json",

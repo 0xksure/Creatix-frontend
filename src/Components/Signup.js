@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Redirect } from "react-router";
-import { MainButton } from "./Buttons";
 import DatePicker from "react-datepicker";
+import { MainButton } from "./Buttons";
 import { signupUser } from "../Actions/Auth";
 import Logo from "./Icons/Logo"
 
@@ -46,7 +46,7 @@ function Signup(props) {
                   setSubmitting(false);
                   setStatus({ error: "Not able to sign up" });
                 });
-              <Redirect to="/login" />;
+                  <Redirect to="/login" />;
             }}
           >
             {({ values, isSubmitting, setFieldValue, status }) => (
@@ -58,12 +58,12 @@ function Signup(props) {
                     <ErrorMessage name="firstname" component="div" />
                   </div>
                   <div className="cell small-12">
-                    <label className="input-label" htmlfor="lastname">Lastname</label>
+                    <label className="input-label" htmlFor="lastname">Lastname</label>
                     <Field type="text" className="input-field" name="lastname" />
                     <ErrorMessage name="lastname" component="div" />
                   </div>
                   <div className="cell small-12">
-                    <label className="input-label" htmlfor="birthday">Birthday</label>
+                    <label className="input-label" htmlFor="birthday">Birthday</label>
                     <DatePicker
                       name="birthday"
                       className="input-field"
@@ -74,12 +74,12 @@ function Signup(props) {
                     />
                   </div>
                   <div className="cell small-12">
-                    <label className="input-label" htmlfor="email">Email</label>
+                    <label className="input-label" htmlFor="email">Email</label>
                     <Field type="email" className="input-field" name="email" />
                     <ErrorMessage name="email" component="div" />
                   </div>
                   <div className="cell small-12">
-                    <label className="input-label" htmlfor="password">Password</label>
+                    <label className="input-label" htmlFor="password">Password</label>
                     <Field type="password" className="input-field" name="password" />
                     <ErrorMessage name="password" component="div" />
                   </div>
@@ -92,7 +92,7 @@ function Signup(props) {
                     <MainButton
                       id="submitLogin"
                       buttonType="submit"
-                      round={'round'}
+                      round="round"
                       size=""
                       disabled={isSubmitting}
                     >
