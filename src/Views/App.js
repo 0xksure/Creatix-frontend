@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
 // React redux
 
@@ -21,7 +22,7 @@ import Discover from "../Components/Discover";
 import rootReducer from "../Reducers";
 import Validation from "../Utils/Validation";
 import Feedback from "../Components/Feedback";
-import ForgotPassword from "../Components/ForgotPassword"
+import ForgotPassword from "../Components/ForgotPassword";
 import { verifyAuth } from "../Actions/Auth";
 
 const history = createBrowserHistory();
@@ -49,18 +50,23 @@ history.listen(location => {
   ReactGA.pageview(location.pathname);
 });
 
-function SecretRoute({ component: Component, ...rest }) {
+const SecretRoute = ({ Component, path }) => {
   return (
     <Route
-      {...rest}
-      render={props => (
+      path={path}
+      render={() => (
         <Validation>
           <Component />
         </Validation>
       )}
     />
   );
-}
+};
+
+SecretRoute.propTypes = {
+  Component: PropTypes.func.isRequired,
+  path: PropTypes.string.isRequired
+};
 
 function App() {
   return (
@@ -68,10 +74,7 @@ function App() {
       <Provider store={store}>
         <Helmet>
           <title>Home</title>
-          <meta
-            name="description"
-            content="Creatix homepage with information about how business transparency can be made simple through feedback cards, organization structure and team cards."
-          />
+          <meta name="description" content="Home - Creatix" />
         </Helmet>
         <div className="grid-container-full">
           <Router history={history}>
@@ -88,8 +91,8 @@ function App() {
                   <Route path="/login" component={Login} />
                   <Route path="/signup" component={Signup} />
                   <Route path="/forgot-password" component={ForgotPassword} />
-                  <SecretRoute path="/user" component={UserHome} />
-                  <SecretRoute path="/feedback" component={Feedback} />
+                  <SecretRoute path="/user" Component={UserHome} />
+                  <SecretRoute path="/feedback" Component={Feedback} />
                 </Switch>
               </div>
             </div>
