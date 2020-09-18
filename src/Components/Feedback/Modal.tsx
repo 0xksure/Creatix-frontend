@@ -1,4 +1,11 @@
-function FeedbackModal({ feedback }) {
+import React from "react";
+import Modal from "./../Modals";
+
+interface Props {
+  feedback: Record<string, string>;
+}
+
+const FeedbackModal: React.FC<Props> = ({ feedback }) => {
   return (
     <Modal>
       <div className="grid-x">
@@ -17,4 +24,6 @@ function FeedbackModal({ feedback }) {
       </div>
     </Modal>
   );
-}
+};
+
+export default FeedbackModal;

@@ -1,4 +1,7 @@
-function SearchFeedbacks() {
+import React from "react";
+import { Formik, Form, Field } from "formik";
+
+const SearchFeedback: React.FC = () => {
   return (
     <div className="cell">
       <div className="grid-x align-center">
@@ -6,10 +9,10 @@ function SearchFeedbacks() {
           <h4>Search</h4>
           <Formik
             initialValues={{
-              searchTerm: ""
+              searchTerm: "",
             }}
           >
-            {({}) => (
+            {() => (
               <Form>
                 <div className="grid-x">
                   <div className="cell small-12">
@@ -27,4 +30,6 @@ function SearchFeedbacks() {
       </div>
     </div>
   );
-}
+};
+
+export default SearchFeedback;

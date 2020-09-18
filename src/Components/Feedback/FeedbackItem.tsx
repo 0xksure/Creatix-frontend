@@ -1,13 +1,21 @@
-function FeedbackItem({ feedback }) {
-  const userID = useSelector(state => state.Auth.UserID);
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import BeautifulDiffDate from "Utils/BeautifulDiffDate";
+
+interface Props {
+  feedback: Record<string, string>;
+}
+
+const FeedbackItem: React.FC<Props> = ({ feedback }) => {
+  const userID = useSelector((state) => state.Auth.UserID);
   const dispatch = useDispatch();
   const numberOfClaps = feedback.claps.length;
-  const createdDate = beautifulDiffDate(
+  const createdDate = BeautifulDiffDate(
     new Date(),
     new Date(feedback.CreatedAt)
   );
 
-  const userHasClapped = feedback.claps.some(clap => clap.UserId == userID);
+  const userHasClapped = feedback.claps.some((clap) => clap.UserId == userID);
   return (
     <li key={feedback.ID} className="feedback-item">
       <div className="grid-x grid-margin-x">
@@ -57,4 +65,6 @@ function FeedbackItem({ feedback }) {
       </div>
     </li>
   );
-}
+};
+
+export default FeedbackItem;
