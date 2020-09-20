@@ -1,8 +1,9 @@
 import React from "react";
 import FeedbackItem from "./FeedbackItem";
+import { Feedback } from "Components/Feedback/types";
 
 interface Props {
-  feedbacks: Record<string, string>;
+  feedbacks: Feedback[];
 }
 
 const FeedbackList: React.FC<Props> = ({ feedbacks }) => {

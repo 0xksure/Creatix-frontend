@@ -1,25 +1,20 @@
 import React from "react";
 import { useSelector, shallowEqual } from "react-redux";
 import { Helmet } from "react-helmet-async";
-import Banner from "./Banner";
+import Banner from "Components/Discover/Banner";
 import { useWindowSize } from "../../Utils/Hooks";
+import {
+  FEEDBACK_MAIN,
+  FEEDBACK_SUB_TEXT,
+  OVERVIEW_MAIN,
+  OVERVIEW_SUB_TEXT,
+  CARDS_MAIN,
+  CARDS_SUB_TEXT,
+} from "Components/Discover/constants";
 
-const FEEDBACK_MAIN = "Feedback";
-
-const FEEDBACK_SUB_TEXT =
-  "Take feedback to a new level by amping ideas and suggestions. Easily amp feedback you find crucial for the growth of the company. ";
-
-const OVERVIEW_MAIN = "Overview";
-const OVERVIEW_SUB_TEXT =
-  "A birds eye view of the company has to this date been illustrated in obsolete documents hidden somewhere on the intranet. With an amped overview together with skill cards it is easier than ever to find people significant to your task.";
-
-const CARDS_MAIN = "Employees";
-const CARDS_SUB_TEXT =
-  "Let employees own their achievements. Over time skills can be amped or changed. By using skill cards it becomes easier to create well balanced and functional teams.";
-
-function Discover() {
+const Discover: React.FC = () => {
   const modalIsOpen = useSelector(
-    state => state.Modal.modalIsOpen,
+    (state) => state.Modal.modalIsOpen,
     shallowEqual
   );
   const blurClass = modalIsOpen ? "blur-on-modal" : "";
@@ -47,7 +42,6 @@ function Discover() {
             mainText={FEEDBACK_MAIN}
             subText={FEEDBACK_SUB_TEXT}
             bannerStyle="strong-blue"
-
           />
           <Banner
             id="discover_transparency"
@@ -66,6 +60,6 @@ function Discover() {
       </div>
     </>
   );
-}
+};
 
 export default Discover;

@@ -1,8 +1,9 @@
 import React from "react";
-import Modal from "./../Modals";
+import Modal from "Components/Modals";
+import { Feedback } from "Components/Feedback/types";
 
 interface Props {
-  feedback: Record<string, string>;
+  feedback: Feedback;
 }
 
 const FeedbackModal: React.FC<Props> = ({ feedback }) => {

@@ -74,8 +74,8 @@ module.exports = () => {
       ],
     },
     resolve: {
-      modules: [path.resolve(__dirname, "./src"), "node-modules"],
-      extensions: ["*", ".js", ".jsx"],
+      modules: [path.resolve(__dirname, "./src"), "./node-modules"],
+      extensions: ["*", ".js", ".jsx", ".tsx"],
     },
     output: {
       path: path.resolve(__dirname, "dist"),
@@ -90,10 +90,12 @@ module.exports = () => {
       new ManifestPlugin({
         filename: "asset-manifest.json",
       }),
-      new CopyPlugin([
-        { from: "src/Assets/images", to: "Assets/images" },
-        { from: "src/robots.txt", to: "robots.txt" },
-      ]),
+      new CopyPlugin({
+        patterns: [
+          { from: "src/Assets/images", to: "Assets/images" },
+          { from: "src/robots.txt", to: "robots.txt" },
+        ],
+      }),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.EnvironmentPlugin({
         TRACKING_ID: "",

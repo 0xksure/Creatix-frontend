@@ -1,30 +1,29 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import BeautifulDiffDate from "Utils/BeautifulDiffDate";
+import { Clap, ClapAnimation } from "Components/Animations/Clap";
+import { Comment, CommentAnimation } from "Components/Animations/Comment";
+import { clapFeedback } from "Actions/Feedback";
+import { Feedback } from "Components/Feedback/types";
 
 interface Props {
-  feedback: Record<string, string>;
+  feedback: Feedback;
 }
 
 const FeedbackItem: React.FC<Props> = ({ feedback }) => {
   const userID = useSelector((state) => state.Auth.UserID);
   const dispatch = useDispatch();
   const numberOfClaps = feedback.claps.length;
-  const createdDate = BeautifulDiffDate(
-    new Date(),
-    new Date(feedback.CreatedAt)
-  );
 
-  const userHasClapped = feedback.claps.some((clap) => clap.UserId == userID);
+  const userHasClapped = feedback.claps.some((clap) => clap.userId == userID);
   return (
-    <li key={feedback.ID} className="feedback-item">
+    <li key={feedback.id} className="feedback-item">
       <div className="grid-x grid-margin-x">
         <div className="cell small-3">
           <p>{`${feedback.person.firstname} ${feedback.person.lastname} `}</p>
         </div>
         <div className="cell small-9">
           <div className="grid-x">
-            <div lassName="cell small-12">
+            <div className="cell small-12">
               <p className="p bold-font medium margin-bottom-s">
                 {feedback.title}
               </p>
