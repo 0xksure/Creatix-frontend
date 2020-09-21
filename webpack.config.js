@@ -11,11 +11,11 @@ const paths = ["/", "/discover"];
 
 module.exports = () => {
   return {
-    entry: ["@babel/polyfill", "./src/index.js"],
+    entry: { babel: "@babel/polyfill", app: "./src/index" },
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
+          test: /\.(js|jsx|ts|tsx)$/,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader",
@@ -74,8 +74,10 @@ module.exports = () => {
       ],
     },
     resolve: {
-      modules: [path.resolve(__dirname, "./src"), "./node-modules"],
-      extensions: ["*", ".js", ".jsx", ".tsx"],
+      modules: ["node-modules", "src"],
+      mainFiles: ["index"],
+      extensions: [".js", ".jsx", ".tsx", ".ts", ".json", "scss"],
+      symlinks: false,
     },
     output: {
       path: path.resolve(__dirname, "dist"),
