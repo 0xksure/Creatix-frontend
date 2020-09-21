@@ -1,16 +1,21 @@
-@import "node_modules/foundation-sites/scss/foundation";
-@import "~react-datepicker/dist/react-datepicker.css";
-@include foundation-everything;
+.ala {
+  background-color: red($color: #000000);
+}
+
+//@import "foundation-sites/scss/foundation";
+//@import "react-datepicker/dist/react-datepicker.css";
+/*@include foundation-everything;
 @import "styling";
 @import "Header";
 @import "Footer";
 @import "Home";
-@import "../../Components/Discover/Discover";
-@import "../../Components/FeedbackDemo/FeedbackDemo";
-@import "../../Components/BaseballCard/BaseballCard";
+@import "Components/Discover/Discover";
+@import "Components/FeedbackDemo/FeedbackDemo";
+@import "Components/BaseballCard/BaseballCard";
 @import "button";
 @import "alerts";
 @import "boxes";
 @import "feedback";
 @import "form";
-@import "../../Components/Modals/Modal";
+@import "Components/Modals/Modal";
+*/

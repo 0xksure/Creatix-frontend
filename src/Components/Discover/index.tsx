@@ -12,7 +12,10 @@ import {
   CARDS_SUB_TEXT,
 } from "Components/Discover/constants";
 
-const Discover: React.FC = () => {
+interface Props {
+  name: string;
+}
+const Discover: React.FC<Props> = () => {
   const modalIsOpen = useSelector(
     (state) => state.Modal.modalIsOpen,
     shallowEqual

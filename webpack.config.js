@@ -22,7 +22,7 @@ module.exports = () => {
           },
         },
         {
-          test: /\.scss$/,
+          test: /\.s[ac]ss$/i,
           use: [
             {
               loader: "style-loader", // creates style nodes from JS strings
@@ -74,9 +74,9 @@ module.exports = () => {
       ],
     },
     resolve: {
-      modules: ["node-modules", "src"],
+      modules: ["node_modules", "src"],
       mainFiles: ["index"],
-      extensions: [".js", ".jsx", ".tsx", ".ts", ".json", "scss"],
+      extensions: [".js", ".jsx", ".tsx", ".ts", ".json", ".scss", ".css"],
       symlinks: false,
     },
     output: {
