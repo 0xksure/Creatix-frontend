@@ -1,39 +1,15 @@
-import React, { useState } from "react";
-import { useSpring, animated } from "react-spring";
+import React from "react";
 
-const colorVariations = ["rgba(10, 20, 200, 1)", "rgba(10, 200, 200, 1)"];
-export function ClapAnimation({ children, clapFeedback, isClapped }) {
-  const [colorNum, setColorNum] = useState(isClapped ? 1 : 0);
-  const [props, setSpring] = useSpring(() => ({
-    from: {
-      fill: colorVariations[colorNum]
-    }
-  }));
-  return (
-    <animated.div
-      style={props}
-      className="clap icon-center padding-right-s"
-      onClick={() => {
-        setSpring({
-          from: { fill: colorVariations[colorNum] },
-          to: async next => {
-            await next({ fill: colorVariations[(colorNum + 1) % 2] });
-          }
-        });
-        setColorNum(colorNum + 1);
-        clapFeedback();
-      }}
-    >
-      {children}
-    </animated.div>
-  );
+interface Props {
+  height: string;
+  width: string;
 }
 
-export const Clap = props => (
+const ClapIcon: React.FC<Props> = ({ height, width }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={props.width}
-    height={props.height}
+    width={width}
+    height={height}
     viewBox="0 0 297.221 297.221"
   >
     <g>
@@ -99,3 +75,5 @@ export const Clap = props => (
     <g />
   </svg>
 );
+
+export default ClapIcon;

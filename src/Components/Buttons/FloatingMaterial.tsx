@@ -1,13 +1,18 @@
 import React from "react";
 import Plus from "../Icons/Plus";
+import FloatingButton from "Components/Buttons/FloatingButton";
 
-function FloatingMaterial({ onClick }) {
+interface Props {
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+}
+
+const FloatingMaterial: React.FC<Props> = ({ onClick }) => {
   const className = "floating-menu";
   return (
     <div className="container">
       <div className={className}>
         <FloatingButton
-          action={onClick}
+          onClick={onClick}
           label="item 1"
           icon={<Plus />}
           key="m"
@@ -15,6 +20,6 @@ function FloatingMaterial({ onClick }) {
       </div>
     </div>
   );
-}
+};
 
 export default FloatingMaterial;
