@@ -1,7 +1,11 @@
 import React from "react";
 import { IconProps } from "Components/Icons/types";
 
-const FeedbackStacked: React.FC<IconProps> = ({ className, height, width }) => (
+const FeedbackStackedIcon: React.FC<IconProps> = ({
+  className,
+  height,
+  width,
+}) => (
   <svg
     width={width}
     height={height}
@@ -16,4 +20,4 @@ const FeedbackStacked: React.FC<IconProps> = ({ className, height, width }) => (
   </svg>
 );
 
-export default FeedbackStacked;
+export default FeedbackStackedIcon;

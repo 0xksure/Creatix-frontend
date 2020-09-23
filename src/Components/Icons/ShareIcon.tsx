@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "Components/Icons/types";
 
-const Share = () => (
+const ShareIcon: React.FC<IconProps> = () => (
   <svg
     width="50"
     height="50"
@@ -59,4 +60,4 @@ const Share = () => (
   </svg>
 );
 
-export default Share;
+export default ShareIcon;

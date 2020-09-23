@@ -1,5 +1,5 @@
 import React from "react";
-import Plus from "../Icons/Plus";
+import PlusIcon from "../Icons/PlusIcon";
 import FloatingButton from "Components/Buttons/FloatingButton";
 
 interface Props {
@@ -14,7 +14,7 @@ const FloatingMaterial: React.FC<Props> = ({ onClick }) => {
         <FloatingButton
           onClick={onClick}
           label="item 1"
-          icon={<Plus />}
+          icon={<PlusIcon className="" />}
           key="m"
         />
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { IconProps } from "Components/Icons/types";
 
-const GatherTeam: React.FC<IconProps> = ({ className }) => (
+const GatherTeamIcon: React.FC<IconProps> = ({ className }) => (
   <svg
     width="50"
     height="50"
@@ -74,4 +74,4 @@ const GatherTeam: React.FC<IconProps> = ({ className }) => (
   </svg>
 );
 
-export default GatherTeam;
+export default GatherTeamIcon;

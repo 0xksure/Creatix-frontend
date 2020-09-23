@@ -1,7 +1,7 @@
 import React from "react";
 import { IconProps } from "Components/Icons/types";
 
-const Idea: React.FC<IconProps> = ({ className }) => (
+const IdeaIcon: React.FC<IconProps> = ({ className }) => (
   <svg
     width="50"
     height="50"
@@ -217,4 +217,4 @@ const Idea: React.FC<IconProps> = ({ className }) => (
   </svg>
 );
 
-export default Idea;
+export default IdeaIcon;

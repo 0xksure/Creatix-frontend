@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import MainButton from "Components/Buttons/MainButton";
 import { loginUser } from "Actions/Auth";
 import { AlertBox } from "Components/Alerts";
-import Logo from "Components/Icons/Logo";
+import Logo from "Components/Icons/LogoIcon";
 
 function Login(props) {
   const dispatch = useDispatch();

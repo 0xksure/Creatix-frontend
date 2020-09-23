@@ -1,8 +1,8 @@
 import React from "react";
 
-import Overview from "./Icons/Overview";
-import TeamCard from "./Icons/TeamCard";
-import FeedbackStacked from "./Icons/FeedbackStacked";
+import Overview from "./Icons/OverviewIcon";
+import TeamCard from "./Icons/TeamCardIcon";
+import FeedbackStacked from "./Icons/FeedbackStackedIcon";
 
 const CARD_TEXT_1 =
   "Let employees share feedback, ideas and actions that will improve your business";
@@ -24,7 +24,10 @@ function Features() {
         <div className="grid-x grid-margin-x">
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <FeedbackStacked className="product-icon" />
-            <h2 className="h2 medium-font small-font" id="home_features_feedback_main">
+            <h2
+              className="h2 medium-font small-font"
+              id="home_features_feedback_main"
+            >
               Feedback
             </h2>
             <p className="p" id="home_features_feedback_card_text">
@@ -33,7 +36,10 @@ function Features() {
           </div>
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <Overview className="product-icon" />
-            <h2 className="h2 medium-font small-font" id="home_features_overview_main">
+            <h2
+              className="h2 medium-font small-font"
+              id="home_features_overview_main"
+            >
               Overview
             </h2>
             <p className="p" id="home_features_overview_card_text">
@@ -42,7 +48,10 @@ function Features() {
           </div>
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <TeamCard className="product-icon" />
-            <h2 className="h2 medium-font small-font" id="home_features_teams_main">
+            <h2
+              className="h2 medium-font small-font"
+              id="home_features_teams_main"
+            >
               Teams
             </h2>
             <p className="p" id="home_features_teams_card_text">

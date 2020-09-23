@@ -1,7 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { IconProps } from "Components/Icons/types";
 
-const Overview = ({ className }) => (
+const OverviewIcon: React.FC<IconProps> = ({ className }) => (
   <svg
     width="71"
     height="80"
@@ -16,8 +16,4 @@ const Overview = ({ className }) => (
   </svg>
 );
 
-Overview.propTypes = {
-  className: PropTypes.string.isRequired
-};
-
-export default Overview;
+export default OverviewIcon;

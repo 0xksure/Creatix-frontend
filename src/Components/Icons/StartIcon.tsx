@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "Components/Icons/types";
 
-const Start = () => (
+const StartIcon: React.FC<IconProps> = () => (
   <svg
     width="50"
     height="50"
@@ -19,4 +20,4 @@ const Start = () => (
   </svg>
 );
 
-export default Start;
+export default StartIcon;

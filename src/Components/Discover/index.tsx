@@ -22,6 +22,7 @@ const Discover: React.FC<Props> = () => {
   );
   const blurClass = modalIsOpen ? "blur-on-modal" : "";
   const size = useWindowSize();
+  const widthSize = size?.width ?? 1000;
   return (
     <>
       <Helmet>
@@ -50,7 +51,7 @@ const Discover: React.FC<Props> = () => {
             id="discover_transparency"
             mainText={OVERVIEW_MAIN}
             subText={OVERVIEW_SUB_TEXT}
-            leftPos={size.width < 450}
+            leftPos={widthSize < 450}
             bannerStyle="strong-pink"
           />
           <Banner

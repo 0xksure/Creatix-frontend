@@ -1,7 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { IconProps } from "Components/Icons/types";
 
-const TeamCard = ({ className }) => (
+const TeamCardIcon: React.FC<IconProps> = ({ className }) => (
   <svg
     width="64"
     height="80"
@@ -15,8 +15,4 @@ const TeamCard = ({ className }) => (
   </svg>
 );
 
-TeamCard.propTypes = {
-  className: PropTypes.string.isRequired
-};
-
-export default TeamCard;
+export default TeamCardIcon;

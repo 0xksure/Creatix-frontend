@@ -1,7 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Clap, ClapAnimation } from "Components/Animations/Clap";
-import { Comment, CommentAnimation } from "Components/Animations/Comment";
+import ClapAnimation from "Components/Animations/Clap";
+import ClapIcon from "Components/Icons/ClapIcon";
+import CommentAnimation from "Components/Animations/Comment";
+import CommentIcon from "Components/Icons/CommentIcon";
 import { clapFeedback } from "Actions/Feedback";
 import { Feedback } from "Components/Feedback/types";
 
@@ -39,7 +41,7 @@ const FeedbackItem: React.FC<Props> = ({ feedback }) => {
                       clapFeedback={() => dispatch(clapFeedback(feedback.id))}
                       isClapped={userHasClapped}
                     >
-                      <Clap width="20" height="20" />
+                      <ClapIcon width="20" height="20" />
                     </ClapAnimation>
                     <div>{numberOfClaps}</div>
                   </div>
@@ -52,7 +54,7 @@ const FeedbackItem: React.FC<Props> = ({ feedback }) => {
                       }
                       isCommented={userHasClapped}
                     >
-                      <Comment width="20" height="20" />
+                      <CommentIcon width="20" height="20" />
                     </CommentAnimation>
                     <div>{numberOfClaps}</div>
                   </div>

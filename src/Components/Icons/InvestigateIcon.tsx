@@ -1,6 +1,7 @@
 import React from "react";
+import { IconProps } from "Components/Icons/types";
 
-const Investigate = () => (
+const InvestigateIcon: React.FC<IconProps> = () => (
   <svg
     width="50"
     height="50"
@@ -41,4 +42,4 @@ const Investigate = () => (
   </svg>
 );
 
-export default Investigate;
+export default InvestigateIcon;

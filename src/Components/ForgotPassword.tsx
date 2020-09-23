@@ -1,11 +1,11 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Redirect } from "react-router";
 import MainButton from "Components/Buttons/MainButton";
 import { resetPassword } from "Actions/Auth";
-import { AlertBox } from "./Alerts";
-import Logo from "./Icons/Logo";
+import AlertBox from "Components/AlertBox";
+import Logo from "./Icons/LogoIcon";
 
 function ForgotPassword() {
   const dispatch = useDispatch();
@@ -38,7 +38,6 @@ function ForgotPassword() {
                     error:
                       "If you have an account you should have received an email about resetting you password.",
                   });
-                  props.history.push(`/${res.ID}/login`);
                 })
                 .catch((err) => {
                   console.log("Catch!!! ");
@@ -72,6 +71,7 @@ function ForgotPassword() {
                       round="round"
                       size=""
                       disabled={isSubmitting}
+                      onClick={() => console.log("click")}
                     >
                       <p className="p margin-zero">Send reset instruction</p>
                     </MainButton>

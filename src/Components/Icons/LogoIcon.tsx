@@ -1,7 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { IconProps } from "Components/Icons/types";
 
-const Logo = ({ className }) => (
+const LogoIcon: React.FC<IconProps> = ({ className }) => (
   <svg
     width="80"
     height="80"
@@ -16,8 +16,4 @@ const Logo = ({ className }) => (
   </svg>
 );
 
-Logo.propTypes = {
-  className: PropTypes.string.isRequired
-};
-
-export default Logo;
+export default LogoIcon;

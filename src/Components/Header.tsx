@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux";
 import { connect, useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import Logo from "Components/Icons/Logo";
+import Logo from "Components/Icons/LogoIcon";
 import toggleModal from "Actions/Modal";
 import MainButton from "Components/Buttons/MainButton";
 import HeaderButton from "Components/Buttons/HeaderButton";

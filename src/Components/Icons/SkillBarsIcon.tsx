@@ -1,12 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { IconProps } from "Components/Icons/types";
 
-const SkillBars = ({ skillClass, percentageSkill }) => (
+interface Props extends IconProps {
+  percentageSkill: string;
+}
+
+const SkillBarsIcon: React.FC<Props> = ({ className, percentageSkill }) => (
   <svg
     width="79"
     height="4"
     viewBox="0 0 79 4"
-    className={skillClass}
+    className={className}
     style={{ clipPath: `inset(0 ${percentageSkill} 0 0)` }}
   >
     <rect x="3" width="12" height="4" />
@@ -24,9 +28,4 @@ const SkillBars = ({ skillClass, percentageSkill }) => (
   </svg>
 );
 
-SkillBars.propTypes = {
-  skillClass: PropTypes.string.isRequired,
-  percentageSkill: PropTypes.string.isRequired
-};
-
-export default SkillBars;
+export default SkillBarsIcon;

@@ -5,7 +5,7 @@ import { Redirect } from "react-router";
 import DatePicker from "react-datepicker";
 import MainButton from "Components/Buttons/MainButton";
 import { signupUser } from "Actions/Auth";
-import Logo from "./Icons/Logo";
+import Logo from "./Icons/LogoIcon";
 
 function Signup(props) {
   const dispatch = useDispatch();
