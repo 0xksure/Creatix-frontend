@@ -3,13 +3,14 @@ import { bindActionCreators } from "redux";
 import { connect, useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import Logo from "./Icons/Logo";
-import toggleModal from "../Actions/Modal";
-import { HeaderButton, MainButton } from "./Buttons";
+import Logo from "Components/Icons/Logo";
+import toggleModal from "Actions/Modal";
+import MainButton from "Components/Buttons/MainButton";
+import HeaderButton from "Components/Buttons/HeaderButton";
 import { logoutUser } from "../Actions/Auth";
 
 function Header({ toggle }) {
-  const auth = useSelector(state => state.Auth);
+  const auth = useSelector((state) => state.Auth);
   const dispatch = useDispatch();
 
   return (
@@ -125,16 +126,13 @@ function Header({ toggle }) {
                       exact
                       to="/login"
                     >
-                      <p
-                        className="p margin-zero"
-                        id="header_login_nav_link"
-                      >
-                          Login
+                      <p className="p margin-zero" id="header_login_nav_link">
+                        Login
                       </p>
                     </NavLink>
                   </MainButton>
                 </li>
-                )}
+              )}
             </ul>
           </nav>
         </div>
@@ -144,7 +142,7 @@ function Header({ toggle }) {
 }
 
 Header.propTypes = {
-  toggle: PropTypes.func.isRequired
+  toggle: PropTypes.func.isRequired,
 };
 
 function mapDispatchToProps(dispatch) {

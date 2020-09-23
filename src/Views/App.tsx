@@ -12,18 +12,18 @@ import { createBrowserHistory } from "history";
 import ReactGA from "react-ga";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { composeWithDevTools } from "redux-devtools-extension";
-import Header from "../Components/Header";
-import Home from "../Components/Home";
-import Signup from "../Components/Signup";
-import Login from "../Components/Login";
-import UserHome from "../Components/UserHome";
-import Footer from "../Components/Footer";
-import Discover from "../Components/Discover";
-import rootReducer from "../Reducers";
-import Validation from "../Utils/Validation";
-import Feedback from "../Components/Feedback";
-import ForgotPassword from "../Components/ForgotPassword";
-import { verifyAuth } from "../Actions/Auth";
+import Header from "Components/Header";
+import Home from "Components/Home";
+import Signup from "Components/Signup";
+import Login from "Components/Login";
+import UserHome from "Components/User";
+import Footer from "Components/Footer";
+import Discover from "Components/Discover";
+import rootReducer from "Reducers";
+import Validation from "Utils/Validation";
+import Feedback from "Components/Feedback";
+import ForgotPassword from "Components/ForgotPassword";
+import { verifyAuth } from "Actions/Auth";
 
 const history = createBrowserHistory();
 
@@ -45,7 +45,7 @@ function configureStrore(preloadedState) {
 }
 const store = configureStrore();
 
-history.listen(location => {
+history.listen((location) => {
   ReactGA.set({ page: location.pathname });
   ReactGA.pageview(location.pathname);
 });
@@ -65,7 +65,7 @@ const SecretRoute = ({ Component, path }) => {
 
 SecretRoute.propTypes = {
   Component: PropTypes.func.isRequired,
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
 };
 
 function App() {
