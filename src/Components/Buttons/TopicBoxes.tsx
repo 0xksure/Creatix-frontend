@@ -1,6 +1,11 @@
-import React from "react";
+import React from 'react';
 
-const TopicBoxes = ({ topics, color = "gray" }) => {
+interface Props {
+  topics: string[];
+  color: string;
+}
+
+const TopicBoxes: React.FC<Props> = ({ topics, color = 'gray' }) => {
   return (
     <div className="topic-boxes">
       {topics.map((topic, idx) => {

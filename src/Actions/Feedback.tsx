@@ -8,7 +8,9 @@ import {
   CLAP_FEEDBACK_REQUEST,
   CLAP_FEEDBACK_SUCCESS,
   CLAP_FEEDBACK_FAILURE,
-} from "../Constants";
+} from '../Constants';
+import { ThunkAction } from 'redux-thunk';
+
 
 // ///////////////// POST FEEDACK /////////////////////////
 function postFeedbackRequest() {
@@ -56,24 +58,20 @@ function getFeedackFailure(error) {
   };
 }
 
-export const getFeedback = () => {
-  return (dispatch) => {
-    fetch(`${process.env.API_URL}user/feedback`, {
-      method: "GET",
+export const getFeedback = (): ThunkAction<v => async (dispatch) => {
+  try {
+    const resp = await fetch(`${process.env.API_URL}user/feedback`, {
+      method: 'GET',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-      credentials: "include",
-    })
-      .then((resp) => resp.json())
-      .then((feedbacks) => {
-        dispatch(getFeedbackSuccess(feedbacks));
-      })
-      .catch((error) => {
-        dispatch(getFeedackFailure(error));
-      });
-  };
+      credentials: 'include',
+    });
+    dispatch(getFeedbackSuccess(resp.json()));
+  } catch (err) {
+    dispatch(getFeedackFailure(err));
+  }
 };
 
 function clapFeedbackRequest() {
@@ -100,14 +98,16 @@ export const clapFeedback = (fid) => {
   return (dispatch) => {
     dispatch(clapFeedbackRequest());
     fetch(`${process.env.API_URL}user/feedback/${fid}/clap`, {
-      method: "post",
+      method: 'post',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-      credentials: "include",
+      credentials: 'include',
     })
-      .then((resp) => resp.json())
+      .then((resp) => {
+        return resp.json();
+      })
       .then((feedbacks) => {
         dispatch(clapFeedbackSuccess(feedbacks));
         dispatch(getFeedback());

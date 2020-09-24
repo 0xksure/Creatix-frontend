@@ -9,16 +9,17 @@ import { Feedback } from "Components/Feedback/types";
 
 interface Props {
   feedback: Feedback;
+  key: string;
 }
 
-const FeedbackItem: React.FC<Props> = ({ feedback }) => {
+const FeedbackItem: React.FC<Props> = ({ feedback, key }) => {
   const userID = useSelector((state) => state.Auth.UserID);
   const dispatch = useDispatch();
   const numberOfClaps = feedback.claps.length;
 
-  const userHasClapped = feedback.claps.some((clap) => clap.userId == userID);
+  const userHasClapped = feedback.claps.some((clap) => clap.userId === userID);
   return (
-    <li key={feedback.id} className="feedback-item">
+    <li key={key} className="feedback-item">
       <div className="grid-x grid-margin-x">
         <div className="cell small-3">
           <p>{`${feedback.person.firstname} ${feedback.person.lastname} `}</p>

@@ -9,7 +9,7 @@ import MainButton from "Components/Buttons/MainButton";
 import HeaderButton from "Components/Buttons/HeaderButton";
 import { logoutUser } from "../Actions/Auth";
 
-function Header({ toggle }) {
+const Header: React.FC = () => {
   const auth = useSelector((state) => state.Auth);
   const dispatch = useDispatch();
 
@@ -139,7 +139,7 @@ function Header({ toggle }) {
       </div>
     </>
   );
-}
+};
 
 Header.propTypes = {
   toggle: PropTypes.func.isRequired,

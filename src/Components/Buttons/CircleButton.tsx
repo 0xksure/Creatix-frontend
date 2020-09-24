@@ -1,7 +1,13 @@
-import React, { useState } from "react";
-import { useSpring, animated } from "react-spring";
+import React, { useState } from 'react';
+import { useSpring, animated } from 'react-spring';
 
-const CircleButton = ({ children, onClick }) => {
+interface Props {
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  label?: string;
+  icon: Element;
+}
+
+const CircleButton: React.FC<Props> = ({ children, onClick }) => {
   const [pressed] = useState(false);
   const [props, set] = useSpring(() => ({
     from: { opacity: 1 },
@@ -12,7 +18,7 @@ const CircleButton = ({ children, onClick }) => {
       <button
         className="creatix-btn circle"
         type="button"
-        onClick={() => {
+        onClick={(e) => {
           set({
             from: { opacity: 1 },
             to: async (next) => {
@@ -20,7 +26,7 @@ const CircleButton = ({ children, onClick }) => {
               await next({ opacity: 1 });
             },
           });
-          onClick();
+          onClick(e);
         }}
       >
         {children}

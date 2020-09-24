@@ -12,7 +12,7 @@ const CARD_TEXT_2 = "Find central people in your organization and teams";
 const CARD_TEXT_3 =
   "Employee cards provide information on skills and interest that would help your create an all start team.";
 
-function Features() {
+const Features: React.FC = () => {
   return (
     <div className="grid-x grid-padding-x creatix-features">
       <div className="cell small-12 medium-12-large-12 creatix-feature-statement">
@@ -62,6 +62,6 @@ function Features() {
       </div>
     </div>
   );
-}
+};
 
 export default Features;

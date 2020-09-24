@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
@@ -8,9 +8,8 @@ import { loginUser } from "Actions/Auth";
 import AlertBox from "Components/AlertBox";
 import Logo from "Components/Icons/LogoIcon";
 
-function Login(props) {
+const Login: React.FC = () => {
   const dispatch = useDispatch();
-  const auth = useSelector((state) => state.Auth);
 
   return (
     <div className="horizontal-center margin-top-l">
@@ -26,17 +25,18 @@ function Login(props) {
               password: "",
               error: "",
             }}
-            validate={(values) => {
+            validate={() => {
               const errors = {};
               return errors;
             }}
             onSubmit={(values, { setSubmitting, setStatus, setErrors }) => {
               dispatch(loginUser(values.email, values.password))
-                .then((res) => {
+                .then(() => {
                   setSubmitting(false);
-                  props.history.push(`/user`);
+                  <Redirect to="/user" />;
+                  return null;
                 })
-                .catch((err) => {
+                .catch(() => {
                   setSubmitting(false);
                   setErrors({
                     error:
@@ -47,7 +47,7 @@ function Login(props) {
               <Redirect to="/login" />;
             }}
           >
-            {({ values, isSubmitting, setFieldValue, errors }) => (
+            {({ isSubmitting, errors }) => (
               <Form className="">
                 <div className="grid-x grid-margin-x align-center ">
                   <div className="cell small-12">
@@ -101,5 +101,5 @@ function Login(props) {
       </div>
     </div>
   );
-}
+};
 export default Login;

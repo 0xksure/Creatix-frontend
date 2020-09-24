@@ -1,7 +1,6 @@
 import React from "react";
-import { HashLink as Link } from "react-router-hash-link";
 
-function Footer() {
+const Footer: React.FC = () => {
   return (
     <footer className="grid-container footer">
       <div className="grid-x footer-content">
@@ -18,6 +17,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

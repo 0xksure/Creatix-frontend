@@ -3,8 +3,23 @@
   "parserOptions": {
     "sourceType": "module",
     "allowImportExportEverywhere": false,
-    "codeFrame": false
+    "codeFrame": false,
+    "project": "./tsconfig.json"
   },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    },
+    {
+      "files": ["*.tsx", "*.ts"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ],
   "extends": [
     "standard",
     "plugin:@typescript-eslint/recommended",
@@ -30,7 +45,7 @@
     "jest": true
   },
   "rules": {
-    "max-len": ["error", { "code": 100 }],
+    "max-len": ["error", { "code": 250 }],
     "prefer-promise-reject-errors": ["off"],
     "react/jsx-filename-extension": ["off"],
     "react/prop-types": ["warn"],

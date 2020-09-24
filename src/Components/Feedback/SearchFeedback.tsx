@@ -1,12 +1,11 @@
-import React from "react";
-import { useFormik, Form, Field } from "formik";
+import React from 'react';
+import { useFormik, Form, Field } from 'formik';
 
 const SearchFeedback: React.FC = () => {
   const formik = useFormik({
     initialValues: {
-      searchTerm: "",
+      searchTerm: '',
     },
-    onSubmit: (values) => {},
   });
   return (
     <div className="cell">

@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Redirect } from "react-router";
 import DatePicker from "react-datepicker";
@@ -7,9 +7,8 @@ import MainButton from "Components/Buttons/MainButton";
 import { signupUser } from "Actions/Auth";
 import Logo from "./Icons/LogoIcon";
 
-function Signup(props) {
+const Signup: React.FC = () => {
   const dispatch = useDispatch();
-  const auth = useSelector((state) => state.Auth);
 
   return (
     <div className="horizontal-center margin-top-l">
@@ -29,18 +28,19 @@ function Signup(props) {
             }}
             validate={(values) => {
               const errors = {};
-              if (values.password != values.retry_password) {
+              if (values.password !== values.retry_password) {
                 errors.retry_password = "Passwords are not equal";
               }
               return errors;
             }}
             onSubmit={(values, { setSubmitting, setStatus }) => {
               dispatch(signupUser(values))
-                .then((res) => {
+                .then(() => {
                   setSubmitting(false);
-                  props.history.push("/login");
+                  <Redirect to="/login" />;
+                  return null;
                 })
-                .catch((err) => {
+                .catch(() => {
                   setSubmitting(false);
                   setStatus({ error: "Not able to sign up" });
                 });
@@ -134,5 +134,5 @@ function Signup(props) {
       </div>
     </div>
   );
-}
+};
 export default Signup;

@@ -4,7 +4,7 @@ const STATEMENT = "Business Transparency Made Simple";
 const SUB_STATEMENT =
   "Creatix is about transparency. Transparency in what people want, how people work and how people evolve. It is about having the opportunity to be heard and ultimately improving the business together.";
 
-function HomeStatement() {
+const HomeStatement: React.FC = () => {
   return (
     <div className="grid-x">
       <div className="cell small-12 home-statement">
@@ -19,6 +19,6 @@ function HomeStatement() {
       </div>
     </div>
   );
-}
+};
 
 export default HomeStatement;

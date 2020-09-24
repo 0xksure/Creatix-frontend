@@ -1,11 +1,11 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import SearchFeedback from "./SearchFeedback";
-import FeedbackList from "./FeedbackList";
-import FeedbackModal from "./Modal";
+import SearchFeedback from './SearchFeedback';
+import FeedbackList from './FeedbackList';
+import FeedbackModal from './Modal';
 
-function Feedback() {
+const Feedback: React.FC = () => {
   const feedback = useSelector((state) => state.Feedback);
   return (
     <div className="grid-x">
@@ -14,6 +14,6 @@ function Feedback() {
       <FeedbackModal feedback={feedback.feedbacks} />
     </div>
   );
-}
+};
 
 export default Feedback;

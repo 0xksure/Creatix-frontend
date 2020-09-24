@@ -7,7 +7,7 @@ import { resetPassword } from "Actions/Auth";
 import AlertBox from "Components/AlertBox";
 import Logo from "./Icons/LogoIcon";
 
-function ForgotPassword() {
+const ForgotPassword: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
@@ -26,20 +26,21 @@ function ForgotPassword() {
               email: "",
               error: "",
             }}
-            validate={(values) => {
+            validate={() => {
               const errors = {};
               return errors;
             }}
             onSubmit={(values, { setSubmitting, setStatus, setErrors }) => {
               dispatch(resetPassword(values.email))
-                .then((res) => {
+                .then(() => {
                   setSubmitting(false);
                   setErrors({
                     error:
                       "If you have an account you should have received an email about resetting you password.",
                   });
+                  return null;
                 })
-                .catch((err) => {
+                .catch(() => {
                   setSubmitting(false);
                   setErrors({
                     error:
@@ -50,7 +51,7 @@ function ForgotPassword() {
               <Redirect to="/login" />;
             }}
           >
-            {({ values, isSubmitting, setFieldValue, errors }) => (
+            {({ isSubmitting, errors }) => (
               <Form>
                 <div className="grid-x grid-margin-x align-center ">
                   <div className="cell small-12">
@@ -83,6 +84,6 @@ function ForgotPassword() {
       </div>
     </div>
   );
-}
+};
 
 export default ForgotPassword;

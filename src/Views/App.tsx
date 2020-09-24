@@ -68,7 +68,7 @@ SecretRoute.propTypes = {
   path: PropTypes.string.isRequired,
 };
 
-function App() {
+const App: React.FC = () => {
   return (
     <HelmetProvider>
       <Provider store={store}>
@@ -102,6 +102,6 @@ function App() {
       </Provider>
     </HelmetProvider>
   );
-}
+};
 
 export default App;

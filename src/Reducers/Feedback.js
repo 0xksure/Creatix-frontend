@@ -1,11 +1,10 @@
-import { actions } from "react-redux-form";
 import {
   GET_FEEDBACK_REQUEST,
   GET_FEEDBACK_SUCCESS,
   GET_FEEDBACK_FAILURE,
   CLAP_FEEDBACK_REQUEST,
   CLAP_FEEDBACK_SUCCESS,
-  CLAP_FEEDBACK_FAILURE
+  CLAP_FEEDBACK_FAILURE,
 } from "../Constants";
 
 const initialState = {
@@ -14,7 +13,7 @@ const initialState = {
   loadingFeedbacksSuccess: true,
   errorMessage: "",
   isClappingFeedback: false,
-  clappingFeedbakSuccess: true
+  clappingFeedbakSuccess: true,
 };
 
 export default function Feedback(state = initialState, action) {
@@ -24,7 +23,7 @@ export default function Feedback(state = initialState, action) {
         ...state,
         isLoadingFeedbacks: true,
         loadingFeedbacksSuccess: false,
-        errorMessage: ""
+        errorMessage: "",
       };
     case GET_FEEDBACK_SUCCESS:
       return {
@@ -32,21 +31,14 @@ export default function Feedback(state = initialState, action) {
         isLoadingFeedbacks: false,
         loadingFeedbacksSuccess: true,
         feedbacks: action.feedbacks,
-        errorMessage: ""
+        errorMessage: "",
       };
     case GET_FEEDBACK_FAILURE:
       return {
         ...state,
         isLoadingFeedbacks: false,
         loadingFeedbacksSuccess: false,
-        errorMessage: action.error
-      };
-    case CLAP_FEEDBACK_REQUEST:
-      return {
-        ...state,
-        isClappingFeedback: true,
-        errorMessage: "",
-        clappingFeedbakSuccess: false
+        errorMessage: action.error,
       };
     case CLAP_FEEDBACK_SUCCESS:
       return {
@@ -54,14 +46,18 @@ export default function Feedback(state = initialState, action) {
         isClappingFeedback: false,
         errorMessage: "",
         clappingFeedbakSuccess: true,
-        feedbacks: action.feedbacks
+        feedbacks: action.feedbacks,
       };
     case CLAP_FEEDBACK_REQUEST:
       return {
         ...state,
-        isClappingFeedback: false,
+        isClappingFeedback: true,
         errorMessage: action.error,
-        clappingFeedbakSuccess: false
+        clappingFeedbakSuccess: false,
+      };
+    case CLAP_FEEDBACK_FAILURE:
+      return {
+        ...state,
       };
     default:
       return state;

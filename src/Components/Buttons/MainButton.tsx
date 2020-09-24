@@ -1,28 +1,28 @@
-import React from "react";
-import { useSpring, animated } from "react-spring";
+import React from 'react';
+import { useSpring, animated } from 'react-spring';
 
 enum size {
-  "small",
-  "medium",
-  "large",
+  Small = 'small',
+  Medium = 'medium',
+  Large = 'large',
 }
 
 interface Props {
   id: string;
-  size: size | "";
+  size: size | '';
   round: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   modalIsOpen?: boolean;
-  buttonType: "reset" | "button" | "submit" | undefined;
+  buttonType: 'reset' | 'button' | 'submit' | undefined;
   disabled: boolean;
 }
 
 const MainButton: React.FC<Props> = ({
-  id = "undefined",
-  size = "",
-  round = "",
+  id = 'undefined',
+  size = '',
+  round = '',
   children,
-  onClick = () => {},
+  onClick,
   modalIsOpen = false,
   buttonType,
   disabled = false,
