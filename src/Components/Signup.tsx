@@ -37,12 +37,10 @@ function Signup(props) {
             onSubmit={(values, { setSubmitting, setStatus }) => {
               dispatch(signupUser(values))
                 .then((res) => {
-                  console.log("Completed!!!");
                   setSubmitting(false);
                   props.history.push("/login");
                 })
                 .catch((err) => {
-                  console.log("Catch!!! ");
                   setSubmitting(false);
                   setStatus({ error: "Not able to sign up" });
                 });

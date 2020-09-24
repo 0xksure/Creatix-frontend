@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 
 function Validation({ children }) {
-  const isAuthenticated = useSelector(state => state.Auth.isAuthenticated);
+  const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
   return (
     <div>
       {isAuthenticated && <div>{children}</div>}
@@ -13,7 +13,7 @@ function Validation({ children }) {
 }
 
 Validation.propTypes = {
-  children: PropTypes.func.isRequired
+  children: PropTypes.func.isRequired,
 };
 
 export default Validation;

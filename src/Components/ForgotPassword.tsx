@@ -40,7 +40,6 @@ function ForgotPassword() {
                   });
                 })
                 .catch((err) => {
-                  console.log("Catch!!! ");
                   setSubmitting(false);
                   setErrors({
                     error:

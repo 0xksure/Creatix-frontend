@@ -6,9 +6,7 @@ const SearchFeedback: React.FC = () => {
     initialValues: {
       searchTerm: "",
     },
-    onSubmit: (values) => {
-      console.log("submit ", values);
-    },
+    onSubmit: (values) => {},
   });
   return (
     <div className="cell">

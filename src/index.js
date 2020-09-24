@@ -3,8 +3,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ReactGA from "react-ga";
 import TagManager from "react-gtm-module";
-import "./Assets/style/main.scss";
-import App from "./Views/App";
+import "Assets/style/main.scss";
+import App from "Views/App";
 
 if (process.env.NODE_ENV !== "production") {
   module.hot.accept();

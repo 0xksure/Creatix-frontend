@@ -37,7 +37,6 @@ function Login(props) {
                   props.history.push(`/user`);
                 })
                 .catch((err) => {
-                  console.log("Catch!!! ");
                   setSubmitting(false);
                   setErrors({
                     error:
