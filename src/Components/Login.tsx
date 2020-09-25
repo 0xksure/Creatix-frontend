@@ -1,12 +1,12 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Redirect } from "react-router";
-import { NavLink } from "react-router-dom";
-import MainButton from "Components/Buttons/MainButton";
-import { loginUser } from "Actions/Auth";
-import AlertBox from "Components/AlertBox";
-import Logo from "Components/Icons/LogoIcon";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Redirect } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import MainButton from 'Components/Buttons/MainButton';
+import { loginUser } from 'Actions/Auth';
+import AlertBox from 'Components/AlertBox';
+import Logo from 'Components/Icons/LogoIcon';
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
@@ -21,9 +21,9 @@ const Login: React.FC = () => {
         <div className="cell login-form padding-bottom-m">
           <Formik
             initialValues={{
-              email: "",
-              password: "",
-              error: "",
+              email: '',
+              password: '',
+              error: '',
             }}
             validate={() => {
               const errors = {};
@@ -40,9 +40,9 @@ const Login: React.FC = () => {
                   setSubmitting(false);
                   setErrors({
                     error:
-                      "Hmm, we are not able to log you in. It might be that you username or password is incorrect.",
+                      'Hmm, we are not able to log you in. It might be that you username or password is incorrect.',
                   });
-                  setStatus({ error: "Not able to sign up" });
+                  setStatus({ error: 'Not able to sign up' });
                 });
               <Redirect to="/login" />;
             }}
@@ -61,11 +61,7 @@ const Login: React.FC = () => {
                     <label className="input-label" htmlFor="password">
                       Password
                     </label>
-                    <Field
-                      type="password"
-                      className="input-field"
-                      name="password"
-                    />
+                    <Field type="password" className="input-field" name="password" />
                   </div>
                   <div className="cell small-12">
                     <NavLink exact to="/forgot-password">
@@ -73,9 +69,7 @@ const Login: React.FC = () => {
                     </NavLink>
                   </div>
                   <div className="cell small-12">
-                    {errors.error && (
-                      <AlertBox alertType="error">{errors.error}</AlertBox>
-                    )}
+                    {errors.error && <AlertBox alertType="error">{errors.error}</AlertBox>}
                   </div>
                   <div className="cell small-12 padding-vertical-s">
                     <MainButton

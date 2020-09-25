@@ -14,9 +14,12 @@ import {
   RESET_PWD_REQUEST,
   RESET_PWD_SUCCESS,
   RESET_PWD_FAILURE,
-} from "../Constants";
-import { getFeedback } from "./Feedback";
-import { setCookie, removeCookie } from "../Utils/Cookies";
+} from '../Constants';
+import { getFeedback } from './Feedback';
+import { setCookie, removeCookie } from '../Utils/Cookies';
+import { AppThunk } from 'store';
+
+interface SignupForm {}
 
 function signupRequest() {
   return {
@@ -44,29 +47,22 @@ function loginRequest() {
   };
 }
 
-export const signupUser = (signupForm) => {
-  return (dispatch) =>
-    new Promise(function (resolve, reject) {
-      dispatch(signupRequest());
-      fetch(`${process.env.API_URL}auth/user/signup`, {
-        method: "POST",
-        body: JSON.stringify(signupForm),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      })
-        .then((resp) => resp.json())
-        .then((user) => {
-          dispatch(signupSuccess(user));
-          resolve(user);
-        })
-        .catch((err) => {
-          dispatch(signupFailure(err));
-          reject(err);
-        });
+export const signupUser = (signupForm: SignupForm): AppThunk<Promise<void>> => async (dispatch) => {
+  try {
+    dispatch(signupRequest());
+    const resp = await fetch(`${process.env.API_URL}auth/user/signup`, {
+      method: 'POST',
+      body: JSON.stringify(signupForm),
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
     });
+    dispatch(signupSuccess(resp.json()));
+  } catch (err) {
+    dispatch(signupFailure(err));
+  }
 };
 
 function loginSuccess(user) {
@@ -83,36 +79,30 @@ function loginFailure(error) {
   };
 }
 
-export const loginUser = (email, password) => {
-  return (dispatch) =>
-    new Promise(function (resolve, reject) {
-      dispatch(loginRequest());
-      fetch(`${process.env.API_URL}auth/user/login`, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      })
-        .then((resp) => {
-          return resp.json();
-        })
-        .then((user) => {
-          setCookie("token", user.Token, user.ExpiresAt);
-          dispatch(loginSuccess(user));
-          dispatch(getFeedback());
-          resolve(user);
-        })
-        .catch((err) => {
-          dispatch(loginFailure(err));
-          reject(err);
-        });
+export const loginUser = (email: string, password: string): AppThunk<Promise<void>> => async (
+  dispatch,
+) => {
+  try {
+    dispatch(loginRequest());
+    const resp = await fetch(`${process.env.API_URL}auth/user/login`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        email,
+        password,
+      }),
     });
+    const user = resp.json();
+    setCookie('token', user.Token, user.ExpiresAt);
+    dispatch(loginSuccess(user));
+    dispatch(getFeedback());
+  } catch (err) {
+    dispatch(loginFailure(err));
+  }
 };
 
 function logoutRequest() {
@@ -138,15 +128,15 @@ export const logoutUser = () => {
   return (dispatch) => {
     dispatch(logoutRequest());
     fetch(`${process.env.API_URL}auth/user/logout`, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-      credentials: "include",
+      credentials: 'include',
     })
       .then(() => {
-        removeCookie("token");
+        removeCookie('token');
         dispatch(logoutSuccess());
       })
       .catch((err) => {
@@ -179,12 +169,12 @@ export const verifyAuth = () => {
   return (dispatch) => {
     dispatch(verifyRequest());
     fetch(`${process.env.API_URL}auth/user/refresh`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-      credentials: "include",
+      credentials: 'include',
     })
       .then((res) => {
         if (res.status !== 200) {
@@ -227,12 +217,12 @@ export const resetPassword = (email) => {
     new Promise(function (resolve, reject) {
       dispatch(resetPasswordRequest());
       fetch(`${process.env.API_URL}auth/user/reset_password`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
-        credentials: "include",
+        credentials: 'include',
         body: JSON.stringify({
           email,
         }),

@@ -9,8 +9,7 @@ import {
   CLAP_FEEDBACK_SUCCESS,
   CLAP_FEEDBACK_FAILURE,
 } from '../Constants';
-import { ThunkAction } from 'redux-thunk';
-
+import { AppThunk } from 'store';
 
 // ///////////////// POST FEEDACK /////////////////////////
 function postFeedbackRequest() {
@@ -19,22 +18,41 @@ function postFeedbackRequest() {
   };
 }
 
-function postFeedbackSuccess() {
+function postFeedbackSuccess(resp) {
   return {
     type: POST_FEEDBACK_SUCCESS,
+    resp: resp,
   };
 }
 
-function postFeedbackFailure() {
+function postFeedbackFailure(err) {
   return {
     type: POST_FEEDBACK_FAILURE,
+    err: err,
   };
 }
 
-export const postFeedback = (title, description) => {
-  return (dispatch) => {
-    fetch(process.env.API_URL);
-  };
+export const postFeedback = (title: string, description: string): AppThunk<Promise<void>> => async (
+  dispatch,
+) => {
+  try {
+    dispatch(postFeedbackRequest());
+    const resp = await fetch(`${process.env.API_URL}user/feedback`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        title,
+        description,
+      }),
+    });
+    dispatch(postFeedbackSuccess(resp));
+  } catch (err) {
+    dispatch(postFeedbackFailure(err));
+  }
 };
 
 // ////////////////// GET FEEDBACK ////////////////////////
@@ -58,8 +76,9 @@ function getFeedackFailure(error) {
   };
 }
 
-export const getFeedback = (): ThunkAction<v => async (dispatch) => {
+export const getFeedback = (): AppThunk<Promise<void>> => async (dispatch) => {
   try {
+    dispatch(getFeedbackRequest());
     const resp = await fetch(`${process.env.API_URL}user/feedback`, {
       method: 'GET',
       headers: {
@@ -94,26 +113,20 @@ function clapFeedbackFailure(error) {
   };
 }
 
-export const clapFeedback = (fid) => {
-  return (dispatch) => {
+export const clapFeedback = (fid: string): AppThunk<Promise<void>> => async (dispatch) => {
+  try {
     dispatch(clapFeedbackRequest());
-    fetch(`${process.env.API_URL}user/feedback/${fid}/clap`, {
+    const resp = await fetch(`${process.env.API_URL}user/feedback/${fid}/clap`, {
       method: 'post',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-    })
-      .then((resp) => {
-        return resp.json();
-      })
-      .then((feedbacks) => {
-        dispatch(clapFeedbackSuccess(feedbacks));
-        dispatch(getFeedback());
-      })
-      .catch((error) => {
-        dispatch(clapFeedbackFailure(error));
-      });
-  };
+    });
+    dispatch(clapFeedbackSuccess(resp.json));
+    dispatch(getFeedback());
+  } catch (err) {
+    dispatch(clapFeedbackFailure(err));
+  }
 };
