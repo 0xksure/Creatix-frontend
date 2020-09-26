@@ -124,25 +124,22 @@ function logoutFailure(error) {
   };
 }
 
-export const logoutUser = () => {
-  return (dispatch) => {
+export const logoutUser = (): AppThunk<Promise<void>> => async (dispatch) => {
+  try {
     dispatch(logoutRequest());
-    fetch(`${process.env.API_URL}auth/user/logout`, {
+    await fetch(`${process.env.API_URL}auth/user/logout`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-    })
-      .then(() => {
-        removeCookie('token');
-        dispatch(logoutSuccess());
-      })
-      .catch((err) => {
-        dispatch(logoutFailure(err));
-      });
-  };
+    });
+    removeCookie('token');
+    dispatch(logoutSuccess());
+  } catch (err) {
+    dispatch(logoutFailure(err));
+  }
 };
 
 function verifyRequest() {
@@ -165,31 +162,27 @@ function verifyFailure(error) {
   };
 }
 
-export const verifyAuth = () => {
-  return (dispatch) => {
+export const verifyAuth = (): AppThunk<Promise<void>> => async (dispatch) => {
+  try {
     dispatch(verifyRequest());
-    fetch(`${process.env.API_URL}auth/user/refresh`, {
+    const resp = await fetch(`${process.env.API_URL}auth/user/refresh`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-    })
-      .then((res) => {
-        if (res.status !== 200) {
-          throw Error(response.statusText);
-        }
-        return res.json();
-      })
-      .then((res) => {
-        dispatch(verifySucess(res.User));
-        dispatch(getFeedback());
-      })
-      .catch((error) => {
-        dispatch(verifyFailure(error));
-      });
-  };
+    });
+
+    if (resp.status !== 200) {
+      throw Error(resp.statusText);
+    }
+    const user = resp.json();
+    dispatch(verifySucess(user));
+    dispatch(getFeedback());
+  } catch (err) {
+    dispatch(verifyFailure(err));
+  }
 };
 
 function resetPasswordRequest() {
@@ -212,31 +205,23 @@ function resetPasswordFailure(error) {
   };
 }
 
-export const resetPassword = (email) => {
-  return (dispatch) =>
-    new Promise(function (resolve, reject) {
-      dispatch(resetPasswordRequest());
-      fetch(`${process.env.API_URL}auth/user/reset_password`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({
-          email,
-        }),
-      })
-        .then((resp) => {
-          return resp.json();
-        })
-        .then((user) => {
-          dispatch(resetPasswordSuccess(user));
-          resolve(user);
-        })
-        .catch((err) => {
-          dispatch(resetPasswordFailure(err));
-          reject(err);
-        });
+export const resetPassword = (email: string): AppThunk<Promise<void>> => async (dispatch) => {
+  try {
+    dispatch(resetPasswordRequest());
+    const resp = await fetch(`${process.env.API_URL}auth/user/reset_password`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        email,
+      }),
     });
+    const user = resp.json();
+    dispatch(resetPasswordSuccess(user));
+  } catch (err) {
+    dispatch(resetPasswordFailure(err));
+  }
 };
