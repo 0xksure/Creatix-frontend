@@ -1,13 +1,14 @@
-import React from "react";
-import { bindActionCreators } from "redux";
-import { connect, useSelector, useDispatch } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
-import Logo from "Components/Icons/LogoIcon";
-import toggleModal from "Actions/Modal";
-import MainButton from "Components/Buttons/MainButton";
-import HeaderButton from "Components/Buttons/HeaderButton";
-import { logoutUser } from "../Actions/Auth";
+import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+
+import PropTypes from 'prop-types';
+import Logo from 'Components/Icons/LogoIcon';
+import toggleModal from 'Actions/Modal';
+import MainButton from 'Components/Buttons/MainButton';
+import HeaderButton from 'Components/Buttons/HeaderButton';
+import { logoutUser } from '../Actions/Auth';
 
 const Header: React.FC = () => {
   const auth = useSelector((state) => state.Auth);
@@ -34,10 +35,7 @@ const Header: React.FC = () => {
                         exact
                         to="/user"
                       >
-                        <h4
-                          className="h4 medium-font small margin-zero"
-                          id="header_main_nav_link"
-                        >
+                        <h4 className="h4 medium-font small margin-zero" id="header_main_nav_link">
                           User
                         </h4>
                       </NavLink>
@@ -51,10 +49,7 @@ const Header: React.FC = () => {
                         exact
                         to="/feedback"
                       >
-                        <h4
-                          className="h4 medium-font small margin-zero"
-                          id="header_main_nav_link"
-                        >
+                        <h4 className="h4 medium-font small margin-zero" id="header_main_nav_link">
                           Feedback
                         </h4>
                       </NavLink>
@@ -67,13 +62,11 @@ const Header: React.FC = () => {
                   <NavLink
                     activeClassName="nav-link_active"
                     className="nav-link"
+                    strict
                     exact
                     to="/"
                   >
-                    <h4
-                      className="h4 medium-font small margin-zero"
-                      id="header_main_nav_link"
-                    >
+                    <h4 className="h4 medium-font small margin-zero" id="header_main_nav_link">
                       Home
                     </h4>
                   </NavLink>
@@ -84,13 +77,11 @@ const Header: React.FC = () => {
                   <NavLink
                     activeClassName="nav-link_active"
                     className="nav-link"
+                    strict
                     exact
-                    to="/discover"
+                    to="discover"
                   >
-                    <h4
-                      className="h4 medium-font small margin-zero"
-                      id="header_discover_nav_link"
-                    >
+                    <h4 className="h4 medium-font small margin-zero" id="header_discover_nav_link">
                       Discover
                     </h4>
                   </NavLink>
@@ -98,20 +89,9 @@ const Header: React.FC = () => {
               </li>
               {auth.isAuthenticated ? (
                 <li className="nav-item" id="header_signup_modal">
-                  <MainButton
-                    id="header_signup_modal"
-                    onToggle={() => dispatch(logoutUser())}
-                  >
-                    <NavLink
-                      activeClassName="nav-link_active"
-                      className="nav-link"
-                      exact
-                      to="/"
-                    >
-                      <h4
-                        className="h4 medium-font small margin-zero"
-                        id="header_logout_nav_link"
-                      >
+                  <MainButton id="header_signup_modal" onToggle={() => dispatch(logoutUser())}>
+                    <NavLink activeClassName="nav-link_active" className="nav-link" to="/">
+                      <h4 className="h4 medium-font small margin-zero" id="header_logout_nav_link">
                         Logout
                       </h4>
                     </NavLink>
@@ -120,12 +100,7 @@ const Header: React.FC = () => {
               ) : (
                 <li className="nav-item" id="header_signup_modal">
                   <MainButton id="header_signup_modal" round="round">
-                    <NavLink
-                      activeClassName="nav-link__active"
-                      className="nav-link"
-                      exact
-                      to="/login"
-                    >
+                    <NavLink activeClassName="nav-link__active" className="nav-link" to="/login">
                       <p className="p margin-zero" id="header_login_nav_link">
                         Login
                       </p>
