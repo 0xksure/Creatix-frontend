@@ -1,20 +1,61 @@
 {
-    "parser": "babel-eslint",
-    "parserOptions": {
+  "parser": "babel-eslint",
+  "parserOptions": {
     "sourceType": "module",
     "allowImportExportEverywhere": false,
-    "codeFrame": false
-},
-"extends": ["airbnb", "prettier"],
-"env": {
+    "codeFrame": false,
+    "project": "./tsconfig.json"
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
+    },
+    {
+      "files": ["*.tsx", "*.ts"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ],
+  "extends": [
+    "standard",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "plugin:promise/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "plugins": [
+    "standard",
+    "@typescript-eslint",
+    "react",
+    "prettier",
+    "jsx-a11y",
+    "promise",
+    "import"
+  ],
+  "env": {
     "browser": true,
     "jest": true
-},
-"rules": {
-    "max-len": ["error", {"code": 100}],
+  },
+  "rules": {
+    "max-len": ["error", { "code": 250 }],
     "prefer-promise-reject-errors": ["off"],
     "react/jsx-filename-extension": ["off"],
     "react/prop-types": ["warn"],
-    "no-return-assign": ["off"]
+    "no-return-assign": ["off"],
+    "import/no-absolute-path": "error"
+  },
+  "settings": {
+    "import/resolver": "webpack",
+    "react": {
+      "version": "detect"
+    }
   }
 }

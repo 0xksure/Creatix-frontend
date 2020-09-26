@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "es2019",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "jsx": "react",
+    "noImplicitAny": false,
+    "noEmit": true,
+    // "noErrorTruncation": true,
+    "strict": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true
+  },
+  "include": ["src", "static", "test", "*.js"]
+}
