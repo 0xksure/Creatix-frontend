@@ -14,5 +14,5 @@
     "esModuleInterop": true,
     "strictNullChecks": true
   },
-  "include": ["src", "static", "test", "*.js"]
+  "include": ["src", "static", "test", "*.js", "server/index.js"]
 }

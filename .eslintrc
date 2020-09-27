@@ -6,6 +6,7 @@
     "codeFrame": false,
     "project": "./tsconfig.json"
   },
+  "ignorePatterns": ["server/"],
   "overrides": [
     {
       "files": ["*.js"],
