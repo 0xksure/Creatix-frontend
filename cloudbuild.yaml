@@ -1,21 +1,23 @@
-steps: 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build',
-          '--build-arg',
-          'TRACKING_ID=${_TRACKING_ID}',
-          '--build-arg',
-          'NODE_ENV=${_NODE_ENV}',
-          '--build-arg',
-          'GTM_ID=${_GTM_ID}',
-          '-f',
-          'Dockerfile.prod',
-          '-t',
-          'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA',
-         '.']
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '--build-arg',
+        'TRACKING_ID=${_TRACKING_ID}',
+        '--build-arg',
+        'NODE_ENV=${_NODE_ENV}',
+        '--build-arg',
+        'GTM_ID=${_GTM_ID}',
+        '-f',
+        'Dockerfile.prod',
+        '-t',
+        'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA',
+        '.',
+      ]
 substitutions:
   _TRACKING_ID: GA-1010
-  _NODE_ENV: production
+  _NODE_ENV: prod
   _GTM_ID: GTM-000000
 images:
   - 'gcr.io/$PROJECT_ID/github.com/creatix-frontend:$SHORT_SHA'
-

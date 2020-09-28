@@ -24,7 +24,6 @@ import Validation from 'Utils/Validation';
 import Feedback from 'Components/Feedback';
 import ForgotPassword from 'Components/ForgotPassword';
 import { verifyAuth } from 'Actions/Auth';
-import { Z_NEED_DICT } from 'zlib';
 
 const history = createBrowserHistory();
 
@@ -47,8 +46,8 @@ function configureStrore(preloadedState) {
 const store = configureStrore();
 
 history.listen((location) => {
-  ReactGA.set({ page: location.pathname });
-  ReactGA.pageview(location.pathname);
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
 });
 
 const SecretRoute = ({ path, children }) => {

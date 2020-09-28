@@ -8,7 +8,8 @@ import Logo from 'Components/Icons/LogoIcon';
 import toggleModal from 'Actions/Modal';
 import MainButton from 'Components/Buttons/MainButton';
 import HeaderButton from 'Components/Buttons/HeaderButton';
-import { logoutUser } from '../Actions/Auth';
+import { logoutUser } from 'Actions/Auth';
+import analyticsEvent from 'Utils/Analytics';
 
 const Header: React.FC = () => {
   const auth = useSelector((state) => state.Auth);
@@ -58,7 +59,7 @@ const Header: React.FC = () => {
                 </>
               )}
               <li className="nav-item">
-                <HeaderButton>
+                <HeaderButton onClick={() => analyticsEvent('click', 'home', 'home')}>
                   <NavLink
                     activeClassName="nav-link_active"
                     className="nav-link"
@@ -73,7 +74,7 @@ const Header: React.FC = () => {
                 </HeaderButton>
               </li>
               <li className="nav-item">
-                <HeaderButton>
+                <HeaderButton onClick={() => analyticsEvent('click', 'discover', 'discover')}>
                   <NavLink
                     activeClassName="nav-link_active"
                     className="nav-link"
@@ -99,7 +100,11 @@ const Header: React.FC = () => {
                 </li>
               ) : (
                 <li className="nav-item" id="header_signup_modal">
-                  <MainButton id="header_signup_modal" round="round">
+                  <MainButton
+                    id="header_signup_modal"
+                    round="round"
+                    onClick={() => analyticsEvent('click', 'login', 'login')}
+                  >
                     <NavLink activeClassName="nav-link__active" className="nav-link" to="/login">
                       <p className="p margin-zero" id="header_login_nav_link">
                         Login

@@ -5,6 +5,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 
 const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default;
 const CopyPlugin = require('copy-webpack-plugin');
+const { env } = require('process');
 
 const paths = ['/', '/discover'];
 
@@ -102,18 +103,10 @@ module.exports = () => {
       }),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.EnvironmentPlugin({
-        TRACKING_ID: '',
-        GTM_ID: '',
-        NODE_ENV: 'development',
-        apiKey: '',
-        API_URL: 'http://localhost:8080/v0/',
-        authDomain: '',
-        databaseURL: '',
-        projectId: '',
-        storageBucket: '',
-        messagingSenderId: '',
-        appId: '',
-        measurementId: '',
+        TRACKING_ID: env.TRACKING_ID ? env.TRACKING_ID : '',
+        GTM_ID: env.GTM ? env.GTM : '',
+        NODE_ENV: env.NODE_ENV ? env.NODE_ENV : 'dev',
+        API_URL: env.API_URL ? env.API_URL : 'http://localhost:8080/v0/',
       }),
       new SitemapWebpackPlugin('https://www.thecreatix.io', paths),
     ],
@@ -121,6 +114,7 @@ module.exports = () => {
       contentBase: './dist',
       hot: true,
       historyApiFallback: true,
+      port: env.PORT ? env.PORT : '3030',
     },
   };
 };

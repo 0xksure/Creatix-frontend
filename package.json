@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js --port $PORT",
-    "build": "NODE_ENV=production webpack --config webpack.prod.js --display-error-details",
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "NODE_ENV=prod webpack --config webpack.prod.js --display-error-details",
     "test": "jest",
     "lint": "eslint src/**/*.{js,ts,tsx} --report-unused-disable-directives",
     "autolint": "eslint --fix src/**/*.{js,ts,tsx} --report-unused-disable-directives",
-    "precommit": "NODE_ENV=production lint-staged",
+    "precommit": "NODE_ENV=prod lint-staged",
     "create-env": "printenv > .env"
   },
   "dependencies": {

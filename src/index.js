@@ -1,12 +1,12 @@
-import "@babel/polyfill";
-import React from "react";
-import ReactDOM from "react-dom";
-import ReactGA from "react-ga";
-import TagManager from "react-gtm-module";
-import "Assets/style/main.scss";
-import App from "Views/App";
+import '@babel/polyfill';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactGA from 'react-ga';
+import TagManager from 'react-gtm-module';
+import 'Assets/style/main.scss';
+import App from 'Views/App';
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'prod') {
   module.hot.accept();
 }
 
@@ -19,4 +19,4 @@ ReactGA.initialize(trackingID, {
 });
 TagManager.initialize({ gtmId });
 ReactGA.pageview(window.location.pathname + window.location.search);
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
