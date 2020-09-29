@@ -1,8 +1,8 @@
-import React from "react";
-import { useSelector, shallowEqual } from "react-redux";
-import { Helmet } from "react-helmet-async";
-import Banner from "Components/Discover/Banner";
-import { useWindowSize } from "../../Utils/Hooks";
+import React from 'react';
+import { useSelector, shallowEqual } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
+import Banner from 'Components/Discover/Banner';
+import { useWindowSize } from '../../Utils/Hooks';
 import {
   FEEDBACK_MAIN,
   FEEDBACK_SUB_TEXT,
@@ -10,17 +10,11 @@ import {
   OVERVIEW_SUB_TEXT,
   CARDS_MAIN,
   CARDS_SUB_TEXT,
-} from "Components/Discover/constants";
+} from 'Components/Discover/constants';
 
-interface Props {
-  name: string;
-}
-const Discover: React.FC<Props> = () => {
-  const modalIsOpen = useSelector(
-    (state) => state.Modal.modalIsOpen,
-    shallowEqual
-  );
-  const blurClass = modalIsOpen ? "blur-on-modal" : "";
+const Discover: React.FC = () => {
+  const modalIsOpen = useSelector((state) => state.Modal.modalIsOpen, shallowEqual);
+  const blurClass = modalIsOpen ? 'blur-on-modal' : '';
   const size = useWindowSize();
   const widthSize = size?.width ?? 1000;
   return (

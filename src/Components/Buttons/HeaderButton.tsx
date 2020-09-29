@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { useSpring, animated } from 'react-spring';
 
-const HeaderButton: React.FC = ({ children }) => {
+interface Props {
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const HeaderButton: React.FC<Props> = ({ children }) => {
   const [props] = useSpring(() => ({
     from: {
       transform: 'translate3d(0,0px,0)',

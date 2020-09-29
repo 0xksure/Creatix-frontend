@@ -124,6 +124,7 @@ const Header: React.FC = () => {
                   <MainButton
                     id="header_signup_modal"
                     round="round"
+                    size={'medium'}
                     onClick={() => analyticsEvent('click', 'login', 'login')}
                   >
                     <NavLink
