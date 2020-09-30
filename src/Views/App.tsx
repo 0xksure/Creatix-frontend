@@ -1,16 +1,7 @@
 import React from 'react';
-<<<<<<< HEAD
 
 import { Route, Switch, useLocation, Redirect } from 'react-router-dom';
 import { useDispatch, connect } from 'react-redux';
-=======
-import { createStore, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger';
-import { Provider } from 'react-redux';
-import thunkMiddleware from 'redux-thunk';
-import { Router, Route, Switch } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
->>>>>>> fc94331... Fix: Typescript errors
 import ReactGA from 'react-ga';
 import Home from 'Components/Home';
 import Signup from 'Components/Signup/Signup';

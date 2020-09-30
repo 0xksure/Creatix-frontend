@@ -33,6 +33,8 @@ interface ActionState {
   type: string;
   resp?: f[];
   err?: string;
+  feedbacks: f[];
+  error: string;
 }
 
 type FeedbackActionType = ActionState;
