@@ -1,31 +1,3 @@
-.big-statement {
-  margin: 5rem;
-}
-
-.fat-banner {
-  .vertical-padding-s {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  &.strong-blue {
-    background-color: $creatix-blue;
-  }
-
-  &.strong-pink {
-    background-color: $creatix-pink;
-  }
-
-
-
-  &.gray {
-    background-color: $creatix-gray2;
-  }
-
-  .gray {
-    background-color: $creatix-gray2;
-    //background-color: $silver;
-  }
-  @media screen and (min-width: 20em) and (max-width: 40em) {
-    //padding: 2rem;
-  }
+.gray {
+  background-color: $creatix-gray2;
 }

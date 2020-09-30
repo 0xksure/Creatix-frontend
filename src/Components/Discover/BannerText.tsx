@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface BannerTextProps {
   title: string;
@@ -7,22 +7,17 @@ interface BannerTextProps {
   id: string;
 }
 
-const BannerText: React.FC<BannerTextProps> = ({
-  title,
-  description,
-  bannerStyle,
-  id,
-}) => {
+const BannerText: React.FC<BannerTextProps> = ({ title, description, bannerStyle, id }) => {
   return (
     <div
-      className={`cell small-12 medium-12 large-8 padding-vertical-l padding-horizontal-l ${bannerStyle}`}
+      className={`cell small-12 medium-12 large-12 padding-vertical-l padding-horizontal-l ${bannerStyle}`}
     >
-      <h2 className="h2" id={`${id}_main_text`}>
+      <h2 className="h2 uppercase" id={`${id}_main_text`}>
         {title}
       </h2>
-      <h4 className="h4" id={`${id}_sub_text`}>
+      <h3 className="h3" id={`${id}_sub_text`}>
         {description}
-      </h4>
+      </h3>
     </div>
   );
 };

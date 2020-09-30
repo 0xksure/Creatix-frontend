@@ -1,5 +1,5 @@
-import React from "react";
-import BannerText from "Components/Discover/BannerText";
+import React from 'react';
+import BannerText from 'Components/Discover/BannerText';
 
 interface Props {
   id: string;
@@ -7,37 +7,16 @@ interface Props {
   leftPos?: boolean;
   mainText: string;
   subText: string;
-  element?: String;
 }
 
-const Banner: React.FC<Props> = ({
-  bannerStyle,
-  id,
-  leftPos,
-  mainText,
-  subText,
-  element,
-}) => {
+const Banner: React.FC<Props> = ({ bannerStyle, id, leftPos, mainText, subText }) => {
   return (
-    <div className="grid-x fat-banner margin-bottom-l" id={id}>
+    <div className="grid-x margin-bottom-l" id={id}>
       {leftPos && (
-        <BannerText
-          title={mainText}
-          description={subText}
-          bannerStyle={bannerStyle}
-          id={id}
-        />
+        <BannerText title={mainText} description={subText} bannerStyle={bannerStyle} id={id} />
       )}
-      <div className="cell small-12 medium-12 large-4 vertical-padding-s">
-        {element}
-      </div>
       {!leftPos && (
-        <BannerText
-          title={mainText}
-          description={subText}
-          bannerStyle={bannerStyle}
-          id={id}
-        />
+        <BannerText title={mainText} description={subText} bannerStyle={bannerStyle} id={id} />
       )}
     </div>
   );
