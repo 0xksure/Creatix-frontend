@@ -33,6 +33,10 @@
       color: $white;
     }
 
+    &.small {
+      font-size: 0.5rem;
+    }
+
     @media screen and (max-width: 39.9375em) {
       padding: 0.3rem;
     }
@@ -59,7 +63,7 @@
       padding: 0.1em 0.5em;
     }
 
-    &.round{
+    &.round {
       border-radius: 2px;
     }
 
@@ -100,7 +104,7 @@
     position: relative;
     display: inline-block;
   }
-  
+
   .nav-link__active {
     color: $creatix-white-light-blue;
     position: relative;
@@ -141,7 +145,7 @@
 }
 
 /// FLOATING MATERIAL BUTTON
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
 .container {
   //position: relative;
   //width: 320px;

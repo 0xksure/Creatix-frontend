@@ -14,7 +14,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import Header from 'Components/Header';
 import Home from 'Components/Home';
-import Signup from 'Components/Signup';
+import Signup from 'Components/Signup/Signup';
 import Login from 'Components/Login';
 import UserHome from 'Components/User';
 import Footer from 'Components/Footer';

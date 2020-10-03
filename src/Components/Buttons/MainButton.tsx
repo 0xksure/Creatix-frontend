@@ -13,7 +13,8 @@ interface Props {
   round: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   modalIsOpen?: boolean;
-  buttonType: 'reset' | 'button' | 'submit' | undefined;
+  buttonType?: 'primary' | 'secondary';
+  type: 'reset' | 'button' | 'submit' | undefined;
   disabled: boolean;
 }
 
@@ -22,9 +23,10 @@ const MainButton: React.FC<Props> = ({
   size = '',
   round = '',
   children,
+  buttonType = 'primary',
   onClick,
   modalIsOpen = false,
-  buttonType,
+  type,
   disabled = false,
 }) => {
   const [props] = useSpring(() => ({
@@ -35,9 +37,9 @@ const MainButton: React.FC<Props> = ({
     <animated.div style={props}>
       <button
         id={id}
-        className={`creatix-btn primary ${size} ${round}`}
+        className={`creatix-btn ${buttonType} ${size} ${round} `}
         onClick={(e) => onClick(e)}
-        type={buttonType}
+        type={type}
         disabled={disabled}
       >
         <div className="h4 medium-font small margin-zero">{children}</div>

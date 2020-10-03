@@ -1,14 +1,15 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Redirect } from "react-router";
-import DatePicker from "react-datepicker";
-import MainButton from "Components/Buttons/MainButton";
-import { signupUser } from "Actions/Auth";
-import Logo from "./Icons/LogoIcon";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Redirect } from 'react-router';
+import MainButton from 'Components/Buttons/MainButton';
+import { signupUser } from 'Actions/Auth';
+import Logo from 'Components/Icons/LogoIcon';
+import SearchCompanies from 'Components/Search/SearchCompanies';
 
 const Signup: React.FC = () => {
   const dispatch = useDispatch();
+  const [searchOrg, setSearchOrg] = useState(false);
 
   return (
     <div className="horizontal-center margin-top-l">
@@ -19,17 +20,16 @@ const Signup: React.FC = () => {
           </div>
           <Formik
             initialValues={{
-              firstname: "",
-              lastname: "",
-              birthday: new Date(),
-              email: "",
-              password: "",
-              retry_password: "",
+              firstname: '',
+              lastname: '',
+              email: '',
+              password: '',
+              retry_password: '',
             }}
             validate={(values) => {
               const errors = {};
               if (values.password !== values.retry_password) {
-                errors.retry_password = "Passwords are not equal";
+                errors.retry_password = 'Passwords are not equal';
               }
               return errors;
             }}
@@ -42,48 +42,27 @@ const Signup: React.FC = () => {
                 })
                 .catch(() => {
                   setSubmitting(false);
-                  setStatus({ error: "Not able to sign up" });
+                  setStatus({ error: 'Not able to sign up' });
                 });
               <Redirect to="/login" />;
             }}
           >
-            {({ values, isSubmitting, setFieldValue, status }) => (
+            {({ isSubmitting, setFieldValue, status }) => (
               <Form>
                 <div className="grid-x grid-margin-x">
                   <div className="cell small-12">
                     <label className="input-label" htmlFor="firstname">
-                      Name
+                      Firstname
                     </label>
-                    <Field
-                      type="text"
-                      className="input-field"
-                      name="firstname"
-                    />
+                    <Field type="text" className="input-field" name="firstname" />
                     <ErrorMessage name="firstname" component="div" />
                   </div>
                   <div className="cell small-12">
                     <label className="input-label" htmlFor="lastname">
                       Lastname
                     </label>
-                    <Field
-                      type="text"
-                      className="input-field"
-                      name="lastname"
-                    />
+                    <Field type="text" className="input-field" name="lastname" />
                     <ErrorMessage name="lastname" component="div" />
-                  </div>
-                  <div className="cell small-12">
-                    <label className="input-label" htmlFor="birthday">
-                      Birthday
-                    </label>
-                    <DatePicker
-                      name="birthday"
-                      className="input-field"
-                      value={values.birthday}
-                      selected={values.birthday}
-                      dropdownMode="select"
-                      onChange={(date) => setFieldValue("birthday", date)}
-                    />
                   </div>
                   <div className="cell small-12">
                     <label className="input-label" htmlFor="email">
@@ -96,28 +75,38 @@ const Signup: React.FC = () => {
                     <label className="input-label" htmlFor="password">
                       Password
                     </label>
-                    <Field
-                      type="password"
-                      className="input-field"
-                      name="password"
-                    />
+                    <Field type="password" className="input-field" name="password" />
                     <ErrorMessage name="password" component="div" />
                   </div>
                   <div className="cell small-12">
                     <label className="input-label" htmlFor="retry_password">
                       Rewrite password
                     </label>
-                    <Field
-                      type="password"
-                      className="input-field"
-                      name="retry_password"
-                    />
+                    <Field type="password" className="input-field" name="retry_password" />
                     <ErrorMessage name="retry_password" component="div" />
                   </div>
+                  <div className="cell small-12">
+                    <MainButton
+                      buttonType="secondary"
+                      size="small"
+                      onClick={() => setSearchOrg(!searchOrg)}
+                    >
+                      Search for Organization
+                    </MainButton>
+                  </div>
+                  {true && (
+                    <div className="cell small-12">
+                      <label className="input-label" htmlFor="retry_password">
+                        Select organization to join
+                      </label>
+                      <SearchCompanies />
+                      <ErrorMessage name="organization" component="div" />
+                    </div>
+                  )}
                   <div className="cell small-12 padding-vertical-s">
                     <MainButton
                       id="submitLogin"
-                      buttonType="submit"
+                      type="submit"
                       round="round"
                       size=""
                       disabled={isSubmitting}

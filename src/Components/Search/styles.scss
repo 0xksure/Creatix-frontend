@@ -1,0 +1,38 @@
+.searchbar {
+  width: 100%;
+  display: flex;
+  position: relative;
+  padding: 0;
+
+  &_search {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    &:focus {
+      border-color: $creatix-pink;
+    }
+  }
+
+  &_exit {
+    border-radius: 100%;
+    position: absolute;
+    right: 8px;
+    top: 4px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      background-color: $creatix-gray;
+    }
+
+    &:active {
+      border-radius: 100%;
+      border-color: $creatix-pink;
+      background-color: $creatix-pink;
+    }
+  }
+}
