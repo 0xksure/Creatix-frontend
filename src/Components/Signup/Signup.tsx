@@ -6,10 +6,19 @@ import MainButton from 'Components/Buttons/MainButton';
 import { signupUser } from 'Actions/Auth';
 import Logo from 'Components/Icons/LogoIcon';
 import SearchCompanies from 'Components/Search/SearchCompanies';
+import * as yup from 'yup';
+
+const SignupSchema = yup.object().shape({
+  Firstname: yup.string().required(),
+  Lastname: yup.string().required(),
+  Email: yup.string().email().required(),
+  Password: yup.string().required(),
+  Password2: yup.string().required(),
+  OrganizationId: yup.string(),
+});
 
 const Signup: React.FC = () => {
   const dispatch = useDispatch();
-  const [searchOrg, setSearchOrg] = useState(false);
 
   return (
     <div className="horizontal-center margin-top-l">
@@ -20,19 +29,14 @@ const Signup: React.FC = () => {
           </div>
           <Formik
             initialValues={{
-              firstname: '',
-              lastname: '',
-              email: '',
-              password: '',
-              retry_password: '',
+              Firstname: '',
+              Lastname: '',
+              Email: '',
+              Password: '',
+              Password2: '',
+              OrganizationId: '',
             }}
-            validate={(values) => {
-              const errors = {};
-              if (values.password !== values.retry_password) {
-                errors.retry_password = 'Passwords are not equal';
-              }
-              return errors;
-            }}
+            validationSchema={SignupSchema}
             onSubmit={(values, { setSubmitting, setStatus }) => {
               dispatch(signupUser(values))
                 .then(() => {
@@ -47,62 +51,55 @@ const Signup: React.FC = () => {
               <Redirect to="/login" />;
             }}
           >
-            {({ isSubmitting, setFieldValue, status }) => (
+            {({ isSubmitting, setFieldValue, status, errors }) => (
               <Form>
                 <div className="grid-x grid-margin-x">
                   <div className="cell small-12">
-                    <label className="input-label" htmlFor="firstname">
+                    <label className="input-label" htmlFor="Firstname">
                       Firstname
                     </label>
-                    <Field type="text" className="input-field" name="firstname" />
-                    <ErrorMessage name="firstname" component="div" />
+                    <Field type="text" className="input-field" name="Firstname" />
+                    <ErrorMessage className="error-message" name="Firstname" component="div" />
                   </div>
                   <div className="cell small-12">
-                    <label className="input-label" htmlFor="lastname">
+                    <label className="input-label" htmlFor="Lastname">
                       Lastname
                     </label>
-                    <Field type="text" className="input-field" name="lastname" />
-                    <ErrorMessage name="lastname" component="div" />
+                    <Field type="text" className="input-field" name="Lastname" />
+                    <ErrorMessage className="error-message" name="Lastname" component="div" />
                   </div>
                   <div className="cell small-12">
-                    <label className="input-label" htmlFor="email">
+                    <label className="input-label" htmlFor="Email">
                       Email
                     </label>
-                    <Field type="email" className="input-field" name="email" />
-                    <ErrorMessage name="email" component="div" />
+                    <Field type="email" className="input-field" name="Email" />
+                    <ErrorMessage className="error-message" name="Email" component="div" />
                   </div>
                   <div className="cell small-12">
-                    <label className="input-label" htmlFor="password">
+                    <label className="input-label" htmlFor="Password">
                       Password
                     </label>
-                    <Field type="password" className="input-field" name="password" />
-                    <ErrorMessage name="password" component="div" />
+                    <Field type="password" className="input-field" name="Password" />
+                    <ErrorMessage className="error-message" name="Password" component="div" />
                   </div>
                   <div className="cell small-12">
-                    <label className="input-label" htmlFor="retry_password">
+                    <label className="input-label" htmlFor="Password2">
                       Rewrite password
                     </label>
-                    <Field type="password" className="input-field" name="retry_password" />
-                    <ErrorMessage name="retry_password" component="div" />
+                    <Field type="password" className="input-field" name="Password2" />
+                    <ErrorMessage className="error-message" name="Password2" component="div" />
                   </div>
+
                   <div className="cell small-12">
-                    <MainButton
-                      buttonType="secondary"
-                      size="small"
-                      onClick={() => setSearchOrg(!searchOrg)}
-                    >
-                      Search for Organization
-                    </MainButton>
+                    <label className="input-label" htmlFor="organizationId">
+                      Select organization to join
+                    </label>
+                    <SearchCompanies
+                      onSelectCompany={(org) => setFieldValue('organizationId', org)}
+                    />
+                    <p>No organization? Create one after you have logged in! </p>
+                    <ErrorMessage name="organizationId" component="div" />
                   </div>
-                  {true && (
-                    <div className="cell small-12">
-                      <label className="input-label" htmlFor="retry_password">
-                        Select organization to join
-                      </label>
-                      <SearchCompanies />
-                      <ErrorMessage name="organization" component="div" />
-                    </div>
-                  )}
                   <div className="cell small-12 padding-vertical-s">
                     <MainButton
                       id="submitLogin"

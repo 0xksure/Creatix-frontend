@@ -1,9 +1,8 @@
 import React from 'react';
-import SingleListItem from 'Components/List/SingleListItem';
 
-const SingleList: React.FC<Props> = (props) => {
+const SingleList: React.FC = (props) => {
   const { children } = props;
-  return <ul>{React.Children.map(children, (child) => child)}</ul>;
+  return <ul className="single-list">{React.Children.map(children, (child) => child)}</ul>;
 };
 
 export default SingleList;

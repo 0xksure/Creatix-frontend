@@ -1,9 +1,3 @@
-interface CreatixAPI {
-  endpoint: string;
-  body?: Record<string, string>;
-  method: 'POST' | 'GET' | 'DELETE';
-}
-
 const creatixAPI = async (
   endpoint: string,
   method: 'POST' | 'GET' | 'DELETE',

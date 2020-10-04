@@ -45,7 +45,7 @@ function configureStrore(preloadedState) {
 }
 const store = configureStrore();
 
-history.listen((location) => {
+history.listen(() => {
   ReactGA.set({ page: window.location.pathname });
   ReactGA.pageview(window.location.pathname);
 });

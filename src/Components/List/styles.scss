@@ -1,0 +1,19 @@
+.single-list {
+  list-style-type: none;
+  margin: 0;
+}
+
+.single-list__item {
+  background-color: white;
+  padding: 8px;
+  border-color: $creatix-pink;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  margin-right: 10px;
+  margin-left: 10px;
+  appearance: button;
+  cursor: pointer;
+}
