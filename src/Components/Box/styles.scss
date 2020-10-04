@@ -1,0 +1,34 @@
+.selected-box {
+  display: flex;
+  width: 100%;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: $creatix-blue;
+
+  &__name {
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+  }
+
+  &__X {
+    right: 8px;
+    height: 32px;
+    padding-right: 4px;
+    justify-content: center;
+    align-items: center;
+    background-color: $creatix-blue;
+    color: white;
+
+    &:hover {
+      color: black;
+    }
+
+    &:active {
+      background-color: $creatix-blue;
+      border-bottom: 2px black;
+    }
+  }
+}
