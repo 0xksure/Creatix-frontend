@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Redirect } from 'react-router';
+import { useHistory } from 'react-router';
 import MainButton from 'Components/Buttons/MainButton';
 import { signupUser } from 'Actions/Auth';
 import Logo from 'Components/Icons/LogoIcon';
-import SearchCompanies from 'Components/Search/SearchCompanies';
+import BasicInput from 'Components/Search/BasicInput';
 import * as yup from 'yup';
 
 const SignupSchema = yup.object().shape({
@@ -14,11 +14,12 @@ const SignupSchema = yup.object().shape({
   Email: yup.string().email().required(),
   Password: yup.string().required(),
   Password2: yup.string().required(),
-  OrganizationId: yup.string(),
+  Company: yup.string(),
 });
 
 const Signup: React.FC = () => {
   const dispatch = useDispatch();
+  let history = useHistory();
 
   return (
     <div className="horizontal-center margin-top-l">
@@ -35,20 +36,21 @@ const Signup: React.FC = () => {
               Password: '',
               Password2: '',
               OrganizationId: '',
+              Company: '',
             }}
             validationSchema={SignupSchema}
             onSubmit={(values, { setSubmitting, setStatus }) => {
               dispatch(signupUser(values))
                 .then(() => {
+                  console.log('yay');
                   setSubmitting(false);
-                  <Redirect to="/login" />;
+                  history.push('/login');
                   return null;
                 })
                 .catch(() => {
                   setSubmitting(false);
                   setStatus({ error: 'Not able to sign up' });
                 });
-              <Redirect to="/login" />;
             }}
           >
             {({ isSubmitting, setFieldValue, status, errors }) => (
@@ -92,12 +94,9 @@ const Signup: React.FC = () => {
 
                   <div className="cell small-12">
                     <label className="input-label" htmlFor="organizationId">
-                      Select organization to join
+                      Type organization to join
                     </label>
-                    <SearchCompanies
-                      onSelectCompany={(org) => setFieldValue('organizationId', org)}
-                    />
-                    <p>No organization? Create one after you have logged in! </p>
+                    <BasicInput name={'company'} />
                     <ErrorMessage name="organizationId" component="div" />
                   </div>
                   <div className="cell small-12 padding-vertical-s">
