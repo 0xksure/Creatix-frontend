@@ -19,7 +19,7 @@ const SearchCompanies: React.FC<Props> = (props) => {
 
   useEffect(() => {
     try {
-      const data = creatixAPI('organizations', 'GET');
+      const data = creatixAPI(`company/search/${query}`, 'GET');
       setOrganizations(data);
     } catch (err) {
       setError(err);

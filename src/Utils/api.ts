@@ -14,7 +14,7 @@ const creatixAPI = async (
       body: body ? JSON.stringify(body) : undefined,
     });
 
-    const data = resp.json();
+    const data = await resp.json();
     return data;
   } catch (err) {
     return err.message;
