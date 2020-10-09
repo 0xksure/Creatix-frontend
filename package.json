@@ -2,8 +2,11 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=14.0.0 <15.0.0"
+  },
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "NODE_ENV=prod webpack --config webpack.prod.js --display-error-details",
     "test": "jest",
     "lint": "eslint src/**/*.{js,ts,tsx} --report-unused-disable-directives",
