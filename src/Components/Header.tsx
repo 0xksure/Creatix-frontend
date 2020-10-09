@@ -60,13 +60,7 @@ const Header: React.FC = () => {
               )}
               <li className="nav-item">
                 <HeaderButton onClick={() => analyticsEvent('click', 'home', 'home')}>
-                  <NavLink
-                    activeClassName="nav-link_active"
-                    className="nav-link"
-                    strict
-                    exact
-                    to="/"
-                  >
+                  <NavLink as={Link} activeClassName="nav-link_active" className="nav-link" to="/">
                     <h4 className="h4 medium-font small margin-zero" id="header_main_nav_link">
                       Home
                     </h4>
@@ -76,6 +70,7 @@ const Header: React.FC = () => {
               <li className="nav-item">
                 <HeaderButton onClick={() => analyticsEvent('click', 'discover', 'discover')}>
                   <NavLink
+                    as={Link}
                     activeClassName="nav-link_active"
                     className="nav-link"
                     strict
@@ -105,7 +100,12 @@ const Header: React.FC = () => {
                     round="round"
                     onClick={() => analyticsEvent('click', 'login', 'login')}
                   >
-                    <NavLink activeClassName="nav-link__active" className="nav-link" to="/login">
+                    <NavLink
+                      as={Link}
+                      activeClassName="nav-link__active"
+                      className="nav-link"
+                      to="/login"
+                    >
                       <p className="p margin-zero" id="header_login_nav_link">
                         Login
                       </p>
