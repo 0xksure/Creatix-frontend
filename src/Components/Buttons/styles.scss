@@ -205,3 +205,24 @@
   color: #fff;
   vertical-align: middle;
 }
+.floating-button {
+  position: absolute;
+  right: 10%;
+  bottom: 10vh;
+  cursor: pointer;
+  &__icon {
+    fill: $creatix-pink;
+    width: 42px;
+    height: 42px;
+    &:hover {
+      border-color: $creatix-blue;
+      border-radius: 100%;
+      border-style: solid;
+      fill: black;
+    }
+  }
+  &:focus {
+    outline: 0;
+    border-color: blue;
+  }
+}

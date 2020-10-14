@@ -13,8 +13,8 @@ const SignupSchema = yup.object().shape({
   Lastname: yup.string().required(),
   Email: yup.string().email().required(),
   Password: yup.string().required(),
-  Password2: yup.string().required(),
-  Company: yup.string(),
+  Password2: yup.string().required('Password is a required field'),
+  CompanyName: yup.string(),
 });
 
 const Signup: React.FC = () => {
@@ -35,14 +35,12 @@ const Signup: React.FC = () => {
               Email: '',
               Password: '',
               Password2: '',
-              OrganizationId: '',
-              Company: '',
+              CompanyName: '',
             }}
             validationSchema={SignupSchema}
             onSubmit={(values, { setSubmitting, setStatus }) => {
               dispatch(signupUser(values))
                 .then(() => {
-                  console.log('yay');
                   setSubmitting(false);
                   history.push('/login');
                   return null;
@@ -53,67 +51,70 @@ const Signup: React.FC = () => {
                 });
             }}
           >
-            {({ isSubmitting, setFieldValue, status, errors }) => (
-              <Form>
-                <div className="grid-x grid-margin-x">
-                  <div className="cell small-12">
-                    <label className="input-label" htmlFor="Firstname">
-                      Firstname
-                    </label>
-                    <Field type="text" className="input-field" name="Firstname" />
-                    <ErrorMessage className="error-message" name="Firstname" component="div" />
-                  </div>
-                  <div className="cell small-12">
-                    <label className="input-label" htmlFor="Lastname">
-                      Lastname
-                    </label>
-                    <Field type="text" className="input-field" name="Lastname" />
-                    <ErrorMessage className="error-message" name="Lastname" component="div" />
-                  </div>
-                  <div className="cell small-12">
-                    <label className="input-label" htmlFor="Email">
-                      Email
-                    </label>
-                    <Field type="email" className="input-field" name="Email" />
-                    <ErrorMessage className="error-message" name="Email" component="div" />
-                  </div>
-                  <div className="cell small-12">
-                    <label className="input-label" htmlFor="Password">
-                      Password
-                    </label>
-                    <Field type="password" className="input-field" name="Password" />
-                    <ErrorMessage className="error-message" name="Password" component="div" />
-                  </div>
-                  <div className="cell small-12">
-                    <label className="input-label" htmlFor="Password2">
-                      Rewrite password
-                    </label>
-                    <Field type="password" className="input-field" name="Password2" />
-                    <ErrorMessage className="error-message" name="Password2" component="div" />
-                  </div>
+            {({ isSubmitting, setFieldValue, status, errors, values, handleChange }) => {
+              console.log('values: ', values);
+              return (
+                <Form>
+                  <div className="grid-x grid-margin-x">
+                    <div className="cell small-12">
+                      <label className="input-label" htmlFor="Firstname">
+                        Firstname
+                      </label>
+                      <Field type="text" className="input-field" name="Firstname" />
+                      <ErrorMessage className="error-message" name="Firstname" component="div" />
+                    </div>
+                    <div className="cell small-12">
+                      <label className="input-label" htmlFor="Lastname">
+                        Lastname
+                      </label>
+                      <Field type="text" className="input-field" name="Lastname" />
+                      <ErrorMessage className="error-message" name="Lastname" component="div" />
+                    </div>
+                    <div className="cell small-12">
+                      <label className="input-label" htmlFor="Email">
+                        Email
+                      </label>
+                      <Field type="email" className="input-field" name="Email" />
+                      <ErrorMessage className="error-message" name="Email" component="div" />
+                    </div>
+                    <div className="cell small-12">
+                      <label className="input-label" htmlFor="Password">
+                        Password
+                      </label>
+                      <Field type="password" className="input-field" name="Password" />
+                      <ErrorMessage className="error-message" name="Password" component="div" />
+                    </div>
+                    <div className="cell small-12">
+                      <label className="input-label" htmlFor="Password2">
+                        Rewrite password
+                      </label>
+                      <Field type="password" className="input-field" name="Password2" />
+                      <ErrorMessage className="error-message" name="Password2" component="div" />
+                    </div>
 
-                  <div className="cell small-12">
-                    <label className="input-label" htmlFor="organizationId">
-                      Type organization to join
-                    </label>
-                    <BasicInput name={'company'} />
-                    <ErrorMessage name="organizationId" component="div" />
+                    <div className="cell small-12">
+                      <label className="input-label" htmlFor="CompanyName">
+                        Organization to join
+                      </label>
+                      <BasicInput name={'CompanyName'} onChange={handleChange} />
+                      <ErrorMessage name="CompanyName" component="div" />
+                    </div>
+                    <div className="cell small-12 padding-vertical-s">
+                      <MainButton
+                        id="submitLogin"
+                        type="submit"
+                        round="round"
+                        size=""
+                        disabled={isSubmitting}
+                      >
+                        <p className="p margin-zero">Sign up</p>
+                      </MainButton>
+                    </div>
+                    {status && status.error}
                   </div>
-                  <div className="cell small-12 padding-vertical-s">
-                    <MainButton
-                      id="submitLogin"
-                      type="submit"
-                      round="round"
-                      size=""
-                      disabled={isSubmitting}
-                    >
-                      <p className="p margin-zero">Sign up</p>
-                    </MainButton>
-                  </div>
-                  {status && status.error}
-                </div>
-              </Form>
-            )}
+                </Form>
+              );
+            }}
           </Formik>
         </div>
       </div>

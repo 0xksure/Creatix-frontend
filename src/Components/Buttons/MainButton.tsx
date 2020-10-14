@@ -34,7 +34,7 @@ const MainButton: React.FC<Props> = ({
     to: { opacity: modalIsOpen ? 0.1 : 1 },
   }));
   return (
-    <animated.div style={props}>
+    <animated.div style={props} className="">
       <button
         id={id}
         className={`creatix-btn ${buttonType} ${size} ${round} `}

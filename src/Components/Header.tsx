@@ -26,8 +26,22 @@ const Header: React.FC = () => {
         <div className="cell">
           <nav className="site-nav">
             <ul className="nav-list">
-              {auth.isAuthenticated && (
+              {auth.isAuthenticated ? (
                 <>
+                  <li className="nav-item">
+                    <HeaderButton>
+                      <NavLink
+                        activeClassName="nav-link_active"
+                        className="nav-link"
+                        exact
+                        to="/feedback"
+                      >
+                        <h4 className="h4 medium-font small margin-zero" id="header_main_nav_link">
+                          Feedback
+                        </h4>
+                      </NavLink>
+                    </HeaderButton>
+                  </li>
                   <li className="nav-item">
                     <HeaderButton>
                       <NavLink
@@ -48,49 +62,55 @@ const Header: React.FC = () => {
                         activeClassName="nav-link_active"
                         className="nav-link"
                         exact
-                        to="/feedback"
+                        to="/settings"
                       >
                         <h4 className="h4 medium-font small margin-zero" id="header_main_nav_link">
-                          Feedback
+                          Settings
+                        </h4>
+                      </NavLink>
+                    </HeaderButton>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <HeaderButton onClick={() => analyticsEvent('click', 'home', 'home')}>
+                      <NavLink
+                        as={Link}
+                        activeClassName="nav-link_active"
+                        className="nav-link"
+                        to="/"
+                      >
+                        <h4 className="h4 medium-font small margin-zero" id="header_main_nav_link">
+                          Home
+                        </h4>
+                      </NavLink>
+                    </HeaderButton>
+                  </li>
+                  <li className="nav-item">
+                    <HeaderButton onClick={() => analyticsEvent('click', 'discover', 'discover')}>
+                      <NavLink
+                        as={Link}
+                        activeClassName="nav-link_active"
+                        className="nav-link"
+                        strict
+                        exact
+                        to="discover"
+                      >
+                        <h4
+                          className="h4 medium-font small margin-zero"
+                          id="header_discover_nav_link"
+                        >
+                          Discover
                         </h4>
                       </NavLink>
                     </HeaderButton>
                   </li>
                 </>
               )}
-              <li className="nav-item">
-                <HeaderButton onClick={() => analyticsEvent('click', 'home', 'home')}>
-                  <NavLink
-                    activeClassName="nav-link_active"
-                    className="nav-link"
-                    strict
-                    exact
-                    to="/"
-                  >
-                    <h4 className="h4 medium-font small margin-zero" id="header_main_nav_link">
-                      Home
-                    </h4>
-                  </NavLink>
-                </HeaderButton>
-              </li>
-              <li className="nav-item">
-                <HeaderButton onClick={() => analyticsEvent('click', 'discover', 'discover')}>
-                  <NavLink
-                    activeClassName="nav-link_active"
-                    className="nav-link"
-                    strict
-                    exact
-                    to="discover"
-                  >
-                    <h4 className="h4 medium-font small margin-zero" id="header_discover_nav_link">
-                      Discover
-                    </h4>
-                  </NavLink>
-                </HeaderButton>
-              </li>
               {auth.isAuthenticated ? (
                 <li className="nav-item" id="header_signup_modal">
-                  <MainButton id="header_signup_modal" onToggle={() => dispatch(logoutUser())}>
+                  <MainButton id="header_signup_modal" onClick={() => dispatch(logoutUser())}>
                     <NavLink activeClassName="nav-link_active" className="nav-link" to="/">
                       <h4 className="h4 medium-font small margin-zero" id="header_logout_nav_link">
                         Logout
@@ -105,7 +125,12 @@ const Header: React.FC = () => {
                     round="round"
                     onClick={() => analyticsEvent('click', 'login', 'login')}
                   >
-                    <NavLink activeClassName="nav-link__active" className="nav-link" to="/login">
+                    <NavLink
+                      as={Link}
+                      activeClassName="nav-link__active"
+                      className="nav-link"
+                      to="/login"
+                    >
                       <p className="p margin-zero" id="header_login_nav_link">
                         Login
                       </p>

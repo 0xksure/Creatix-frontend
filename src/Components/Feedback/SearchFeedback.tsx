@@ -1,31 +1,32 @@
 import React from 'react';
-import { useFormik, Form, Field } from 'formik';
+import { useFormik } from 'formik';
+import SearchBar from 'Components/Search/SearchBar';
 
 const SearchFeedback: React.FC = () => {
   const formik = useFormik({
     initialValues: {
       searchTerm: '',
     },
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
   });
   return (
     <div className="cell">
       <div className="grid-x align-center">
         <div className="cell small-6">
-          <Form onSubmit={formik.handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <div className="grid-x">
               <div className="cell small-12">
-                <label htmlFor="searchTerm">Search feedback</label>
-                <Field
-                  type="text"
+                <SearchBar
                   name="searchTerm"
-                  className="searchbar"
+                  placeholder={'Search'}
                   onChange={formik.handleChange}
-                  value={formik.values.searchTerm}
+                  query={formik.values.searchTerm}
                 />
-                <button type="submit">Search</button>
               </div>
             </div>
-          </Form>
+          </form>
         </div>
       </div>
     </div>

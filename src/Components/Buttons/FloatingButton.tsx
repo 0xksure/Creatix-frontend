@@ -1,17 +1,15 @@
 import React from 'react';
+import PlusIcon from 'Components/Icons/PlusIcon';
 
 interface Props {
   onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
-  label: string;
-  icon: Element;
 }
 
-const FloatingButton: React.FC<Props> = ({ onClick, label, icon }) => {
+const FloatingButton: React.FC<Props> = ({ onClick }) => {
   return (
-    <button className="floating-menu-item" onClick={(e) => onClick(e)}>
-      <label>{label}</label>
-      <div className="floating-menu-icon">
-        <i className="material-icons">{icon}</i>
+    <button className="floating-button" onClick={(e) => onClick(e)}>
+      <div className="floating-button__icon">
+        <PlusIcon />
       </div>
     </button>
   );

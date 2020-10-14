@@ -1,11 +1,11 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import ClapAnimation from "Components/Animations/Clap";
-import ClapIcon from "Components/Icons/ClapIcon";
-import CommentAnimation from "Components/Animations/Comment";
-import CommentIcon from "Components/Icons/CommentIcon";
-import { clapFeedback } from "Actions/Feedback";
-import { Feedback } from "Components/Feedback/types";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import ClapAnimation from 'Components/Animations/Clap';
+import ClapIcon from 'Components/Icons/ClapIcon';
+import CommentAnimation from 'Components/Animations/Comment';
+import CommentIcon from 'Components/Icons/CommentIcon';
+import { clapFeedback } from 'Actions/Feedback';
+import { Feedback } from 'Components/Feedback/types';
 
 interface Props {
   feedback: Feedback;
@@ -22,14 +22,12 @@ const FeedbackItem: React.FC<Props> = ({ feedback, key }) => {
     <li key={key} className="feedback-item">
       <div className="grid-x grid-margin-x">
         <div className="cell small-3">
-          <p>{`${feedback.person.firstname} ${feedback.person.lastname} `}</p>
+          <p>{`${feedback.person.firstname}`}</p>
         </div>
         <div className="cell small-9">
           <div className="grid-x">
             <div className="cell small-12">
-              <p className="p bold-font medium margin-bottom-s">
-                {feedback.title}
-              </p>
+              <p className="p bold-font medium margin-bottom-s">{feedback.title}</p>
             </div>
             <div className="cell small-12 margin-bottom-m">
               <p className="p margin-zero">{feedback.description}</p>
@@ -44,19 +42,6 @@ const FeedbackItem: React.FC<Props> = ({ feedback, key }) => {
                     >
                       <ClapIcon width="20" height="20" />
                     </ClapAnimation>
-                    <div>{numberOfClaps}</div>
-                  </div>
-                </div>
-                <div className="cell small-6">
-                  <div className="grid-x ">
-                    <CommentAnimation
-                      commentFeedback={() =>
-                        dispatch(clapFeedback(feedback.id))
-                      }
-                      isCommented={userHasClapped}
-                    >
-                      <CommentIcon width="20" height="20" />
-                    </CommentAnimation>
                     <div>{numberOfClaps}</div>
                   </div>
                 </div>

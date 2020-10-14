@@ -25,16 +25,14 @@ function postFeedbackSuccess(resp) {
   };
 }
 
-function postFeedbackFailure(err) {
+function postFeedbackFailure(error) {
   return {
     type: POST_FEEDBACK_FAILURE,
-    err: err,
+    error: error,
   };
 }
 
-export const postFeedback = (title: string, description: string): AppThunk<Promise<void>> => async (
-  dispatch,
-) => {
+export const postFeedback = (body): AppThunk<Promise<void>> => async (dispatch) => {
   try {
     dispatch(postFeedbackRequest());
     const resp = await fetch(`${process.env.API_URL}user/feedback`, {
@@ -44,12 +42,10 @@ export const postFeedback = (title: string, description: string): AppThunk<Promi
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-      body: JSON.stringify({
-        title,
-        description,
-      }),
+      body: JSON.stringify(body),
     });
     dispatch(postFeedbackSuccess(resp));
+    dispatch(getFeedback());
   } catch (err) {
     dispatch(postFeedbackFailure(err));
   }
@@ -87,7 +83,8 @@ export const getFeedback = (): AppThunk<Promise<void>> => async (dispatch) => {
       },
       credentials: 'include',
     });
-    dispatch(getFeedbackSuccess(resp.json()));
+    const feedbacks = await resp.json();
+    dispatch(getFeedbackSuccess(feedbacks));
   } catch (err) {
     dispatch(getFeedackFailure(err));
   }

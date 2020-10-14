@@ -1,4 +1,7 @@
 import {
+  POST_FEEDBACK_REQUEST,
+  POST_FEEDBACK_SUCCESS,
+  POST_FEEDBACK_FAILURE,
   GET_FEEDBACK_REQUEST,
   GET_FEEDBACK_SUCCESS,
   GET_FEEDBACK_FAILURE,
@@ -7,8 +10,12 @@ import {
   CLAP_FEEDBACK_FAILURE,
 } from '../Constants';
 import { Feedback as f } from 'Components/Feedback/types';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
 interface State {
+  isSubmitting: boolean;
+  submitSuccess: boolean;
+  submitError: string;
   feedbacks: f[];
   isLoadingFeedbacks: boolean;
   loadingFeedbacksSuccess: boolean;
@@ -26,6 +33,9 @@ interface ActionState {
 type FeedbackActionType = ActionState;
 
 const initialState = {
+  isSubmitting: false,
+  submitSuccess: false,
+  submitError: '',
   feedbacks: [],
   isLoadingFeedbacks: false,
   loadingFeedbacksSuccess: true,
@@ -35,7 +45,28 @@ const initialState = {
 };
 
 const Feedback = (state: State = initialState, action: FeedbackActionType): State => {
+  console.log('state: ', action.type);
   switch (action.type) {
+    case POST_FEEDBACK_REQUEST:
+      return {
+        ...state,
+        isSubmitting: true,
+        submitSuccess: false,
+        submitError: '',
+      };
+    case POST_FEEDBACK_SUCCESS:
+      return {
+        ...state,
+        isSubmitting: false,
+        submitSuccess: true,
+      };
+    case POST_FEEDBACK_FAILURE:
+      return {
+        ...state,
+        isSubmitting: false,
+        submitSuccess: false,
+        submitError: action.error,
+      };
     case GET_FEEDBACK_REQUEST:
       return {
         ...state,
@@ -44,6 +75,7 @@ const Feedback = (state: State = initialState, action: FeedbackActionType): Stat
         errorMessage: '',
       };
     case GET_FEEDBACK_SUCCESS:
+      console.log('action: ', action);
       return {
         ...state,
         isLoadingFeedbacks: false,
@@ -77,6 +109,9 @@ const Feedback = (state: State = initialState, action: FeedbackActionType): Stat
       return {
         ...state,
       };
+    case LOCATION_CHANGE:
+      console.log('Location change ');
+      return state;
     default:
       return state;
   }

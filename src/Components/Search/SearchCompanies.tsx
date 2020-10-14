@@ -34,7 +34,7 @@ const SearchCompanies: React.FC<Props> = (props) => {
       )}
       {selectedOrg.length === 0 && (
         <>
-          <SearchBar query={query} onChange={setQuery} />
+          <SearchBar name="Search feedback" query={query} onChange={setQuery} />
           <SingleList>
             {organizations && organizations.length === 0 && (
               <SingleListItem name={`${query} does not seem to exist`} />

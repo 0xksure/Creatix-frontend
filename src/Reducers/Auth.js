@@ -10,25 +10,27 @@ import {
   LOGOUT_FAILURE,
   VERIFY_REQUEST,
   VERIFY_SUCCESS,
-  VERIFY_FAILURE
-} from "../Constants";
+  VERIFY_FAILURE,
+} from '../Constants';
+import { LOCATION_CHANGE } from 'react-router-redux';
 
 const initialState = {
   isSigningUp: false,
   signupError: false,
-  signupMessage: "",
+  signupMessage: '',
   isAuthenticated: false,
+  hasAuthenticated: false,
   isLoggingIn: true,
   loginError: false,
-  errorMessage: "",
+  errorMessage: '',
   isLoggingOut: false,
   logoutError: false,
   isVerifying: false,
   verifyError: false,
-  userID: "",
-  firstname: "",
-  lastname: "",
-  email: ""
+  userID: '',
+  firstname: '',
+  lastname: '',
+  email: '',
 };
 
 export default function Auth(state = initialState, action) {
@@ -38,64 +40,71 @@ export default function Auth(state = initialState, action) {
         ...state,
         isSigningUp: true,
         signupError: false,
-        signupMessage: ""
+        signupMessage: '',
       };
     case SIGNUP_SUCCESS:
       return {
         ...state,
         isSigningUp: false,
         signupError: false,
-        signupMessage: "signup success"
+        signupMessage: 'signup success',
       };
     case SIGNUP_FAILURE:
       return {
         ...state,
         isSigningUp: false,
         signupError: true,
-        signupMessage: action.error
+        signupMessage: action.error,
       };
     case LOGIN_REQUEST:
       return {
         ...state,
+        isVerifying: true,
+        hasAuthenticated: false,
+        isAuthenticated: false,
         isLoggingIn: true,
         loginError: false,
-        isAuthenticated: false,
-        errorMessage: ""
+        errorMessage: '',
       };
     case LOGIN_SUCCESS:
       return {
         ...state,
+        isVerifying: false,
         isLoggingIn: false,
         isAuthenticated: true,
+        hasAuthenticated: true,
         firstname: action.user.Firstname,
         lastname: action.user.Lastname,
         email: action.user.Email,
-        userID: action.user.ID
+        userID: action.user.ID,
       };
     case LOGIN_FAILURE:
       return {
         ...state,
+        isVerifying: false,
         isLoggingIn: false,
         loginError: true,
-        errorMessage:
-          "Either the user does not exists or the password is incorrect"
+        hasAuthenticated: true,
+        isAuthenticated: false,
+        errorMessage: 'Either the user does not exists or the password is incorrect',
       };
     case LOGOUT_REQUEST:
       return {
         ...state,
         isLoggingOut: true,
         logoutError: false,
-        errorMessage: ""
+        errorMessage: '',
+        isAuthenticated: false,
       };
     case LOGOUT_SUCCESS:
       return {
         ...state,
         isLogginOut: false,
         isAuthenticated: false,
-        firstname: "",
-        lastname: "",
-        email: "",
-        userID: ""
+        firstname: '',
+        lastname: '',
+        email: '',
+        userID: '',
       };
     case LOGOUT_FAILURE:
       return {
@@ -104,16 +113,16 @@ export default function Auth(state = initialState, action) {
         isAuthenticated: false,
         logoutError: true,
         errorMessage: action.error.message,
-        firstname: "",
-        lastname: "",
-        email: "",
-        userID: ""
+        firstname: '',
+        lastname: '',
+        email: '',
+        userID: '',
       };
     case VERIFY_REQUEST:
       return {
         ...state,
         isVerifying: true,
-        verifyError: false
+        verifyError: false,
       };
     case VERIFY_SUCCESS:
       return {
@@ -123,19 +132,27 @@ export default function Auth(state = initialState, action) {
         firstname: action.user.Firstname,
         lastname: action.user.Lastname,
         email: action.user.Email,
-        userID: action.user.UserID
+        userID: action.user.UserID,
       };
     case VERIFY_FAILURE:
       return {
         ...state,
         isVerifying: false,
         verifyError: true,
+        isAuthenticated: false,
         errorMessage: action.error,
-        firstname: "",
-        lastname: "",
-        email: "",
-        userID: ""
+        firstname: '',
+        lastname: '',
+        email: '',
+        userID: '',
       };
+    case LOCATION_CHANGE:
+      console.log('Location change ', state.isAuthenticated);
+      if (!state.isAuthenticated) {
+        console.log(state.isAuthenticated);
+        history.push('/login');
+      }
+      return state;
     default:
       return state;
   }

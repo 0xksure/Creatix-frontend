@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Redirect } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import MainButton from 'Components/Buttons/MainButton';
 import { loginUser } from 'Actions/Auth';
 import AlertBox from 'Components/AlertBox';
@@ -10,6 +10,7 @@ import Logo from 'Components/Icons/LogoIcon';
 
 const Login: React.FC = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <div className="horizontal-center margin-top-l">
@@ -33,7 +34,7 @@ const Login: React.FC = () => {
               dispatch(loginUser(values.email, values.password))
                 .then(() => {
                   setSubmitting(false);
-                  <Redirect to="/user" />;
+                  history.push('/user');
                   return null;
                 })
                 .catch(() => {
