@@ -123,12 +123,14 @@ export default function Auth(state = initialState, action) {
         ...state,
         isVerifying: true,
         verifyError: false,
+        hasAuthenticated: false,
       };
     case VERIFY_SUCCESS:
       return {
         ...state,
         isVerifying: false,
         isAuthenticated: true,
+        hasAuthenticated: false,
         firstname: action.user.Firstname,
         lastname: action.user.Lastname,
         email: action.user.Email,
@@ -140,6 +142,7 @@ export default function Auth(state = initialState, action) {
         isVerifying: false,
         verifyError: true,
         isAuthenticated: false,
+        hasAuthenticated: true,
         errorMessage: action.error,
         firstname: '',
         lastname: '',

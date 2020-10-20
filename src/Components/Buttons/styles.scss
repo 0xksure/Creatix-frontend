@@ -146,12 +146,6 @@
 
 /// FLOATING MATERIAL BUTTON
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
-.container {
-  //position: relative;
-  //width: 320px;
-  //height: 200px;
-  //background: #ececec;
-}
 
 .floating-menu {
   position: absolute;
@@ -206,19 +200,19 @@
   vertical-align: middle;
 }
 .floating-button {
-  position: absolute;
+  position: fixed;
   right: 10%;
   bottom: 10vh;
   cursor: pointer;
   &__icon {
-    fill: $creatix-pink;
-    width: 42px;
-    height: 42px;
+    fill: $creatix-blue;
+    width: 56px;
+    height: 56px;
     &:hover {
-      border-color: $creatix-blue;
+      border-color: $creatix-pink;
       border-radius: 100%;
       border-style: solid;
-      fill: black;
+      fill: $creatix-pink;
     }
   }
   &:focus {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch, useLocation, Redirect } from 'react-router-dom';
 import { useDispatch, connect } from 'react-redux';
 import ReactGA from 'react-ga';
 import Home from 'Components/Home';
@@ -13,16 +13,26 @@ import ForgotPassword from 'Components/ForgotPassword';
 import { verifyAuth } from 'Actions/Auth';
 
 const SecretRoute = (props) => {
-  const { path, component: Component, isAuthenticated } = props;
-
+  const { path, component: Component, isAuthenticated, hasAuthenticated } = props;
+  console.log('isAuthenticated: ', isAuthenticated);
   if (isAuthenticated) {
     return (
       <Route path={path}>
         <Component />
       </Route>
     );
+  } else if (!isAuthenticated && hasAuthenticated) {
+    return <Redirect to="/login" />;
   } else {
-    return <h1>you are not logged in</h1>;
+    return <h1>Loading</h1>;
+  }
+};
+
+const RedirectIfAuthenticated = (Component, isAuthenticated) => {
+  if (isAuthenticated) {
+    return <Redirect to="/user" />;
+  } else {
+    return <Component />;
   }
 };
 
@@ -42,7 +52,6 @@ interface Prop {
 }
 const App: React.FC<Prop> = (props) => {
   usePageViews();
-  console.log(props.isAuthenticated);
   return (
     <Switch>
       <Route exact path="/" component={Home} />
@@ -55,23 +64,44 @@ const App: React.FC<Prop> = (props) => {
       <Route path="/main/:topic">
         <Home />
       </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
+      <Route path="/login" render={() => RedirectIfAuthenticated(Login, props.isAuthenticated)} />
       <Route path="/signup">
         <Signup />
       </Route>
       <Route path="/forgot-password">
         <ForgotPassword />
       </Route>
-      <SecretRoute path="/user" component={UserHome} isAuthenticated={props.isAuthenticated} />
-      <SecretRoute path="/feedback" component={Feedback} isAuthenticated={props.isAuthenticated} />
-      <SecretRoute path="/settings" component={UserHome} isAuthenticated={props.isAuthenticated} />
+      <SecretRoute
+        path="/user"
+        component={UserHome}
+        isAuthenticated={props.isAuthenticated}
+        hasAuthenticated={props.hasAuthenticated}
+      />
+      <SecretRoute
+        path="/feedback/:fid"
+        component={Feedback}
+        isAuthenticated={props.isAuthenticated}
+        hasAuthenticated={props.hasAuthenticated}
+      />
+      <SecretRoute
+        path="/feedback"
+        component={Feedback}
+        isAuthenticated={props.isAuthenticated}
+        hasAuthenticated={props.hasAuthenticated}
+      />
+
+      <SecretRoute
+        path="/settings"
+        component={UserHome}
+        isAuthenticated={props.isAuthenticated}
+        hasAuthenticated={props.hasAuthenticated}
+      />
     </Switch>
   );
 };
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.Auth.isAuthenticated,
+  hasAuthenticated: state.Auth.hasAuthenticated,
 });
 export default connect(mapStateToProps)(App);

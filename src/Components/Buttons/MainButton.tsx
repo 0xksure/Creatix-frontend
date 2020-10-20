@@ -9,13 +9,13 @@ enum size {
 
 interface Props {
   id: string;
-  size: size | '';
-  round: string;
+  size: 'small' | 'medium' | 'large';
+  round?: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   modalIsOpen?: boolean;
   buttonType?: 'primary' | 'secondary';
   type: 'reset' | 'button' | 'submit' | undefined;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 const MainButton: React.FC<Props> = ({

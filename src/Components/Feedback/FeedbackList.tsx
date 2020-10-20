@@ -10,7 +10,7 @@ const FeedbackList: React.FC<Props> = ({ feedbacks }) => {
   return (
     <div className="cell margin-top-l">
       <div className="grid-x align-center">
-        <ul className="feedback-list ">
+        <ul className="grid-x feedback-list ">
           {feedbacks.length > 0 &&
             feedbacks.map((feedback) => <FeedbackItem key={feedback.id} feedback={feedback} />)}
         </ul>

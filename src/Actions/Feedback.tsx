@@ -8,7 +8,10 @@ import {
   CLAP_FEEDBACK_REQUEST,
   CLAP_FEEDBACK_SUCCESS,
   CLAP_FEEDBACK_FAILURE,
-} from '../Constants';
+  COMMENT_FEEDBACK_REQUEST,
+  COMMENT_FEEDBACK_SUCCESS,
+  COMMENT_FEEDBACK_FAILURE,
+} from 'Constants';
 import { AppThunk } from 'store';
 
 // ///////////////// POST FEEDACK /////////////////////////
@@ -44,6 +47,7 @@ export const postFeedback = (body): AppThunk<Promise<void>> => async (dispatch) 
       credentials: 'include',
       body: JSON.stringify(body),
     });
+
     dispatch(postFeedbackSuccess(resp));
     dispatch(getFeedback());
   } catch (err) {
@@ -121,9 +125,54 @@ export const clapFeedback = (fid: string): AppThunk<Promise<void>> => async (dis
       },
       credentials: 'include',
     });
-    dispatch(clapFeedbackSuccess(resp.json));
-    dispatch(getFeedback());
+    const data = await resp.json();
+    dispatch(clapFeedbackSuccess(data));
   } catch (err) {
     dispatch(clapFeedbackFailure(err));
+  }
+};
+
+// Comment feedback
+
+function commentFeedbackRequest() {
+  return {
+    type: COMMENT_FEEDBACK_REQUEST,
+  };
+}
+
+function commentFeedbackSuccess(feedbacks) {
+  return {
+    type: COMMENT_FEEDBACK_SUCCESS,
+    feedbacks,
+  };
+}
+
+function commentFeedbackFailure(error) {
+  return {
+    type: COMMENT_FEEDBACK_FAILURE,
+    error,
+  };
+}
+
+export const commentFeedback = (fid: string, comment: string): AppThunk<Promise<void>> => async (
+  dispatch,
+) => {
+  try {
+    dispatch(commentFeedbackRequest());
+    const resp = await fetch(`${process.env.API_URL}user/feedback/${fid}/comment`, {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({
+        comment,
+      }),
+    });
+    const data = await resp.json();
+    dispatch(commentFeedbackSuccess(data));
+  } catch (err) {
+    dispatch(commentFeedbackFailure(err));
   }
 };

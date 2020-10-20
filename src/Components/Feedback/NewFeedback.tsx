@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import MainButton from 'Components/Buttons/MainButton';
 import { postFeedback } from 'Actions/Feedback';
 
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 interface Props {
   draftNewFeedback?: boolean;
   onExit: () => void;
+  id: string;
 }
 
-const NewFeedback: React.FC = (props) => {
-  const { onExit } = props;
+const NewFeedback: React.FC<Props> = (props) => {
+  const { onExit, id } = props;
   const dispatch = useDispatch();
+  const ref = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    ref && ref.current && ref.current.focus();
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       title: '',
@@ -19,16 +27,19 @@ const NewFeedback: React.FC = (props) => {
     },
     onSubmit: (values) => {
       dispatch(postFeedback(values));
+      onExit();
     },
   });
   return (
-    <div className="cell margin-top-m">
+    <div id={id} className="cell margin-top-m">
       <div className="grid-x align-center">
-        <div className="cell small-8 feedback-item">
+        <div className="cell small-10 medium-10 large-6 feedback-item">
           <form onSubmit={formik.handleSubmit}>
             <div className="grid-x">
               <div className="cell small-11">
                 <input
+                  id="new-feedback-item"
+                  ref={ref}
                   className="input-field input-field__medium"
                   name="title"
                   type={'text'}
@@ -47,14 +58,19 @@ const NewFeedback: React.FC = (props) => {
                   className="input-field input-field__textarea"
                   name="description"
                   rows={2}
-                  type={'textarea'}
                   placeholder={'Description'}
                   onChange={formik.handleChange}
                   value={formik.values.description}
                 />
               </div>
               <div className="cell small-2 center-content">
-                <MainButton id="submitLogin" type="submit" round="round" size="small">
+                <MainButton
+                  id="submitLogin"
+                  type="submit"
+                  round="round"
+                  size="small"
+                  onClick={() => null}
+                >
                   <p className="p margin-zero">Save</p>
                 </MainButton>
               </div>

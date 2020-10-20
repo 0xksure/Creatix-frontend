@@ -1,28 +1,85 @@
-import React from "react";
-import Modal from "Components/Modals";
-import { Feedback } from "Components/Feedback/types";
-
+import React, { useEffect } from 'react';
+import Modal from 'Components/Modals';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectFeedback } from 'Components/Feedback/selectors';
+import ClapAnimation from 'Components/Animations/Clap';
+import ClapIcon from 'Components/Icons/ClapIcon';
+import NewComment from 'Components/Feedback/Comments/NewComment';
+import CommentList from 'Components/Feedback/Comments/CommentList';
+import { clapFeedback } from 'Actions/Feedback';
 interface Props {
-  feedback: Feedback;
+  feedbackId: string;
 }
 
-const FeedbackModal: React.FC<Props> = ({ feedback }) => {
+const FeedbackModal: React.FC<Props> = ({ feedbackId }) => {
+  const userID = useSelector((state) => state.Auth.UserID);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const feedback = useSelector((state) => selectFeedback(state, feedbackId));
+  const userHasClapped = feedback?.claps?.some((clap) => clap.userId === userID);
+
+  const numberOfClaps = feedback?.claps?.length;
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
+  console.log('feedback: ', feedback);
+  console.log('userHasClapped: ', userHasClapped);
   return (
-    <Modal>
-      <div className="grid-x">
-        <div className="cell small-2">user</div>
-        <div className="cell small-9">{feedback.description}</div>
-        <div className="cell small-1">
-          <div className="grid-x align-right">X</div>
-        </div>
-      </div>
-      <div className="grid-x">
-        <div className="cell">Claps and messages</div>
-        <div className="cell">
-          <div className="comment">cool</div>
-          <div className="comment">ok</div>
-        </div>
-      </div>
+    <Modal isOpen={Object.keys(feedback).length > 0}>
+      {Object.keys(feedback).length > 0 && (
+        <>
+          <div className="grid-x grid-margin-x feedback-modal-item">
+            <div className="cell small-3">
+              <p>{`${feedback?.person?.firstname}`}</p>
+            </div>
+            <div className="cell small-9">
+              <div className="grid-x">
+                <div className="cell small-11">
+                  <p className="p bold-font medium margin-bottom-s">{feedback?.title}</p>
+                </div>
+                <button
+                  className="cell small-1 exit-button--white"
+                  onClick={() => history.push('/feedback')}
+                >
+                  X
+                </button>
+                <div className="cell small-12 margin-bottom-m">
+                  <p className="p margin-zero">{feedback?.description}</p>
+                </div>
+                <div className="cell small-12">
+                  <div className="grid-x align-rigth">
+                    <div className="cell small-6">
+                      <div className="grid-x">
+                        <ClapAnimation
+                          clapFeedback={() => dispatch(clapFeedback(feedback?.id))}
+                          isClapped={userHasClapped}
+                        >
+                          <ClapIcon width="20" height="20" />
+                        </ClapAnimation>
+                        <div>{numberOfClaps}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid-x grid-margin-x feedback-modal-item">
+            <div className="cell small-12">
+              <CommentList comments={feedback?.comments} />
+            </div>
+          </div>
+          <div className="grid-x grid-margin-x feedback-modal-item">
+            <div className="cell small-12">
+              <NewComment feedbackId={feedbackId} />
+            </div>
+          </div>
+        </>
+      )}
     </Modal>
   );
 };
