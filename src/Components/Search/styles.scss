@@ -1,0 +1,50 @@
+.searchbar {
+  width: 100%;
+  display: flex;
+  position: relative;
+  padding: 0;
+
+  &_search {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    padding: 8px;
+
+    border: none;
+    border-bottom: 1px solid #d4dadf;
+    box-shadow: 0 1px 0 transparent;
+    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+    appearance: none;
+
+    font-size: 16px;
+    font-family: 'Creatix Medium';
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+      border-bottom: 2px solid $creatix-card-purple;
+    }
+  }
+
+  &_exit {
+    border-radius: 100%;
+    position: absolute;
+    cursor: pointer;
+    right: 8px;
+    top: 4px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      background-color: $creatix-gray;
+    }
+
+    &:active {
+      border-radius: 100%;
+      border-color: $creatix-pink;
+      background-color: $creatix-gray;
+    }
+  }
+}

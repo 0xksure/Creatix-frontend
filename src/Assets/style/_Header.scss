@@ -1,7 +1,7 @@
 .header {
   padding-bottom: 1rem;
   padding-top: 1rem;
-  font-family: "Creatix Medium";
+  font-family: 'Creatix Medium';
 }
 
 .header-inner {
@@ -21,9 +21,6 @@
 
     .nav-item {
       margin-top: 1rem;
-
-      
-      
     }
   }
 }
@@ -39,7 +36,6 @@
   position: relative;
   display: inline-block;
 }
-
 
 .side-menu {
   position: sticky;
@@ -63,11 +59,3 @@
     background-color: $creatix-pink;
   }
 }
-
-.blur-on-modal {
-  //filter: blur(2px);
-  body {
-    overflow: hidden;
-  }
-}
-

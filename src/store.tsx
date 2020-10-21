@@ -1,8 +1,10 @@
 import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
+import { FeedbackState } from 'Reducers/Feedback';
 
-interface RootState {
+export interface RootState {
   isOn: boolean;
+  Feedback: FeedbackState;
 }
 
 export type AppThunk<ReturnType = void> = ThunkAction<

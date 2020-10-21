@@ -1,6 +1,12 @@
+import { Comment } from 'Components/Feedback/Comments/types';
 interface Clap {
   id: string;
   userId: string;
+}
+
+export interface PostFeedback {
+  title: string;
+  description: string;
 }
 
 export interface Feedback {
@@ -8,6 +14,7 @@ export interface Feedback {
   createdAt: string;
   description: string;
   title: string;
-  person: { firstname: string; lastname: string };
+  person: { id: string; firstname: string; lastname: string };
+  comments: Array<Comment>;
   claps: Clap[];
 }

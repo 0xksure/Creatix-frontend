@@ -33,6 +33,10 @@
       color: $white;
     }
 
+    &.small {
+      font-size: 0.5rem;
+    }
+
     @media screen and (max-width: 39.9375em) {
       padding: 0.3rem;
     }
@@ -59,7 +63,7 @@
       padding: 0.1em 0.5em;
     }
 
-    &.round{
+    &.round {
       border-radius: 2px;
     }
 
@@ -100,7 +104,7 @@
     position: relative;
     display: inline-block;
   }
-  
+
   .nav-link__active {
     color: $creatix-white-light-blue;
     position: relative;
@@ -141,13 +145,7 @@
 }
 
 /// FLOATING MATERIAL BUTTON
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
-.container {
-  //position: relative;
-  //width: 320px;
-  //height: 200px;
-  //background: #ececec;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
 
 .floating-menu {
   position: absolute;
@@ -200,4 +198,25 @@
   font-size: 32px;
   color: #fff;
   vertical-align: middle;
+}
+.floating-button {
+  position: fixed;
+  right: 10%;
+  bottom: 10vh;
+  cursor: pointer;
+  &__icon {
+    fill: $creatix-blue;
+    width: 56px;
+    height: 56px;
+    &:hover {
+      border-color: $creatix-pink;
+      border-radius: 100%;
+      border-style: solid;
+      fill: $creatix-pink;
+    }
+  }
+  &:focus {
+    outline: 0;
+    border-color: blue;
+  }
 }

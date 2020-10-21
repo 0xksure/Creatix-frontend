@@ -16,7 +16,7 @@ import {
   RESET_PWD_FAILURE,
 } from '../Constants';
 import { getFeedback } from './Feedback';
-import { setCookie, removeCookie } from '../Utils/Cookies';
+import { removeCookie } from '../Utils/Cookies';
 import { AppThunk } from 'store';
 
 interface SignupForm {}
@@ -60,8 +60,10 @@ export const signupUser = (signupForm: SignupForm): AppThunk<Promise<void>> => a
       credentials: 'include',
     });
     dispatch(signupSuccess(resp.json()));
+    return;
   } catch (err) {
     dispatch(signupFailure(err));
+    throw err;
   }
 };
 
@@ -97,7 +99,6 @@ export const loginUser = (email: string, password: string): AppThunk<Promise<voi
       }),
     });
     const user = resp.json();
-    setCookie('token', user.Token, user.ExpiresAt);
     dispatch(loginSuccess(user));
     dispatch(getFeedback());
   } catch (err) {
