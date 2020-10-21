@@ -1,12 +1,6 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
 
-enum size {
-  Small = 'small',
-  Medium = 'medium',
-  Large = 'large',
-}
-
 interface Props {
   id: string;
   size: 'small' | 'medium' | 'large';

@@ -4,7 +4,7 @@ import SingleList from 'Components/List/SingleList';
 import SingleListItem from 'Components/List/SingleListItem';
 import SelectedBox from 'Components/Box/SelectedBox';
 import creatixAPI from 'Utils/api';
-import { METHODS } from 'http';
+import { element } from 'prop-types';
 
 interface Props {
   onSelectCompany: (org: string) => void;
@@ -13,7 +13,6 @@ interface Props {
 const SearchCompanies: React.FC<Props> = (props) => {
   const { onSelectCompany } = props;
   const [query, setQuery] = useState('');
-  const [error, setError] = useState('');
   const [organizations, setOrganizations] = useState([]);
   const [selectedOrg, setSelectedOrg] = useState('');
 
@@ -22,11 +21,10 @@ const SearchCompanies: React.FC<Props> = (props) => {
       const data = creatixAPI(`company/search/${query}`, 'GET');
       setOrganizations(data);
     } catch (err) {
-      setError(err);
+      throw new Error(err.Message);
     }
   }, [query]);
 
-  console.log(selectedOrg);
   return (
     <>
       {selectedOrg.length > 0 && (
@@ -44,6 +42,7 @@ const SearchCompanies: React.FC<Props> = (props) => {
               organizations.map((organization) => {
                 return (
                   <SingleListItem
+                    key={organization.id}
                     name={organization}
                     onClick={(e) => {
                       console.log('event: ', e.target);

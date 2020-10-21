@@ -4,6 +4,11 @@ interface Clap {
   userId: string;
 }
 
+export interface PostFeedback {
+  title: string;
+  description: string;
+}
+
 export interface Feedback {
   id: string;
   createdAt: string;

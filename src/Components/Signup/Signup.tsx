@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useHistory } from 'react-router';
@@ -19,7 +19,7 @@ const SignupSchema = yup.object().shape({
 
 const Signup: React.FC = () => {
   const dispatch = useDispatch();
-  let history = useHistory();
+  const history = useHistory();
 
   return (
     <div className="horizontal-center margin-top-l">
@@ -51,7 +51,7 @@ const Signup: React.FC = () => {
                 });
             }}
           >
-            {({ isSubmitting, setFieldValue, status, errors, values, handleChange }) => {
+            {({ isSubmitting, status, values, handleChange }) => {
               console.log('values: ', values);
               return (
                 <Form>

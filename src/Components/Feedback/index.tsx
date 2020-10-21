@@ -7,11 +7,9 @@ import FeedbackList from './FeedbackList';
 import NewFeedback from 'Components/Feedback/NewFeedback';
 import FloatingButton from 'Components/Buttons/FloatingButton';
 import FeedbackModal from 'Components/Feedback/Modal';
-import useScrollToElement from 'Utils/ScrollToElement';
 
 const Feedback: React.FC = () => {
   const feedback = useSelector((state) => state.Feedback);
-  const [scrollIntoView] = useScrollToElement('new-feedback');
   const [draftFeedback, setDraftFeedback] = useState(false);
   const { fid } = useParams();
   const blurBackground = fid ? 'blur-on-modal' : '';
@@ -26,7 +24,6 @@ const Feedback: React.FC = () => {
         <FloatingButton
           onClick={() => {
             setDraftFeedback(!draftFeedback);
-            scrollIntoView();
           }}
         />
       </div>

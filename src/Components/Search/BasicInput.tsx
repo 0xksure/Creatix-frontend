@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Field, FormikProps } from 'formik';
+import { Field } from 'formik';
 
 interface Props {
   name: string;

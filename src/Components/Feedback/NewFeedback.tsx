@@ -1,10 +1,9 @@
 import React, { useRef, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import MainButton from 'Components/Buttons/MainButton';
 import { postFeedback } from 'Actions/Feedback';
 
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 interface Props {
   draftNewFeedback?: boolean;
   onExit: () => void;

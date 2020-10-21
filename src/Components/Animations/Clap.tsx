@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSpring, animated } from 'react-spring';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 const colorVariations = ['rgba(10, 20, 200, 1)', 'rgba(10, 200, 200, 1)'];
 
 const ClapAnimation: React.FC<Props> = ({ children, clapFeedback, isClapped }) => {
-  const [props, setProps] = useSpring(() => ({
+  const [props] = useSpring(() => ({
     from: { fill: colorVariations[isClapped ? 1 : 0] },
     to: (next) => {
       next({ fill: colorVariations[1 % 2] });

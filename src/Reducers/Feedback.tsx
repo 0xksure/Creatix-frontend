@@ -13,9 +13,9 @@ import {
   COMMENT_FEEDBACK_FAILURE,
 } from '../Constants';
 import { Feedback as f } from 'Components/Feedback/types';
-import { LOCATION_CHANGE, routerActions } from 'connected-react-router';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
-interface State {
+export interface FeedbackState {
   isSubmitting: boolean;
   submitSuccess: boolean;
   submitError: string;
@@ -51,7 +51,7 @@ const initialState = {
   commentFeedbackError: '',
 };
 
-const Feedback = (state: State = initialState, action: FeedbackActionType): State => {
+const Feedback = (state: FeedbackState = initialState, action: FeedbackActionType): State => {
   console.log('state: ', action.type);
   switch (action.type) {
     case POST_FEEDBACK_REQUEST:

@@ -13,6 +13,7 @@ import {
   COMMENT_FEEDBACK_FAILURE,
 } from 'Constants';
 import { AppThunk } from 'store';
+import { PostFeedback } from 'Components/Feedback/types';
 
 // ///////////////// POST FEEDACK /////////////////////////
 function postFeedbackRequest() {
@@ -35,7 +36,7 @@ function postFeedbackFailure(error) {
   };
 }
 
-export const postFeedback = (body): AppThunk<Promise<void>> => async (dispatch) => {
+export const postFeedback = (body: PostFeedback): AppThunk<Promise<void>> => async (dispatch) => {
   try {
     dispatch(postFeedbackRequest());
     const resp = await fetch(`${process.env.API_URL}user/feedback`, {

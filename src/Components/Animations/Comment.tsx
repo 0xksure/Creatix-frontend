@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 
 interface Props {
-  commentFeedback: () => void;
+  commentFeedback?: () => void;
   isCommented: boolean;
   onClick: () => void;
 }
 
 const colorVariations = ['rgba(10, 20, 200, 1)', 'rgba(10, 200, 200, 1)'];
-const CommentAnimation: React.FC<Props> = ({ children, commentFeedback, isCommented, onClick }) => {
+const CommentAnimation: React.FC<Props> = ({ children, isCommented, onClick }) => {
   const [colorNum, setColorNum] = useState(isCommented ? 1 : 0);
-  const [props, setSpring] = useSpring(() => ({
+  const props = useSpring(() => ({
     from: {
       fill: colorVariations[colorNum],
     },

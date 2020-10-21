@@ -1,6 +1,7 @@
-export const selectFeedback = (state, fid) => {
+import { RootState } from 'store';
+
+export const selectFeedback = (state: RootState, fid: string): {} => {
   const feedbacks = state.Feedback.feedbacks;
-  console.log('feedbacks: ', feedbacks);
   if (feedbacks) {
     const filteredFeedbacks = feedbacks.filter((feedback) => {
       return feedback.id === fid;
