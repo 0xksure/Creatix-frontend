@@ -73,10 +73,7 @@ export default function Auth(state = initialState, action) {
         isLoggingIn: false,
         isAuthenticated: true,
         hasAuthenticated: true,
-        firstname: action.user.Firstname,
-        lastname: action.user.Lastname,
-        email: action.user.Email,
-        userID: action.user.ID,
+        userID: action.token.UserID,
       };
     case LOGIN_FAILURE:
       return {
@@ -131,10 +128,6 @@ export default function Auth(state = initialState, action) {
         isVerifying: false,
         isAuthenticated: true,
         hasAuthenticated: false,
-        firstname: action.user.Firstname,
-        lastname: action.user.Lastname,
-        email: action.user.Email,
-        userID: action.user.UserID,
       };
     case VERIFY_FAILURE:
       return {

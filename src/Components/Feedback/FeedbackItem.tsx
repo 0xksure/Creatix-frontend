@@ -10,10 +10,9 @@ import { Feedback } from 'Components/Feedback/types';
 
 interface Props {
   feedback: Feedback;
-  key: string;
 }
 
-const FeedbackItem: React.FC<Props> = ({ feedback, key }) => {
+const FeedbackItem: React.FC<Props> = ({ feedback }) => {
   const userID = useSelector((state) => state.Auth.UserID);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -22,8 +21,9 @@ const FeedbackItem: React.FC<Props> = ({ feedback, key }) => {
   const numberOfComments = feedback.comments.length;
   const userHasClapped = feedback.claps.some((clap) => clap.userId === userID);
   const userHasCommented = feedback.comments.some((comment) => comment.userId === userID);
+  console.log('user has clapped: ', userHasClapped);
   return (
-    <li key={key} className="cell small-12 ">
+    <li className="cell small-12 ">
       <div className="grid-x grid-margin-x align-center">
         <div className="cell small-10 medium-10 large-6 feedback-item">
           <div className="grid-x">

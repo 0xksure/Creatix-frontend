@@ -52,7 +52,6 @@ const initialState = {
 };
 
 const Feedback = (state: FeedbackState = initialState, action: FeedbackActionType): State => {
-  console.log('state: ', action.type);
   switch (action.type) {
     case POST_FEEDBACK_REQUEST:
       return {
@@ -82,7 +81,6 @@ const Feedback = (state: FeedbackState = initialState, action: FeedbackActionTyp
         errorMessage: '',
       };
     case GET_FEEDBACK_SUCCESS:
-      console.log('action: ', action);
       return {
         ...state,
         isLoadingFeedbacks: false,

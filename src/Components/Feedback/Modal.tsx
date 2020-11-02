@@ -26,8 +26,6 @@ const FeedbackModal: React.FC<Props> = ({ feedbackId }) => {
       document.body.style.overflow = '';
     };
   }, []);
-  console.log('feedback: ', feedback);
-  console.log('userHasClapped: ', userHasClapped);
   return (
     <Modal isOpen={Object.keys(feedback).length > 0}>
       {Object.keys(feedback).length > 0 && (

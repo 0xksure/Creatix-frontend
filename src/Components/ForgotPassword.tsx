@@ -1,11 +1,11 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Redirect } from "react-router";
-import MainButton from "Components/Buttons/MainButton";
-import { resetPassword } from "Actions/Auth";
-import AlertBox from "Components/AlertBox";
-import Logo from "./Icons/LogoIcon";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Redirect } from 'react-router';
+import MainButton from 'Components/Buttons/MainButton';
+import { resetPassword } from 'Actions/Auth';
+import AlertBox from 'Components/AlertBox';
+import Logo from './Icons/LogoIcon';
 
 const ForgotPassword: React.FC = () => {
   const dispatch = useDispatch();
@@ -23,8 +23,8 @@ const ForgotPassword: React.FC = () => {
         <div className="cell login-form">
           <Formik
             initialValues={{
-              email: "",
-              error: "",
+              email: '',
+              error: '',
             }}
             validate={() => {
               const errors = {};
@@ -36,7 +36,7 @@ const ForgotPassword: React.FC = () => {
                   setSubmitting(false);
                   setErrors({
                     error:
-                      "If you have an account you should have received an email about resetting you password.",
+                      'If you have an account you should have received an email about resetting you password.',
                   });
                   return null;
                 })
@@ -44,9 +44,9 @@ const ForgotPassword: React.FC = () => {
                   setSubmitting(false);
                   setErrors({
                     error:
-                      "If you have an account you should have received an email about resetting you password.",
+                      'If you have an account you should have received an email about resetting you password.',
                   });
-                  setStatus({ error: "Not able to sign up" });
+                  setStatus({ error: 'Not able to sign up' });
                 });
               <Redirect to="/login" />;
             }}
@@ -60,9 +60,7 @@ const ForgotPassword: React.FC = () => {
                     <ErrorMessage name="email" component="div" />
                   </div>
                   <div className="cell small-12">
-                    {errors.error && (
-                      <AlertBox alertType="success">{errors.error}</AlertBox>
-                    )}
+                    {errors.error && <AlertBox alertType="success">{errors.error}</AlertBox>}
                   </div>
                   <div className="cell small-12 horizontal-center ">
                     <MainButton
@@ -71,7 +69,6 @@ const ForgotPassword: React.FC = () => {
                       round="round"
                       size=""
                       disabled={isSubmitting}
-                      onClick={() => console.log("click")}
                     >
                       <p className="p margin-zero">Send reset instruction</p>
                     </MainButton>

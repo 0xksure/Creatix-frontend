@@ -18,6 +18,8 @@ import {
 import { getFeedback } from './Feedback';
 import { removeCookie } from '../Utils/Cookies';
 import { AppThunk } from 'store';
+import { parseJWT } from 'Utils/jwt';
+import { getCookie } from 'Utils/Cookies';
 
 interface SignupForm {}
 
@@ -67,10 +69,10 @@ export const signupUser = (signupForm: SignupForm): AppThunk<Promise<void>> => a
   }
 };
 
-function loginSuccess(user) {
+function loginSuccess(token) {
   return {
     type: LOGIN_SUCCESS,
-    user,
+    token,
   };
 }
 
@@ -98,8 +100,9 @@ export const loginUser = (email: string, password: string): AppThunk<Promise<voi
         password,
       }),
     });
-    const user = resp.json();
-    dispatch(loginSuccess(user));
+
+    const data = await resp.json();
+    dispatch(loginSuccess(parseJWT(data.Token)));
     dispatch(getFeedback());
   } catch (err) {
     dispatch(loginFailure(err));
@@ -149,10 +152,9 @@ function verifyRequest() {
   };
 }
 
-function verifySucess(user) {
+function verifySucess() {
   return {
     type: VERIFY_SUCCESS,
-    user,
   };
 }
 
@@ -178,8 +180,7 @@ export const verifyAuth = (): AppThunk<Promise<void>> => async (dispatch) => {
     if (resp.status !== 200) {
       throw Error(resp.statusText);
     }
-    const user = resp.json();
-    dispatch(verifySucess(user));
+    dispatch(verifySucess());
     dispatch(getFeedback());
   } catch (err) {
     dispatch(verifyFailure(err));
