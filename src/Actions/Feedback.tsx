@@ -63,7 +63,7 @@ function getFeedbackRequest() {
   };
 }
 
-function getFeedbackSuccess(feedbacks) {
+export function getFeedbackSuccess(feedbacks) {
   return {
     type: GET_FEEDBACK_SUCCESS,
     feedbacks,

@@ -12,7 +12,7 @@ const CommentListItem: React.FC<CLProp> = (props) => {
   return (
     <li className="comment-list-item">
       <div className="grid-x">
-        <div className="cell small-2">{comment.userId}</div>
+        <div className="cell small-2">{comment?.person.firstname}</div>
         <div className="cell small-8">
           <div className="grid-x">
             <div className="cell small-12">{comment.comment}</div>

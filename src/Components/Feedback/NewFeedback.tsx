@@ -1,18 +1,17 @@
 import React, { useRef, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import MainButton from 'Components/Buttons/MainButton';
-import { postFeedback } from 'Actions/Feedback';
+import { PostFeedback } from 'Components/Feedback/types';
 
 interface Props {
   draftNewFeedback?: boolean;
   onExit: () => void;
+  onSubmit: (feedback: string) => void;
   id: string;
 }
 
 const NewFeedback: React.FC<Props> = (props) => {
-  const { onExit, id } = props;
-  const dispatch = useDispatch();
+  const { onExit, id, onSubmit } = props;
   const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -24,8 +23,9 @@ const NewFeedback: React.FC<Props> = (props) => {
       title: '',
       description: '',
     },
-    onSubmit: (values) => {
-      dispatch(postFeedback(values));
+    onSubmit: (values: PostFeedback) => {
+      console.log(values);
+      onSubmit(values);
       onExit();
     },
   });

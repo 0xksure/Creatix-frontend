@@ -9,7 +9,7 @@ export interface PostFeedback {
   description: string;
 }
 
-export interface Feedback {
+export interface Feedback extends PostFeedback {
   id: string;
   createdAt: string;
   description: string;
@@ -17,4 +17,9 @@ export interface Feedback {
   person: { id: string; firstname: string; lastname: string };
   comments: Array<Comment>;
   claps: Clap[];
+}
+
+export interface PostFeedback {
+  description: string;
+  title: string;
 }

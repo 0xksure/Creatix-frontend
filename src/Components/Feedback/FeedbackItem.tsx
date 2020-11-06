@@ -10,9 +10,10 @@ import { Feedback } from 'Components/Feedback/types';
 
 interface Props {
   feedback: Feedback;
+  onSubmit: (data: any) => void;
 }
 
-const FeedbackItem: React.FC<Props> = ({ feedback }) => {
+const FeedbackItem: React.FC<Props> = ({ feedback, onSubmit }) => {
   const userID = useSelector((state) => state.Auth.UserID);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -21,7 +22,6 @@ const FeedbackItem: React.FC<Props> = ({ feedback }) => {
   const numberOfComments = feedback.comments.length;
   const userHasClapped = feedback.claps.some((clap) => clap.userId === userID);
   const userHasCommented = feedback.comments.some((comment) => comment.userId === userID);
-  console.log('user has clapped: ', userHasClapped);
   return (
     <li className="cell small-12 ">
       <div className="grid-x grid-margin-x align-center">
@@ -44,7 +44,7 @@ const FeedbackItem: React.FC<Props> = ({ feedback }) => {
                     <div className="cell small-6">
                       <div className="grid-x">
                         <ClapAnimation
-                          clapFeedback={() => dispatch(clapFeedback(feedback.id))}
+                          clapFeedback={() => onSubmit({ action: 2, feedbackId: feedback.id })}
                           isClapped={userHasClapped}
                         >
                           <ClapIcon width="20" height="20" />

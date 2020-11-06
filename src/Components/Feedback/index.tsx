@@ -1,33 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
 import SearchFeedback from './SearchFeedback';
 import FeedbackList from './FeedbackList';
 import NewFeedback from 'Components/Feedback/NewFeedback';
 import FloatingButton from 'Components/Buttons/FloatingButton';
 import FeedbackModal from 'Components/Feedback/Modal';
+import { getFeedbackSuccess } from 'Actions/Feedback';
+import useWebSocket from 'utils/useWebsocket';
 
 const Feedback: React.FC = () => {
-  const feedback = useSelector((state) => state.Feedback);
   const [draftFeedback, setDraftFeedback] = useState(false);
   const { fid } = useParams();
   const blurBackground = fid ? 'blur-on-modal' : '';
+  const [feedbacks, wsSend] = useWebSocket('feedback', getFeedbackSuccess);
+
+  console.log('feedbacks: ', feedbacks);
   return (
     <>
       <div className={`grid-x margin-top-l ${blurBackground}`}>
         <SearchFeedback />
         {draftFeedback && (
-          <NewFeedback id={'new-feedback'} onExit={() => setDraftFeedback(false)} />
+          <NewFeedback
+            id={'new-feedback'}
+            onExit={() => setDraftFeedback(false)}
+            onSubmit={(feedback: string) => wsSend({ action: 1, feedback })}
+          />
         )}
-        <FeedbackList feedbacks={feedback.feedbacks} />
+        <FeedbackList feedbacks={feedbacks} onSubmit={wsSend} />
         <FloatingButton
           onClick={() => {
             setDraftFeedback(!draftFeedback);
           }}
         />
       </div>
-      {fid && <FeedbackModal feedbackId={fid} />}
+      {fid && <FeedbackModal feedbackId={fid} onSubmit={wsSend} />}
     </>
   );
 };

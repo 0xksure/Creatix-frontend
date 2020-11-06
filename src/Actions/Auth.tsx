@@ -103,7 +103,6 @@ export const loginUser = (email: string, password: string): AppThunk<Promise<voi
 
     const data = await resp.json();
     dispatch(loginSuccess(parseJWT(data.Token)));
-    dispatch(getFeedback());
   } catch (err) {
     dispatch(loginFailure(err));
   }
@@ -181,7 +180,6 @@ export const verifyAuth = (): AppThunk<Promise<void>> => async (dispatch) => {
       throw Error(resp.statusText);
     }
     dispatch(verifySucess());
-    dispatch(getFeedback());
   } catch (err) {
     dispatch(verifyFailure(err));
   }

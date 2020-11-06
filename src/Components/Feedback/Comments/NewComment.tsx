@@ -6,18 +6,17 @@ import MainButton from 'Components/Buttons/MainButton';
 
 interface Prop {
   feedbackId: string;
+  onSubmit: (data: any) => void;
 }
 
 const NewComment: React.FC<Prop> = (props) => {
-  const { feedbackId } = props;
-  const dispatch = useDispatch();
+  const { feedbackId, onSubmit } = props;
   const formik = useFormik({
     initialValues: {
       comment: '',
     },
     onSubmit: async (values, { resetForm }) => {
-      await dispatch(commentFeedback(feedbackId, values.comment));
-      await dispatch(getFeedback());
+      await onSubmit({ action: 3, comment: { comment: values.comment, feedbackId: feedbackId } });
       resetForm();
     },
   });
