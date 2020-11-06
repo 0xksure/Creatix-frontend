@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Modal from 'Components/Modals';
 import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectFeedback } from 'Components/Feedback/selectors';
 import ClapAnimation from 'Components/Animations/Clap';
 import ClapIcon from 'Components/Icons/ClapIcon';
@@ -14,7 +14,6 @@ interface Props {
 
 const FeedbackModal: React.FC<Props> = ({ feedbackId, onSubmit }) => {
   const userID = useSelector((state) => state.Auth.UserID);
-  const dispatch = useDispatch();
   const history = useHistory();
   const feedback = useSelector((state) => selectFeedback(state, feedbackId));
   const userHasClapped = feedback?.claps?.some((clap) => clap.userId === userID);

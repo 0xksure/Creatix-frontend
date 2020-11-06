@@ -8,7 +8,6 @@ interface Props {
 }
 
 const FeedbackList: React.FC<Props> = ({ feedbacks, onSubmit }) => {
-  console.log('feedback ', feedbacks);
   return (
     <div className="cell margin-top-l">
       <ul className="grid-x feedback-list align-center">

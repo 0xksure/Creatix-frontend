@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSpring, animated } from 'react-spring';
 
 interface Props {
   commentFeedback?: () => void;
-  isCommented: boolean;
+  isCommented?: boolean;
   onClick: () => void;
 }
 
-const CommentAnimation: React.FC<Props> = ({ children, isCommented, onClick }) => {
+const CommentAnimation: React.FC<Props> = ({ children, onClick }) => {
   const [props, set] = useSpring(() => ({
     opacity: 1,
   }));

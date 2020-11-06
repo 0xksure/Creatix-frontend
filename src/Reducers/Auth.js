@@ -143,9 +143,7 @@ export default function Auth(state = initialState, action) {
         userID: '',
       };
     case LOCATION_CHANGE:
-      console.log('Location change ', state.isAuthenticated);
       if (!state.isAuthenticated) {
-        console.log(state.isAuthenticated);
         history.push('/login');
       }
       return state;

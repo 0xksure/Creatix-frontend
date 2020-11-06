@@ -18,8 +18,3 @@ export interface Feedback extends PostFeedback {
   comments: Array<Comment>;
   claps: Clap[];
 }
-
-export interface PostFeedback {
-  description: string;
-  title: string;
-}

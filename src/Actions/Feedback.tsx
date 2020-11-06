@@ -13,7 +13,7 @@ import {
   COMMENT_FEEDBACK_FAILURE,
 } from 'Constants';
 import { AppThunk } from 'store';
-import { PostFeedback } from 'Components/Feedback/types';
+import { PostFeedback, Feedback } from 'Components/Feedback/types';
 
 // ///////////////// POST FEEDACK /////////////////////////
 function postFeedbackRequest() {
@@ -63,7 +63,7 @@ function getFeedbackRequest() {
   };
 }
 
-export function getFeedbackSuccess(feedbacks) {
+export function getFeedbackSuccess(feedbacks: Feedback[]): { type: string; feedbacks: Feedback[] } {
   return {
     type: GET_FEEDBACK_SUCCESS,
     feedbacks,

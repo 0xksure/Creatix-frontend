@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import SearchFeedback from './SearchFeedback';
 import FeedbackList from './FeedbackList';
@@ -6,7 +6,7 @@ import NewFeedback from 'Components/Feedback/NewFeedback';
 import FloatingButton from 'Components/Buttons/FloatingButton';
 import FeedbackModal from 'Components/Feedback/Modal';
 import { getFeedbackSuccess } from 'Actions/Feedback';
-import useWebSocket from 'utils/useWebsocket';
+import useWebSocket from 'Utils/useWebsocket';
 
 const Feedback: React.FC = () => {
   const [draftFeedback, setDraftFeedback] = useState(false);
@@ -14,7 +14,6 @@ const Feedback: React.FC = () => {
   const blurBackground = fid ? 'blur-on-modal' : '';
   const [feedbacks, wsSend] = useWebSocket('feedback', getFeedbackSuccess);
 
-  console.log('feedbacks: ', feedbacks);
   return (
     <>
       <div className={`grid-x margin-top-l ${blurBackground}`}>

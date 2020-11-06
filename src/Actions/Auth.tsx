@@ -15,11 +15,9 @@ import {
   RESET_PWD_SUCCESS,
   RESET_PWD_FAILURE,
 } from '../Constants';
-import { getFeedback } from './Feedback';
 import { removeCookie } from '../Utils/Cookies';
 import { AppThunk } from 'store';
 import { parseJWT } from 'Utils/jwt';
-import { getCookie } from 'Utils/Cookies';
 
 interface SignupForm {}
 

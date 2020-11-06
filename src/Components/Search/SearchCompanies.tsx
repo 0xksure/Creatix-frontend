@@ -4,7 +4,6 @@ import SingleList from 'Components/List/SingleList';
 import SingleListItem from 'Components/List/SingleListItem';
 import SelectedBox from 'Components/Box/SelectedBox';
 import creatixAPI from 'Utils/api';
-import { element } from 'prop-types';
 
 interface Props {
   onSelectCompany: (org: string) => void;
@@ -45,7 +44,6 @@ const SearchCompanies: React.FC<Props> = (props) => {
                     key={organization.id}
                     name={organization}
                     onClick={(e) => {
-                      console.log('event: ', e.target);
                       setSelectedOrg(e.target.id);
                       onSelectCompany(e.target.id);
                     }}

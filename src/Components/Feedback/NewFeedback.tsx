@@ -24,7 +24,6 @@ const NewFeedback: React.FC<Props> = (props) => {
       description: '',
     },
     onSubmit: (values: PostFeedback) => {
-      console.log(values);
       onSubmit(values);
       onExit();
     },

@@ -5,7 +5,7 @@ import ClapAnimation from 'Components/Animations/Clap';
 import ClapIcon from 'Components/Icons/ClapIcon';
 import CommentAnimation from 'Components/Animations/Comment';
 import CommentIcon from 'Components/Icons/CommentIcon';
-import { clapFeedback, commentFeedback } from 'Actions/Feedback';
+import { commentFeedback } from 'Actions/Feedback';
 import { Feedback } from 'Components/Feedback/types';
 
 interface Props {

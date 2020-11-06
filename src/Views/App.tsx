@@ -14,7 +14,6 @@ import { verifyAuth } from 'Actions/Auth';
 
 const SecretRoute = (props) => {
   const { path, component: Component, isAuthenticated, hasAuthenticated } = props;
-  console.log('isAuthenticated: ', isAuthenticated);
   if (isAuthenticated) {
     return (
       <Route path={path}>
