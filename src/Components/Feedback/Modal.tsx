@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
 import Modal from 'Components/Modals';
 import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectFeedback } from 'Components/Feedback/selectors';
 import ClapAnimation from 'Components/Animations/Clap';
 import ClapIcon from 'Components/Icons/ClapIcon';
 import NewComment from 'Components/Feedback/Comments/NewComment';
 import CommentList from 'Components/Feedback/Comments/CommentList';
-import { clapFeedback } from 'Actions/Feedback';
 interface Props {
   feedbackId: string;
+  onSubmit: (data: any) => void;
 }
 
-const FeedbackModal: React.FC<Props> = ({ feedbackId }) => {
+const FeedbackModal: React.FC<Props> = ({ feedbackId, onSubmit }) => {
   const userID = useSelector((state) => state.Auth.UserID);
-  const dispatch = useDispatch();
   const history = useHistory();
   const feedback = useSelector((state) => selectFeedback(state, feedbackId));
   const userHasClapped = feedback?.claps?.some((clap) => clap.userId === userID);
@@ -53,7 +52,7 @@ const FeedbackModal: React.FC<Props> = ({ feedbackId }) => {
                     <div className="cell small-6">
                       <div className="grid-x">
                         <ClapAnimation
-                          clapFeedback={() => dispatch(clapFeedback(feedback?.id))}
+                          clapFeedback={() => onSubmit({ action: 2, feedbackId: feedback.id })}
                           isClapped={userHasClapped}
                         >
                           <ClapIcon width="20" height="20" />
@@ -73,7 +72,7 @@ const FeedbackModal: React.FC<Props> = ({ feedbackId }) => {
           </div>
           <div className="grid-x grid-margin-x feedback-modal-item">
             <div className="cell small-12">
-              <NewComment feedbackId={feedbackId} />
+              <NewComment feedbackId={feedbackId} onSubmit={onSubmit} />
             </div>
           </div>
         </>

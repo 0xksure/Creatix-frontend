@@ -15,11 +15,9 @@ import {
   RESET_PWD_SUCCESS,
   RESET_PWD_FAILURE,
 } from '../Constants';
-import { getFeedback } from './Feedback';
 import { removeCookie } from '../Utils/Cookies';
 import { AppThunk } from 'store';
 import { parseJWT } from 'Utils/jwt';
-import { getCookie } from 'Utils/Cookies';
 
 interface SignupForm {}
 
@@ -103,7 +101,6 @@ export const loginUser = (email: string, password: string): AppThunk<Promise<voi
 
     const data = await resp.json();
     dispatch(loginSuccess(parseJWT(data.Token)));
-    dispatch(getFeedback());
   } catch (err) {
     dispatch(loginFailure(err));
   }
@@ -181,7 +178,6 @@ export const verifyAuth = (): AppThunk<Promise<void>> => async (dispatch) => {
       throw Error(resp.statusText);
     }
     dispatch(verifySucess());
-    dispatch(getFeedback());
   } catch (err) {
     dispatch(verifyFailure(err));
   }

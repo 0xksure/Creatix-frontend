@@ -12,7 +12,6 @@ const ClapAnimation: React.FC<Props> = ({ children, clapFeedback, isClapped }) =
   const [props, set] = useSpring(() => ({
     fill: colorVariations[isClapped ? 0 : 1],
   }));
-  console.log('isClapped: ', isClapped);
   return (
     <animated.div
       style={props}

@@ -51,8 +51,7 @@ const Signup: React.FC = () => {
                 });
             }}
           >
-            {({ isSubmitting, status, values, handleChange }) => {
-              console.log('values: ', values);
+            {({ isSubmitting, status, handleChange }) => {
               return (
                 <Form>
                   <div className="grid-x grid-margin-x">

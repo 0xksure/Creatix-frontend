@@ -1,39 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
-import { commentFeedback, getFeedback } from 'Actions/Feedback';
 import MainButton from 'Components/Buttons/MainButton';
 
 interface Prop {
   feedbackId: string;
+  onSubmit: (data: any) => void;
 }
 
 const NewComment: React.FC<Prop> = (props) => {
-  const { feedbackId } = props;
-  const dispatch = useDispatch();
+  const { feedbackId, onSubmit } = props;
   const formik = useFormik({
     initialValues: {
       comment: '',
     },
     onSubmit: async (values, { resetForm }) => {
-      await dispatch(commentFeedback(feedbackId, values.comment));
-      await dispatch(getFeedback());
+      await onSubmit({ action: 3, comment: { comment: values.comment, feedbackId: feedbackId } });
       resetForm();
     },
   });
 
-  useEffect(() => {
-    const eventListener = (event) => {
-      console.log(event);
-    };
-    document.addEventListener('keypress', eventListener);
-    return () => {
-      document.removeEventListener('keypress', eventListener);
-    };
-  });
-
   const submitOnEnter = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    console.log('event. ', event);
     if (event.key === 'Enter') {
       formik.submitForm();
     }
