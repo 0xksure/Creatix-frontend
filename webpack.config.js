@@ -107,6 +107,7 @@ module.exports = () => {
         GTM_ID: env.GTM ? env.GTM : '',
         NODE_ENV: env.NODE_ENV ? env.NODE_ENV : 'dev',
         API_URL: env.API_URL ? env.API_URL : 'http://localhost:8081/v0/',
+        ENABLE_LOGIN: env.ENABLE_LOGIN ? env.ENABLE_LOGIN : 'false',
       }),
       new SitemapWebpackPlugin('https://www.thecreatix.io', paths),
     ],

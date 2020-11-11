@@ -14,6 +14,7 @@ import analyticsEvent from 'Utils/Analytics';
 const Header: React.FC = () => {
   const auth = useSelector((state) => state.Auth);
   const dispatch = useDispatch();
+  const enable_login = process.env.API_URL === 'true';
 
   return (
     <>
@@ -129,7 +130,7 @@ const Header: React.FC = () => {
                       as={Link}
                       activeClassName="nav-link__active"
                       className="nav-link"
-                      to="/login"
+                      to={enable_login ? '/login' : '/contact-us'}
                     >
                       <p className="p margin-zero" id="header_login_nav_link">
                         Login

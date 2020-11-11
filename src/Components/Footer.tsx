@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -9,7 +10,9 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="cell auto ">
-          <p className="p"> Contact us </p>
+          <NavLink activeClassName="nav-link_active" className="nav-link" exact to="/contact-us">
+            <p className="p"> Contact us </p>
+          </NavLink>
         </div>
         <div className="cell auto ">
           <p className="p"> Discover </p>
