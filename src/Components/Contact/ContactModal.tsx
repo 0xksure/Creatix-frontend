@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
-import Modal from 'Components/Modals';
+import FormBox from 'Components/Box/FormBox';
+import IdeaIcon from 'Components/Icons/IdeaIcon';
+
 import MainButton from 'Components/Buttons/MainButton';
+import HeaderButton from 'Components/Buttons/HeaderButton';
 const ContactModal: React.FC = () => {
-  const history = useHistory();
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const formik = useFormik({
@@ -12,9 +14,8 @@ const ContactModal: React.FC = () => {
       email: '',
       content: '',
     },
-    onSubmit: async (values, {}) => {
-      console.log('submit');
-      const resp = await fetch(`${process.env.API_URL}auth/contact-us`, {
+    onSubmit: async (values) => {
+      await fetch(`${process.env.API_URL}auth/contact-us`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -28,10 +29,18 @@ const ContactModal: React.FC = () => {
   });
 
   return (
-    <Modal isOpen={true} className="contact-us-modal">
+    <FormBox Logo={IdeaIcon}>
       {!submitSuccess ? (
         <form onSubmit={formik.handleSubmit}>
           <div className="grid-x grid-margin-x">
+            <div className="cell small-12">
+              <h1 className="h1"> Contact us</h1>
+              <p className="p">
+                Thank you for wanting to stay in touch. We are not far from releasing a{' '}
+                <span className="p--pink">beta version</span> of creatix. If you want to be notified
+                or if you have some feedback for us please let us know down below. Thank you!
+              </p>
+            </div>
             <div className="cell small-12">
               <label className="input-label" htmlFor="email">
                 Email
@@ -68,9 +77,25 @@ const ContactModal: React.FC = () => {
           </div>
         </form>
       ) : (
-        <div>Congratulations</div>
+        <div className="grid-x grid-margin-x">
+          <div className="cell small-12">
+            <h2 className="h2">
+              Thank you for showing interest in <span className="p--pink">Creatix</span>
+            </h2>
+            <p className="p">We will contact you as soon as possible</p>
+          </div>
+          <div className="cell small-12">
+            <HeaderButton>
+              <NavLink activeClassName="nav-link_active" className="nav-link" exact to="/">
+                <h4 className="h4 medium-font small margin-zero" id="header_main_nav_link">
+                  Back to home
+                </h4>
+              </NavLink>
+            </HeaderButton>
+          </div>
+        </div>
       )}
-    </Modal>
+    </FormBox>
   );
 };
 

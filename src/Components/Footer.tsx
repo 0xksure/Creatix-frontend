@@ -14,9 +14,6 @@ const Footer: React.FC = () => {
             <p className="p"> Contact us </p>
           </NavLink>
         </div>
-        <div className="cell auto ">
-          <p className="p"> Discover </p>
-        </div>
       </div>
     </footer>
   );
