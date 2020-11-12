@@ -35,6 +35,12 @@
         background-color: $forest-blues;
       }
     }
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+      border: 2px solid $creatix-card-purple;
+    }
   }
 }
 

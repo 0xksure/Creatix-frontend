@@ -5,6 +5,7 @@ import { useDispatch, connect } from 'react-redux';
 import ReactGA from 'react-ga';
 import Home from 'Components/Home';
 import Signup from 'Components/Signup/Signup';
+import ContactModal from 'Components/Contact/ContactModal';
 import Login from 'Components/Login';
 import UserHome from 'Components/User';
 import Discover from 'Components/Discover';
@@ -66,6 +67,9 @@ const App: React.FC<Prop> = (props) => {
       <Route path="/login" render={() => RedirectIfAuthenticated(Login, props.isAuthenticated)} />
       <Route path="/signup">
         <Signup />
+      </Route>
+      <Route path="/contact-us">
+        <ContactModal />
       </Route>
       <Route path="/forgot-password">
         <ForgotPassword />
