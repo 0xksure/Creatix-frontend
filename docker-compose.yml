@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  thecreatix:
+    build: .
+    ports:
+      - '9999:80'
+    environment:
+      - PORT="80"
+      - BACKEND_URL="http://localhost:8081"
+      - NGINX_WORKERS=3
