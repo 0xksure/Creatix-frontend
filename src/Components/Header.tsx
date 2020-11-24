@@ -30,7 +30,7 @@ const Header: React.FC = () => {
               {auth.isAuthenticated ? (
                 <>
                   <li className="nav-item">
-                    <HeaderButton>
+                    <HeaderButton onClick={() => analyticsEvent('click', 'user', 'user')}>
                       <NavLink
                         activeClassName="nav-link_active"
                         className="nav-link"
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
                     </HeaderButton>
                   </li>
                   <li className="nav-item">
-                    <HeaderButton>
+                    <HeaderButton onClick={() => analyticsEvent('click', 'feedback', 'feedback')}>
                       <NavLink
                         activeClassName="nav-link_active"
                         className="nav-link"
@@ -123,7 +123,9 @@ const Header: React.FC = () => {
                 <li className="nav-item" id="header_signup_modal">
                   <MainButton
                     id="header_signup_modal"
-                    round="round"
+                    round={true}
+                    size={'medium'}
+                    type="button"
                     onClick={() => analyticsEvent('click', 'login', 'login')}
                   >
                     <NavLink

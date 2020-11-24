@@ -14,24 +14,25 @@ interface Props {
 
 const MainButton: React.FC<Props> = ({
   id = 'undefined',
-  size = '',
-  round = '',
+  size = 'medium',
+  round = false,
   children,
   buttonType = 'primary',
   onClick,
   modalIsOpen = false,
-  type,
+  type = 'button',
   disabled = false,
 }) => {
   const [props] = useSpring(() => ({
     from: { opacity: 1 },
     to: { opacity: modalIsOpen ? 0.1 : 1 },
   }));
+
   return (
     <animated.div style={props} className="">
       <button
         id={id}
-        className={`creatix-btn ${buttonType} ${size} ${round} `}
+        className={`creatix-btn primary ${size} ${round ? 'round' : ''}`}
         onClick={(e) => onClick(e)}
         type={type}
         disabled={disabled}

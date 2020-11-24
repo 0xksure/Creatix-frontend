@@ -1,7 +1,11 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
 
-const HeaderButton: React.FC = ({ children }) => {
+interface Props {
+  onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+}
+
+const HeaderButton: React.FC<Props> = ({ children, onClick }) => {
   const [props] = useSpring(() => ({
     from: {
       transform: 'translate3d(0,0px,0)',
@@ -19,7 +23,11 @@ const HeaderButton: React.FC = ({ children }) => {
     },
     config: { duration: 120, tension: 550, friction: 20 },
   }));
-  return <animated.div style={props}>{children}</animated.div>;
+  return (
+    <animated.div style={props} onClick={onClick}>
+      {children}
+    </animated.div>
+  );
 };
 
 export default HeaderButton;
