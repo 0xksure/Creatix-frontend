@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import Overview from "./Icons/OverviewIcon";
-import TeamCard from "./Icons/TeamCardIcon";
-import FeedbackStacked from "./Icons/FeedbackStackedIcon";
+import Overview from '../Icons/OverviewIcon';
+import TeamCard from '../Icons/TeamCardIcon';
+import FeedbackStacked from '../Icons/FeedbackStackedIcon';
 
 const CARD_TEXT_1 =
-  "Let employees share feedback, ideas and actions that will improve your business";
+  'Let employees share feedback, ideas and actions that will improve your business';
 
-const CARD_TEXT_2 = "Find central people in your organization and teams";
+const CARD_TEXT_2 = 'Find central people in your organization and teams';
 
 const CARD_TEXT_3 =
-  "Employee cards provide information on skills and interest that would help your create an all start team.";
+  'Employee cards provide information on skills and interest that would help your create an all start team.';
 
 const Features: React.FC = () => {
   return (
@@ -24,10 +24,7 @@ const Features: React.FC = () => {
         <div className="grid-x grid-margin-x">
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <FeedbackStacked className="product-icon" />
-            <h2
-              className="h2 medium-font small-font"
-              id="home_features_feedback_main"
-            >
+            <h2 className="h2 medium-font small-font" id="home_features_feedback_main">
               Feedback
             </h2>
             <p className="p" id="home_features_feedback_card_text">
@@ -36,10 +33,7 @@ const Features: React.FC = () => {
           </div>
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <Overview className="product-icon" />
-            <h2
-              className="h2 medium-font small-font"
-              id="home_features_overview_main"
-            >
+            <h2 className="h2 medium-font small-font" id="home_features_overview_main">
               Overview
             </h2>
             <p className="p" id="home_features_overview_card_text">
@@ -48,10 +42,7 @@ const Features: React.FC = () => {
           </div>
           <div className="cell small-12 medium-4 large-4 creatix-card">
             <TeamCard className="product-icon" />
-            <h2
-              className="h2 medium-font small-font"
-              id="home_features_teams_main"
-            >
+            <h2 className="h2 medium-font small-font" id="home_features_teams_main">
               Teams
             </h2>
             <p className="p" id="home_features_teams_card_text">
