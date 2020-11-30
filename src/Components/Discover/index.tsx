@@ -48,15 +48,9 @@ const Discover: React.FC = () => {
             />
             <FeatureCard
               id="discover_internal_feedback"
-              title={content.discover.discoverSearch}
-              description={content.discover.discoverSearchDescription}
+              title={content.discover.discoverAutomaticTagging}
+              description={content.discover.discoverAutomaticTaggingDescription}
               color="pink"
-            />
-            <FeatureCard
-              id="discover_internal_feedback"
-              title={content.discover.discoverSearch}
-              description={content.discover.discoverSearchDescription}
-              color="blue"
             />
           </div>
         </div>

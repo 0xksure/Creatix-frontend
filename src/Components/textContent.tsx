@@ -12,6 +12,11 @@ export const content = {
       feedback that need your attention.
     </>
   ),
+  pricing: {
+    pricingTitle: 'Pricing',
+    pricingDescription: <></>,
+    pricingOptionTitle: 'Price',
+  },
   discover: {
     discoverWhy: 'Why was Creatix invented?',
     discoverWhyDescription: (

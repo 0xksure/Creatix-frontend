@@ -115,7 +115,7 @@ const Header: React.FC = () => {
                         className="nav-link"
                         strict
                         exact
-                        to="discover"
+                        to="pricing"
                       >
                         <h4
                           className="h4 medium-font small margin-zero"

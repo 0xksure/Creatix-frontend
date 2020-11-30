@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 import HomeStatement from './Elements/HomeStatement';
-import Features from './Elements/Features';
-import FeatureCard from 'Components/Elements/FeatureCard';
 import { content } from 'Components/textContent';
+
 const Home: React.FC = () => {
   const modalIsOpen = useSelector((state) => state.Modal.modalIsOpen, shallowEqual);
   const blurClass = modalIsOpen ? 'blur-on-modal' : '';
@@ -18,8 +17,6 @@ const Home: React.FC = () => {
   return (
     <div className={`grid-container-full ${blurClass}`}>
       <HomeStatement statement={content.statement} subStatement={content.subStatement} />
-      <Features />
-      <FeatureCard />
     </div>
   );
 };
