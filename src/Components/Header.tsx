@@ -107,6 +107,25 @@ const Header: React.FC = () => {
                       </NavLink>
                     </HeaderButton>
                   </li>
+                  <li className="nav-item">
+                    <HeaderButton onClick={() => analyticsEvent('click', 'pricing', 'pricing')}>
+                      <NavLink
+                        as={Link}
+                        activeClassName="nav-link_active"
+                        className="nav-link"
+                        strict
+                        exact
+                        to="pricing"
+                      >
+                        <h4
+                          className="h4 medium-font small margin-zero"
+                          id="header_discover_nav_link"
+                        >
+                          Pricing
+                        </h4>
+                      </NavLink>
+                    </HeaderButton>
+                  </li>
                 </>
               )}
               {auth.isAuthenticated ? (

@@ -9,6 +9,7 @@ import ContactModal from 'Components/Contact/ContactModal';
 import Login from 'Components/Login';
 import UserHome from 'Components/User';
 import Discover from 'Components/Discover';
+import Pricing from 'Components/Pricing';
 import Feedback from 'Components/Feedback';
 import ForgotPassword from 'Components/ForgotPassword';
 import { verifyAuth } from 'Actions/Auth';
@@ -57,6 +58,9 @@ const App: React.FC<Prop> = (props) => {
       <Route exact path="/" component={Home} />
       <Route path="/discover">
         <Discover />
+      </Route>
+      <Route path="/pricing">
+        <Pricing />
       </Route>
       <Route path="/main">
         <Home />
