@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 
-import PropTypes from 'prop-types';
 import Logo from 'Components/Icons/LogoIcon';
 import toggleModal from 'Actions/Modal';
 import MainButton from 'Components/Buttons/MainButton';
@@ -11,7 +10,7 @@ import HeaderButton from 'Components/Buttons/HeaderButton';
 import { logoutUser } from 'Actions/Auth';
 import analyticsEvent from 'Utils/Analytics';
 
-const Header: React.FC = () => {
+const SideMenu: React.FC = () => {
   const auth = useSelector((state) => state.Auth);
   const dispatch = useDispatch();
   const enableLogin = process.env.API_URL === 'true';
@@ -168,12 +167,8 @@ const Header: React.FC = () => {
   );
 };
 
-Header.propTypes = {
-  toggle: PropTypes.func.isRequired,
-};
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ toggle: toggleModal }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(null, mapDispatchToProps)(SideMenu);
