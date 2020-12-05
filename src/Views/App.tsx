@@ -1,114 +1,71 @@
 import React from 'react';
+import Footer from 'Components/Footer';
+import SideMenu from 'Components/SideMenu';
+import BottomMenu from 'Views/BottomMenu';
+import { useIsMobile } from 'Utils/hooks';
+import { BrowserRouter } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { Provider } from 'react-redux';
 
-import { Route, Switch, useLocation, Redirect } from 'react-router-dom';
-import { useDispatch, connect } from 'react-redux';
-import ReactGA from 'react-ga';
-import Home from 'Components/Home';
-import Signup from 'Components/Signup/Signup';
-import ContactModal from 'Components/Contact/ContactModal';
-import Login from 'Components/Login';
-import UserHome from 'Components/User';
-import Discover from 'Components/Discover';
-import Pricing from 'Components/Pricing';
-import Feedback from 'Components/Feedback';
-import ForgotPassword from 'Components/ForgotPassword';
-import { verifyAuth } from 'Actions/Auth';
+import Router from 'Views/Router';
 
-const SecretRoute = (props) => {
-  const { path, component: Component, isAuthenticated, hasAuthenticated } = props;
-  if (isAuthenticated) {
-    return (
-      <Route path={path}>
-        <Component />
-      </Route>
-    );
-  } else if (!isAuthenticated && hasAuthenticated) {
-    return <Redirect to="/login" />;
-  } else {
-    return <h1>Loading</h1>;
-  }
+import rootReducer from 'Reducers';
+
+import { createBrowserHistory } from 'history';
+
+import thunkMiddleware from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger';
+
+const history = createBrowserHistory();
+
+const loggerMiddleware = createLogger();
+
+const composeEnhancers = composeWithDevTools({
+  // Specify name here, actionsBlacklist, actionsCreators and other options if needed
+});
+
+const configureStrore = (preloadedState) => {
+  const store = createStore(
+    rootReducer,
+    preloadedState,
+    composeEnhancers(applyMiddleware(thunkMiddleware, loggerMiddleware)),
+  );
+  return store;
 };
+const store = configureStrore({});
 
-const RedirectIfAuthenticated = (Component, isAuthenticated) => {
-  if (isAuthenticated) {
-    return <Redirect to="/user" />;
-  } else {
-    return <Component />;
-  }
-};
-
-const usePageViews = () => {
-  const location = useLocation();
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    ReactGA.set({ page: window.location.pathname });
-    ReactGA.pageview(window.location.pathname);
-    dispatch(verifyAuth());
-  }, [location]);
-};
-
-interface Prop {
-  isAuthenticated: boolean;
-}
-const App: React.FC<Prop> = (props) => {
-  usePageViews();
+const App: React.FC = () => {
+  const isMobile = useIsMobile();
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/discover">
-        <Discover />
-      </Route>
-      <Route path="/pricing">
-        <Pricing />
-      </Route>
-      <Route path="/main">
-        <Home />
-      </Route>
-      <Route path="/main/:topic">
-        <Home />
-      </Route>
-      <Route path="/login" render={() => RedirectIfAuthenticated(Login, props.isAuthenticated)} />
-      <Route path="/signup">
-        <Signup />
-      </Route>
-      <Route path="/contact-us">
-        <ContactModal />
-      </Route>
-      <Route path="/forgot-password">
-        <ForgotPassword />
-      </Route>
-      <SecretRoute
-        path="/user"
-        component={UserHome}
-        isAuthenticated={props.isAuthenticated}
-        hasAuthenticated={props.hasAuthenticated}
-      />
-      <SecretRoute
-        path="/feedback/:fid"
-        component={Feedback}
-        isAuthenticated={props.isAuthenticated}
-        hasAuthenticated={props.hasAuthenticated}
-      />
-      <SecretRoute
-        path="/feedback"
-        component={Feedback}
-        isAuthenticated={props.isAuthenticated}
-        hasAuthenticated={props.hasAuthenticated}
-      />
-
-      <SecretRoute
-        path="/settings"
-        component={UserHome}
-        isAuthenticated={props.isAuthenticated}
-        hasAuthenticated={props.hasAuthenticated}
-      />
-    </Switch>
+    <HelmetProvider>
+      <Provider store={store}>
+        <Helmet>
+          <title>Home</title>
+          <meta name="description" content="Home - Creatix" />
+        </Helmet>
+        <BrowserRouter history={history}>
+          <div className="grid-container-full">
+            <div className="grid-x">
+              {!isMobile && (
+                <div className="cell small-2 side-menu">
+                  <SideMenu />
+                </div>
+              )}
+              {isMobile && <BottomMenu />}
+              <div className="cell auto main-screen">
+                <Router />
+              </div>
+            </div>
+            <footer className="grid-container footer">
+              <Footer />
+            </footer>
+          </div>
+        </BrowserRouter>
+      </Provider>
+    </HelmetProvider>
   );
 };
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.Auth.isAuthenticated,
-  hasAuthenticated: state.Auth.hasAuthenticated,
-});
-export default connect(mapStateToProps)(App);
+export default App;
