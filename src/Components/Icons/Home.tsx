@@ -1,8 +1,8 @@
 import React from 'react';
 
 interface Props {
-  height: string;
-  width: string;
+  height?: string;
+  width?: string;
 }
 
 const Home: React.FC<Props> = ({ height, width }) => (

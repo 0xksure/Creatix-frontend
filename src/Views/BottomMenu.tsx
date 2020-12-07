@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import Discover from 'Components/Icons/Discover';
 import Pricing from 'Components/Icons/Pricing';
 import Home from 'Components/Icons/Home';
@@ -8,15 +8,14 @@ const BottomMenu = () => {
   const history = useHistory();
   return (
     <div className="grid-x grid-margin-x bottom-menu">
-      <button
-        type="button"
+      <NavLink
+        activeClassName="nav-link_active"
         className="cell small-4 bottom-menu__item"
-        onClick={() => history.push('/')}
+        exact
+        to="/"
       >
-        <div className="bottom-menu__item__content">
-          <Home />
-        </div>
-      </button>
+        <Home />
+      </NavLink>
       <button
         type="button"
         className="cell small-4 bottom-menu__item"

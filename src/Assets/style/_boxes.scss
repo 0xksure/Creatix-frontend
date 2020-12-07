@@ -6,12 +6,13 @@
   background-color: $creatix-pink;
 }
 
-.content-card{
+.content-card {
   position: relative;
-    display: inline-block;
-    width: 525px;
-    height: 100%;
-    vertical-align: top;
-    background: #fff;
-    box-shadow: 2px 2px 6px 0 rgba(41,70,97,.1);
+  display: inline-block;
+  width: 525px;
+  height: 100%;
+  vertical-align: top;
+  background: #fff;
+  box-shadow: 2px 2px 6px 0 rgba(41, 70, 97, 0.1);
+  padding: 2rem;
 }

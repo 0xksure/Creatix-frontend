@@ -4,6 +4,7 @@ import SideMenu from 'Components/SideMenu';
 import BottomMenu from 'Views/BottomMenu';
 import { useIsMobile } from 'Utils/hooks';
 import { BrowserRouter } from 'react-router-dom';
+import ScrollToTop from 'Utils/ScrollToTop';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
 
@@ -46,22 +47,24 @@ const App: React.FC = () => {
           <meta name="description" content="Home - Creatix" />
         </Helmet>
         <BrowserRouter history={history}>
-          <div className="grid-container-full">
-            <div className="grid-x">
-              {!isMobile && (
-                <div className="cell small-2 side-menu">
-                  <SideMenu />
+          <ScrollToTop>
+            <div className="grid-container-full">
+              <div className="grid-x">
+                {!isMobile && (
+                  <div className="cell small-2 side-menu">
+                    <SideMenu />
+                  </div>
+                )}
+                {isMobile && <BottomMenu />}
+                <div className="cell auto main-screen">
+                  <Router />
                 </div>
-              )}
-              {isMobile && <BottomMenu />}
-              <div className="cell auto main-screen">
-                <Router />
               </div>
+              <footer className="grid-container footer">
+                <Footer />
+              </footer>
             </div>
-            <footer className="grid-container footer">
-              <Footer />
-            </footer>
-          </div>
+          </ScrollToTop>
         </BrowserRouter>
       </Provider>
     </HelmetProvider>

@@ -14,8 +14,15 @@ const Pricing = () => {
           content="Creatix discover the various products, feedback cards, transparency overview and team cards."
         />
       </Helmet>
-      <div className={`grid-container full margin-top-xl`}>
+      <div className={`grid-container full `}>
         <div className="gray">
+          <div className="grid-x align-center">
+            <div className="cell small-12 medium-12  home-statement">
+              <h1 className="h1 large" id="discover_main_text">
+                Pricing
+              </h1>
+            </div>
+          </div>
           <div className="grid-x grid-padding-x creatix-features">
             <CenteredFeature
               Icon={OverviewIcon}

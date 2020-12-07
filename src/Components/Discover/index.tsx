@@ -16,10 +16,10 @@ const Discover: React.FC = () => {
           content="Creatix discover the various products, feedback cards, transparency overview and team cards."
         />
       </Helmet>
-      <div className={`grid-container full ${blurClass}`}>
-        <div className="grid-x big-statement align-center">
-          <div className="cell small-12 medium-12 large-12">
-            <h1 className="h1" id="discover_main_text">
+      <div className={`grid-container-full ${blurClass}`}>
+        <div className="grid-x align-center">
+          <div className="cell small-12 medium-12  home-statement">
+            <h1 className="h1 large" id="discover_main_text">
               Discover how Creatix can improve your business
             </h1>
             <p className="p large">{content.discover.discoverWhyDescription}</p>
@@ -27,7 +27,7 @@ const Discover: React.FC = () => {
         </div>
         <div className="gray">
           <div className="grid-x align-center">
-            <h2 className="h2 margin-bottom-m">Features that will improve your day</h2>
+            <h2 className="h2 large margin-bottom-m">Features that will improve your day</h2>
             <FeatureCard
               id="discover_internal_feedback"
               title={content.discover.discoverInternalFeedback}

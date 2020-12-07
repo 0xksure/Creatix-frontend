@@ -35,6 +35,9 @@
     &:focus {
       background-color: $creatix-shadow-purple;
     }
+    &:active {
+      background-color: $creatix-shadow-purple;
+    }
     &__content {
       padding: 10px;
       text-align: center;

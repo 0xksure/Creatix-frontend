@@ -46,8 +46,9 @@
   text-align: center;
 
   &__padding {
-    @extend .padding-vertical-l;
-    @extend .padding-horizontal-l;
+    padding: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   &__title {
