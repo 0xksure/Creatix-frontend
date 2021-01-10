@@ -74,6 +74,7 @@ const Login: React.FC = () => {
                   </div>
                   <div className="cell small-12 padding-vertical-s">
                     <MainButton
+                      type="submit"
                       id="submitLogin"
                       buttonType="submit"
                       round="round"

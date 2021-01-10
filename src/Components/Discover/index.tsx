@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { content } from 'Components/textContent';
+import InternalFeedback from 'Components/Demo/InternalFeedback';
 import FeatureCard from 'Components/Elements/FeatureCard';
 
 const Discover: React.FC = () => {
@@ -27,13 +28,17 @@ const Discover: React.FC = () => {
         </div>
         <div className="gray">
           <div className="grid-x align-center">
-            <h2 className="h2 large margin-bottom-m">Features that will improve your day</h2>
+            <h2 className="h2 large margin-bottom-m p--left">
+              Features that will improve your day
+            </h2>
             <FeatureCard
               id="discover_internal_feedback"
               title={content.discover.discoverInternalFeedback}
               description={content.discover.discoverInternalFeedbackDescription}
               color="blue"
-            />
+            >
+              <InternalFeedback />
+            </FeatureCard>
             <FeatureCard
               id="discover_internal_feedback"
               title={content.discover.discoverExternalFeedback}

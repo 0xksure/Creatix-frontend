@@ -7,8 +7,8 @@ interface Props {
 
 const HomeStatement: React.FC<Props> = ({ statement, subStatement }) => {
   return (
-    <div className="grid-x">
-      <div className="cell small-12 home-statement">
+    <div className="grid-x align-center">
+      <div className="cell small-12 medium-12 home-statement">
         <div className="text-content">
           <h1 className="h1 large" id="home_statement_main">
             {statement}

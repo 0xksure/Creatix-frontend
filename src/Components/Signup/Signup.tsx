@@ -32,6 +32,7 @@ const Signup: React.FC = () => {
             initialValues={{
               Firstname: '',
               Lastname: '',
+              Username:'',
               Email: '',
               Password: '',
               Password2: '',
@@ -70,6 +71,13 @@ const Signup: React.FC = () => {
                       <ErrorMessage className="error-message" name="Lastname" component="div" />
                     </div>
                     <div className="cell small-12">
+                      <label className="input-label" htmlFor="Username">
+                        Username
+                      </label>
+                      <Field type="text" className="input-field" name="Username" />
+                      <ErrorMessage className="error-message" name="Username" component="div" />
+                    </div>
+                    <div className="cell small-12">
                       <label className="input-label" htmlFor="Email">
                         Email
                       </label>
@@ -89,14 +97,6 @@ const Signup: React.FC = () => {
                       </label>
                       <Field type="password" className="input-field" name="Password2" />
                       <ErrorMessage className="error-message" name="Password2" component="div" />
-                    </div>
-
-                    <div className="cell small-12">
-                      <label className="input-label" htmlFor="CompanyName">
-                        Organization to join
-                      </label>
-                      <BasicInput name={'CompanyName'} onChange={handleChange} />
-                      <ErrorMessage name="CompanyName" component="div" />
                     </div>
                     <div className="cell small-12 padding-vertical-s">
                       <MainButton

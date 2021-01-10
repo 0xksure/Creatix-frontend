@@ -23,6 +23,7 @@ const initialState = {
   isLoggingIn: true,
   loginError: false,
   errorMessage: '',
+  companyID:'',
   isLoggingOut: false,
   logoutError: false,
   isVerifying: false,
