@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import SearchFeedback from './SearchFeedback';
 import FeedbackList from './FeedbackList';
@@ -9,10 +9,15 @@ import { getFeedbackSuccess } from 'Actions/Feedback';
 import useWebSocket from 'Utils/useWebsocket';
 
 const Feedback: React.FC = () => {
+  const { companyId } = useParams();
   const [draftFeedback, setDraftFeedback] = useState(false);
   const { fid } = useParams();
   const blurBackground = fid ? 'blur-on-modal' : '';
-  const [feedbacks, wsSend] = useWebSocket('feedback', getFeedbackSuccess);
+  const [feedbacks, setPath, wsSend] = useWebSocket(`${companyId}/feedback`, getFeedbackSuccess);
+  useEffect(() => {
+    console.log('setPath: ', companyId);
+    setPath(`${companyId}/feedback`);
+  }, [companyId]);
 
   return (
     <>

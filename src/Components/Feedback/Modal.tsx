@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Modal from 'Components/Modals';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectFeedback } from 'Components/Feedback/selectors';
 import ClapAnimation from 'Components/Animations/Clap';
@@ -17,8 +17,9 @@ const FeedbackModal: React.FC<Props> = ({ feedbackId, onSubmit }) => {
   const history = useHistory();
   const feedback = useSelector((state) => selectFeedback(state, feedbackId));
   const userHasClapped = feedback?.claps?.some((clap) => clap.userId === userID);
-
   const numberOfClaps = feedback?.claps?.length;
+  const { companyId } = useParams();
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -40,7 +41,7 @@ const FeedbackModal: React.FC<Props> = ({ feedbackId, onSubmit }) => {
                 </div>
                 <button
                   className="cell small-1 exit-button--white"
-                  onClick={() => history.push('/feedback')}
+                  onClick={() => history.push(`/${companyId}/feedback`)}
                 >
                   X
                 </button>

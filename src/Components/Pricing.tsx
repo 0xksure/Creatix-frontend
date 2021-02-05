@@ -4,7 +4,7 @@ import GatherTeamIcon from 'Components/Icons/GatherTeamIcon';
 import OverviewIcon from 'Components/Icons/OverviewIcon';
 import CenteredFeature from 'Components/Elements/CenteredFeature';
 
-const Pricing = () => {
+const Pricing: React.FC = () => {
   return (
     <>
       <Helmet>

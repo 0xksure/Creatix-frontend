@@ -44,9 +44,12 @@
 
   // Circle button
   &.circle {
-    border-radius: 1000px;
+    border-radius: 100%;
     background-color: $creatix-pink;
 
+    &--no-margin {
+      margin: 0;
+    }
     @media screen and (max-width: 39.9375em) {
       padding: 1rem 1.3rem;
       margin: auto;
@@ -59,12 +62,24 @@
     color: $white;
     margin: 0;
 
+    &.medium {
+      padding: 0.5em 1em;
+    }
+
     &.small {
       padding: 0.1em 0.5em;
     }
 
+    &.blue {
+      background-color: $electron-blue;
+    }
+
+    &.pink {
+      background-color: $creatix-pink;
+    }
+
     &.round {
-      border-radius: 2px;
+      border-radius: 10px;
     }
 
     &.center {

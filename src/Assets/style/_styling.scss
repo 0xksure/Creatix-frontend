@@ -5,9 +5,9 @@
 // BLUE
 $creatix-light-blue: rgba(10, 20, 140, 1);
 $creatix-deep-blue: rgba(19, 15, 64, 1);
-$creatix-footer-blue: rgba(19, 20, 170, 1);
+$creatix-footer-blue: rgb(99, 99, 116);
 $creatix-card-blue: rgba(10, 20, 200, 1);
-$creatix-shadow-blue: rgba(10, 20, 200, 0.8);
+$creatix-shadow-blue: #0a14c8cc;
 $creatix-link-blue: rgba(72, 155, 232, 1);
 
 // WHITE
@@ -15,11 +15,11 @@ $creatix-white-deep-blue: rgba(236, 240, 241, 1);
 $creatix-white-light-blue: rgba(255, 255, 255, 1);
 
 // PINK
-$creatix-pink: rgba(250, 10, 90, 1);
+$creatix-pink: #fa0a5a;
 $creatix-pink-shade: rgba(250, 10, 90, 1);
 
 // PURPLE
-$creatix-card-purple: rgba(153, 68, 230, 1);
+$creatix-card-purple: #9944e6;
 $creatix-shadow-purple: rgba(153, 68, 230, 1);
 
 // Button border
@@ -144,6 +144,7 @@ $creatix-gray2: rgba(243, 243, 243, 1);
 $creatix-shadow: rgba(199, 236, 238, 1);
 $creatix-alert-green: rgba(50, 205, 50, 0.8);
 $creatix-alert-yellow: rgba(255, 255, 0, 0.8);
+$creatix-alert-orange: $orangeville;
 $creatix-alert-red: rgba(244, 67, 54, 0.8);
 // TEXT ///////////////////////////
 ///////////////////////////////////
@@ -219,6 +220,10 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
     color: $creatix-pink;
   }
 
+  &.blue {
+    color: $creatix-blue;
+  }
+
   &.bold-font {
     font-family: 'Creatix Bold';
   }
@@ -250,6 +255,7 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   &.blue {
     color: $creatix-blue;
   }
+
   &.bold-font {
     font-family: 'Creatix Bold';
   }
@@ -312,6 +318,14 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
 
   &--left {
     text-align: left;
+  }
+
+  &.padding-zero {
+    padding: 0px;
+  }
+
+  &.margin-zero {
+    margin: 0px;
   }
 }
 
@@ -387,6 +401,10 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
   padding: 0px;
 }
 
+.padding-s {
+  padding: 1rem;
+}
+
 .padding-top-s {
   padding-top: 1rem;
 }
@@ -448,6 +466,12 @@ $creatix-alert-red: rgba(244, 67, 54, 0.8);
 }
 .padding-right-s {
   padding-right: 10px;
+}
+.padding-left-m {
+  padding-left: 3rem;
+}
+.padding-right-m {
+  padding-right: 3rem;
 }
 
 .padding-left-l {

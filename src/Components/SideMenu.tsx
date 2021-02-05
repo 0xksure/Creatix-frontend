@@ -2,6 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
+import CompanySelector from 'Components/Company/Selector';
 
 import Logo from 'Components/Icons/LogoIcon';
 import toggleModal from 'Actions/Modal';
@@ -13,7 +14,7 @@ import analyticsEvent from 'Utils/Analytics';
 const SideMenu: React.FC = () => {
   const auth = useSelector((state) => state.Auth);
   const dispatch = useDispatch();
-  const enableLogin = process.env.API_URL === 'true';
+  const enableLogin = process.env.ENABLE_LOGIN === 'true';
 
   return (
     <>
@@ -28,20 +29,32 @@ const SideMenu: React.FC = () => {
             <ul className="nav-list">
               {auth.isAuthenticated ? (
                 <>
-                  <li className="nav-item">
-                    <HeaderButton onClick={() => analyticsEvent('click', 'user', 'user')}>
-                      <NavLink
-                        activeClassName="nav-link_active"
-                        className="nav-link"
-                        exact
-                        to="/feedback"
-                      >
-                        <h4 className="h4 medium-font small margin-zero" id="header_main_nav_link">
-                          Feedback
-                        </h4>
-                      </NavLink>
-                    </HeaderButton>
-                  </li>
+                  {auth.companyId.length > 0 ? (
+                    <li className="nav-item">
+                      <HeaderButton onClick={() => analyticsEvent('click', 'user', 'user')}>
+                        <NavLink
+                          activeClassName="nav-link_active"
+                          className="nav-link"
+                          exact
+                          to="/feedback"
+                        >
+                          <h4
+                            className="h4 medium-font small margin-zero"
+                            id="header_main_nav_link"
+                          >
+                            Feedback
+                          </h4>
+                        </NavLink>
+                      </HeaderButton>
+                    </li>
+                  ) : (
+                    <li className="nav-item">
+                      <CompanySelector />
+                    </li>
+                  )}
+
+                  {auth.company}
+
                   <li className="nav-item">
                     <HeaderButton>
                       <NavLink

@@ -5,7 +5,6 @@ import { useHistory } from 'react-router';
 import MainButton from 'Components/Buttons/MainButton';
 import { signupUser } from 'Actions/Auth';
 import Logo from 'Components/Icons/LogoIcon';
-import BasicInput from 'Components/Search/BasicInput';
 import * as yup from 'yup';
 
 const SignupSchema = yup.object().shape({
@@ -32,6 +31,7 @@ const Signup: React.FC = () => {
             initialValues={{
               Firstname: '',
               Lastname: '',
+              Username: '',
               Email: '',
               Password: '',
               Password2: '',
@@ -51,7 +51,7 @@ const Signup: React.FC = () => {
                 });
             }}
           >
-            {({ isSubmitting, status, handleChange }) => {
+            {({ isSubmitting, status }) => {
               return (
                 <Form>
                   <div className="grid-x grid-margin-x">
@@ -68,6 +68,13 @@ const Signup: React.FC = () => {
                       </label>
                       <Field type="text" className="input-field" name="Lastname" />
                       <ErrorMessage className="error-message" name="Lastname" component="div" />
+                    </div>
+                    <div className="cell small-12">
+                      <label className="input-label" htmlFor="Username">
+                        Username
+                      </label>
+                      <Field type="text" className="input-field" name="Username" />
+                      <ErrorMessage className="error-message" name="Username" component="div" />
                     </div>
                     <div className="cell small-12">
                       <label className="input-label" htmlFor="Email">
@@ -90,20 +97,12 @@ const Signup: React.FC = () => {
                       <Field type="password" className="input-field" name="Password2" />
                       <ErrorMessage className="error-message" name="Password2" component="div" />
                     </div>
-
-                    <div className="cell small-12">
-                      <label className="input-label" htmlFor="CompanyName">
-                        Organization to join
-                      </label>
-                      <BasicInput name={'CompanyName'} onChange={handleChange} />
-                      <ErrorMessage name="CompanyName" component="div" />
-                    </div>
                     <div className="cell small-12 padding-vertical-s">
                       <MainButton
                         id="submitLogin"
                         type="submit"
-                        round="round"
-                        size=""
+                        round={true}
+                        size="medium"
                         disabled={isSubmitting}
                       >
                         <p className="p margin-zero">Sign up</p>

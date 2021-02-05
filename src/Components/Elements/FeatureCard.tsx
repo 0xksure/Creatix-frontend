@@ -5,9 +5,10 @@ interface Props {
   color: 'blue' | 'pink' | 'gray';
   title: string;
   description: React.ReactNode;
+  Icon: React.ReactNode;
 }
 
-const FeatureCard: React.FC<Props> = ({ color, id, title, description }) => {
+const FeatureCard: React.FC<Props> = ({ color, id, title, description, children }) => {
   return (
     <div
       className={`cell small-12 medium-12 large-10 feature-card__padding feature-card feature-card--${color}`}
@@ -21,6 +22,7 @@ const FeatureCard: React.FC<Props> = ({ color, id, title, description }) => {
           <h4 className="h4" id={`${id}_sub_text`}>
             {description}
           </h4>
+          {children}
         </div>
       </div>
     </div>

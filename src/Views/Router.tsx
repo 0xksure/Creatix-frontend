@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch, Redirect, useLocation } from 'react-router-dom';
 import Home from 'Components/Home';
 import Signup from 'Components/Signup/Signup';
 import ContactModal from 'Components/Contact/ContactModal';
 import Login from 'Components/Login';
 import UserHome from 'Components/User';
+import Settings from 'Components/Settings';
 import Discover from 'Components/Discover';
 import Pricing from 'Components/Pricing';
 import Feedback from 'Components/Feedback';
@@ -41,14 +42,17 @@ const usePageViews = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log('new data: ', location);
     ReactGA.set({ page: window.location.pathname });
     ReactGA.pageview(window.location.pathname);
+
     dispatch(verifyAuth());
   }, [location]);
 };
 
-const Router = () => {
+const Router: React.FC = () => {
   usePageViews();
+
   const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
   const hasAuthenticated = useSelector((state) => state.Auth.hasAuthenticated);
   return (
@@ -83,13 +87,13 @@ const Router = () => {
         hasAuthenticated={hasAuthenticated}
       />
       <SecretRoute
-        path="/feedback/:fid"
+        path="/:companyId/feedback/:fid"
         component={Feedback}
         isAuthenticated={isAuthenticated}
         hasAuthenticated={hasAuthenticated}
       />
       <SecretRoute
-        path="/feedback"
+        path="/:companyId/feedback"
         component={Feedback}
         isAuthenticated={isAuthenticated}
         hasAuthenticated={hasAuthenticated}
@@ -97,7 +101,7 @@ const Router = () => {
 
       <SecretRoute
         path="/settings"
-        component={UserHome}
+        component={Settings}
         isAuthenticated={isAuthenticated}
         hasAuthenticated={hasAuthenticated}
       />

@@ -46,7 +46,7 @@
     "jest": true
   },
   "rules": {
-    "max-len": ["error", { "code": 250 }],
+    "max-len": ["off", { "code": 250 }],
     "prefer-promise-reject-errors": ["off"],
     "react/jsx-filename-extension": ["off"],
     "react/prop-types": ["warn"],

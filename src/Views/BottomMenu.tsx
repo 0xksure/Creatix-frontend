@@ -4,7 +4,7 @@ import Discover from 'Components/Icons/Discover';
 import Pricing from 'Components/Icons/Pricing';
 import Home from 'Components/Icons/Home';
 
-const BottomMenu = () => {
+const BottomMenu: React.FC = () => {
   const history = useHistory();
   return (
     <div className="grid-x grid-margin-x bottom-menu">

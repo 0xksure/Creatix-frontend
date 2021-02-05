@@ -1,10 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { useHistory } from 'react-router-dom';
 import ClapAnimation from 'Components/Animations/Clap';
 import ClapIcon from 'Components/Icons/ClapIcon';
 import CommentAnimation from 'Components/Animations/Comment';
 import CommentIcon from 'Components/Icons/CommentIcon';
+import UnionIcon from 'Components/Icons/UnionIcon';
 import { commentFeedback } from 'Actions/Feedback';
 import { Feedback } from 'Components/Feedback/types';
 
@@ -22,6 +24,7 @@ const FeedbackItem: React.FC<Props> = ({ feedback, onSubmit }) => {
   const numberOfComments = feedback.comments.length;
   const userHasClapped = feedback.claps.some((clap) => clap.userId === userID);
   const userHasCommented = feedback.comments.some((comment) => comment.userId === userID);
+
   return (
     <li className="cell small-12 ">
       <div className="grid-x grid-margin-x align-center">
@@ -40,29 +43,41 @@ const FeedbackItem: React.FC<Props> = ({ feedback, onSubmit }) => {
                   <p className="p margin-zero">{feedback.description}</p>
                 </div>
                 <div className="cell small-12">
-                  <div className="grid-x align-rigth">
+                  <div className="grid-x align-right">
+                    <div className="cell small-6"></div>
                     <div className="cell small-6">
                       <div className="grid-x">
-                        <ClapAnimation
-                          clapFeedback={() => onSubmit({ action: 2, feedbackId: feedback.id })}
-                          isClapped={userHasClapped}
-                        >
-                          <ClapIcon width="20" height="20" />
-                        </ClapAnimation>
-                        <div>{numberOfClaps}</div>
+                        <div className="cell small-4 feedback-item__icon">
+                          <ClapAnimation
+                            clapFeedback={() => onSubmit({ action: 2, feedbackId: feedback.id })}
+                            isClapped={userHasClapped}
+                          >
+                            <ClapIcon width="20" height="20" />
+                          </ClapAnimation>
+                          <div>{numberOfClaps}</div>
+                        </div>
+                        <div className="cell small-4 feedback-item__icon">
+                          <CommentAnimation
+                            onClick={() => history.push(`feedback/${feedback.id}`)}
+                            commentFeedback={() => dispatch(commentFeedback(feedback.id, 'okok'))}
+                            isCommented={userHasCommented}
+                          >
+                            <CommentIcon width="20" height="20" />
+                          </CommentAnimation>
+                          <div>{numberOfComments}</div>
+                        </div>
+                        <div className="cell small-4 feedback-item__icon">
+                          <CommentAnimation
+                            onClick={() => console.log('union')}
+                            commentFeedback={() => dispatch(commentFeedback(feedback.id, 'okok'))}
+                            isCommented={userHasCommented}
+                          >
+                            <UnionIcon width="20" height="20" />
+                          </CommentAnimation>
+                          <div>{numberOfComments}</div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="cell small-6">
-                      <div className="grid-x">
-                        <CommentAnimation
-                          onClick={() => history.push(`/feedback/${feedback.id}`)}
-                          commentFeedback={() => dispatch(commentFeedback(feedback.id, 'okok'))}
-                          isCommented={userHasCommented}
-                        >
-                          <CommentIcon width="20" height="20" />
-                        </CommentAnimation>
-                        <div>{numberOfComments}</div>
-                      </div>
+                      <div className="grid-x"></div>
                     </div>
                   </div>
                 </div>
