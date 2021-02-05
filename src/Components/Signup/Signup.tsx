@@ -5,7 +5,6 @@ import { useHistory } from 'react-router';
 import MainButton from 'Components/Buttons/MainButton';
 import { signupUser } from 'Actions/Auth';
 import Logo from 'Components/Icons/LogoIcon';
-import BasicInput from 'Components/Search/BasicInput';
 import * as yup from 'yup';
 
 const SignupSchema = yup.object().shape({
@@ -32,7 +31,7 @@ const Signup: React.FC = () => {
             initialValues={{
               Firstname: '',
               Lastname: '',
-              Username:'',
+              Username: '',
               Email: '',
               Password: '',
               Password2: '',
@@ -52,7 +51,7 @@ const Signup: React.FC = () => {
                 });
             }}
           >
-            {({ isSubmitting, status, handleChange }) => {
+            {({ isSubmitting, status }) => {
               return (
                 <Form>
                   <div className="grid-x grid-margin-x">
@@ -102,8 +101,8 @@ const Signup: React.FC = () => {
                       <MainButton
                         id="submitLogin"
                         type="submit"
-                        round="round"
-                        size=""
+                        round={true}
+                        size="medium"
                         disabled={isSubmitting}
                       >
                         <p className="p margin-zero">Sign up</p>

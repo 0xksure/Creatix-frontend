@@ -21,6 +21,10 @@
     width: 50%;
   }
 
+  &--no-margin {
+    margin: 0;
+  }
+
   &__textarea {
     white-space: pre-wrap;
     overflow-wrap: break-word;
@@ -62,4 +66,38 @@
   text-align: left;
   font-size: 16px;
   font-family: 'Creatix Medium';
+}
+
+.permission {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  &__select {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border: none;
+
+    &--no-margin {
+      margin: 0;
+    }
+
+    &--text {
+      font-family: 'Creatix Light';
+      color: $creatix-pink;
+      font-size: 20px;
+    }
+
+    &:focus {
+      border: none;
+    }
+  }
+
+  &__option {
+  }
+  &--no-margin {
+    margin: 0;
+  }
+
+  &--centered {
+    align-items: center;
+  }
 }

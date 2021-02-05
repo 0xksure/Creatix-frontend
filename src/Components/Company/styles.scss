@@ -1,0 +1,40 @@
+.select-box {
+  border-radius: 10px;
+  width: 80%;
+  font-family: 'Creatix Medium';
+  color: $creatix-pink;
+  margin: 0;
+}
+
+.company-list {
+  list-style: none;
+  margin: 0;
+  overflow-y: scroll;
+  max-height: 30vh;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5px;
+    width: 50%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px,
+      rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+  }
+}
+
+.create-company {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 5px;
+  width: 50%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 8px 0px;
+}

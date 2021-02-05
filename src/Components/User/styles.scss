@@ -1,0 +1,18 @@
+.add-user-form {
+  display: flex;
+  align-items: center;
+
+  flex-direction: row;
+
+  &__input {
+    width: auto;
+  }
+
+  &__accesslevel {
+    width: auto;
+  }
+
+  &__submit {
+    width: auto;
+  }
+}

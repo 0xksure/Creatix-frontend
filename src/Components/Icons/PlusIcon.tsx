@@ -1,8 +1,10 @@
 import React from 'react';
 import { IconProps } from 'Components/Icons/types';
 
-const PlusIcon: React.FC<IconProps> = ({ className, onClick }) => (
+const PlusIcon: React.FC<IconProps> = ({ className, onClick, width, height }) => (
   <svg
+    width={width}
+    height={height}
     xmlns="http://www.w3.org/2000/svg"
     onClick={onClick}
     viewBox="0 0 52 52"

@@ -14,10 +14,10 @@ import {
   RESET_PWD_REQUEST,
   RESET_PWD_SUCCESS,
   RESET_PWD_FAILURE,
+  SET_COMPANY_ID,
 } from '../Constants';
 import { removeCookie } from '../Utils/Cookies';
 import { AppThunk } from 'store';
-import { parseJWT } from 'Utils/jwt';
 
 interface SignupForm {}
 
@@ -67,10 +67,10 @@ export const signupUser = (signupForm: SignupForm): AppThunk<Promise<void>> => a
   }
 };
 
-function loginSuccess(token) {
+function loginSuccess(data) {
   return {
     type: LOGIN_SUCCESS,
-    token,
+    data,
   };
 }
 
@@ -100,7 +100,8 @@ export const loginUser = (email: string, password: string): AppThunk<Promise<voi
     });
 
     const data = await resp.json();
-    dispatch(loginSuccess(parseJWT(data.Token)));
+    console.log('data: ', data);
+    dispatch(loginSuccess(data));
   } catch (err) {
     dispatch(loginFailure(err));
   }
@@ -149,9 +150,10 @@ function verifyRequest() {
   };
 }
 
-function verifySucess() {
+function verifySucess(sessionUserData) {
   return {
     type: VERIFY_SUCCESS,
+    sessionUserData,
   };
 }
 
@@ -177,11 +179,20 @@ export const verifyAuth = (): AppThunk<Promise<void>> => async (dispatch) => {
     if (resp.status !== 200) {
       throw Error(resp.statusText);
     }
-    dispatch(verifySucess());
+
+    const sessionUserData = await resp.json();
+    dispatch(verifySucess(sessionUserData));
   } catch (err) {
     dispatch(verifyFailure(err));
   }
 };
+
+export function setCompanyId(companyId: string): Record<string, string> {
+  return {
+    type: SET_COMPANY_ID,
+    companyId,
+  };
+}
 
 function resetPasswordRequest() {
   return {

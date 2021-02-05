@@ -4,11 +4,12 @@ import { useSpring, animated } from 'react-spring';
 interface Props {
   id: string;
   size: 'small' | 'medium' | 'large';
-  round?: string;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  round?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   modalIsOpen?: boolean;
   buttonType?: 'primary' | 'secondary';
   type: 'reset' | 'button' | 'submit' | undefined;
+  color?: 'blue' | 'pink';
   disabled?: boolean;
 }
 
@@ -21,6 +22,7 @@ const MainButton: React.FC<Props> = ({
   onClick,
   modalIsOpen = false,
   type = 'button',
+  color = 'blue',
   disabled = false,
 }) => {
   const [props] = useSpring(() => ({
@@ -32,8 +34,13 @@ const MainButton: React.FC<Props> = ({
     <animated.div style={props} className="">
       <button
         id={id}
-        className={`creatix-btn primary ${size} ${round ? 'round' : ''}`}
-        onClick={(e) => onClick(e)}
+        className={`creatix-btn ${buttonType} ${color} ${size} ${round ? 'round' : ''}`}
+        onClick={(e) => {
+          if (onClick) {
+            return onClick(e);
+          }
+          return null;
+        }}
         type={type}
         disabled={disabled}
       >

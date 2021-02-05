@@ -11,6 +11,7 @@ import {
   VERIFY_REQUEST,
   VERIFY_SUCCESS,
   VERIFY_FAILURE,
+  SET_COMPANY_ID
 } from '../Constants';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
@@ -23,7 +24,7 @@ const initialState = {
   isLoggingIn: true,
   loginError: false,
   errorMessage: '',
-  companyID:'',
+  companyId:'',
   isLoggingOut: false,
   logoutError: false,
   isVerifying: false,
@@ -32,6 +33,7 @@ const initialState = {
   firstname: '',
   lastname: '',
   email: '',
+  companies: [],
 };
 
 export default function Auth(state = initialState, action) {
@@ -74,7 +76,11 @@ export default function Auth(state = initialState, action) {
         isLoggingIn: false,
         isAuthenticated: true,
         hasAuthenticated: true,
-        userID: action.token.UserID,
+        userID: action.data.user.id,
+        firstname:action.data.user.firstname, 
+        lastname: action.data.user.lastname,
+        email:action.data.user.email,
+        companies: action.data.companies
       };
     case LOGIN_FAILURE:
       return {
@@ -129,6 +135,11 @@ export default function Auth(state = initialState, action) {
         isVerifying: false,
         isAuthenticated: true,
         hasAuthenticated: false,
+        userID: action.sessionUserData.user.id,
+        firstname:action.sessionUserData.user.firstname, 
+        lastname: action.sessionUserData.user.lastname,
+        email:action.sessionUserData.user.email,
+        companies: action.sessionUserData.companies
       };
     case VERIFY_FAILURE:
       return {
@@ -143,6 +154,11 @@ export default function Auth(state = initialState, action) {
         email: '',
         userID: '',
       };
+      case SET_COMPANY_ID:
+        return {
+          ...state,
+          companyId: action?.companyId ?? ''
+        }
     case LOCATION_CHANGE:
       if (!state.isAuthenticated) {
         history.push('/login');

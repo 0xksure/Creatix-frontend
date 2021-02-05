@@ -14,7 +14,11 @@ const NewComment: React.FC<Prop> = (props) => {
       comment: '',
     },
     onSubmit: async (values, { resetForm }) => {
-      await onSubmit({ action: 3, comment: { comment: values.comment, feedbackId: feedbackId } });
+      await onSubmit({
+        action: 3,
+        feedbackId: feedbackId,
+        comment: { comment: values.comment, feedbackId: feedbackId },
+      });
       resetForm();
     },
   });
