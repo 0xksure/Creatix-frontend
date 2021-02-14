@@ -1,9 +1,9 @@
 import React from 'react';
 import FeedbackItem from './FeedbackItem';
-import { Feedback } from 'Components/Feedback/types';
+import { FeedbackValues } from 'Components/Feedback/types';
 
 interface Props {
-  feedbacks: Feedback[];
+  feedbacks: FeedbackValues[];
   onSubmit: (data: any) => void;
 }
 

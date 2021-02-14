@@ -9,7 +9,7 @@ export interface PostFeedback {
   description: string;
 }
 
-export interface Feedback extends PostFeedback {
+export interface FeedbackValues extends PostFeedback {
   id: string;
   createdAt: string;
   description: string;

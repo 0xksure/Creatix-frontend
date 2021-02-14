@@ -4,11 +4,12 @@ interface Props {
   name: string;
   placeholder: string;
   query: string;
-  onChange: (event: string) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onEmpty: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const SearchBar: React.FC<Props> = (props) => {
-  const { name, placeholder, query, onChange } = props;
+  const { name, placeholder, query, onChange, onEmpty } = props;
   return (
     <div className="searchbar">
       <input
@@ -17,9 +18,9 @@ const SearchBar: React.FC<Props> = (props) => {
         className="searchbar_search"
         type="text"
         value={query}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange}
       />
-      <button className="searchbar_exit" onClick={() => onChange('')}>
+      <button type="button" className="searchbar_exit" onClick={onEmpty}>
         X
       </button>
     </div>

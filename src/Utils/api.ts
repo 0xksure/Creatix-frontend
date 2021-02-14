@@ -12,8 +12,11 @@ const creatixAPI = async <T, U>(
     credentials: 'include',
     body: body ? JSON.stringify(body) : undefined,
   });
-
   const data = await resp.json();
+  if (resp.status >=300){
+    throw data.message
+  }
+
   return data;
 };
 

@@ -16,12 +16,15 @@ const SearchCompanies: React.FC<Props> = (props) => {
   const [selectedOrg, setSelectedOrg] = useState('');
 
   useEffect(() => {
-    try {
-      const data = creatixAPI(`company/search/${query}`, 'GET');
-      setOrganizations(data);
-    } catch (err) {
-      throw new Error(err.Message);
-    }
+    const fetchData = async () => {
+      try {
+        const data = await creatixAPI<null, string[]>(`company/search/${query}`, 'GET');
+        setOrganizations(data);
+      } catch (err) {
+        throw new Error(err.Message);
+      }
+    };
+    fetchData();
   }, [query]);
 
   return (
@@ -31,7 +34,11 @@ const SearchCompanies: React.FC<Props> = (props) => {
       )}
       {selectedOrg.length === 0 && (
         <>
-          <SearchBar name="Search feedback" query={query} onChange={setQuery} />
+          <SearchBar
+            name="Search feedback"
+            query={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
           <SingleList>
             {organizations && organizations.length === 0 && (
               <SingleListItem name={`${query} does not seem to exist`} />

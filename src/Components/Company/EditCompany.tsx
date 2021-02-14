@@ -74,8 +74,9 @@ const EditCompany: React.FC<Props> = (props) => {
               <BlockListItem title={`${user.username}`} key={idx}>
                 <PermissionForm
                   className={'permission--no-margin permission--centered'}
-                  userId={user.id}
+                  userId={user.userId}
                   companyId={company.id}
+                  initialPermission={user.accessLevel}
                 />
                 <CircleButton
                   onClick={() => unassignUserFromCompany(user)}

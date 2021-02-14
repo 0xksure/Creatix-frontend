@@ -13,10 +13,7 @@ interface Props {
 const CompanyList: React.FC<Props> = (props) => {
   const { companies } = props;
   const [toggleNewCompany, setToggleNewCompany] = useState(false);
-  const [selectedCompany, setSelectedCompany] = useState<Company | null>({
-    companyName: 'lol',
-    id: '22',
-  });
+  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
 
   const transitions = useTransition(companies, (item) => item.companyName, {
     trail: 250,
