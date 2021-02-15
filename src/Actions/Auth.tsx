@@ -59,8 +59,12 @@ export const signupUser = (signupForm: SignupForm): AppThunk<Promise<void>> => a
       },
       credentials: 'include',
     });
-    dispatch(signupSuccess(resp.json()));
-    return;
+    const data = await resp.json();
+    if (resp.status >= 300) {
+      throw data;
+    }
+
+    dispatch(signupSuccess(data));
   } catch (err) {
     dispatch(signupFailure(err));
     throw err;

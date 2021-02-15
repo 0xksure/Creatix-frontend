@@ -45,9 +45,9 @@ const Signup: React.FC = () => {
                   history.push('/login');
                   return null;
                 })
-                .catch(() => {
+                .catch((e) => {
                   setSubmitting(false);
-                  setStatus({ error: 'Not able to sign up' });
+                  setStatus({ error: `Not able to sign up. Reason: ${e}` });
                 });
             }}
           >
