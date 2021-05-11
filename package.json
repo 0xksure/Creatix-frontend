@@ -63,7 +63,7 @@
     "js-cookie": "^2.2.1",
     "json-loader": "^0.5.7",
     "jwt-decode": "^3.1.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "lodash-es": "^4.17.15",
     "lodash-move": "^1.1.1",
     "node-sass": "^4.14.1",
