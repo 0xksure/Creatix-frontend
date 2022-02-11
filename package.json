@@ -66,7 +66,7 @@
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "lodash-move": "^1.1.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "pnp-webpack-plugin": "^1.5.0",
     "postcss-flexbugs-fixes": "^4.1.0",
